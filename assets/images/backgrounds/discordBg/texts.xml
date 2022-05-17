@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="texts.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="absolution0000" x="0" y="0" width="1113" height="187"/>
+	<SubTexture name="coffee0000" x="0" y="190" width="956" height="124"/>
+	<SubTexture name="deadbush0000" x="959" y="190" width="1031" height="187"/>
+	<SubTexture name="edge0000" x="0" y="380" width="1113" height="187"/>
+	<SubTexture name="failsafe0000" x="0" y="570" width="1113" height="187"/>
+	<SubTexture name="gamig muerte0000" x="0" y="760" width="1113" height="187"/>
+	<SubTexture name="gaming0000" x="0" y="950" width="1031" height="187"/>
+	<SubTexture name="goop0000" x="0" y="1140" width="1113" height="187"/>
+	<SubTexture name="necron0000" x="0" y="1330" width="1031" height="187"/>
+	<SubTexture name="nightmarish0000" x="0" y="1520" width="1113" height="187"/>
+	<SubTexture name="restoration0000" x="0" y="1710" width="1113" height="187"/>
+	<SubTexture name="rules0000" x="0" y="1900" width="956" height="124"/>
+	<SubTexture name="ruls muerte0000" x="959" y="1900" width="1031" height="187"/>
+	<SubTexture name="skullody0000" x="0" y="2090" width="956" height="124"/>
+	<SubTexture name="spring0000" x="959" y="2090" width="956" height="124"/>
+</TextureAtlas>

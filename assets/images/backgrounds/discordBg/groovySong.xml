@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="groovySong.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bganimated_10000" x="0" y="0" width="1119" height="470"/>
+	<SubTexture name="bganimated_10001" x="0" y="473" width="1119" height="470"/>
+	<SubTexture name="bganimated_10002" x="0" y="473" width="1119" height="470"/>
+	<SubTexture name="bganimated_10003" x="0" y="946" width="1119" height="470"/>
+	<SubTexture name="bganimated_10004" x="0" y="946" width="1119" height="470"/>
+	<SubTexture name="bganimated_10005" x="0" y="946" width="1119" height="470"/>
+	<SubTexture name="bganimated_20000" x="0" y="1419" width="1119" height="470"/>
+	<SubTexture name="bganimated_20001" x="0" y="1892" width="1119" height="470"/>
+	<SubTexture name="bganimated_20002" x="0" y="1892" width="1119" height="470"/>
+	<SubTexture name="bganimated_20003" x="0" y="946" width="1119" height="470"/>
+	<SubTexture name="bganimated_20004" x="0" y="946" width="1119" height="470"/>
+	<SubTexture name="bganimated_20005" x="0" y="946" width="1119" height="470"/>
+</TextureAtlas>
