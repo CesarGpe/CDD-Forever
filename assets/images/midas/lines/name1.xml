@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="name1.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="1_Line0000" x="0" y="0" width="190" height="933"/>
+	<SubTexture name="1_Line0001" x="190" y="0" width="190" height="933"/>
+	<SubTexture name="1_Line0002" x="380" y="0" width="190" height="933"/>
+	<SubTexture name="1_Line0003" x="570" y="0" width="190" height="933"/>
+	<SubTexture name="1_Line0004" x="760" y="0" width="190" height="933"/>
+	<SubTexture name="1_Line0005" x="950" y="0" width="190" height="933"/>
+	<SubTexture name="1_Line0006" x="1140" y="0" width="190" height="933"/>
+	<SubTexture name="1_Line0007" x="1330" y="0" width="190" height="933"/>
+	<SubTexture name="1_Line0008" x="1520" y="0" width="190" height="933"/>
+	<SubTexture name="1_Line0009" x="1710" y="0" width="190" height="933"/>
+	<SubTexture name="1_Line0010" x="0" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0011" x="190" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0012" x="380" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0013" x="570" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0014" x="760" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0015" x="950" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0016" x="1140" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0017" x="1140" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0018" x="1140" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0019" x="1140" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0020" x="1140" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0021" x="1140" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0022" x="1140" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0023" x="1140" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0024" x="1140" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0025" x="1140" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0026" x="950" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0027" x="1330" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0028" x="1520" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0029" x="1710" y="933" width="190" height="933"/>
+	<SubTexture name="1_Line0030" x="0" y="1866" width="190" height="933"/>
+	<SubTexture name="1_Line0031" x="0" y="0" width="190" height="933"/>
+</TextureAtlas>
