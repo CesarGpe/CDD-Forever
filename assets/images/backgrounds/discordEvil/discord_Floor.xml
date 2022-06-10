@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="discord_Floor.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="discord_floor instance 10000" x="0" y="0" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10001" x="1878" y="0" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10002" x="3756" y="0" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10003" x="5634" y="0" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10004" x="0" y="564" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10005" x="1878" y="564" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10006" x="3756" y="564" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10007" x="5634" y="564" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10008" x="0" y="1128" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10009" x="1878" y="1128" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10010" x="3756" y="1128" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10011" x="1878" y="1128" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10012" x="5634" y="1128" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10013" x="1878" y="1128" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10014" x="5634" y="1128" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10015" x="0" y="1692" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10016" x="1878" y="1692" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10017" x="3756" y="1692" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10018" x="0" y="564" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10019" x="5634" y="0" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10020" x="5634" y="1692" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10021" x="0" y="2256" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10022" x="1878" y="2256" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10023" x="3756" y="2256" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10024" x="5634" y="2256" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10025" x="0" y="2820" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10026" x="1878" y="2820" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10027" x="3756" y="2820" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10028" x="5634" y="2820" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10029" x="0" y="3384" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10030" x="1878" y="3384" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10031" x="1878" y="3384" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10032" x="3756" y="3384" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10033" x="5634" y="2820" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10034" x="0" y="3384" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10035" x="5634" y="3384" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10036" x="0" y="3948" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10037" x="1878" y="3948" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10038" x="3756" y="3948" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10039" x="5634" y="3948" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10040" x="0" y="4512" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10041" x="1878" y="4512" width="1873" height="559"/>
+	<SubTexture name="discord_floor instance 10042" x="0" y="0" width="1873" height="559"/>
+</TextureAtlas>

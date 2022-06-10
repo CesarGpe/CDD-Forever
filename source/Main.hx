@@ -89,10 +89,28 @@ class Main extends Sprite
 	public static var gameWeeks:Array<Dynamic> = [
 		[['Skullody'], ['2ndplayer'], [FlxColor.fromRGB(40, 73, 20)], 'Tutorial?'],
 		[
+			['Coffee', 'Spring', 'Rules'],
+			['BrownishSea'],
+			[FlxColor.fromRGB(164, 215, 215)],
+			'Sea of Possibilities'
+		],
+		[
+			['Deadbush', 'Necron', 'Gaming'],
+			['cesar', 'cesar', 'hyperpig'],
+			[FlxColor.fromRGB(180, 115, 53)],
+			'el cesar'
+		],
+		[
 			['Goop', 'Chase', 'Pandemonium'],
 			['blueslime32'],
 			[FlxColor.fromRGB(86, 164, 164)],
-			'BULESLAMANEMENUMIO'
+			'Sticky Situation'
+		],
+		[
+			['Edge', 'Absolution', 'Temper'],
+			['TsuyAr-1', 'TsuyAr-2', 'TsuyAr-3'],
+			[FlxColor.fromRGB(128, 64, 64)],
+			'On The Edge'
 		]
 	];
 

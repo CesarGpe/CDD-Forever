@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="cave2.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="cave_2 instance 10000" x="0" y="0" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10001" x="1407" y="0" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10002" x="2814" y="0" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10003" x="4221" y="0" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10004" x="5628" y="0" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10005" x="0" y="1591" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10006" x="0" y="1591" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10007" x="1407" y="1591" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10008" x="2814" y="1591" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10009" x="4221" y="1591" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10010" x="5628" y="1591" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10011" x="0" y="3182" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10012" x="1407" y="3182" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10013" x="2814" y="3182" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10014" x="2814" y="3182" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10015" x="4221" y="3182" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10016" x="5628" y="3182" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10017" x="0" y="4773" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10018" x="1407" y="4773" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10019" x="2814" y="4773" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10020" x="4221" y="4773" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10021" x="5628" y="4773" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10022" x="5628" y="4773" width="1406" height="1590"/>
+	<SubTexture name="cave_2 instance 10023" x="0" y="6364" width="1406" height="1590"/>
+</TextureAtlas>

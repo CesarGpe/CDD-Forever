@@ -280,21 +280,21 @@ class TitleState extends MusicBeatState
 		danceLeft = !danceLeft;
 		if (danceLeft) {
 			gfDance.animation.play('danceRight');
-			FlxTween.tween(logoBl, {angle: 3}, 0.15, {ease: FlxEase.elasticOut});
+			FlxTween.tween(logoBl, {angle: 4}, 0.15, {ease: FlxEase.elasticOut});
 		} else {
 			gfDance.animation.play('danceLeft');
-			FlxTween.tween(logoBl, {angle: -3}, 0.15, {ease: FlxEase.elasticOut});
+			FlxTween.tween(logoBl, {angle: -2}, 0.15, {ease: FlxEase.elasticOut});
 		}
 		FlxG.log.add(curBeat);
 
 		switch (curBeat)
 		{
 			case 1:
-				createCoolText(['blueslime32', 'BrownishSea', 'CesarGpe']);
+				createCoolText(['']);
 
 			// credTextShit.visible = true;
 			case 3:
-				addMoreText('present');
+				addMoreText('');
 			// credTextShit.text += '\npresent...';
 			// credTextShit.addText();
 			case 4:

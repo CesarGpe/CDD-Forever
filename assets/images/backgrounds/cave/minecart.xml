@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ChaseBg.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="minecart0000" x="0" y="0" width="461" height="293"/>
+	<SubTexture name="minecart0001" x="466" y="0" width="461" height="293"/>
+	<SubTexture name="minecart0002" x="0" y="298" width="461" height="293"/>
+	<SubTexture name="minecart0003" x="466" y="298" width="461" height="293"/>
+	<SubTexture name="minecart0004" x="0" y="596" width="461" height="293"/>
+	<SubTexture name="minecart0005" x="466" y="596" width="461" height="293"/>
+	<SubTexture name="minecart0006" x="0" y="894" width="461" height="293"/>
+	<SubTexture name="minecart0007" x="466" y="894" width="461" height="293"/>
+</TextureAtlas>

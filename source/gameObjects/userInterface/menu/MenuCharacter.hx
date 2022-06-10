@@ -19,6 +19,11 @@ class MenuCharacter extends FlxSprite
 		'mom' => ["Mom Idle BLACK LINES", 24, true, 1 * 0.5, 0, -20],
 		'parents-christmas' => ["Parent Christmas Idle", 24, true, 0.8, -100, 50],
 		'senpai' => ["SENPAI idle Black Lines", 24, true, 1.4 * 0.5, -50, 100],
+		'bule' => ["menu bule", 24, true, 0.55, 0, 0],
+		'cesar' => ["menu cesar", 24, true, 0.9, 0, 0],
+		'doug' => ["Brown_Idle", 24, true, 0.75, 0, 0],
+		'mari' => ["menu mari", 24, true, 0.75, 0, 0],
+		'tsuyar' => ["menu tsuyar", 24, true, 0.55, 0, 0],
 	];
 
 	var baseX:Float = 0;

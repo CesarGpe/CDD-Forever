@@ -12,6 +12,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxSort;
 import meta.data.Conductor;
 import meta.data.Timings;
+import meta.data.dependency.FNFSprite;
 import meta.state.PlayState;
 
 using StringTools;
@@ -135,6 +136,10 @@ class Strumline extends FlxTypedGroup<FlxBasic>
 	public var playState:PlayState;
 	public var displayJudgements:Bool = false;
 
+	// cave stage
+	var fx:FNFSprite;
+	var curStage = PlayState.curStage;
+
 	public function new(x:Float = 0, playState:PlayState, ?character:Character, ?displayJudgements:Bool = true, ?autoplay:Bool = true,
 			?noteSplashes:Bool = false, ?keyAmount:Int = 4, ?downscroll:Bool = false, ?parent:Strumline)
 	{
@@ -184,6 +189,18 @@ class Strumline extends FlxTypedGroup<FlxBasic>
 		add(notesGroup);
 		if (splashNotes != null)
 			add(splashNotes);
+
+		if (curStage == 'cave')
+		{
+			fx = new FNFSprite(-53, -32);
+			fx.antialiasing = true;
+			fx.loadGraphic(Paths.image('backgrounds/' + curStage + '/black_vignette'));
+			fx.setGraphicSize(Std.int(fx.width * 0.7), Std.int(fx.height * 0.7));
+			fx.updateHitbox();
+			fx.screenCenter(XY);
+			fx.scrollFactor.set();
+			add(fx);
+		}
 	}
 
 	public function createSplash(coolNote:Note)

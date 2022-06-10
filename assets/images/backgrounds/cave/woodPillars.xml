@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="woodPillars.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="WoodPog0000" x="0" y="0" width="2051" height="2059"/>
+	<SubTexture name="WoodPog0001" x="2056" y="0" width="2051" height="2059"/>
+	<SubTexture name="WoodPog0002" x="4112" y="0" width="2051" height="2059"/>
+	<SubTexture name="WoodPog0003" x="0" y="2064" width="2051" height="2059"/>
+</TextureAtlas>

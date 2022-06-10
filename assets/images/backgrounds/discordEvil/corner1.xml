@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="corner1.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="corner10000" x="0" y="0" width="446" height="458"/>
+	<SubTexture name="corner10001" x="451" y="0" width="446" height="458"/>
+	<SubTexture name="corner10002" x="451" y="0" width="446" height="458"/>
+	<SubTexture name="corner10003" x="0" y="463" width="446" height="458"/>
+	<SubTexture name="corner10004" x="451" y="463" width="446" height="458"/>
+	<SubTexture name="corner10005" x="451" y="463" width="446" height="458"/>
+	<SubTexture name="corner10006" x="451" y="463" width="446" height="458"/>
+	<SubTexture name="corner10007" x="451" y="463" width="446" height="458"/>
+	<SubTexture name="corner10008" x="451" y="463" width="446" height="458"/>
+	<SubTexture name="corner10009" x="451" y="463" width="446" height="458"/>
+	<SubTexture name="corner10010" x="0" y="926" width="446" height="458"/>
+	<SubTexture name="corner10011" x="0" y="926" width="446" height="458"/>
+	<SubTexture name="corner10012" x="451" y="926" width="446" height="458"/>
+	<SubTexture name="corner10013" x="0" y="0" width="446" height="458"/>
+	<SubTexture name="corner10014" x="0" y="0" width="446" height="458"/>
+	<SubTexture name="corner10015" x="0" y="0" width="446" height="458"/>
+	<SubTexture name="corner10016" x="0" y="0" width="446" height="458"/>
+	<SubTexture name="corner10017" x="0" y="0" width="446" height="458"/>
+</TextureAtlas>

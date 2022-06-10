@@ -17,6 +17,11 @@ class HealthIcon extends FlxSprite
 	public function new(char:String = 'bf', isPlayer:Bool = false)
 	{
 		super();
+		// avoids using 2 images
+		if (char == 'blueslime32minecart')
+			char = 'blueslime32';
+		if (char == 'bfMinecart')
+			char = 'bf';
 		updateIcon(char, isPlayer);
 	}
 

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="lights.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="pandeLights0000" x="0" y="0" width="1193" height="758"/>
+	<SubTexture name="pandeLights0001" x="1194" y="0" width="1193" height="758"/>
+	<SubTexture name="pandeLights0002" x="2388" y="0" width="1193" height="758"/>
+	<SubTexture name="pandeLights0003" x="0" y="759" width="1193" height="758"/>
+	<SubTexture name="pandeLights0004" x="1194" y="759" width="1193" height="758"/>
+	<SubTexture name="pandeLights0005" x="2388" y="759" width="1193" height="758"/>
+	<SubTexture name="pandeLights0006" x="0" y="1518" width="1193" height="758"/>
+	<SubTexture name="pandeLights0007" x="1194" y="1518" width="1193" height="758"/>
+	<SubTexture name="pandeLights0008" x="2388" y="1518" width="1193" height="758"/>
+	<SubTexture name="pandeLights0009" x="0" y="2277" width="1193" height="758"/>
+	<SubTexture name="pandeLights0010" x="1194" y="2277" width="1193" height="758"/>
+	<SubTexture name="pandeLights0011" x="2388" y="2277" width="1193" height="758"/>
+	<SubTexture name="pandeLights0012" x="0" y="3036" width="1193" height="758"/>
+	<SubTexture name="pandeLights0013" x="1194" y="3036" width="1193" height="758"/>
+	<SubTexture name="pandeLights0014" x="2388" y="3036" width="1193" height="758"/>
+	<SubTexture name="pandeLights0015" x="0" y="3795" width="1193" height="758"/>
+</TextureAtlas>

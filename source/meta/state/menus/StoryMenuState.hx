@@ -26,11 +26,11 @@ class StoryMenuState extends MusicBeatState
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
-		['', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['spooky', 'bf', 'gf'],
-		['pico', 'bf', 'gf'],
-		['mom', 'bf', 'gf'],
+		['', 'bf', ''],
+		['', 'bf', ''],
+		['', 'bf', ''],
+		['', 'bf', ''],
+		['', 'bf', ''],
 		['parents-christmas', 'bf', 'gf'],
 		['senpai', 'bf', 'gf']
 	];
@@ -273,8 +273,9 @@ class StoryMenuState extends MusicBeatState
 			PlayState.isStoryMode = true;
 			selectedWeek = true;
 
-			var diffic:String = '-' + CoolUtil.difficultyFromNumber(curDifficulty).toLowerCase();
-			diffic = diffic.replace('-normal', '');
+			// var diffic:String = '-' + CoolUtil.difficultyFromNumber(curDifficulty).toLowerCase();
+			// diffic = diffic.replace('-normal', '');
+			var diffic:String = '';
 
 			PlayState.storyDifficulty = curDifficulty;
 
@@ -304,11 +305,11 @@ class StoryMenuState extends MusicBeatState
 		switch (curDifficulty)
 		{
 			case 0:
-				sprDifficulty.offset.x = 20;
+				sprDifficulty.offset.x = 70;
 			case 1:
 				sprDifficulty.offset.x = 70;
 			case 2:
-				sprDifficulty.offset.x = 20;
+				sprDifficulty.offset.x = 70;
 		}
 
 		sprDifficulty.alpha = 0;

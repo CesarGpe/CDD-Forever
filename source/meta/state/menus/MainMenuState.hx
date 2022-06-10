@@ -11,6 +11,7 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
 import meta.MusicBeat.MusicBeatState;
 import meta.data.dependency.Discord;
 
@@ -22,14 +23,18 @@ using StringTools;
 **/
 class MainMenuState extends MusicBeatState
 {
-	var menuItems:FlxTypedGroup<FlxSprite>;
+	var menuItems:FlxTypedGroup<FlxText>;
+	var htags:FlxTypedGroup<FlxText>;
 	var curSelected:Float = 0;
 
 	var bg:FlxSprite; // the background has been separated for more control
+	var linelol:FlxSprite;
+	var menutxt:FlxText;
+	var cddtxt:FlxText;
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
-	var optionShit:Array<String> = ['story mode', 'freeplay', 'options'];
+	var optionShit:Array<String> = ['story-mode', 'freeplay', 'options'];
 	var canSnap:Array<Float> = [];
 
 	// the create 'state'
@@ -53,7 +58,8 @@ class MainMenuState extends MusicBeatState
 
 		// background
 		bg = new FlxSprite(-85);
-		bg.loadGraphic(Paths.image('menus/base/menuBG'));
+		//bg.loadGraphic(Paths.image('menus/base/menuBG'));
+		bg.makeGraphic(1286, 730, FlxColor.fromRGB(47, 49, 54));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.18;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -62,6 +68,28 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = true;
 		add(bg);
 
+		linelol = new FlxSprite(0, 115);
+		linelol.makeGraphic(FlxG.width, 4, FlxColor.fromRGB(36, 37, 41));
+		linelol.scrollFactor.set();
+		linelol.updateHitbox();
+		linelol.antialiasing = true;
+		add(linelol);
+
+		menutxt = new FlxText(120, 149, 550, 'MAIN MENU', 65);
+		menutxt.setFormat(Paths.font("unisans.otf"), 65, FlxColor.fromRGB(139, 141, 146), LEFT);
+		menutxt.scrollFactor.set();
+		menutxt.updateHitbox();
+		menutxt.antialiasing = true;
+		add(menutxt);
+
+		cddtxt = new FlxText(50, 15, 550, 'Vs. CDD', 70);
+		cddtxt.setFormat(Paths.font("whitneysemibold.otf"), 70, FlxColor.fromRGB(243, 255, 238), LEFT);
+		cddtxt.scrollFactor.set();
+		cddtxt.updateHitbox();
+		cddtxt.antialiasing = true;
+		add(cddtxt);
+
+		/*
 		magenta = new FlxSprite(-85).loadGraphic(Paths.image('menus/base/menuDesat'));
 		magenta.scrollFactor.x = 0;
 		magenta.scrollFactor.y = 0.18;
@@ -72,14 +100,18 @@ class MainMenuState extends MusicBeatState
 		magenta.antialiasing = true;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
+		*/
 
 		// add the camera
 		camFollow = new FlxObject(0, 0, 1, 1);
-		add(camFollow);
+		//add(camFollow); no camera
 
 		// add the menu items
-		menuItems = new FlxTypedGroup<FlxSprite>();
+		menuItems = new FlxTypedGroup<FlxText>();
 		add(menuItems);
+
+		htags = new FlxTypedGroup<FlxText>();
+		add(htags);
 
 		// create the menu items themselves
 		var tex = Paths.getSparrowAtlas('menus/base/title/FNF_main_menu_assets');
@@ -87,7 +119,20 @@ class MainMenuState extends MusicBeatState
 		// loop through the menu options
 		for (i in 0...optionShit.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite(0, 80 + (i * 200));
+			//var menuItem:FlxSprite = new FlxSprite(0, 80 + (i * 200));
+			var menuItem:FlxText = new FlxText(220, (16 * 9 * i) + (29 * 8), 450, optionShit[i], 80);
+			menuItem.setFormat(Paths.font("whitneymedium.otf"), 80, FlxColor.fromRGB(139, 141, 146), LEFT);
+
+			var htag:FlxText = new FlxText(130, (16 * 9 * i) + (29 * 8), 450, '#', 100);
+			htag.setFormat(Paths.font("whitneymedium.otf"), 90, FlxColor.fromRGB(139, 141, 146), LEFT);
+
+			var menuBox:FlxSprite = new FlxSprite(220, (16 * 9 * i) + (29 * 8));
+			menuBox.makeGraphic(500, 50, FlxColor.fromRGB(60, 63, 69));
+
+
+			canSnap[i] = -1;
+			menuItem.ID = i;
+			/*
 			menuItem.frames = tex;
 			// add the animations in a cool way (real
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
@@ -97,20 +142,26 @@ class MainMenuState extends MusicBeatState
 			// set the id
 			menuItem.ID = i;
 			// menuItem.alpha = 0;
+			*/
 
 			// placements
-			menuItem.screenCenter(X);
+			//*menuItem.screenCenter(X);
 			// if the id is divisible by 2
-			if (menuItem.ID % 2 == 0)
+			/*if (menuItem.ID % 2 == 0)
 				menuItem.x += 1000;
 			else
 				menuItem.x -= 1000;
-
+			*/
 			// actually add the item
 			menuItems.add(menuItem);
 			menuItem.scrollFactor.set();
 			menuItem.antialiasing = true;
 			menuItem.updateHitbox();
+
+			htags.add(htag);
+			htag.scrollFactor.set();
+			htag.antialiasing = true;
+			htag.updateHitbox();
 
 			/*
 				FlxTween.tween(menuItem, {alpha: 1, x: ((FlxG.width / 2) - (menuItem.width / 2))}, 0.35, {
@@ -130,7 +181,7 @@ class MainMenuState extends MusicBeatState
 
 		// from the base game lol
 
-		var versionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, "Forever Engine v" + Main.gameVersion, 12);
+		var versionShit:FlxText = new FlxText(5, FlxG.height - 25, 0, "Forever Engine v" + Main.gameVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -151,7 +202,8 @@ class MainMenuState extends MusicBeatState
 		var down = controls.UI_DOWN;
 		var up_p = controls.UI_UP_P;
 		var down_p = controls.UI_DOWN_P;
-		var controlArray:Array<Bool> = [up, down, up_p, down_p];
+		var back = controls.BACK;
+		var controlArray:Array<Bool> = [up, down, up_p, down_p, back];
 
 		if ((controlArray.contains(true)) && (!selectedSomethin))
 		{
@@ -171,6 +223,10 @@ class MainMenuState extends MusicBeatState
 							curSelected++;
 
 						FlxG.sound.play(Paths.sound('scrollMenu'));
+					}
+					if (controls.BACK)
+					{
+						Main.switchState(this, new TitleState());
 					}
 					/* idk something about it isn't working yet I'll rewrite it later
 						else
@@ -213,13 +269,13 @@ class MainMenuState extends MusicBeatState
 			selectedSomethin = true;
 			FlxG.sound.play(Paths.sound('confirmMenu'));
 
-			FlxFlicker.flicker(magenta, 0.8, 0.1, false);
+			//FlxFlicker.flicker(magenta, 0.8, 0.1, false);
 
-			menuItems.forEach(function(spr:FlxSprite)
+			menuItems.forEach(function(spr:FlxText)
 			{
 				if (curSelected != spr.ID)
 				{
-					FlxTween.tween(spr, {alpha: 0, x: FlxG.width * 2}, 0.4, {
+					FlxTween.tween(spr, {alpha: 0}, 0.4, {
 						ease: FlxEase.quadOut,
 						onComplete: function(twn:FlxTween)
 						{
@@ -235,7 +291,7 @@ class MainMenuState extends MusicBeatState
 
 						switch (daChoice)
 						{
-							case 'story mode':
+							case 'story-mode':
 								Main.switchState(this, new StoryMenuState());
 							case 'freeplay':
 								Main.switchState(this, new FreeplayState());
@@ -254,9 +310,9 @@ class MainMenuState extends MusicBeatState
 
 		super.update(elapsed);
 
-		menuItems.forEach(function(menuItem:FlxSprite)
+		menuItems.forEach(function(menuItem:FlxText)
 		{
-			menuItem.screenCenter(X);
+			//menuItem.screenCenter(X);
 		});
 	}
 
@@ -265,9 +321,10 @@ class MainMenuState extends MusicBeatState
 	private function updateSelection()
 	{
 		// reset all selections
-		menuItems.forEach(function(spr:FlxSprite)
+		menuItems.forEach(function(spr:FlxText)
 		{
-			spr.animation.play('idle');
+			//spr.animation.play('idle');
+			spr.setFormat(Paths.font("whitneymedium.otf"), 80, FlxColor.fromRGB(139, 141, 146));
 			spr.updateHitbox();
 		});
 
@@ -275,8 +332,8 @@ class MainMenuState extends MusicBeatState
 		camFollow.setPosition(menuItems.members[Math.floor(curSelected)].getGraphicMidpoint().x,
 			menuItems.members[Math.floor(curSelected)].getGraphicMidpoint().y);
 
-		if (menuItems.members[Math.floor(curSelected)].animation.curAnim.name == 'idle')
-			menuItems.members[Math.floor(curSelected)].animation.play('selected');
+		if (menuItems.members[Math.floor(curSelected)].color == FlxColor.fromRGB(139, 141, 146))
+			menuItems.members[Math.floor(curSelected)].setFormat(Paths.font("whitneymedium.otf"), 80, FlxColor.fromRGB(243, 255, 238));
 
 		menuItems.members[Math.floor(curSelected)].updateHitbox();
 

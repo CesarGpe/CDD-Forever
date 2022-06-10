@@ -151,6 +151,9 @@ class PlayState extends MusicBeatState
 	// stores the last combo objects in an array
 	public static var lastCombo:Array<FlxSprite>;
 
+	// makes the camera bump with the beat
+	public var bumpThing:Bool;
+
 	// at the beginning of the playstate
 	override public function create()
 	{
@@ -192,7 +195,7 @@ class PlayState extends MusicBeatState
 
 		// default song
 		if (SONG == null)
-			SONG = Song.loadFromJson('test', 'test');
+			SONG = Song.loadFromJson('skullody', 'skullody');
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
@@ -232,7 +235,6 @@ class PlayState extends MusicBeatState
 		gf = new Character();
 		gf.adjustPos = false;
 		gf.setCharacter(300, 100, stageBuild.returnGFtype(curStage));
-		gf.scrollFactor.set(0.95, 0.95);
 
 		dadOpponent = new Character().setCharacter(50, 850, SONG.player2);
 		boyfriend = new Boyfriend();
@@ -250,11 +252,6 @@ class PlayState extends MusicBeatState
 
 		// add characters
 		add(gf);
-
-		// add limo cus dumb layering
-		if (curStage == 'highway')
-			add(stageBuild.limo);
-
 		add(dadOpponent);
 		add(boyfriend);
 
@@ -299,7 +296,8 @@ class PlayState extends MusicBeatState
 		add(camFollowPos);
 
 		// actually set the camera up
-		FlxG.camera.follow(camFollowPos, LOCKON, 1);
+		if (curStage != 'secret')
+			FlxG.camera.follow(camFollowPos, LOCKON, 1);
 		FlxG.camera.zoom = defaultCamZoom;
 		FlxG.camera.focusOn(camFollow.getPosition());
 
@@ -311,11 +309,18 @@ class PlayState extends MusicBeatState
 
 		//
 		var placement = (FlxG.width / 2);
-		dadStrums = new Strumline(placement - (FlxG.width / 4), this, dadOpponent, false, true, false, 4, Init.trueSettings.get('Downscroll'));
-		dadStrums.visible = !Init.trueSettings.get('Centered Notefield');
-		boyfriendStrums = new Strumline(placement + (!Init.trueSettings.get('Centered Notefield') ? (FlxG.width / 4) : 0), this, boyfriend, true, false, true,
-			4, Init.trueSettings.get('Downscroll'));
-
+		if (curStage == 'secret')
+		{
+			boyfriendStrums = new Strumline(placement, this, boyfriend, true, false, true, 4, Init.trueSettings.get('Downscroll'));
+			dadStrums = new Strumline(placement, this, dadOpponent, false, true, false, 4, Init.trueSettings.get('Downscroll'));
+			dadStrums.visible = true;
+		}
+		else
+		{
+			boyfriendStrums = new Strumline(placement + (!Init.trueSettings.get('Centered Notefield') ? (FlxG.width / 4) : 0), this, boyfriend, true, false, true, 4, Init.trueSettings.get('Downscroll'));
+			dadStrums = new Strumline(placement - (FlxG.width / 4), this, dadOpponent, false, true, false, 4, Init.trueSettings.get('Downscroll'));
+			dadStrums.visible = !Init.trueSettings.get('Centered Notefield');
+		}
 		strumLines.add(dadStrums);
 		strumLines.add(boyfriendStrums);
 
@@ -904,6 +909,12 @@ class PlayState extends MusicBeatState
 			if (characterStrums.receptors.members[coolNote.noteData] != null)
 				characterStrums.receptors.members[coolNote.noteData].playAnim('confirm', true);
 
+			if (coolNote.noteType == 1 || coolNote.noteType == 2)
+			{
+				FlxG.sound.play(Paths.sound('midashit'), 0.5);
+				health = 2;
+			}
+				
 			// special thanks to sam, they gave me the original system which kinda inspired my idea for this new one
 			if (canDisplayJudgement) {
 				// get the note ms timing
@@ -1077,7 +1088,7 @@ class PlayState extends MusicBeatState
 
 	private function strumCameraRoll(cStrum:FlxTypedGroup<UIStaticArrow>, mustHit:Bool)
 	{
-		if (!Init.trueSettings.get('No Camera Note Movement'))
+		if (!Init.trueSettings.get('No Camera Note Movement') || curStage == 'cave')
 		{
 			var camDisplaceExtend:Float = 15;
 			if (PlayState.SONG.notes[Std.int(curStep / 16)] != null)
@@ -1361,7 +1372,7 @@ class PlayState extends MusicBeatState
 		Conductor.changeBPM(songData.bpm);
 
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
-		songDetails = CoolUtil.dashToSpace(SONG.song) + ' - ' + CoolUtil.difficultyFromNumber(storyDifficulty);
+		songDetails = CoolUtil.dashToSpace(SONG.song);
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + songDetails;
@@ -1441,6 +1452,29 @@ class PlayState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
+
+		if (bumpThing == true)
+		{
+			if (curBeat % 1 == 0)
+			{
+				FlxG.camera.zoom += 0.03;
+				camHUD.zoom += 0.06;
+				for (hud in strumHUD)
+					hud.zoom += 0.06;
+			}
+		}
+
+		if (curSong.toLowerCase() == 'take five')
+		{
+			// camera bumps
+			switch (curBeat)
+			{
+				case 80, 184, 256, 272, 320:
+					bumpThing = true;
+				case 144, 248, 264, 296, 328:
+					bumpThing = false;
+			}
+		}
 
 		if ((FlxG.camera.zoom < 1.35 && curBeat % 4 == 0) && (!Init.trueSettings.get('Reduced Movements')))
 		{

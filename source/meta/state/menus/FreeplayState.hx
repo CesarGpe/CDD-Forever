@@ -87,12 +87,17 @@ class FreeplayState extends MusicBeatState
 			if (!existingSongs.contains(i.toLowerCase()))
 			{
 				var icon:String = 'gf';
+				var freeplayColor:FlxColor = FlxColor.WHITE;
 				var chartExists:Bool = FileSystem.exists(Paths.songJson(i, i));
 				if (chartExists)
 				{
 					var castSong:SwagSong = Song.loadFromJson(i, i);
 					icon = (castSong != null) ? castSong.player2 : 'gf';
-					addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, FlxColor.WHITE);
+					if (castSong.song.toLowerCase() == 'take five')
+					{
+						freeplayColor = FlxColor.fromRGB(176, 11, 115);
+					}
+					addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
 				}
 			}
 		}

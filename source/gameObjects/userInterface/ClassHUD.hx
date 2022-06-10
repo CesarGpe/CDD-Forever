@@ -20,6 +20,7 @@ import meta.CoolUtil;
 import meta.InfoHud;
 import meta.data.Conductor;
 import meta.data.Timings;
+import meta.data.dependency.FNFSprite;
 import meta.state.PlayState;
 
 using StringTools;
@@ -32,6 +33,7 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 
 	var scoreLast:Float = -1;
 	var scoreDisplay:String;
+	var infoDisplay:String;
 
 	private var healthBarBG:FlxSprite;
 	private var healthBar:FlxBar;
@@ -40,6 +42,15 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
 	private var stupidHealth:Float = 0;
+
+	// evil discord stage
+	var corner1:FNFSprite;
+	var corner2:FNFSprite;
+	var curStage = PlayState.curStage;
+
+	// for healthbar colors
+	var boyfriend = PlayState.boyfriend;
+	var dad = PlayState.dadOpponent;
 
 	private var timingsMap:Map<String, FlxText> = [];
 
@@ -57,6 +68,29 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 		if (Init.trueSettings.get('Downscroll'))
 			barY = 64;
 
+		// add corners for evil discord stage
+		if (curStage == 'discordEvil')
+		{
+			corner1 = new FNFSprite(-126, 434);
+			corner2 = new FNFSprite(909, 393);
+
+			corner1.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/corner1');
+			corner2.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/corner2');
+			corner1.animation.addByPrefix('idle', 'corner1', 24, true);
+			corner2.animation.addByPrefix('idle', 'corner2', 24, true);
+			corner1.animation.play('idle', true);
+			corner2.animation.play('idle', true);
+
+			corner1.scrollFactor.set();
+			corner2.scrollFactor.set();
+
+			corner1.antialiasing = true;
+			corner2.antialiasing = true;
+
+			add(corner1);
+			add(corner2);
+		}
+
 		healthBarBG = new FlxSprite(0,
 			barY).loadGraphic(Paths.image(ForeverTools.returnSkinAsset('healthBar', PlayState.assetModifier, PlayState.changeableSkin, 'UI')));
 		healthBarBG.screenCenter(X);
@@ -65,8 +99,9 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8));
 		healthBar.scrollFactor.set();
-		healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
-		// healthBar
+		healthBar.createFilledBar(dad.iconColor, boyfriend.iconColor);
+		// healthBar.createFilledBar(FlxColor.fromString('#' + dad.iconColor), FlxColor.fromString('#' + boyfriend.iconColor));
+		// healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
 		add(healthBar);
 
 		iconP1 = new HealthIcon(SONG.player1, true);
@@ -85,7 +120,10 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 
 		// small info bar, kinda like the KE watermark
 		// based on scoretxt which I will set up as well
-		var infoDisplay:String = CoolUtil.dashToSpace(PlayState.SONG.song) + ' - ' + CoolUtil.difficultyFromNumber(PlayState.storyDifficulty);
+		if (CoolUtil.dashToSpace(PlayState.SONG.song) == 'Take Five')
+			infoDisplay = 'Tsuraran - ' + CoolUtil.dashToSpace(PlayState.SONG.song);
+		else
+			infoDisplay = 'CDD Forever - ' + CoolUtil.dashToSpace(PlayState.SONG.song);
 		var engineDisplay:String = "Forever Engine v" + Main.gameVersion;
 		var engineBar:FlxText = new FlxText(0, FlxG.height - 30, 0, engineDisplay, 16);
 		engineBar.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -186,7 +224,7 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 		}
 
 		// update playstate
-		PlayState.detailsSub = scoreBar.text;
+		PlayState.detailsSub = 'Score: $importSongScore';
 		PlayState.updateRPC(false);
 	}
 

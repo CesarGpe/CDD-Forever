@@ -16,11 +16,11 @@ import openfl.utils.AssetType;
 import openfl.utils.Assets as OpenFlAssets;
 import sys.FileSystem;
 import sys.io.File;
-
+/**
+	This is the Paths class. This will be used to return the paths of assets and call on those assets as well.
+**/
 class Paths
 {
-	// Here we set up the paths class. This will be used to
-	// Return the paths of assets and call on those assets as well.
 	inline public static var SOUND_EXT = "ogg";
 
 	// level we're loading

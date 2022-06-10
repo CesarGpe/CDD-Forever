@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="reemputar.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="eTsuyAr_Down0000" x="0" y="0" width="357" height="630"/>
+	<SubTexture name="eTsuyAr_Down0001" x="0" y="0" width="357" height="630"/>
+	<SubTexture name="eTsuyAr_Down0002" x="360" y="0" width="357" height="630"/>
+	<SubTexture name="eTsuyAr_Down0003" x="720" y="0" width="357" height="630"/>
+	<SubTexture name="eTsuyAr_Down0004" x="1080" y="0" width="357" height="630"/>
+	<SubTexture name="eTsuyAr_Down0005" x="1080" y="0" width="357" height="630"/>
+	<SubTexture name="eTsuyAr_Down0006" x="1080" y="0" width="357" height="630"/>
+	<SubTexture name="eTsuyAr_Down0007" x="1080" y="0" width="357" height="630"/>
+	<SubTexture name="eTsuyAr_Down0008" x="1440" y="0" width="357" height="630"/>
+	<SubTexture name="eTsuyAr_Idle0000" x="0" y="633" width="363" height="738"/>
+	<SubTexture name="eTsuyAr_Idle0001" x="0" y="633" width="363" height="738"/>
+	<SubTexture name="eTsuyAr_Idle0002" x="366" y="633" width="363" height="738"/>
+	<SubTexture name="eTsuyAr_Idle0003" x="732" y="633" width="363" height="738"/>
+	<SubTexture name="eTsuyAr_Idle0004" x="1098" y="633" width="363" height="738"/>
+	<SubTexture name="eTsuyAr_Idle0005" x="1098" y="633" width="363" height="738"/>
+	<SubTexture name="eTsuyAr_Idle0006" x="1098" y="633" width="363" height="738"/>
+	<SubTexture name="eTsuyAr_Idle0007" x="1098" y="633" width="363" height="738"/>
+	<SubTexture name="eTsuyAr_Idle0008" x="1464" y="633" width="363" height="738"/>
+	<SubTexture name="eTsuyAr_Left0000" x="0" y="1374" width="326" height="747"/>
+	<SubTexture name="eTsuyAr_Left0001" x="0" y="1374" width="326" height="747"/>
+	<SubTexture name="eTsuyAr_Left0002" x="329" y="1374" width="326" height="747"/>
+	<SubTexture name="eTsuyAr_Left0003" x="658" y="1374" width="326" height="747"/>
+	<SubTexture name="eTsuyAr_Left0004" x="658" y="1374" width="326" height="747"/>
+	<SubTexture name="eTsuyAr_Left0005" x="658" y="1374" width="326" height="747"/>
+	<SubTexture name="eTsuyAr_Left0006" x="658" y="1374" width="326" height="747"/>
+	<SubTexture name="eTsuyAr_Left0007" x="658" y="1374" width="326" height="747"/>
+	<SubTexture name="eTsuyAr_Left0008" x="658" y="1374" width="326" height="747"/>
+	<SubTexture name="eTsuyAr_Right0000" x="987" y="1374" width="525" height="770"/>
+	<SubTexture name="eTsuyAr_Right0001" x="987" y="1374" width="525" height="770"/>
+	<SubTexture name="eTsuyAr_Right0002" x="1515" y="1374" width="525" height="770"/>
+	<SubTexture name="eTsuyAr_Right0003" x="0" y="2147" width="525" height="770"/>
+	<SubTexture name="eTsuyAr_Right0004" x="0" y="2147" width="525" height="770"/>
+	<SubTexture name="eTsuyAr_Right0005" x="0" y="2147" width="525" height="770"/>
+	<SubTexture name="eTsuyAr_Right0006" x="0" y="2147" width="525" height="770"/>
+	<SubTexture name="eTsuyAr_Right0007" x="0" y="2147" width="525" height="770"/>
+	<SubTexture name="eTsuyAr_Right0008" x="0" y="2147" width="525" height="770"/>
+	<SubTexture name="eTsuyAr_Up0000" x="528" y="2147" width="431" height="797"/>
+	<SubTexture name="eTsuyAr_Up0001" x="528" y="2147" width="431" height="797"/>
+	<SubTexture name="eTsuyAr_Up0002" x="962" y="2147" width="431" height="797"/>
+	<SubTexture name="eTsuyAr_Up0003" x="1396" y="2147" width="431" height="797"/>
+	<SubTexture name="eTsuyAr_Up0004" x="1396" y="2147" width="431" height="797"/>
+	<SubTexture name="eTsuyAr_Up0005" x="1396" y="2147" width="431" height="797"/>
+	<SubTexture name="eTsuyAr_Up0006" x="1396" y="2147" width="431" height="797"/>
+	<SubTexture name="eTsuyAr_Up0007" x="0" y="2947" width="431" height="797"/>
+	<SubTexture name="eTsuyAr_Up0008" x="528" y="2147" width="431" height="797"/>
+</TextureAtlas>

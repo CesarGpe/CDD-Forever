@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="MinionOutpost.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="MinionOutpost0000" x="0" y="0" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0001" x="0" y="0" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0002" x="0" y="147" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0003" x="0" y="147" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0004" x="0" y="294" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0005" x="0" y="294" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0006" x="0" y="294" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0007" x="0" y="294" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0008" x="0" y="294" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0009" x="0" y="294" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0010" x="0" y="294" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0011" x="0" y="294" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0012" x="0" y="294" width="498" height="147"/>
+	<SubTexture name="MinionOutpost0013" x="0" y="294" width="498" height="147"/>
+</TextureAtlas>

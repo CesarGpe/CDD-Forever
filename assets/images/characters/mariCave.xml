@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="mariCave.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Mari_HairBlowLeft0000" x="0" y="0" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0001" x="952" y="0" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0002" x="1904" y="0" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0003" x="2856" y="0" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0004" x="0" y="589" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0005" x="952" y="589" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0006" x="1904" y="589" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0007" x="2856" y="589" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0008" x="0" y="1178" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0009" x="952" y="1178" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0010" x="1904" y="1178" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0011" x="2856" y="1178" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0012" x="0" y="1767" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0013" x="952" y="1767" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0014" x="1904" y="1767" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0015" x="2856" y="1767" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0016" x="0" y="2356" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0017" x="952" y="2356" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0018" x="1904" y="2356" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0019" x="2856" y="2356" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0020" x="0" y="2945" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0021" x="952" y="2945" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0022" x="1904" y="2945" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0023" x="2856" y="2945" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0024" x="0" y="3534" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0025" x="952" y="3534" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0026" x="1904" y="3534" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0027" x="2856" y="3534" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0028" x="0" y="4123" width="951" height="588"/>
+	<SubTexture name="Mari_HairBlowLeft0029" x="952" y="4123" width="951" height="588"/>
+</TextureAtlas>

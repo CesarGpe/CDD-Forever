@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="PollosHermanos.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="PollosHermanos0000" x="0" y="0" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0001" x="0" y="0" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0002" x="693" y="0" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0003" x="0" y="772" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0004" x="0" y="772" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0005" x="0" y="772" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0006" x="0" y="772" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0007" x="0" y="772" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0008" x="0" y="772" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0009" x="0" y="772" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0010" x="0" y="772" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0011" x="0" y="772" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0012" x="0" y="772" width="693" height="772"/>
+	<SubTexture name="PollosHermanos0013" x="0" y="772" width="693" height="772"/>
+</TextureAtlas>

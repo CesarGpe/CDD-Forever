@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="cave1.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="cave_1 instance 10000" x="0" y="0" width="1405" height="1630"/>
+	<SubTexture name="cave_1 instance 10001" x="1406" y="0" width="1405" height="1630"/>
+	<SubTexture name="cave_1 instance 10002" x="0" y="1631" width="1405" height="1630"/>
+	<SubTexture name="cave_1 instance 10003" x="1406" y="1631" width="1405" height="1630"/>
+	<SubTexture name="cave_1 instance 10004" x="0" y="3262" width="1405" height="1630"/>
+	<SubTexture name="cave_1 instance 10005" x="1406" y="3262" width="1405" height="1630"/>
+	<SubTexture name="cave_1 instance 10006" x="0" y="4893" width="1405" height="1630"/>
+	<SubTexture name="cave_1 instance 10007" x="1406" y="4893" width="1405" height="1630"/>
+</TextureAtlas>

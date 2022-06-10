@@ -8,6 +8,7 @@ import flixel.FlxG;
 import flixel.addons.util.FlxSimplex;
 import flixel.animation.FlxBaseAnimation;
 import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.util.FlxColor;
 import gameObjects.userInterface.HealthIcon;
 import meta.*;
 import meta.data.*;
@@ -34,6 +35,7 @@ class Character extends FNFSprite
 
 	public var holdTimer:Float = 0;
 
+	public var iconColor:FlxColor;
 	public var characterData:CharacterData;
 	public var adjustPos:Bool = true;
 
@@ -59,52 +61,8 @@ class Character extends FNFSprite
 
 		switch (curCharacter)
 		{
-			case 'dad':
-				// solo dejo este aqui por seguridad no quiero que explote el juego
-				tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST');
-				frames = tex;
-				animation.addByPrefix('idle', 'Dad idle dance', 24, false);
-				animation.addByPrefix('singUP', 'Dad Sing Note UP', 24);
-				animation.addByPrefix('singRIGHT', 'Dad Sing Note RIGHT', 24);
-				animation.addByPrefix('singDOWN', 'Dad Sing Note DOWN', 24);
-				animation.addByPrefix('singLEFT', 'Dad Sing Note LEFT', 24);
-
-				playAnim('idle');
-			case 'gf':
-				// GIRLFRIEND CODE
-				tex = Paths.getSparrowAtlas('characters/GF_assets');
-				frames = tex;
-				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
-				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
-				animation.addByPrefix('singRIGHT', 'GF Right Note', 24, false);
-				animation.addByPrefix('singUP', 'GF Up Note', 24, false);
-				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
-				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
-				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
-				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
-				animation.addByPrefix('scared', 'GF FEAR', 24);
-
-				playAnim('danceRight');
-
-			case 'gf-pixel':
-				tex = Paths.getSparrowAtlas('characters/gfPixel');
-				frames = tex;
-				animation.addByIndices('singUP', 'GF IDLE', [2], "", 24, false);
-				animation.addByIndices('danceLeft', 'GF IDLE', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				animation.addByIndices('danceRight', 'GF IDLE', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-
-				addOffset('danceLeft', 0);
-				addOffset('danceRight', 0);
-
-				playAnim('danceRight');
-
-				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
-				updateHitbox();
-				antialiasing = false;
-			
 			case 'bf':
+				iconColor = FlxColor.fromRGB(49, 176, 209);
 				frames = Paths.getSparrowAtlas('characters/BOYFRIEND');
 
 				animation.addByPrefix('idle', 'BF idle dance', 24, false);
@@ -137,6 +95,7 @@ class Character extends FNFSprite
 				flipX = true;
 
 			case 'bf-pixel':
+				iconColor = FlxColor.fromRGB(49, 176, 209);
 				frames = Paths.getSparrowAtlas('characters/bfPixel');
 				animation.addByPrefix('idle', 'BF IDLE', 24, false);
 				animation.addByPrefix('singUP', 'BF UP NOTE', 24, false);
@@ -182,6 +141,7 @@ class Character extends FNFSprite
 			*/
 			case 'mari':
 				// añade a la mari :o
+				iconColor = FlxColor.fromRGB(102, 204, 153);
 				frames = Paths.getSparrowAtlas('characters/mari');
 				animation.addByPrefix('cheer', 'Mari_Cheer', 24, false);
 				animation.addByPrefix('singLEFT', 'Mari_Left', 24, false);
@@ -197,7 +157,17 @@ class Character extends FNFSprite
 
 				playAnim('danceRight');
 				
+			case 'mariCave':
+				// mari en el carrito chistosito
+				iconColor = FlxColor.fromRGB(102, 204, 153);
+				frames = Paths.getSparrowAtlas('characters/mariCave');
+				animation.addByIndices('danceLeft', 'Mari_HairBlowLeft', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'Mari_HairBlowLeft', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+
+				playAnim('danceRight');
+				
 			case 'reimu':
+				iconColor = FlxColor.fromRGB(255, 0, 135);
 				// LA REIMU HAKUREI DEL PROYECTO TOUHOU
 				frames = Paths.getSparrowAtlas('characters/Reimu_Assets');
 				animation.addByPrefix('cheer', 'Reimu_Cheer', 24, false);
@@ -215,7 +185,8 @@ class Character extends FNFSprite
 				playAnim('danceRight');
 				
 			case '2ndplayer':
-				// calaca chida
+				// la calaca mas chida
+				iconColor = FlxColor.fromRGB(255, 204, 255);
 				frames = Paths.getSparrowAtlas('characters/2nd_player');
 				animation.addByPrefix('danceLeft', 'Isaac_IdleLeft', 24, false);
 				animation.addByPrefix('danceRight', 'Isaac_IdleRight', 24, false);
@@ -230,6 +201,7 @@ class Character extends FNFSprite
 
 			case 'BrownishSea':
 				// doug
+				iconColor = FlxColor.fromRGB(255, 102, 255);
 				frames = Paths.getSparrowAtlas('characters/BrownishSea_Assets');
 				animation.addByPrefix('idle', 'Brown_Idle', 24, false);
 				animation.addByPrefix('singUP', 'Brown_Up', 24);
@@ -241,6 +213,7 @@ class Character extends FNFSprite
 
 			case 'cesar':
 				// yo el cesar
+				iconColor = FlxColor.fromRGB(176, 11, 105);
 				frames = Paths.getSparrowAtlas('characters/Cesar_Assets');
 				animation.addByPrefix('idle', 'CesarGpe_Idle', 24, false);
 				animation.addByPrefix('singUP', 'CesarGpe_Up', 24);
@@ -252,8 +225,21 @@ class Character extends FNFSprite
 
 				playAnim('idle');
 
+			case 'cesarito':
+				// solo esta para el icono, no hay otro personaje
+				iconColor = FlxColor.fromRGB(153, 0, 0);
+				frames = Paths.getSparrowAtlas('characters/Cesar_Assets');
+				animation.addByPrefix('idle', 'CesarGpe_Idle', 24, false);
+				animation.addByPrefix('singUP', 'CesarGpe_Up', 24);
+				animation.addByPrefix('singRIGHT', 'CesarGpe_Right', 24);
+				animation.addByPrefix('singDOWN', 'CesarGpe_Down', 24);
+				animation.addByPrefix('singLEFT', 'CesarGpe_Left', 24);
+
+				playAnim('idle');
+
 			case 'hyperpig':
 				// terrence god potioneado
+				iconColor = FlxColor.fromRGB(255, 102, 153);
 				frames = Paths.getSparrowAtlas('characters/HyperPig_Assets');
 				animation.addByPrefix('idle', 'HyperPig_Idle', 24, false);
 				animation.addByPrefix('singUP', 'HyperPig_Up', 24);
@@ -265,6 +251,7 @@ class Character extends FNFSprite
 
 			case 'blueslime32':
 				// buleslamamenominomanemanominumio
+				iconColor = FlxColor.fromRGB(146, 113, 79);
 				frames = Paths.getSparrowAtlas('characters/blueslime32');
 				animation.addByPrefix('idle', 'bs32_use_idle', 24, false);
 				animation.addByPrefix('singUP', 'bs32_use_up', 24);
@@ -274,6 +261,86 @@ class Character extends FNFSprite
 
 				playAnim('idle');
 
+			case 'blueslime32minecart':
+				// el eslamio pero en carrito
+				iconColor = FlxColor.fromRGB(146, 113, 79);
+				frames = Paths.getSparrowAtlas('characters/blueslime32minecart');
+				animation.addByPrefix('idle', 'bs32_use_idle', 24, false);
+				animation.addByPrefix('singUP', 'bs32_use_up', 24);
+				animation.addByPrefix('singRIGHT', 'bs32_use_right', 24);
+				animation.addByPrefix('singDOWN', 'bs32_use_down', 24);
+				animation.addByPrefix('singLEFT', 'bs32_use_left', 24);
+
+				playAnim('idle');
+
+			case 'bfMinecart':
+				// el niño pero en el carrito
+				iconColor = FlxColor.fromRGB(49, 176, 209);
+				frames = Paths.getSparrowAtlas('characters/bfMinecart');
+
+				animation.addByPrefix('idle', 'BF idle dance', 24, false);
+				animation.addByPrefix('singUP', 'BFM_Up', 24, false);
+				animation.addByPrefix('singLEFT', 'BFM_Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'BFM_Right', 24, false);
+				animation.addByPrefix('singDOWN', 'BFM_Down', 24, false);
+				animation.addByPrefix('singUPmiss', 'BFM_Pendejo', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'BFM_Estupido', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'BFM_Burro', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'BFM_Cabezon', 24, false);
+				playAnim('idle');
+
+				flipX = true;
+
+				characterData.offsetY = 70;
+
+			case 'TsuyAr-1':
+				// tysauayer
+				iconColor = FlxColor.fromRGB(180, 40, 40);
+				frames = Paths.getSparrowAtlas('characters/TsuyAr-1');
+				animation.addByPrefix('idle', 'TsuyAr_Idle', 24, false);
+				animation.addByPrefix('singUP', 'TsuyAr_Up', 24);
+				animation.addByPrefix('singRIGHT', 'TsuyAr_Right', 24);
+				animation.addByPrefix('singDOWN', 'TsuyAr_Down', 24);
+				animation.addByPrefix('singLEFT', 'TsuyAr_Left', 24);
+
+				playAnim('idle');
+
+			case 'TsuyAr-2':
+				// tusayr poquito enfadado
+				iconColor = FlxColor.fromRGB(220, 40, 40);
+				frames = Paths.getSparrowAtlas('characters/TsuyAr-2');
+				animation.addByPrefix('idle', 'aTsuyAr_Idle', 24, false);
+				animation.addByPrefix('singUP', 'aTsuyAr_Up', 24);
+				animation.addByPrefix('singRIGHT', 'aTsuyAr_Right', 24);
+				animation.addByPrefix('singDOWN', 'aTsuyAr_Down', 24);
+				animation.addByPrefix('singLEFT', 'aTsuyAr_Left', 24);
+
+				playAnim('idle');
+
+			case 'TsuyAr-3':
+				// tsauayr requete recontra bien emputado
+				iconColor = FlxColor.fromRGB(255, 40, 40);
+				frames = Paths.getSparrowAtlas('characters/TsuyAr-3');
+				animation.addByPrefix('idle', 'eTsuyAr_Idle', 24, false);
+				animation.addByPrefix('singUP', 'eTsuyAr_Up', 24);
+				animation.addByPrefix('singRIGHT', 'eTsuyAr_Right', 24);
+				animation.addByPrefix('singDOWN', 'eTsuyAr_Down', 24);
+				animation.addByPrefix('singLEFT', 'eTsuyAr_Left', 24);
+
+				playAnim('idle');
+
+			case 'juan':
+				// el juan papotas numero teintacuato
+				iconColor = FlxColor.fromRGB(115, 0, 60);
+				frames = Paths.getSparrowAtlas('characters/juan');
+				animation.addByPrefix('idle', 'JP_Idle', 24, false);
+				animation.addByPrefix('singUP', 'JP_Up', 24);
+				animation.addByPrefix('singRIGHT', 'JP_Right', 24);
+				animation.addByPrefix('singDOWN', 'JP_Down', 24);
+				animation.addByPrefix('singLEFT', 'JP_Left', 24);
+
+				playAnim('idle');
+				
 			default:
 				// set up animations if they aren't already
 

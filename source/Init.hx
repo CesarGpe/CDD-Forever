@@ -51,9 +51,9 @@ class Init extends FlxState
 			NOT_FORCED
 		],
 		'Auto Pause' => [true, Checkmark, '', NOT_FORCED],
-		'FPS Counter' => [true, Checkmark, 'Whether to display the FPS counter.', NOT_FORCED],
+		'FPS Counter' => [false, Checkmark, 'Whether to display the FPS counter.', NOT_FORCED],
 		'Memory Counter' => [
-			true,
+			false,
 			Checkmark,
 			'Whether to display approximately how much memory is being used.',
 			NOT_FORCED
@@ -93,7 +93,7 @@ class Init extends FlxState
 			NOT_FORCED
 		],
 		'No Camera Note Movement' => [
-			false,
+			true,
 			Checkmark,
 			'When enabled, left and right notes no longer move the camera.',
 			NOT_FORCED
@@ -113,15 +113,15 @@ class Init extends FlxState
 			NOT_FORCED,
 			['none', 'Deuteranopia', 'Protanopia', 'Tritanopia']
 		],
-		"Clip Style" => ['stepmania', Selector, "Chooses a style for hold note clippings; StepMania: Holds under Receptors; FNF: Holds over receptors", NOT_FORCED, 
+		"Clip Style" => ['FNF', Selector, "Chooses a style for hold note clippings; StepMania: Holds under Receptors; FNF: Holds over receptors", NOT_FORCED, 
 			['StepMania', 'FNF']],
-		"UI Skin" => ['default', Selector, 'Choose a UI Skin for judgements, combo, etc.', NOT_FORCED, ''],
+		"UI Skin" => ['forever', Selector, 'Choose a UI Skin for judgements, combo, etc.', NOT_FORCED, ''],
 		"Note Skin" => ['default', Selector, 'Choose a note skin.', NOT_FORCED, ''],
 		"Framerate Cap" => [120, Selector, 'Define your maximum FPS.', NOT_FORCED, ['']],
-		"Opaque Arrows" => [false, Checkmark, "Makes the arrows at the top of the screen opaque again.", NOT_FORCED],
+		"Opaque Arrows" => [true, Checkmark, "Makes the arrows at the top of the screen opaque again.", NOT_FORCED],
 		"Opaque Holds" => [false, Checkmark, "Huh, why isnt the trail cut off?", NOT_FORCED],
 		'Ghost Tapping' => [
-			false,
+			true,
 			Checkmark,
 			"Enables Ghost Tapping, allowing you to press inputs without missing.",
 			NOT_FORCED
@@ -147,7 +147,7 @@ class Init extends FlxState
 			NOT_FORCED
 		],
 		'Simply Judgements' => [
-			false,
+			true,
 			Checkmark,
 			"Simplifies the judgement animations, displaying only one judgement / rating sprite at a time.",
 			NOT_FORCED
