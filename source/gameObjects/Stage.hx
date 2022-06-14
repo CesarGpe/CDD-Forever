@@ -93,8 +93,10 @@ class Stage extends FlxTypedGroup<FlxBasic>
 					curStage = 'cave';
 				case 'temper':
 					curStage = 'discordEvil';
-				case  'take-five':
+				case 'take-five':
 					curStage = 'secret';
+				case 'asf':
+					curStage = 'camara';
 				default:
 					curStage = 'discord';
 			}
@@ -304,6 +306,16 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				darkfx.alpha = 0.5;
 				add(darkfx);
 
+			case 'camara':
+				PlayState.defaultCamZoom = 0.7;
+
+				bg = new FNFSprite(-655, -400);
+				bg.loadGraphic(Paths.image('backgrounds/' + curStage + '/camara'));
+				bg.setGraphicSize(Std.int(bg.width * 2), Std.int(bg.height * 2));
+				bg.updateHitbox();
+				bg.antialiasing = true;
+				add(bg);
+
 			default:
 				curStage = 'discord';
 				PlayState.defaultCamZoom = 0.75;
@@ -366,14 +378,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 			case 'stone2':
 				stone2.x = 1500;
 				stone2Twn = FlxTween.tween(stone2, {x: -3500}, 20, {ease: FlxEase.linear, onComplete: function(twn:FlxTween) {loopCompleted('stone2');}});
-			/**
-				bg1Twn = FlxTween.tween(bg1, {x: -2060}, 0.6, {ease: FlxEase.linear, onComplete: function(twn:FlxTween) {loopCompleted('bg1');}});
-				bg2Twn = FlxTween.tween(bg2, {x: -2060}, 1.2, {ease: FlxEase.linear, onComplete: function(twn:FlxTween) {loopCompleted('bg2');}});
-				bg3Twn = FlxTween.tween(bg3, {x: -2060}, 1.8, {ease: FlxEase.linear, onComplete: function(twn:FlxTween) {loopCompleted('bg3');}});
-
-				stone1Twn = FlxTween.tween(stone1, {x: -3500}, 10, {ease: FlxEase.linear, onComplete: function(twn:FlxTween) {loopCompleted('stone1');}});
-				stone2Twn = FlxTween.tween(stone2, {x: -3500}, 20, {ease: FlxEase.linear, onComplete: function(twn:FlxTween) {loopCompleted('stone2');}});
-			**/
 		}
 	}
 
@@ -384,7 +388,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 
 		switch (curStage)
 		{
-			case 'discord' | 'discordEvil' | 'skyblock':
+			case 'discord' | 'discordEvil' | 'skyblock' | 'camara':
 				gfVersion = 'mari';
 			case 'cave':
 				gfVersion = 'mariCave';
@@ -459,6 +463,13 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				boyfriend.screenCenter(XY);
 				dad.screenCenter(XY);
 				gf.screenCenter(XY);
+			case 'camara':
+				boyfriend.x = 905;
+				boyfriend.y = 200;
+				dad.x = -150;
+				dad.y = 60;
+				gf.x = 300;
+				gf.y = -50;
 		}
 	}
 

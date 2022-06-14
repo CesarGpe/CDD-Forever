@@ -13,7 +13,10 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import meta.MusicBeat.MusicBeatState;
+import meta.data.*;
 import meta.data.dependency.Discord;
+import meta.state.PlayState;
+import meta.state.menus.*;
 
 using StringTools;
 
@@ -37,6 +40,8 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = ['story-mode', 'freeplay', 'options'];
 	var canSnap:Array<Float> = [];
 
+	var codeStep:Int = 0;
+
 	// the create 'state'
 	override function create()
 	{
@@ -58,7 +63,6 @@ class MainMenuState extends MusicBeatState
 
 		// background
 		bg = new FlxSprite(-85);
-		//bg.loadGraphic(Paths.image('menus/base/menuBG'));
 		bg.makeGraphic(1286, 730, FlxColor.fromRGB(47, 49, 54));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.18;
@@ -309,11 +313,7 @@ class MainMenuState extends MusicBeatState
 			updateSelection();
 
 		super.update(elapsed);
-
-		menuItems.forEach(function(menuItem:FlxText)
-		{
-			//menuItem.screenCenter(X);
-		});
+		easterEggCheck();
 	}
 
 	var lastCurSelected:Int = 0;
@@ -338,5 +338,53 @@ class MainMenuState extends MusicBeatState
 		menuItems.members[Math.floor(curSelected)].updateHitbox();
 
 		lastCurSelected = Math.floor(curSelected);
+	}
+
+	function easterEggCheck()
+	{
+		if (FlxG.keys.anyJustPressed([Q,W,E,R,T,Y,U,I,O,P,A,S,D,F,G,H,J,K,L,Z,X,C,V,B,N,M]))
+		{
+			var resetCode = true;
+			switch (codeStep)
+			{
+				case 0:
+					if (FlxG.keys.justPressed.A)
+						resetCode = false;
+				case 1:
+					if (FlxG.keys.justPressed.S)
+						resetCode = false;
+				case 2:
+					if (FlxG.keys.justPressed.F)
+						amloSiempreFiel();
+			}
+
+			if (resetCode)
+				codeStep = 0;
+			else
+				codeStep += 1;
+		}
+	}
+
+	function amloSiempreFiel():Void
+	{
+		FlxG.sound.play(Paths.sound('click'));
+
+		var black = new FlxSprite();
+		black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		black.scrollFactor.set();
+		black.screenCenter();
+		add(black);
+
+		PlayState.SONG = Song.loadFromJson('asf', 'asf');
+		PlayState.isStoryMode = false;
+		PlayState.storyDifficulty = 1;
+
+		PlayState.storyWeek = 0;
+		trace('CUR WEEK:' + PlayState.storyWeek);
+
+		if (FlxG.sound.music != null)
+			FlxG.sound.music.stop();
+
+		Main.switchState(this, new PlayState());
 	}
 }

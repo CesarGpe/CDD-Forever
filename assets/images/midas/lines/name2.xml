@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="name2.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="2_Line0000" x="0" y="0" width="898" height="568"/>
+	<SubTexture name="2_Line0001" x="898" y="0" width="898" height="568"/>
+	<SubTexture name="2_Line0002" x="1796" y="0" width="898" height="568"/>
+	<SubTexture name="2_Line0003" x="2694" y="0" width="898" height="568"/>
+	<SubTexture name="2_Line0004" x="0" y="568" width="898" height="568"/>
+	<SubTexture name="2_Line0005" x="898" y="568" width="898" height="568"/>
+	<SubTexture name="2_Line0006" x="1796" y="568" width="898" height="568"/>
+	<SubTexture name="2_Line0007" x="2694" y="568" width="898" height="568"/>
+	<SubTexture name="2_Line0008" x="0" y="1136" width="898" height="568"/>
+	<SubTexture name="2_Line0009" x="898" y="1136" width="898" height="568"/>
+	<SubTexture name="2_Line0010" x="1796" y="1136" width="898" height="568"/>
+	<SubTexture name="2_Line0011" x="2694" y="1136" width="898" height="568"/>
+	<SubTexture name="2_Line0012" x="0" y="1704" width="898" height="568"/>
+	<SubTexture name="2_Line0013" x="898" y="1704" width="898" height="568"/>
+	<SubTexture name="2_Line0014" x="1796" y="1704" width="898" height="568"/>
+	<SubTexture name="2_Line0015" x="2694" y="1704" width="898" height="568"/>
+	<SubTexture name="2_Line0016" x="0" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0017" x="0" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0018" x="0" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0019" x="0" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0020" x="0" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0021" x="0" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0022" x="0" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0023" x="0" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0024" x="0" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0025" x="0" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0026" x="0" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0027" x="2694" y="1704" width="898" height="568"/>
+	<SubTexture name="2_Line0028" x="898" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0029" x="1796" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0030" x="2694" y="2272" width="898" height="568"/>
+	<SubTexture name="2_Line0031" x="0" y="0" width="898" height="568"/>
+</TextureAtlas>

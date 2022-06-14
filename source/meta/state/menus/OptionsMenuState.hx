@@ -87,6 +87,7 @@ class OptionsMenuState extends MusicBeatState
 					['', null],
 					['Notes', null],
 					['', null],
+					["Note Skin", getFromOption],
 					["Clip Style", getFromOption],
 					['No Camera Note Movement', getFromOption],
 					['Disable Note Splashes', getFromOption],

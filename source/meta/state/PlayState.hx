@@ -24,6 +24,7 @@ import flixel.util.FlxSort;
 import flixel.util.FlxTimer;
 import gameObjects.*;
 import gameObjects.userInterface.*;
+import gameObjects.userInterface.ClassHUD;
 import gameObjects.userInterface.notes.*;
 import gameObjects.userInterface.notes.Strumline.UIStaticArrow;
 import meta.*;
@@ -59,6 +60,10 @@ class PlayState extends MusicBeatState
 
 	public static var songMusic:FlxSound;
 	public static var vocals:FlxSound;
+
+	// midas sounds
+	var midasPrior:FlxSound;
+	var midasHit:FlxSound;
 
 	public static var campaignScore:Int = 0;
 
@@ -154,6 +159,9 @@ class PlayState extends MusicBeatState
 	// makes the camera bump with the beat
 	public var bumpThing:Bool;
 
+	// moves the camera with the notes
+	var camDisplaceExtend:Float = 15;
+
 	// at the beginning of the playstate
 	override public function create()
 	{
@@ -234,7 +242,10 @@ class PlayState extends MusicBeatState
 		// set up characters here too
 		gf = new Character();
 		gf.adjustPos = false;
-		gf.setCharacter(300, 100, stageBuild.returnGFtype(curStage));
+		if (curSong.toLowerCase() == 'skullody')
+			gf.setCharacter(300, 100, 'reimu');
+		else
+			gf.setCharacter(300, 100, stageBuild.returnGFtype(curStage));
 
 		dadOpponent = new Character().setCharacter(50, 850, SONG.player2);
 		boyfriend = new Boyfriend();
@@ -633,6 +644,13 @@ class PlayState extends MusicBeatState
 				{
 					var char = dadOpponent;
 
+					// ASF zoom
+					if (curSong.toLowerCase() == 'asf')
+					{
+						camDisplaceExtend = 50;
+						defaultCamZoom = 0.9;
+					}
+						
 					var getCenterX = char.getMidpoint().x + 100;
 					var getCenterY = char.getMidpoint().y - 100;
 
@@ -646,6 +664,13 @@ class PlayState extends MusicBeatState
 				{
 					var char = boyfriend;
 
+					// ASF zoom
+					if (curSong.toLowerCase() == 'asf')
+					{
+						camDisplaceExtend = 0;
+						defaultCamZoom = 0.8;
+					}
+						
 					var getCenterX = char.getMidpoint().x - 100;
 					var getCenterY = char.getMidpoint().y - 100;
 					switch (curStage)
@@ -825,7 +850,7 @@ class PlayState extends MusicBeatState
 									note.tooLate = true;
 								
 								vocals.volume = 0;
-								missNoteCheck((Init.trueSettings.get('Ghost Tapping')) ? true : false, daNote.noteData, boyfriend, true);
+								missNoteCheck((Init.trueSettings.get('Ghost Tapping')) ? true : false, daNote.noteData, boyfriend, true, false, daNote);
 								// ambiguous name
 								Timings.updateAccuracy(0);
 							}
@@ -845,7 +870,7 @@ class PlayState extends MusicBeatState
 										}
 										if (!breakFromLate)
 										{
-											missNoteCheck((Init.trueSettings.get('Ghost Tapping')) ? true : false, daNote.noteData, boyfriend, true);
+											missNoteCheck((Init.trueSettings.get('Ghost Tapping')) ? true : false, daNote.noteData, boyfriend, true, false, daNote);
 											for (note in parentNote.childrenNotes)
 												note.tooLate = true;
 										}
@@ -909,10 +934,19 @@ class PlayState extends MusicBeatState
 			if (characterStrums.receptors.members[coolNote.noteData] != null)
 				characterStrums.receptors.members[coolNote.noteData].playAnim('confirm', true);
 
+			// do this when da midas note
 			if (coolNote.noteType == 1 || coolNote.noteType == 2)
 			{
-				FlxG.sound.play(Paths.sound('midashit'), 0.5);
+				boyfriendStrums.midasNoteHit();
+				camGame.shake(0.1, 0.01);
+				camHUD.shake(0.1, 0.01);
+				midasHit.play(true);
 				health = 2;
+
+				FlxG.camera.zoom += 0.02;
+				camHUD.zoom += 0.035;
+				for (hud in strumHUD)
+					hud.zoom += 0.035;
 			}
 				
 			// special thanks to sam, they gave me the original system which kinda inspired my idea for this new one
@@ -959,7 +993,7 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	function missNoteCheck(?includeAnimation:Bool = false, direction:Int = 0, character:Character, popMiss:Bool = false, lockMiss:Bool = false)
+	function missNoteCheck(?includeAnimation:Bool = false, direction:Int = 0, character:Character, popMiss:Bool = false, lockMiss:Bool = false, coolNote:Note = null)
 	{
 		if (includeAnimation)
 		{
@@ -970,7 +1004,13 @@ class PlayState extends MusicBeatState
 		}
 		decreaseCombo(popMiss);
 
-		//
+		/*
+		if (coolNote.noteType == 1 || coolNote.noteType == 2)
+		{
+			FlxG.sound.play(Paths.sound('vineboom'), 1);
+			health = -1;
+		}
+		*/
 	}
 
 	function characterPlayAnimation(coolNote:Note, character:Character)
@@ -997,6 +1037,12 @@ class PlayState extends MusicBeatState
 		stringArrow = baseString + altString;
 		// if (coolNote.foreverMods.get('string')[0] != "")
 		//	stringArrow = coolNote.noteString;
+
+		// JUAN PEPITO EN SU CAMINO A ESLAMIARTE BIEN FEITO
+		if (character == dadOpponent && dadOpponent.curCharacter == 'juan' && health > 0.04)
+			health -= 0.02;
+		if (character == dadOpponent && dadOpponent.curCharacter == 'juan' && health > 1)
+			bumpCamera(0.03, 0.02);
 
 		character.playAnim(stringArrow, true);
 		character.holdTimer = 0;
@@ -1088,9 +1134,8 @@ class PlayState extends MusicBeatState
 
 	private function strumCameraRoll(cStrum:FlxTypedGroup<UIStaticArrow>, mustHit:Bool)
 	{
-		if (!Init.trueSettings.get('No Camera Note Movement') || curStage == 'cave')
+		if (!Init.trueSettings.get('No Camera Note Movement') || curStage == 'cave' || curSong.toLowerCase() == 'asf')
 		{
-			var camDisplaceExtend:Float = 15;
 			if (PlayState.SONG.notes[Std.int(curStep / 16)] != null)
 			{
 				if ((PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection && mustHit)
@@ -1394,6 +1439,19 @@ class PlayState extends MusicBeatState
 		FlxG.sound.list.add(songMusic);
 		FlxG.sound.list.add(vocals);
 
+		if (curStage == 'discord' || curStage == 'discordEvil' 
+			|| curStage == 'skyblock' || curStage == 'cave')
+		{
+			midasPrior = new FlxSound().loadEmbedded(Paths.sound('midasprior'), false, false);
+			midasHit = new FlxSound().loadEmbedded(Paths.sound('midashit'), false, false);
+
+			midasPrior.volume = 0.5;
+			midasHit.volume = 0.5;
+
+			FlxG.sound.list.add(midasPrior);
+			FlxG.sound.list.add(midasHit);
+		}
+			
 		// generate the chart
 		unspawnNotes = ChartLoader.generateChartType(SONG, determinedChartType);
 		// sometime my brain farts dont ask me why these functions were separated before
@@ -1424,10 +1482,22 @@ class PlayState extends MusicBeatState
 	override function stepHit()
 	{
 		super.stepHit();
-		///*
 		if (songMusic.time >= Conductor.songPosition + 20 || songMusic.time <= Conductor.songPosition - 20)
 			resyncVocals();
-		//*/
+
+		/**
+			SONG EVENTS !!
+		**/
+		if (curSong.toLowerCase() == 'asf')
+		{
+			switch (curStep)
+			{
+				case 764, 766, 1592, 1594, 1596, 1598:
+					bumpCamera(0.04, 0.05);
+				case 1280:
+					gf.setCharacter(gf.x, gf.y, 'reimu');
+			}
+		}
 	}
 
 	private function charactersDance(curBeat:Int)
@@ -1453,6 +1523,7 @@ class PlayState extends MusicBeatState
 	{
 		super.beatHit();
 
+		// milf bumps
 		if (bumpThing == true)
 		{
 			if (curBeat % 1 == 0)
@@ -1499,6 +1570,14 @@ class PlayState extends MusicBeatState
 
 		// stage stuffs
 		stageBuild.stageUpdate(curBeat, boyfriend, gf, dadOpponent);
+	}
+
+	function bumpCamera(gameZoom:Float = 0.015, uiZoom:Float = 0.03)
+	{
+		FlxG.camera.zoom += gameZoom;
+		camHUD.zoom += uiZoom;
+		for (hud in strumHUD)
+			hud.zoom += uiZoom;
 	}
 
 	//

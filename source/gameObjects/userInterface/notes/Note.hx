@@ -159,7 +159,7 @@ class Note extends FNFSprite
 				{
 					// NOTETYPE NO CAMBIA HASTA EL NUMERO 2 Y NO SE PORQUEEEEEEE
 					// pero me vale caca lo voy a poner asi por que funciona
-					// primera vez que escribo en español afuera del state de personajes jaja
+					// primera vez que escribo en español afuera del class de personajes jaja
 					case 1:
 						skin = 'midas';
 					case 2:
@@ -171,8 +171,8 @@ class Note extends FNFSprite
 					default:
 						skin = 'NOTE_assets';
 				}
-
-				newNote.frames = Paths.getSparrowAtlas(ForeverTools.returnSkinAsset(skin, assetModifier, Init.trueSettings.get("Note Skin"),
+				// Init.trueSettings.get("Note Skin")
+				newNote.frames = Paths.getSparrowAtlas(ForeverTools.returnSkinAsset(skin, assetModifier, 'default',
 					'noteskins/notes'));
 				newNote.animation.addByPrefix('greenScroll', 'green0');
 				newNote.animation.addByPrefix('redScroll', 'red0');
@@ -211,6 +211,9 @@ class Note extends FNFSprite
 		return newNote;
 	}
 
+	/**
+		esta funcion no se usa porque Vs. CDD no tiene quants
+	**/
 	public static function returnQuantNote(assetModifier, strumTime, noteData, noteType, noteAlt, ?isSustainNote:Bool = false, ?prevNote:Note = null):Note
 	{
 		var newNote:Note = new Note(strumTime, noteData, noteAlt, prevNote, isSustainNote, noteType);

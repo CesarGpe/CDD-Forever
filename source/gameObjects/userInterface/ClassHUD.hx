@@ -195,7 +195,7 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 			iconP2.animation.curAnim.curFrame = 0;
 	}
 
-	private final divider:String = ' - ';
+	private final divider:String = ' | ';
 
 	public function updateScoreText()
 	{
