@@ -97,7 +97,9 @@ class FreeplayState extends MusicBeatState
 					{
 						freeplayColor = FlxColor.fromRGB(176, 11, 115);
 					}
-					addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
+					
+					if (castSong.song.toLowerCase() != 'asf')
+						addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
 				}
 			}
 		}
@@ -226,6 +228,7 @@ class FreeplayState extends MusicBeatState
 		if (controls.BACK)
 		{
 			threadActive = false;
+			FlxG.sound.play(Paths.sound('cancelMenu'));
 			Main.switchState(this, new MainMenuState());
 		}
 

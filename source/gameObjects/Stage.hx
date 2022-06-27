@@ -309,11 +309,12 @@ class Stage extends FlxTypedGroup<FlxBasic>
 			case 'camara':
 				PlayState.defaultCamZoom = 0.7;
 
-				bg = new FNFSprite(-655, -400);
+				bg = new FNFSprite(-1883, -1300);
 				bg.loadGraphic(Paths.image('backgrounds/' + curStage + '/camara'));
-				bg.setGraphicSize(Std.int(bg.width * 2), Std.int(bg.height * 2));
-				bg.updateHitbox();
+				//bg.setGraphicSize(Std.int(bg.width * 2), Std.int(bg.height * 2));
 				bg.antialiasing = true;
+				bg.scale.set(2, 2);
+				bg.updateHitbox();
 				add(bg);
 
 			default:
@@ -465,11 +466,11 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				gf.screenCenter(XY);
 			case 'camara':
 				boyfriend.x = 905;
-				boyfriend.y = 200;
+				boyfriend.y = 255;
 				dad.x = -150;
 				dad.y = 60;
-				gf.x = 300;
-				gf.y = -50;
+				gf.x = 255;
+				gf.y = -105;
 		}
 	}
 
@@ -488,13 +489,9 @@ class Stage extends FlxTypedGroup<FlxBasic>
 		switch (PlayState.curStage)
 		{
 			case 'discord':
-				if (curBeat % 4 == 0)
+				if (curBeat % 2 == 0)
 					groovy.animation.play('left', true);
-				else if (curBeat % 4 == 1)
-					groovy.animation.play('right', true);
-				else if (curBeat % 4 == 2)
-					groovy.animation.play('left', true);
-				else if (curBeat % 4 == 3)
+				else if (curBeat % 2 == 1)
 					groovy.animation.play('right', true);
 			case 'skyblock':
 				if (curBeat % 2 == 1)

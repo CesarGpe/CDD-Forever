@@ -230,28 +230,9 @@ class MainMenuState extends MusicBeatState
 					}
 					if (controls.BACK)
 					{
+						FlxG.sound.play(Paths.sound('cancelMenu'));
 						Main.switchState(this, new TitleState());
 					}
-					/* idk something about it isn't working yet I'll rewrite it later
-						else
-						{
-							// paaaaaaaiiiiiiiinnnn
-							var curDir:Int = 0;
-							if (i == 0)
-								curDir = -1;
-							else if (i == 1)
-								curDir = 1;
-
-							if (counterControl < 2)
-								counterControl += 0.05;
-
-							if (counterControl >= 1)
-							{
-								curSelected += (curDir * (counterControl / 24));
-								if (curSelected % 1 == 0)
-									FlxG.sound.play(Paths.sound('scrollMenu'));
-							}
-					}*/
 
 					if (curSelected < 0)
 						curSelected = optionShit.length - 1;
@@ -368,6 +349,7 @@ class MainMenuState extends MusicBeatState
 	function amloSiempreFiel():Void
 	{
 		FlxG.sound.play(Paths.sound('click'));
+		trace('AMLO SIEMPRE FIEL');
 
 		var black = new FlxSprite();
 		black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -378,9 +360,7 @@ class MainMenuState extends MusicBeatState
 		PlayState.SONG = Song.loadFromJson('asf', 'asf');
 		PlayState.isStoryMode = false;
 		PlayState.storyDifficulty = 1;
-
 		PlayState.storyWeek = 0;
-		trace('CUR WEEK:' + PlayState.storyWeek);
 
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();

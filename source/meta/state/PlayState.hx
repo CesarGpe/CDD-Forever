@@ -573,6 +573,9 @@ class PlayState extends MusicBeatState
 				updateRPC(true);
 			}
 
+			if (FlxG.keys.justPressed.R && startedCountdown && canPause)
+				health = -69420;
+
 			// make sure you're not cheating lol
 			if (!isStoryMode)
 			{
@@ -706,7 +709,7 @@ class PlayState extends MusicBeatState
 			for (hud in allUIs)
 				hud.angle = FlxMath.lerp(0 + forceZoom[3], hud.angle, easeLerp);
 
-			if (health <= 0 && startedCountdown)
+			if (health <= 0 && startedCountdown && !boyfriendStrums.autoplay)
 			{
 				// startTimer.active = false;
 				persistentUpdate = false;
@@ -1493,9 +1496,7 @@ class PlayState extends MusicBeatState
 			switch (curStep)
 			{
 				case 764, 766, 1592, 1594, 1596, 1598:
-					bumpCamera(0.04, 0.05);
-				case 1280:
-					gf.setCharacter(gf.x, gf.y, 'reimu');
+					bumpCamera(0.07, 0.07);
 			}
 		}
 	}
