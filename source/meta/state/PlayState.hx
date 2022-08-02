@@ -242,7 +242,7 @@ class PlayState extends MusicBeatState
 		// set up characters here too
 		gf = new Character();
 		gf.adjustPos = false;
-		if (curSong.toLowerCase() == 'skullody')
+		if (SONG.song.toLowerCase() == 'skullody')
 			gf.setCharacter(300, 100, 'reimu');
 		else
 			gf.setCharacter(300, 100, stageBuild.returnGFtype(curStage));

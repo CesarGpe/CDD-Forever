@@ -167,8 +167,8 @@ class Character extends FNFSprite
 				playAnim('danceRight');
 				
 			case 'reimu':
-				iconColor = FlxColor.fromRGB(255, 0, 135);
 				// LA REIMU HAKUREI DEL PROYECTO TOUHOU
+				iconColor = FlxColor.fromRGB(255, 0, 135);
 				frames = Paths.getSparrowAtlas('characters/Reimu_Assets');
 				animation.addByPrefix('cheer', 'Reimu_Cheer', 24, false);
 				animation.addByPrefix('singLEFT', 'Reimu_Left', 24, false);
