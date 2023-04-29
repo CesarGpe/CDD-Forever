@@ -3,6 +3,10 @@ Este es un proyecto que empezamos yo y mi gran amigo blueslime32 durante los tie
 
 Motivado por esto ultimo, empece a programar el mod en Forever Engine por la gran optimizacion que tiene, y para hacer el chiste de que la Cámara de Diputados (C.D.D.) es para siempre. Un agradecimiento muy especial a mis amigos Tsuyλr, The 2nd Player, BrownishSea, juanpapa34, y blueslime32, los amo :)
 
+Descansa en paz, Camara de Diputados. Cambiaste mi vida. 25/01/2021 - 14/03/2022
+[blueslime32](https://www.youtube.com/@blueslime32) - Artista y compositor.
+[CesarGpe](https://www.youtube.com/channel/UCGWSW98YD-GO5cSgxW-lCfQ) - Programador.
+
 Aqui abajo dejare el README original del Forever Engine, ya que su creadora, CubicYoshi / Yoshubs se retiro del internet indefinidamente, ademas sirve para darle los creditos a los demas contribuidores de este engine.
 
 
