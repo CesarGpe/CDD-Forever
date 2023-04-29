@@ -1,10 +1,10 @@
 # Cámara de Diputados : Forever
+----------------------------------------------
 Este es un proyecto que empezamos yo y mi gran amigo blueslime32 durante los tiempos de pandemia en el 2020. Originalmente se empezo en el Psych Engine, pero por diversos motivos personales, blueslime32 decidio abandonar el proyecto. El nombre del mod es solo una referencia al nombre de nuestro servidor de Discord en donde yo y mis amigos nos conocimos mejor e hicimos bonitos recuerdos juntos. Hubo conflictos con algunos miembros, lo que termino con la eliminacion total del servidor, ahora este proyecto rinde tributo a ese rincon del internet que cambio mi vida. 
 
 Motivado por esto ultimo, empece a programar el mod en Forever Engine por la gran optimizacion que tiene, y para hacer el chiste de que la Cámara de Diputados (C.D.D.) es para siempre. Un agradecimiento muy especial a mis amigos Tsuyλr, The 2nd Player, BrownishSea, juanpapa34, y blueslime32, los amo :)
 
 Aqui abajo dejare el README original del Forever Engine, ya que su creadora, CubicYoshi / Yoshubs se retiro del internet indefinidamente, ademas sirve para darle los creditos a los demas contribuidores de este engine.
-----------------------------------------------
 
 
 
