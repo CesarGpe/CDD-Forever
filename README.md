@@ -4,7 +4,7 @@ Este es un proyecto que empezamos yo y mi gran amigo blueslime32 durante los tie
 Motivado por esto ultimo, empece a programar el mod en Forever Engine por la gran optimizacion que tiene, y para hacer el chiste de que la Cámara de Diputados (C.D.D.) es para siempre. Un agradecimiento muy especial a mis amigos Tsuyλr, The 2nd Player, BrownishSea, juanpapa34, y blueslime32, los amo :)
 
 Aqui abajo dejare el README original del Forever Engine, ya que su creadora, CubicYoshi / Yoshubs se retiro del internet indefinidamente, ademas sirve para darle los creditos a los demas contribuidores de este engine.
-
+----------------------------------------------
 
 # [Forever Engine](https://github.com/Yoshubs/FunkinForever)
 An open-source, quality of life and performance driven [Friday Night Funkin'](https://www.newgrounds.com/portal/view/770371) mod engine!
