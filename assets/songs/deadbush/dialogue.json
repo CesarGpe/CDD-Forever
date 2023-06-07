@@ -1,0 +1,96 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "normal",
+			"text": "hola novio de fnf",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Hola, tu eres Cesar, no?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "si soy",
+			"portrait": "cesar"
+		},
+		{
+			"portrait": "cesar",
+			"expression": "normal",
+			"text": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Bueno, muestrame lo que tienes!",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "ok pero haz de cuenta que",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "no se cantar",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": " ",
+			"portrait": "bf"
+		},
+		{
+			"expression": "showoff",
+			"text": "Yo si le se!",
+			"portrait": "pig"
+		},
+		{
+			"expression": "normal",
+			"text": "ah si cierto se me habia olvidado que\nhabias participado en La Voz Kids\nMexico del 2016",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "canta tu pues a ver si muy muy",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Perfecto.",
+			"portrait": "pig"
+		},
+		{
+			"expression": "normal",
+			"text": "Tu cerdo habla?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "pues si",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "no lo acabas de escuchar hablar burro\ncabezon buen oido que tienes pa la\nmusica y no alcanzas a oir a un cerdo",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "sordo",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": ":(",
+			"portrait": "bf"
+		},
+		{
+			"expression": "lookdown",
+			"text": "amonos resio",
+			"portrait": "cesar"
+		}
+	]
+}

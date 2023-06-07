@@ -43,11 +43,6 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 	public var iconP2:HealthIcon;
 	private var stupidHealth:Float = 0;
 
-	// evil discord stage
-	var corner1:FNFSprite;
-	var corner2:FNFSprite;
-	var curStage = PlayState.curStage;
-
 	// for healthbar colors
 	var boyfriend = PlayState.boyfriend;
 	var dad = PlayState.dadOpponent;
@@ -67,29 +62,6 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 		var barY = FlxG.height * 0.875;
 		if (Init.trueSettings.get('Downscroll'))
 			barY = 64;
-
-		// add corners for evil discord stage
-		if (curStage == 'discordEvil')
-		{
-			corner1 = new FNFSprite(-126, 434);
-			corner2 = new FNFSprite(909, 393);
-
-			corner1.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/corner1');
-			corner2.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/corner2');
-			corner1.animation.addByPrefix('idle', 'corner1', 24, true);
-			corner2.animation.addByPrefix('idle', 'corner2', 24, true);
-			corner1.animation.play('idle', true);
-			corner2.animation.play('idle', true);
-
-			corner1.scrollFactor.set();
-			corner2.scrollFactor.set();
-
-			corner1.antialiasing = true;
-			corner2.antialiasing = true;
-
-			add(corner1);
-			add(corner2);
-		}
 
 		healthBarBG = new FlxSprite(0,
 			barY).loadGraphic(Paths.image(ForeverTools.returnSkinAsset('healthBar', PlayState.assetModifier, PlayState.changeableSkin, 'UI')));
@@ -120,11 +92,16 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 
 		// small info bar, kinda like the KE watermark
 		// based on scoretxt which I will set up as well
-		if (CoolUtil.dashToSpace(PlayState.SONG.song) == 'Take Five')
+		if (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()) == 'take-five')
 			infoDisplay = 'Tsuraran - ' + CoolUtil.dashToSpace(PlayState.SONG.song);
 		else
 			infoDisplay = 'CDD Forever - ' + CoolUtil.dashToSpace(PlayState.SONG.song);
-		var engineDisplay:String = "Forever Engine v" + Main.gameVersion;
+		infoBar = new FlxText(5, FlxG.height - 30, 0, infoDisplay, 20);
+		infoBar.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		infoBar.scrollFactor.set();
+		add(infoBar);
+
+		var engineDisplay:String = "Forever Engine " + Main.gameVersion;
 		var engineBar:FlxText = new FlxText(0, FlxG.height - 30, 0, engineDisplay, 16);
 		engineBar.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		engineBar.updateHitbox();
@@ -132,13 +109,8 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 		engineBar.scrollFactor.set();
 		add(engineBar);
 
-		infoBar = new FlxText(5, FlxG.height - 30, 0, infoDisplay, 20);
-		infoBar.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		infoBar.scrollFactor.set();
-		add(infoBar);
-
 		// counter
-		if (Init.trueSettings.get('Counter') != 'None') {
+		if (Init.trueSettings.get('Contador') != 'No') {
 			var judgementNameArray:Array<String> = [];
 			for (i in Timings.judgementsMap.keys())
 				judgementNameArray.insert(Timings.judgementsMap.get(i)[0], i);
@@ -165,11 +137,11 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 	function sortByShit(Obj1:String, Obj2:String):Int
 		return FlxSort.byValues(FlxSort.ASCENDING, Timings.judgementsMap.get(Obj1)[0], Timings.judgementsMap.get(Obj2)[0]);
 
-	var left = (Init.trueSettings.get('Counter') == 'Left');
+	var left = (Init.trueSettings.get('Contador') == 'Izquierda');
 
 	override public function update(elapsed:Float)
 	{
-		// pain, this is like the 7th attempt
+		// YA VAN COMO 7 INTENTOS POR FAVOR FUNCIONA
 		healthBar.percent = (PlayState.health * 50);
 
 		var iconLerp = 0.5;
@@ -202,20 +174,20 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 		var importSongScore = PlayState.songScore;
 		var importPlayStateCombo = PlayState.combo;
 		var importMisses = PlayState.misses;
-		scoreBar.text = 'Score: $importSongScore';
+		scoreBar.text = 'Puntos: $importSongScore';
 		// testing purposes
-		var displayAccuracy:Bool = Init.trueSettings.get('Display Accuracy');
+		var displayAccuracy:Bool = Init.trueSettings.get('Mostrar Precision');
 		if (displayAccuracy)
 		{
-			scoreBar.text += divider + 'Accuracy: ' + Std.string(Math.floor(Timings.getAccuracy() * 100) / 100) + '%' + Timings.comboDisplay;
-			scoreBar.text += divider + 'Combo Breaks: ' + Std.string(PlayState.misses);
-			scoreBar.text += divider + 'Rank: ' + Std.string(Timings.returnScoreRating().toUpperCase());
+			scoreBar.text += divider + 'Precision: ' + Std.string(Math.floor(Timings.getAccuracy() * 100) / 100) + '%' + Timings.comboDisplay;
+			scoreBar.text += divider + 'Fallos: ' + Std.string(PlayState.misses);
+			scoreBar.text += divider + 'Rango: ' + Std.string(Timings.returnScoreRating().toUpperCase());
 		}
 
 		scoreBar.x = ((FlxG.width / 2) - (scoreBar.width / 2));
 
 		// update counter
-		if (Init.trueSettings.get('Counter') != 'None')
+		if (Init.trueSettings.get('Contador') != 'No')
 		{
 			for (i in timingsMap.keys()) {
 				timingsMap[i].text = '${(i.charAt(0).toUpperCase() + i.substring(1, i.length))}: ${Timings.gottenJudgements.get(i)}';
@@ -224,13 +196,13 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 		}
 
 		// update playstate
-		PlayState.detailsSub = 'Score: $importSongScore';
+		PlayState.detailsSub = 'Puntaje: $importSongScore';
 		PlayState.updateRPC(false);
 	}
 
 	public function beatHit()
 	{
-		if (!Init.trueSettings.get('Reduced Movements'))
+		if (!Init.trueSettings.get('Movimiento Reducido'))
 		{
 			iconP1.setGraphicSize(Std.int(iconP1.width + 45));
 			iconP2.setGraphicSize(Std.int(iconP2.width + 45));

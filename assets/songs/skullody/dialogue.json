@@ -1,0 +1,67 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+        {
+			"portrait": "calaca",
+			"expression": "normal",
+			"text": "que onda con la monda"
+		},
+		{
+			"portrait": "cesar",
+			"expression": "normal",
+			"text": "voy a ocupar que le digas como cantar\nal menso este"
+		},
+		{
+			"portrait": "bf",
+			"expression": "smug",
+			"text": "Probablemente canto mejor que tu."
+		},
+		{
+			"portrait": "cesar",
+			"expression": "normal",
+			"text": "a ver quien fue el que entro al tutorial"
+		},
+		{
+		
+			"portrait": "bf",
+			"expression": "mad",
+			"text": " "
+		},
+		{
+		
+			"portrait": "calaca",
+			"expression": "normal",
+			"text": "es como friday night funkin"
+		},
+		{
+		
+			"portrait": "bf",
+			"expression": "normal",
+			"text": "Que es Friday Night Funkin'?"
+		},
+		{
+		
+			"portrait": "cesar",
+			"expression": "normal",
+			"text": "shhh no le digas"
+		},
+		{
+		
+			"portrait": "calaca",
+			"expression": "normal",
+			"text": "tu nomas dale a las notas o si no te\nmueres"
+		},
+		{
+		
+			"portrait": "calaca",
+			"expression": "normal",
+			"text": "literal"
+		},
+		{
+			"portrait": "cesar",
+			"expression": "normal",
+			"text": "el primero en morir es un huevo podrido"
+		}
+	]
+}

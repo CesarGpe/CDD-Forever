@@ -1,0 +1,21 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "normal",
+			"text": "ay que la cancion como le haces",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "batalla de rap :)",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "ok :)",
+			"portrait": "bule"
+		}
+	]
+}

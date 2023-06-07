@@ -1,0 +1,174 @@
+{
+	"dialogue": [
+		{
+			"expression": "angry",
+			"text": "Ahora si valiste verga.",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "shocked",
+			"text": "AY, CABRON!",
+			"portrait": "bf"
+		},
+		{
+			"expression": "angry",
+			"text": "Prepara el culo, rata del desague.",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "razor",
+			"text": "Porque esto no va a estar bonito.",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "pog",
+			"text": "en seeeerio?",
+			"portrait": "brown"
+		},
+		{
+			"expression": "talk",
+			"text": "callate o si no te como vivo",
+			"portrait": "calaca"
+		},
+		{
+			"expression": "smug",
+			"text": "Re facil ni batalle",
+			"portrait": "bf"
+		},
+		{
+			"expression": "no",
+			"text": "RE FACIL TU VIEJA",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "dead",
+			"text": "tur daun for guat",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "scared",
+			"text": "tsuyar calmate no es para tanto",
+			"portrait": "brown"
+		},
+		{
+			"expression": "no",
+			"text": "NO!",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "mad",
+			"text": "ESTA ESTE PENDEJO ORTO ESTIRADO\\nNALGAS MEADAS VOZ DE ALVIN\\nY LAS ARDILLAS...",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "no",
+			"text": "...QUE NO SE CALLA EL PUTO HOCICO!",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "revive",
+			"text": "revive",
+			"portrait": "cesar-anims"
+		},
+		{
+			"expression": "shocked",
+			"text": "Que?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "excited",
+			"text": "so",
+			"portrait": "calaca"
+		},
+		{
+			"expression": "revive",
+			"text": "revive",
+			"portrait": "cesar-anims"
+		},
+		{
+			"expression": "mad",
+			"text": "Menso, tienes que usar asteriscos, idiota.",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "ghost-down",
+			"text": "a",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "revive",
+			"text": "(revive)",
+			"portrait": "cesar-anims"
+		},
+		{
+			"expression": "unamused",
+			"text": "when el csar",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "ghost-talk",
+			"text": "tsuyar di girasol",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "talk",
+			"text": " ",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "wtf",
+			"text": "Para que o que?",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "ghost-scared",
+			"text": "SOLO DILO",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "wtf",
+			"text": " ",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "unamused",
+			"text": "Girasol...",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "ghost-down",
+			"text": " ",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "troll",
+			"text": "gira gira tu calzon",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "troll",
+			"text": "tur daun for guat",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "ghost-down",
+			"text": " ",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "unrevive",
+			"text": "se muere",
+			"portrait": "cesar-anims"
+		},
+		{
+			"expression": "unamused",
+			"text": "................",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "no",
+			"text": "Ya basta.",
+			"portrait": "tsuyar"
+		}
+	]
+}

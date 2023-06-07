@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="calaca.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="calaca0000" x="0" y="0" width="837" height="817"/>
+	<SubTexture name="calaca0001" x="0" y="818" width="837" height="817"/>
+	<SubTexture name="calastop0000" x="0" y="818" width="837" height="817"/>
+	<SubTexture name="calcafeliz0000" x="0" y="1636" width="840" height="817"/>
+	<SubTexture name="calcafeliz0001" x="0" y="2454" width="840" height="817"/>
+	<SubTexture name="calcafeliz0002" x="0" y="3272" width="840" height="817"/>
+	<SubTexture name="calcafeliz0003" x="0" y="2454" width="840" height="817"/>
+</TextureAtlas>

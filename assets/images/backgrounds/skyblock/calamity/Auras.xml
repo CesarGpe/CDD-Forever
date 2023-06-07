@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Auras.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="blueAura0000" x="0" y="0" width="1929" height="1093"/>
+	<SubTexture name="purpleAura0000" x="0" y="1098" width="1929" height="1093"/>
+</TextureAtlas>

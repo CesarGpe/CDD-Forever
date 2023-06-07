@@ -49,7 +49,7 @@ class InfoHud extends TextField
 		width = Main.gameWidth;
 		height = Main.gameHeight;
 
-		text = "FPS: \nState: \nMemory:";
+		text = "FPS: \nState: \nMemoria:";
 
 		cacheCount = 0;
 		currentTime = 0;
@@ -91,7 +91,7 @@ class InfoHud extends TextField
 		if (displayMemory)
 		{
 			memoryUsage = Math.round(System.totalMemory / (1e+6)); // division to convey the memory usage in megabytes
-			text += "Memory: " + memoryUsage + " mb";
+			text += "Memoria: " + memoryUsage + " mb";
 			// mb stands for my bad
 		}
 	}

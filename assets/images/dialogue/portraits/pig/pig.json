@@ -1,0 +1,13 @@
+{
+	"name": "pig",
+	"expressions": {
+		"normal": "cerdo_talk",
+		"showoff": "cerdo_showoff",
+		"hyper": "cerdo_hyper"
+    },
+    "position": [-100, -50],
+	"scale": 0.4,
+	
+	"sounds": ["voice"],
+	"soundChance": 100
+}

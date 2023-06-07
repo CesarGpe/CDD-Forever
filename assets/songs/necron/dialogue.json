@@ -1,0 +1,81 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "lookdown",
+			"text": "hijole que paso pues no que muy muy",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "A ver, te me vas bajando de alto que\ntu ni cantar sabes.",
+			"portrait": "pig"
+		},
+		{
+			"expression": "normal",
+			"text": "si cierto",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Oye, esa estuvo muy buena!",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "buenas mis nalgasssss turdown for wat",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "No te decia a ti...",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "Ajaj que pendejo",
+			"portrait": "pig"
+		},
+		{
+			"expression": "normal",
+			"text": "la neta si",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Te la aplicaron wey",
+			"portrait": "pig"
+		},
+		{
+			"expression": "normal",
+			"text": "te has de sentir muy estupido ahora\nmismo",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Ya vamos con la siguiente?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "ok pero esta bien larga",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Que esta bien larga Cesar?",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "sacarracate de aqui aun no sales tu\ntsuyar",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Puta madre si cierto",
+			"portrait": "tsuyar"
+		}
+	]
+}

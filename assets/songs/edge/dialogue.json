@@ -1,0 +1,196 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "normal",
+			"text": "Ya me toca?",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "simon",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "Ok",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "Como andas maldita perra lisiada?",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "Bien, y tu?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "...",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "Friday Night Funkin' murio en la Semana 5",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "dead",
+			"text": "la neta",
+			"portrait": "cesar-dead"
+		},
+		{
+			"expression": "angry",
+			"text": "shuta hombre",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "POV: es humor",
+			"portrait": "bf"
+		},
+		{
+			"expression": "unamused",
+			"text": "Puta madre, tengo que introducirme?",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "si",
+			"portrait": "bule"
+		},
+		{
+			"expression": "unamused",
+			"text": "Ok",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "Mi nombre es TsuyAr. Soy amigo de\nestos webones",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "Vas a retarme a mi tambien?",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "Que listo eres, TsuyAr. Obviamente si.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "Ahora, menos platica, mas canto.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "unamused",
+			"text": "Ok, esta bien.",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "Aunque, espera un segundo...",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "Oigan y si nomas lo baneamos a la\nchingada?",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "entretenlo un rato hombre",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "Tas pendejo, verdad?",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "No me agrada en lo absoluto y no\nestamos lo suficientemente organizados\npara otra batalla de 'rap'",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "siempre estamos organizados",
+			"portrait": "bule"
+		},
+		{
+			"expression": "unamused",
+			"text": "Tu sabes bien que eso es mentira",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "scared",
+			"text": "bueno pues",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "tsuyar nomas juega con el un ratito\nganes o pierdas lo sacas despues y ya",
+			"portrait": "calaca"
+		},
+		{
+			"expression": "angry",
+			"text": "si ",
+			"portrait": "brown"
+		},
+		{
+			"expression": "angry",
+			"text": "osea",
+			"portrait": "brown"
+		},
+		{
+			"expression": "angry",
+			"text": "no hagas",
+			"portrait": "brown"
+		},
+		{
+			"expression": "angry",
+			"text": "tanto show",
+			"portrait": "brown"
+		},
+		{
+			"expression": "ghost-talk",
+			"text": "yo digo que",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "angry",
+			"text": "cesar",
+			"portrait": "brown"
+		},
+		{
+			"expression": "dead",
+			"text": "ok ya se me sigue olvidando",
+			"portrait": "cesar-dead"
+		},
+		{
+			"expression": "unamused",
+			"text": "Puta madre",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "unamused",
+			"text": "Esta bien",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "Ya empezamos?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "unamused",
+			"text": "Pues nunca viene mal cantar. Veamos\nde que estas hecho.",
+			"portrait": "tsuyar"
+		}
+	]
+}

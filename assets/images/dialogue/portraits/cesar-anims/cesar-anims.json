@@ -1,0 +1,12 @@
+{
+	"name": "cesar-anims",
+	"expressions": {
+		"revive": "cesar_revive",
+		"unrevive": "cesar_unRevive"
+    },
+    "position": [-450, -150],
+	"scale": 0.5,
+	
+	"sounds": ["ces-1", "ces-2", "ces-3", "ces-4", "ces-5"],
+	"soundChance": 90
+}

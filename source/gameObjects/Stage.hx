@@ -16,6 +16,7 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
 import gameObjects.background.*;
 import meta.CoolUtil;
 import meta.data.Conductor;
@@ -34,12 +35,16 @@ class Stage extends FlxTypedGroup<FlxBasic>
 	// uni sprites
 	var bg:FNFSprite;
 	var floor:FNFSprite;
+	var message:FNFSprite;
 
 	// discord stage
 	var leftSide:FNFSprite;
 	var rightSide:FNFSprite;
 	var groovy:FNFSprite;
 	var txt:FlxText;
+	// evil discord
+	var corner1:FNFSprite;
+	var corner2:FNFSprite;
 
 	// skyblock stage
 	var sky:FNFSprite;
@@ -47,8 +52,20 @@ class Stage extends FlxTypedGroup<FlxBasic>
 	var outpost:FNFSprite;
 	var cabin:FNFSprite;
 	var cesar:FNFSprite;
+	// calamity
+	var isCalamity:Bool = false;
+	var dogSummoned:Bool = false;
+	var dogTwn:FlxTween;
+	var calbg:FNFSprite;
+	var plat1:FNFSprite;
+	var plat2:FNFSprite;
+	var credit:FNFSprite;
+	var dog:FNFSprite;
+	var aura:FNFSprite;
+	var black:FNFSprite;
 
 	// cave stage
+	var fx:FNFSprite;
 	var stone1:FNFSprite;
 	var stone2:FNFSprite;
 	var bg1:FNFSprite;
@@ -70,10 +87,13 @@ class Stage extends FlxTypedGroup<FlxBasic>
 	// end of stage sprites
 
 	public var curStage:String;
+	private var curSong:String = CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase());
 
 	var daPixelZoom = PlayState.daPixelZoom;
 
 	public var foreground:FlxTypedGroup<FlxBasic>;
+	public var aboveHUD:FlxTypedGroup<FlxBasic>;
+	public var aboveNote:FlxTypedGroup<FlxBasic>;
 
 	public function new(curStage)
 	{
@@ -85,13 +105,13 @@ class Stage extends FlxTypedGroup<FlxBasic>
 		{
 			// this is because I want to avoid editing the fnf chart type
 			// custom stage stuffs will come with forever charts
-			switch (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()))
+			switch (curSong)
 			{
 				case 'gaming':
 					curStage = 'skyblock';
 				case 'chase' | 'pandemonium':
 					curStage = 'cave';
-				case 'temper':
+				case 'temper' | 'temper-x':
 					curStage = 'discordEvil';
 				case 'take-five':
 					curStage = 'secret';
@@ -104,22 +124,27 @@ class Stage extends FlxTypedGroup<FlxBasic>
 			PlayState.curStage = curStage;
 		}
 
-		// to apply to foreground use foreground.add(); instead of add();
-		foreground = new FlxTypedGroup<FlxBasic>();
+		// grupos padrisimos para hacer mas facil el trabajo
+		foreground = new FlxTypedGroup<FlxBasic>(); // foreground.add();
+		aboveHUD = new FlxTypedGroup<FlxBasic>(); // aboveHUD.add();
+		aboveNote = new FlxTypedGroup<FlxBasic>(); // aboveNote();
 
 		//
 		switch (curStage)
 		{
-			case 'skyblock':
+			case 'skyblock': // serian 2 stages en una
 				PlayState.defaultCamZoom = 0.7;
+				FlxG.sound.cache(Paths.sound('spawnBoss'));
 
+				// * ESTA ES LA STAGE DE SKYBLOCK
+				
 				bg = new FNFSprite(-600, -400);
 				sky = new FNFSprite(-600, -200);
 				tree = new FNFSprite(1100, -300);
 				outpost = new FNFSprite(500, 300);
 				floor = new FNFSprite(-1250, 100);
 				cabin = new FNFSprite(-1000, -525);
-				cesar = new FNFSprite(-900, 500);
+				cesar = new FNFSprite(-920, 550);
 				
 				bg.makeGraphic(2548, 2048, FlxColor.fromRGB(133, 175, 254));
 				sky.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/Sky');
@@ -150,7 +175,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 
 				sky.scrollFactor.set(0.2, 0.2);
 
-				bg.antialiasing = true;
 				sky.antialiasing = true;
 				tree.antialiasing = true;
 				outpost.antialiasing = true;
@@ -166,9 +190,76 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				add(cabin);
 				add(cesar);
 
+				// * ESTA ES LA STAGE DE CALAMITY
+
+				black = new FNFSprite();
+				aura = new FNFSprite();
+				message = new FNFSprite(10, 510);
+				calbg = new FNFSprite(-2800, -1900);
+				plat1 = new FNFSprite(-4200, 635);
+				plat2 = new FNFSprite(-4200, 1715);
+				credit = new FNFSprite(330, 430);
+				dog = new FNFSprite(-4000, -2700);
+
+				black.makeGraphic(2548, 2048, FlxColor.BLACK);
+				message.loadGraphic(Paths.image('backgrounds/' + curStage + '/calamity/dogSummon'));
+				aura.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/calamity/Auras');
+				calbg.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/calamity/CCBG');
+				plat1.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/calamity/platform');
+				plat2.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/calamity/platform');
+				credit.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/calamity/creditTeam');
+				dog.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/calamity/DOG_Assets');
+
+				aura.animation.addByPrefix('purple', 'purpleAura', 24, false);
+				aura.animation.addByPrefix('blue', 'blueAura', 24, false);
+				calbg.animation.addByPrefix('purple', 'purpleBg', 24, false);
+				calbg.animation.addByPrefix('blue', 'blueBg', 24, false);
+				credit.animation.addByPrefix('bop', 'creditTeam', 24, false);
+				dog.animation.addByIndices('wiggle1', 'DOG_Idle', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				dog.animation.addByIndices('wiggle2', 'DOG_Idle', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 1], "", 24, false);
+
+				aura.setGraphicSize(Std.int(aura.width * 0.69), Std.int(aura.height * 0.69));
+				calbg.setGraphicSize(Std.int(calbg.width * 4), Std.int(calbg.height * 4));
+				plat1.setGraphicSize(Std.int(plat1.width * 1.5), Std.int(plat1.height * 1));
+				plat2.setGraphicSize(Std.int(plat2.width * 1.5), Std.int(plat2.height * 1));
+				credit.setGraphicSize(Std.int(credit.width * 0.8), Std.int(credit.height * 0.8));
+				dog.setGraphicSize(Std.int(dog.width * 1.5), Std.int(dog.height * 1.5));
+				message.scale.set(0.35, 0.35);
+
+				aura.updateHitbox();
+				message.updateHitbox();
+				calbg.updateHitbox();
+				plat1.updateHitbox();
+				plat2.updateHitbox();
+				credit.updateHitbox();
+				dog.updateHitbox();
+
+				aura.antialiasing = true;
+				message.antialiasing = true;
+				calbg.antialiasing = true;
+				plat1.antialiasing = true;
+				plat2.antialiasing = true;
+				credit.antialiasing = true;
+				dog.antialiasing = true;
+
+				aura.scrollFactor.set(0, 0);
+				credit.scrollFactor.set(0, 0);
+				message.scrollFactor.set(0, 0);
+				calbg.scrollFactor.set(0.3, 0.3);
+
+				black.visible = false;
+				aboveHUD.add(black);
+				
+				aboveNote.add(aura);
+				aboveNote.add(credit);
+				aboveNote.add(message);
+
+				textDisplay(false);
+			
 			case 'cave':
 				PlayState.defaultCamZoom = 0.5;
 
+				fx = new FNFSprite();
 				stone1 = new FNFSprite(-990, -371);
 				stone2 = new FNFSprite(1550, -371);
 				bg1 = new FNFSprite(-710, -885);
@@ -181,6 +272,8 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				wood2 = new FNFSprite(2037, 655);
 				wood3 = new FNFSprite(-2037, 655);
 
+				fx.loadGraphic(Paths.image('backgrounds/' + curStage + '/black_vignette'));
+				fx.setGraphicSize(Std.int(fx.width * 0.7), Std.int(fx.height * 0.7));
 				stone1.loadGraphic(Paths.image('backgrounds/' + curStage + '/StoneBg'));
 				stone2.loadGraphic(Paths.image('backgrounds/' + curStage + '/StoneBg'));
 				bg1.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/cave1');
@@ -203,7 +296,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				wood2.animation.addByPrefix('idle', 'WoodPog', 24, true);
 				wood3.animation.addByPrefix('idle', 'WoodPog', 24, true);
 
-				// play all the anims
 				bg1.animation.play('idle', true);
 				bg2.animation.play('idle', true);
 				bg3.animation.play('idle', true);
@@ -219,7 +311,12 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				bg1.scrollFactor.set(0.2, 0.2);
 				bg2.scrollFactor.set(0.2, 0.2);
 				bg3.scrollFactor.set(0.2, 0.2);
+				fx.scrollFactor.set(0, 0);
 
+				fx.updateHitbox();
+				fx.screenCenter(XY);
+
+				fx.antialiasing = true;
 				stone1.antialiasing = true;
 				stone2.antialiasing = true;
 				bg1.antialiasing = true;
@@ -232,7 +329,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				wood2.antialiasing = true;
 				wood3.antialiasing = true;
 
-				// vignette in Strumline state
+				aboveNote.add(fx);
 				add(stone1);
 				add(stone2);
 				add(bg1);
@@ -241,11 +338,11 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				add(track1);
 				add(track2);
 				add(track3);
-				foreground.add(wood1);
+				foreground.add(wood1); // madera pendeja
 				add(wood2);
 				add(wood3);
 
-				// background loop stuff
+				// bucle del fondo la neta no se si esta bien optimizado pero al chile me vale caca jaja risa malvada
 				bg1Twn = FlxTween.tween(bg1, {x: -2060}, 0.6, {ease: FlxEase.linear, onComplete: function(twn:FlxTween) {loopCompleted('bg1');}});
 				bg2Twn = FlxTween.tween(bg2, {x: -2060}, 1.2, {ease: FlxEase.linear, onComplete: function(twn:FlxTween) {loopCompleted('bg2');}});
 				bg3Twn = FlxTween.tween(bg3, {x: -2060}, 1.8, {ease: FlxEase.linear, onComplete: function(twn:FlxTween) {loopCompleted('bg3');}});
@@ -260,31 +357,45 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				floor = new FNFSprite(-268, 610);
 				leftSide = new FNFSprite(-1337, -349);
 				rightSide = new FNFSprite(1381, -607);
+				corner1 = new FNFSprite(-126, 434);
+				corner2 = new FNFSprite(909, 393);
 
 				bg.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/discord_backGround');
 				floor.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/discord_Floor');
 				leftSide.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/discord_sideLeft');
 				rightSide.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/discord_sideRight');
-
+				corner1.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/corner1');
+				corner2.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/corner2');
+				
+				
 				bg.animation.addByPrefix('idle', 'discord_background', 24, true);
 				floor.animation.addByPrefix('idle', 'discord_floor', 24, true);
 				rightSide.animation.addByPrefix('idle', 'discord_sideRight', 24, true);
+				corner1.animation.addByPrefix('idle', 'corner1', 24, true);
+				corner2.animation.addByPrefix('idle', 'corner2', 24, true);
 
-				// play all the anims
 				bg.animation.play('idle', true);
 				floor.animation.play('idle', true);
 				rightSide.animation.play('idle', true);
+				corner1.animation.play('idle', true);
+				corner2.animation.play('idle', true);
 
 				bg.antialiasing = true;
 				floor.antialiasing = true;
 				leftSide.antialiasing = true;
 				rightSide.antialiasing = true;
+				corner1.antialiasing = true;
+				corner2.antialiasing = true;
 
-				// corners in ClassHUD state
+				corner1.scrollFactor.set(0, 0);
+				corner2.scrollFactor.set(0, 0);
+
 				add(bg);
 				add(floor);
 				add(leftSide);
 				add(rightSide);
+				aboveHUD.add(corner1);
+				aboveHUD.add(corner2);
 
 			case 'secret':
 				PlayState.defaultCamZoom = 1.2;
@@ -311,8 +422,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 
 				bg = new FNFSprite(-1883, -1300);
 				bg.loadGraphic(Paths.image('backgrounds/' + curStage + '/camara'));
-				//bg.setGraphicSize(Std.int(bg.width * 2), Std.int(bg.height * 2));
-				bg.antialiasing = true;
 				bg.scale.set(2, 2);
 				bg.updateHitbox();
 				add(bg);
@@ -325,13 +434,15 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				floor = new FNFSprite(-514, 512);
 				leftSide = new FNFSprite(-1611, -978);
 				rightSide = new FNFSprite(1417, -978);
+				message = new FNFSprite(15, 510);
 
 				bg.loadGraphic(Paths.image('backgrounds/' + curStage + '/discordExtenseBg'));
 				floor.loadGraphic(Paths.image('backgrounds/' + curStage + '/discordFloor'));
 				leftSide.loadGraphic(Paths.image('backgrounds/' + curStage + '/discordSideLeft'));
 				rightSide.loadGraphic(Paths.image('backgrounds/' + curStage + '/discordSideRight'));
+				message.loadGraphic(Paths.image('backgrounds/' + curStage + '/message'));
 				
-				// groovy
+				// groovy (RIP)
 				groovy = new FNFSprite(-270, 60);
 				groovy.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/groovySong');
 				groovy.animation.addByPrefix('left', 'bganimated_1', 24, false);
@@ -339,10 +450,13 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				groovy.setGraphicSize(Std.int(groovy.width * 0.8), Std.int(groovy.height * 0.8));
 				groovy.updateHitbox();
 
-				// song text
+				// texto del groovoso
 				txt = new FlxText(-175, 312, 0, 'Now playing: ' + CoolUtil.dashToSpace(PlayState.SONG.song), 56);
 				txt.setFormat(Paths.font("whitneybook.otf"), 56, FlxColor.WHITE);
 				txt.updateHitbox();
+
+				message.scale.set(0.35, 0.35);
+				message.updateHitbox();
 
 				bg.antialiasing = true;
 				floor.antialiasing = true;
@@ -350,6 +464,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				rightSide.antialiasing = true;
 				groovy.antialiasing = true;
 				txt.antialiasing = true;
+				message.antialiasing = true;
 
 				add(bg);
 				add(groovy);
@@ -357,11 +472,14 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				add(floor);
 				add(leftSide);
 				add(rightSide);
+				aboveNote.add(message);
+				textDisplay(false);
 		}
 	}
 
 	function loopCompleted(tag:String):Void
 	{
+		// esto ya sirve asi que ni le muevo
 		switch (tag)
 		{
 			case 'bg1':
@@ -430,8 +548,10 @@ class Stage extends FlxTypedGroup<FlxBasic>
 		switch (curStage)
 		{
 			case 'discord':
-				boyfriend.y -= 140;
-				dad.y -= 140;
+				boyfriend.x += 50;
+				boyfriend.y -= 160;
+				dad.x -= 50;
+				dad.y -= 160;
 				gf.y =- 140;
 				gf.scrollFactor.set(1, 1);
 			case 'discordEvil':
@@ -440,11 +560,12 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				gf.y =- 70;
 				gf.scrollFactor.set(1, 1);
 			case 'skyblock':
-				boyfriend.x += 130;
-				boyfriend.y -= 130;
-				dad.x -= 130;
-				dad.y -= 130;
-				gf.y =- 160;
+				boyfriend.x = 890;
+				boyfriend.y = 320;
+				dad.x = -100;
+				dad.y = 390;
+				gf.x = 340;
+				gf.y = -160;
 				gf.scrollFactor.set(1, 1);
 			case 'cave':
 				boyfriend.x += 550;
@@ -473,16 +594,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				gf.y = -105;
 		}
 	}
-
-	var curLight:Int = 0;
-	var trainMoving:Bool = false;
-	var trainFrameTiming:Float = 0;
-
-	var trainCars:Int = 8;
-	var trainFinishing:Bool = false;
-	var trainCooldown:Int = 0;
-	var startedMoving:Bool = false;
-
+	
 	public function stageUpdate(curBeat:Int, boyfriend:Boyfriend, gf:Character, dadOpponent:Character)
 	{
 		// trace('update backgrounds');
@@ -494,12 +606,35 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				else if (curBeat % 2 == 1)
 					groovy.animation.play('right', true);
 			case 'skyblock':
-				if (curBeat % 2 == 1)
+				if (curBeat % 4 == 0)
 				{
+					// skyblock
 					tree.animation.play('bop', true);
-					outpost.animation.play('bop', true);
 					floor.animation.play('bop', true);
 					cabin.animation.play('bop', true);
+					outpost.animation.play('bop', true);
+					// calamity
+					credit.animation.play('bop', true);
+					aura.animation.play('purple', true);
+					calbg.animation.play('purple', true);
+					
+					if (dogSummoned)
+						dog.animation.play('wiggle1', true);
+				}
+				else if (curBeat % 4 == 2)
+				{
+					// skyblock
+					tree.animation.play('bop', true);
+					floor.animation.play('bop', true);
+					cabin.animation.play('bop', true);
+					outpost.animation.play('bop', true);
+					// calamity
+					credit.animation.play('bop', true);
+					aura.animation.play('blue', true);
+					calbg.animation.play('blue', true);
+
+					if (dogSummoned)
+						dog.animation.play('wiggle2', true);
 				}
 		}
 	}
@@ -508,15 +643,74 @@ class Stage extends FlxTypedGroup<FlxBasic>
 	{
 		switch (PlayState.curStage)
 		{
-			case 'cave':
-				// amonus
+			case 'skyblock':
+				aura.visible = isCalamity;
+				credit.visible = isCalamity;
 		}
 	}
 
 	override function add(Object:FlxBasic):FlxBasic
 	{
-		if (Init.trueSettings.get('Disable Antialiasing') && Std.isOfType(Object, FlxSprite))
+		if (Init.trueSettings.get('Deshabilitar Suavizado') && Std.isOfType(Object, FlxSprite))
 			cast(Object, FlxSprite).antialiasing = false;
 		return super.add(Object);
 	}
+
+	public function calamityMode(on:Bool = false) // solo para la stage de skyblock
+	{
+		isCalamity = on;
+		switch(on) // no quiero ponerlo en un array porque capaz y el orden se caga encima
+		{
+			case true:
+				// calamity
+				add(calbg);
+				add(plat1);
+				add(plat2);
+				add(dog);
+
+				// skyblock
+				remove(bg);
+				remove(sky);
+				remove(tree);
+				remove(outpost);
+				remove(floor);
+				remove(cabin);
+				remove(cesar);
+
+			case false:
+				// calamity
+				remove(calbg);
+				remove(plat1);
+				remove(plat2);
+				remove(dog);
+
+				// skyblock
+				add(bg);
+				add(sky);
+				add(tree);
+				add(outpost);
+				add(floor);
+				add(cabin);
+				add(cesar);
+				
+		}
+	}
+
+	public function dogSpawn()
+	{
+		textDisplay(true);
+		new FlxTimer().start(5, function(tmr:FlxTimer)
+		{
+			textDisplay(false);
+		});
+		dogSummoned = true;
+		FlxG.sound.play(Paths.sound('spawnBoss'));
+		dogTwn = FlxTween.tween(dog, {x: 4000}, 10);
+	}
+
+	// si esto es toda la funcion es que no quiero ponerlo en el update
+	public function textDisplay(on:Bool = true) {message.visible = on;}
+
+	// asi es soy racista :sunglasses:
+	public function toggleBlack() {black.visible = !black.visible;}
 }

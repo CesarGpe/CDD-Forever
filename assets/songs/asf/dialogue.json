@@ -1,0 +1,196 @@
+{
+	"box": "wood-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "normal",
+			"text": "...y por eso AMLO es el mejor\npresidente que ha tenido Mexico.",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "todo bien juan pablo pero yo cuando\npregunte",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "solo estabamos hablando de la\ninmortalidad del cangrejo",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "y de repente te pusiste a darme un\nsermon de como amlo es el mejor ser\nhumano",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "De que estan hablando?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "De mi queridisimo papucho sensual\nAndres Manuel Lopez Obrador.",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "No me digas que eres uno de esos\nidiotas que no aprecia a AMLO como\nnuestro salvador?",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "Pues AMLO no ha sido tan prometedor\ncomo parecia las ultimas decadas que\nrogo ser presidente.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": " ",
+			"portrait": "juan"
+		},
+		{
+			"expression": "mad",
+			"text": "Repite eso.",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "Dije que...",
+			"portrait": "bf"
+		},
+		{
+			"expression": "mad",
+			"text": "TE ESCUCHE BIEN LA PRIMERA VEZ!",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "NADIE LLAMA A MI ANDRES MANUEL\nLOPEZ OBRADOR UN ROGADOR!",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "El Peje es bien carismatico, cosa que\nlos demas presidentes no han sido desde\nla decada de la mama de tu mama!",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "A  S  F!",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "A  S  F!",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "A  S  F!",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "Pues es que si es un rogador...",
+			"portrait": "bf"
+		},
+		{
+			"expression": "wtf",
+			"text": "La palabra ''rogador'' existe?",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "no c",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "unamused",
+			"text": "Muchas gracias",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "de nada tuyasr",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "No tienes ningun derecho a insultar\na AMLO de tal forma.",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "ya volvi de cagar",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "a ver juan pablo ganale",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Es justo lo que tenia planeado.",
+			"portrait": "juan"
+		},
+		{
+			"expression": "normal",
+			"text": "hijole que ya valiste",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Esta follada de ano la tengo que subir\na XVideos",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "delicioso",
+			"portrait": "brown"
+		},
+		{
+			"expression": "unamused",
+			"text": "ya borra tu cuenta wey",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "angry",
+			"text": "cuando eute sech y el pepe se casen",
+			"portrait": "brown"
+		},
+		{
+			"expression": "angry",
+			"text": "y hagan una sex tape",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "o sea",
+			"portrait": "calaca"
+		},
+		{
+			"expression": "normal",
+			"text": "de que",
+			"portrait": "calaca"
+		},
+		{
+			"expression": "normal",
+			"text": "nunca",
+			"portrait": "calaca"
+		},
+		{
+			"expression": "normal",
+			"text": "Cuando empieza?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "ya",
+			"portrait": "juan"
+		},
+		{
+			"portrait": "tsuyar",
+			"expression": "normal",
+			"text": "Que bueno que esto solo va a empezar\nsin preguntarnos porque el yolotroll\nsabe de la existencia de AMLO"
+		}
+	]
+}

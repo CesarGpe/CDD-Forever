@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="discord-box.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="textboxOpen_default0000" x="0" y="0" width="10" height="45" frameX="-551" frameY="-88" frameWidth="1114" frameHeight="318"/>
+	<SubTexture name="textboxOpen_default0001" x="10" y="0" width="434" height="45" frameX="-340" frameY="-88" frameWidth="1114" frameHeight="318"/>
+	<SubTexture name="textboxOpen_default0002" x="444" y="0" width="820" height="45" frameX="-147" frameY="-88" frameWidth="1114" frameHeight="318"/>
+	<SubTexture name="textboxOpen_default0003" x="0" y="45" width="1104" height="72" frameX="-5" frameY="-61" frameWidth="1114" frameHeight="318"/>
+	<SubTexture name="textboxOpen_default0004" x="0" y="117" width="1114" height="156" frameX="0" frameY="-31" frameWidth="1114" frameHeight="318"/>
+	<SubTexture name="textboxOpen_default0005" x="0" y="273" width="1114" height="270" frameX="0" frameY="-3" frameWidth="1114" frameHeight="318"/>
+	<SubTexture name="textboxOpen_default0006" x="0" y="543" width="1106" height="318" frameX="-4" frameY="0" frameWidth="1114" frameHeight="318"/>
+	<SubTexture name="textboxOpen_default0007" x="0" y="861" width="1106" height="310" frameX="-4" frameY="-8" frameWidth="1114" frameHeight="318"/>
+	<SubTexture name="textboxOpen_default0008" x="0" y="1171" width="1106" height="307" frameX="-4" frameY="-8" frameWidth="1114" frameHeight="318"/>
+	<SubTexture name="textboxStatic_default0000" x="0" y="1478" width="1107" height="307"/>
+</TextureAtlas>

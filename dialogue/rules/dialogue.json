@@ -1,0 +1,88 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "oh no estoy perdiendo",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "brown"
+		},
+		{
+			"expression": "talk",
+			"text": "Ya me puedes decir donde esta GF?",
+			"boxState": "normal",
+			"speed": 0.035,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "porai",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "brown"
+		},
+		{
+			"expression": "confused",
+			"text": "Por ahi? Eso no es de gran ayuda.",
+			"boxState": "normal",
+			"speed": 0.035,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "pues mira no es como si la haya visto caer\\no algo nomas apareciste de la nada",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "brown"
+		},
+		{
+			"expression": "pissed",
+			"text": "...",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "Eh, tiene sentido.",
+			"boxState": "normal",
+			"speed": 0.035,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "una ultima es que no estaba listo",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "brown"
+		},
+		{
+			"expression": "talk",
+			"text": "Como no estabas...?",
+			"boxState": "normal",
+			"speed": 0.035,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "Sabes que? Esta bien.",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "es que ya me tengo que ir vuelvo luego cesar despues de esta sigues tu ok",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "brown"
+		},
+		{
+			"expression": "talk",
+			"text": "ok",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cesar"
+		}
+	]
+}

@@ -62,6 +62,7 @@ class Character extends FNFSprite
 		switch (curCharacter)
 		{
 			case 'bf':
+				// el niño de fridi night fuki
 				iconColor = FlxColor.fromRGB(49, 176, 209);
 				frames = Paths.getSparrowAtlas('characters/BOYFRIEND');
 
@@ -84,6 +85,7 @@ class Character extends FNFSprite
 				characterData.offsetY = 70;
 
 			case 'bf-dead':
+				// jaja se murio que pendejo
 				frames = Paths.getSparrowAtlas('characters/BF_DEATH');
 
 				animation.addByPrefix('firstDeath', "BF dies", 24, false);
@@ -93,67 +95,47 @@ class Character extends FNFSprite
 				playAnim('firstDeath');
 
 				flipX = true;
-
-			case 'bf-pixel':
+			
+			case 'bfMinecart':
+				// el niño pero en el carrito
 				iconColor = FlxColor.fromRGB(49, 176, 209);
-				frames = Paths.getSparrowAtlas('characters/bfPixel');
-				animation.addByPrefix('idle', 'BF IDLE', 24, false);
-				animation.addByPrefix('singUP', 'BF UP NOTE', 24, false);
-				animation.addByPrefix('singLEFT', 'BF LEFT NOTE', 24, false);
-				animation.addByPrefix('singRIGHT', 'BF RIGHT NOTE', 24, false);
-				animation.addByPrefix('singDOWN', 'BF DOWN NOTE', 24, false);
-				animation.addByPrefix('singUPmiss', 'BF UP MISS', 24, false);
-				animation.addByPrefix('singLEFTmiss', 'BF LEFT MISS', 24, false);
-				animation.addByPrefix('singRIGHTmiss', 'BF RIGHT MISS', 24, false);
-				animation.addByPrefix('singDOWNmiss', 'BF DOWN MISS', 24, false);
+				frames = Paths.getSparrowAtlas('characters/bfMinecart');
 
-				setGraphicSize(Std.int(width * 6));
-				updateHitbox();
-
+				animation.addByPrefix('idle', 'BF idle dance', 24, false);
+				animation.addByPrefix('singUP', 'BFM_Up', 24, false);
+				animation.addByPrefix('singLEFT', 'BFM_Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'BFM_Right', 24, false);
+				animation.addByPrefix('singDOWN', 'BFM_Down', 24, false);
+				animation.addByPrefix('singUPmiss', 'BFM_Pendejo', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'BFM_Estupido', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'BFM_Burro', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'BFM_Cabezon', 24, false);
 				playAnim('idle');
 
-				width -= 100;
-				height -= 100;
-
-				antialiasing = false;
-
-				flipX = true;
-			case 'bf-pixel-dead':
-				frames = Paths.getSparrowAtlas('characters/bfPixelsDEAD');
-				animation.addByPrefix('singUP', "BF Dies pixel", 24, false);
-				animation.addByPrefix('firstDeath', "BF Dies pixel", 24, false);
-				animation.addByPrefix('deathLoop', "Retry Loop", 24, true);
-				animation.addByPrefix('deathConfirm', "RETRY CONFIRM", 24, false);
-				animation.play('firstDeath');
-
-				// pixel bullshit
-				setGraphicSize(Std.int(width * 6));
-				updateHitbox();
-				antialiasing = false;
 				flipX = true;
 
-				characterData.offsetY = 180;
+				characterData.offsetY = 70;
 
-			/*
-			=========================================
-				PERSONAJES DE CAMARA DE DIPUTADOS
-			=========================================
-			*/
+			case 'bfMinecart-dead':
+				// ay no que menso se volvio a morir
+				frames = Paths.getSparrowAtlas('characters/bfMinecart');
+
+				animation.addByPrefix('firstDeath', "BF dies", 24, false);
+				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
+
+				playAnim('firstDeath');
+
+				flipX = true;
+
+				characterData.offsetY = 70;
+
 			case 'mari':
 				// añade a la mari :o
 				iconColor = FlxColor.fromRGB(102, 204, 153);
 				frames = Paths.getSparrowAtlas('characters/mari');
-				animation.addByPrefix('cheer', 'Mari_Cheer', 24, false);
-				animation.addByPrefix('singLEFT', 'Mari_Left', 24, false);
-				animation.addByPrefix('singRIGHT', 'Mari_Right', 24, false);
-				animation.addByPrefix('singUP', 'Mari_Up', 24, false);
-				animation.addByPrefix('singDOWN', 'Mari_Down', 24, false);
-				animation.addByIndices('sad', 'Mari_Sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
 				animation.addByIndices('danceLeft', 'Mari_Idle', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 				animation.addByIndices('danceRight', 'Mari_Idle', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-				animation.addByIndices('hairBlow', "Mari_HairBlowLeft", [0, 1, 2, 3], "", 24);
-				animation.addByIndices('hairFall', "Mari_HairLand", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
-				animation.addByPrefix('scared', 'Mari_Scared', 24);
 
 				playAnim('danceRight');
 				
@@ -165,6 +147,18 @@ class Character extends FNFSprite
 				animation.addByIndices('danceRight', 'Mari_HairBlowLeft', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 
 				playAnim('danceRight');
+
+			case 'mariGhost':
+				// jaja se murio que pendeja
+				iconColor = FlxColor.fromRGB(118, 71, 224);
+				frames = Paths.getSparrowAtlas('characters/mariGhost');
+				animation.addByPrefix('idle', 'MariGhost_Idle instance', 24, false);
+				animation.addByPrefix('singUP', 'MariGhost_Up instance', 24);
+				animation.addByPrefix('singRIGHT', 'MariGhost_Right instance', 24);
+				animation.addByPrefix('singDOWN', 'MariGhost_Down instance', 24);
+				animation.addByPrefix('singLEFT', 'MariGhost_Left instance', 24);
+
+				playAnim('idle');
 				
 			case 'reimu':
 				// LA REIMU HAKUREI DEL PROYECTO TOUHOU
@@ -194,7 +188,7 @@ class Character extends FNFSprite
 				animation.addByPrefix('singRIGHT', 'Isaac_Right', 24);
 				animation.addByPrefix('singDOWN', 'Isaac_Down', 24);
 				animation.addByPrefix('singLEFT', 'Isaac_Left', 24);
-				animation.addByPrefix('trabar', 'Isaac_Lag', 24, true);
+				animation.addByPrefix('trabar', 'Isaac_Lag', 24, false);
 				characterData.quickDancer = true;
 
 				playAnim('danceRight');
@@ -272,26 +266,6 @@ class Character extends FNFSprite
 				animation.addByPrefix('singLEFT', 'bs32_use_left', 24);
 
 				playAnim('idle');
-
-			case 'bfMinecart':
-				// el niño pero en el carrito
-				iconColor = FlxColor.fromRGB(49, 176, 209);
-				frames = Paths.getSparrowAtlas('characters/bfMinecart');
-
-				animation.addByPrefix('idle', 'BF idle dance', 24, false);
-				animation.addByPrefix('singUP', 'BFM_Up', 24, false);
-				animation.addByPrefix('singLEFT', 'BFM_Left', 24, false);
-				animation.addByPrefix('singRIGHT', 'BFM_Right', 24, false);
-				animation.addByPrefix('singDOWN', 'BFM_Down', 24, false);
-				animation.addByPrefix('singUPmiss', 'BFM_Pendejo', 24, false);
-				animation.addByPrefix('singLEFTmiss', 'BFM_Estupido', 24, false);
-				animation.addByPrefix('singRIGHTmiss', 'BFM_Burro', 24, false);
-				animation.addByPrefix('singDOWNmiss', 'BFM_Cabezon', 24, false);
-				playAnim('idle');
-
-				flipX = true;
-
-				characterData.offsetY = 70;
 
 			case 'TsuyAr-1':
 				// tysauayer

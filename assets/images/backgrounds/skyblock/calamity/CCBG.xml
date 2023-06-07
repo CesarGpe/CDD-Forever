@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="CCBG.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="blueBg0000" x="0" y="0" width="1937" height="1109"/>
+	<SubTexture name="purpleBg0000" x="0" y="1114" width="1937" height="1109"/>
+</TextureAtlas>

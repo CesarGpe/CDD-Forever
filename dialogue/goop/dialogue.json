@@ -1,0 +1,317 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "hola ya volvi de cagar",
+			"boxState": "normal",
+			"speed": 0.04,
+			"portrait": "bule"
+		},
+		{
+			"expression": "talk",
+			"text": "",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0
+		},
+		{
+			"expression": "scared",
+			"text": "que paso?",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "scared",
+			"text": "que le paso al cesar y porque al cerdo le esta dando un ataque de epilepsia?",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "scared",
+			"text": "donde esta el dialogo que subi a github?",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "bule"
+		},
+		{
+			"expression": "talk",
+			"text": "Que pedo?",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "lo veo y no lo creo",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "talk",
+			"text": "es nada mas y nada menos que el mismisimo novio de viernes noche funkeando",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "talk",
+			"text": "mi juego favorito",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "talk",
+			"text": "q no tu juego favorito era minecraft",
+			"boxState": "normal",
+			"portrait": "brown",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "en el canon de la vida real si",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "isaac",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "chicos"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "isaac",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "no me lo van a creer"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "isaac",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "ya regreso el internet"
+		},
+		{
+			"sound": "",
+			"speed": 0.03,
+			"portrait": "tsuyar",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "when iscagas"
+		},
+		{
+			"expression": "talk",
+			"text": "Ese soy yo.\\nTu eres...?",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "me llamo blueslime32",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "talk",
+			"text": "aka blueslime",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "talk",
+			"text": "aka bule",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.045
+		},
+		{
+			"expression": "talk",
+			"text": "aka eslamio",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.055
+		},
+		{
+			"expression": "talk",
+			"text": "aka llorlly",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.06
+		},
+		{
+			"expression": "talk",
+			"text": "aka el ller ller",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.06,
+			"portrait": "bule"
+		},
+		{
+			"expression": "talk",
+			"text": "aka todos los nombres que me han puesto y no puedo recordar",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "...",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.07
+		},
+		{
+			"expression": "talk",
+			"text": "Solo te dire Blueslime.",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.04
+		},
+		{
+			"expression": "talk",
+			"text": "que bueno ese me gusta",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "el llorlly",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "isaac"
+		},
+		{
+			"expression": "ghostTalk",
+			"text": "el llorlly",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "Cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "Cesar tu deberias estar tieso",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.035,
+			"portrait": "TsuyAr"
+		},
+		{
+			"expression": "dead",
+			"text": "ups sicierto",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.015,
+			"portrait": "Cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "Bueno, Blueslime...",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "...Todos aqui han probado ser oponentes con potencial.",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "ghostTalk",
+			"text": "(menos yo porque no se cantar)",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "ghostLookdown",
+			"text": "(espera yo estoy muerto)",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "Puedes cantar?",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "pues mira la verdad no diria cantar mas bien hacer sonidos melodicos pero creo que funciona",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "excited",
+			"text": "De acuerdo, cantemos!",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "ok",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "talk",
+			"text": "el llorlly",
+			"boxState": "normal",
+			"portrait": "isaac",
+			"speed": 0.035
+		},
+		{
+			"expression": "talk",
+			"text": "el llorlly",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.035,
+			"portrait": "TsuyAr"
+		},
+		{
+			"expression": "talk",
+			"text": "el llorlly",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.035,
+			"portrait": "brown"
+		},
+		{
+			"expression": "ghostTalk",
+			"text": "el llorlly",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.035
+		},
+		{
+			"expression": "unRevive",
+			"text": "ptm",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.035
+		}
+	]
+}

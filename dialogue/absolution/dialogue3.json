@@ -1,0 +1,268 @@
+{
+	"dialogue": [
+		{
+			"expression": "no",
+			"text": "A VER HIJO DE TU PUTA MADRE.",
+			"boxState": "angry",
+			"sound": "voice_tsuyar",
+			"speed": 0.03,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "mad",
+			"text": "YA ME TRAES HASTA ACA, PINCHE CULO\\nCAGADO CABELLO DE RAFA POLINESIO.",
+			"boxState": "angry",
+			"sound": "voice_tsuyar",
+			"speed": 0.03,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "pog",
+			"text": "en seeeerio?",
+			"boxState": "normal",
+			"portrait": "brown",
+			"speed": 0.065,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "diego",
+			"boxState": "normal",
+			"portrait": "Isaac",
+			"speed": 0.04,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "callate o si no te como vivo",
+			"boxState": "normal",
+			"portrait": "Isaac",
+			"speed": 0.04,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "Re facil ni batalle",
+			"boxState": "normal",
+			"sound": "dialogue",
+			"speed": 0.03,
+			"portrait": "bf"
+		},
+		{
+			"expression": "no",
+			"text": "RE FACIL TU VIEJA",
+			"boxState": "angry",
+			"portrait": "TsuyAr",
+			"speed": 0.025,
+			"sound": ""
+		},
+		{
+			"expression": "dead",
+			"text": "tur daun for guat",
+			"boxState": "normal",
+			"portrait": "Cesar",
+			"speed": 0.03,
+			"sound": ""
+		},
+		{
+			"expression": "scared",
+			"text": "tsuyar calmate no es para tanto",
+			"boxState": "normal",
+			"sound": "voice_brown",
+			"speed": 0.04,
+			"portrait": "brown"
+		},
+		{
+			"expression": "no",
+			"text": "NO!",
+			"boxState": "angry",
+			"sound": "voice_tsuyar",
+			"portrait": "tsuyar",
+			"speed": 0.035
+		},
+		{
+			"expression": "mad",
+			"text": "ESTA ESTE PENDEJO ORTO ESTIRADO\\nNALGAS MEADAS VOZ DE ALVIN\\nY LAS ARDILLAS...",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"portrait": "tsuyar",
+			"speed": 0.025
+		},
+		{
+			"expression": "no",
+			"text": "...QUE NO SE CALLA EL PUTO HOCICO!",
+			"boxState": "angry",
+			"sound": "voice_tsuyar",
+			"portrait": "tsuyar",
+			"speed": 0.035
+		},
+		{
+			"expression": "revive",
+			"text": "revive",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "shocked",
+			"text": "Que?",
+			"boxState": "normal",
+			"sound": "dialogue",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "excited",
+			"text": "so",
+			"boxState": "normal",
+			"sound": "voice_isaac",
+			"portrait": "isaac",
+			"speed": 0.015
+		},
+		{
+			"expression": "revive",
+			"text": "revive",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "mad",
+			"text": "Menso, tienes que usar asteriscos, idiota.",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"portrait": "tsuyar",
+			"speed": 0.05
+		},
+		{
+			"expression": "ghostLookdown",
+			"text": "a",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "revive",
+			"text": "(revive)",
+			"boxState": "angry",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "unamused",
+			"text": "when el csar",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"portrait": "tsuyar",
+			"speed": 0.02
+		},
+		{
+			"expression": "ghostTalk",
+			"text": "tsuyar di girasol",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "   ",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"portrait": "tsuyar",
+			"speed": 0.05
+		},
+		{
+			"expression": "wtf",
+			"text": "Para que o que?",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"portrait": "tsuyar",
+			"speed": 0.05
+		},
+		{
+			"expression": "ghostScared",
+			"text": "SOLO DILO",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.11
+		},
+		{
+			"expression": "wtf",
+			"text": "",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"portrait": "tsuyar",
+			"speed": 0.05
+		},
+		{
+			"expression": "unamused",
+			"text": "Girasol...",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"portrait": "tsuyar",
+			"speed": 0.1
+		},
+		{
+			"expression": "ghostLookdown",
+			"text": "",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "troll",
+			"text": "gira gira tu calzon",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "troll",
+			"text": "tur daun for guat",
+			"boxState": "normal",
+			"portrait": "Cesar",
+			"speed": 0.035,
+			"sound": ""
+		},
+		{
+			"expression": "ghostLookdown",
+			"text": "",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "unRevive",
+			"text": "se muere",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "unamused",
+			"text": "................",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"portrait": "tsuyar",
+			"speed": 0.05
+		},
+		{
+			"expression": "no",
+			"text": "Ya basta.",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"portrait": "tsuyar",
+			"speed": 0.025
+		}
+	]
+}

@@ -59,7 +59,7 @@ class StoryMenuState extends MusicBeatState
 		transOut = FlxTransitionableState.defaultTransOut;
 
 		#if !html5
-		Discord.changePresence('STORY MENU', 'Main Menu');
+		Discord.changePresence('En los Menús:', 'Menú del Modo Historia');
 		#end
 
 		// freeaaaky

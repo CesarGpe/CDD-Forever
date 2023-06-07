@@ -71,7 +71,7 @@ class Main extends Sprite
 	public static var mainClassState:Class<FlxState> = Init; // Determine the main class state of the game
 	public static var framerate:Int = 120; // How many frames per second the game should run at.
 
-	public static var gameVersion:String = '0.3';
+	public static var gameVersion:String = 'Legacy';
 
 	var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
@@ -87,7 +87,12 @@ class Main extends Sprite
 		[ [songs to use], [characters in songs], [color of week], name of week ]
 	**/
 	public static var gameWeeks:Array<Dynamic> = [
-		[['Skullody'], ['2ndplayer'], [FlxColor.fromRGB(40, 73, 20)], 'Tutorial?'],
+		[
+			['Skullody'],
+			['2ndplayer'],
+			[FlxColor.fromRGB(40, 73, 20)],
+			'Tutorial?'
+		],
 		[
 			['Coffee', 'Spring', 'Rules'],
 			['BrownishSea'],
@@ -162,7 +167,7 @@ class Main extends Sprite
 		
 		// here we set up the base game
 		var gameCreate:FlxGame;
-		gameCreate = new FlxGame(gameWidth, gameHeight, mainClassState, zoom, framerate, framerate, skipSplash);
+		gameCreate = new FlxGame(gameWidth, gameHeight, mainClassState, framerate, framerate, skipSplash);
 		addChild(gameCreate); // and create it afterwards
 
 		// default game FPS settings, I'll probably comment over them later.
@@ -249,7 +254,7 @@ class Main extends Sprite
 			}
 		}
 
-		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error to the GitHub page: https://github.com/Yoshubs/Forever-Engine";
+		errMsg += "\nError inesperado: " + e.error + "\nReportalo a la pagina de GitHub (si quieres): https://github.com/CesarGpe/CDD-Forever";
 
 		if (!FileSystem.exists("./crash/"))
 			FileSystem.createDirectory("./crash/");

@@ -47,109 +47,109 @@ class Init extends FlxState
 		'Downscroll' => [
 			false,
 			Checkmark,
-			'Whether to have the strumline vertically flipped in gameplay.',
+			'Si activas esto es porque sabes lo que hace.',
 			NOT_FORCED
 		],
-		'Auto Pause' => [true, Checkmark, '', NOT_FORCED],
-		'FPS Counter' => [false, Checkmark, 'Whether to display the FPS counter.', NOT_FORCED],
-		'Memory Counter' => [
+		'Auto Pausa' => [true, Checkmark, 'Pausa automaticamente.', NOT_FORCED],
+		'Mostrar FPS' => [false, Checkmark, 'ADIVINA QUE HACE ESTA OPCION', NOT_FORCED],
+		'Contador de Memoria' => [
 			false,
 			Checkmark,
-			'Whether to display approximately how much memory is being used.',
+			'Muestra la cantidad aproximada de memoria que consume el juego.',
 			NOT_FORCED
 		],
-		'Debug Info' => [false, Checkmark, 'Whether to display information like your game state.', NOT_FORCED],
-		'Reduced Movements' => [
+		'Modo Debug' => [false, Checkmark, 'Te permite usar el botplay y el editor de charts, solo para tramposos.', NOT_FORCED],
+		'Movimiento Reducido' => [
 			false,
 			Checkmark,
-			'Whether to reduce movements, like icons bouncing or beat zooms in gameplay.',
+			'Reduce el movimiento, como los iconos moviendose con el ritmo o los zooms durante el gameplay.',
 			NOT_FORCED
 		],
-		'Stage Opacity' => [
+		'Oscurecer' => [
 			Checkmark,
 			Selector,
-			'Darkens non-ui elements, useful if you find the characters and backgrounds distracting.',
+			'Oscurece el escenario y los personajes, por si te distraen.',
 			NOT_FORCED
 		],
-		'Opacity Type' => [
+		'Tipo' => [
 			'UI',
 			Selector,
-			'Choose whether the filter will be behind the notes or the UI',
+			'Escoge si quieres el filtro de opacidad detras del UI o de las notas.',
 			NOT_FORCED,
-			['UI', 'Notes']
+			['UI', 'Notas']
 		],
-		'Counter' => [
-			'None',
+		'Contador' => [
+			'No',
 			Selector,
-			'Choose whether you want somewhere to display your judgements, and where you want it.',
+			'Escoge si quieres mostrar tus ratings, y en donde los quieres.',
 			NOT_FORCED,
-			['None', 'Left', 'Right']
+			['No', 'Izquierda', 'Derecha']
 		],
-		'Display Accuracy' => [true, Checkmark, 'Whether to display your accuracy on screen.', NOT_FORCED],
-		'Disable Antialiasing' => [
+		'Mostrar Precision' => [true, Checkmark, 'Escoge si quieres mostar tu precision en la pantalla.', NOT_FORCED],
+		'Deshabilitar Suavizado' => [
 			false,
 			Checkmark,
-			'Whether to disable Anti-aliasing. Helps improve performance in FPS.',
+			'Deshabilita el suavizado de bordes. Por si tienes problemas con FPS.',
 			NOT_FORCED
 		],
-		'No Camera Note Movement' => [
+		'Movimiento con Notas' => [
 			true,
 			Checkmark,
-			'When enabled, left and right notes no longer move the camera.',
+			'Las notas izquierda y derecha mueven la camara hacia esa direccion.',
 			NOT_FORCED
 		],
-		'Disable Note Splashes' => [
+		'Sin Note Splashes' => [
 			false,
 			Checkmark,
-			'Whether to disable note splashes in gameplay. Useful if you find them distracting.',
+			'Deshabilita los note splashes, por si te distraen supongo.',
 			NOT_FORCED
 		],
 		// custom ones lol
 		'Offset' => [Checkmark, 3],
-		'Filter' => [
-			'none',
+		'Filtro' => [
+			'nada',
 			Selector,
-			'Choose a filter for colorblindness.',
+			'Escoge un filtro de daltonismo.',
 			NOT_FORCED,
-			['none', 'Deuteranopia', 'Protanopia', 'Tritanopia']
+			['nada', 'Deuteranopia', 'Protanopia', 'Tritanopia']
 		],
-		"Clip Style" => ['FNF', Selector, "Chooses a style for hold note clippings; StepMania: Holds under Receptors; FNF: Holds over receptors", NOT_FORCED, 
+		'Clip Style' => ['FNF', Selector, "Escoge como quieres las notas mantenidas; StepMania: debajo del receptor; FNF: encima del receptor", NOT_FORCED, 
 			['StepMania', 'FNF']],
-		"UI Skin" => ['forever', Selector, 'Choose a UI Skin for judgements, combo, etc.', NOT_FORCED, ''],
-		"Note Skin" => ['default', Selector, 'Choose a note skin.', NOT_FORCED, ''],
-		"Framerate Cap" => [120, Selector, 'Define your maximum FPS.', NOT_FORCED, ['']],
-		"Opaque Arrows" => [true, Checkmark, "Makes the arrows at the top of the screen opaque again.", NOT_FORCED],
-		"Opaque Holds" => [false, Checkmark, "Huh, why isnt the trail cut off?", NOT_FORCED],
+		'UI Skin' => ['forever', Selector, 'Escoge una skin para los ratings, combos, etc.', NOT_FORCED, ''],
+		'Note Skin' => ['default', Selector, 'puto el que lo lea', NOT_FORCED, ''],
+		'Limite de FPS' => [120, Selector, 'Pon tu limite de FPS.', NOT_FORCED, ['']],
+		'Flechas Opacas' => [true, Checkmark, "Vuelve las flechas opacas.", NOT_FORCED],
+		'Holds Opacas' => [false, Checkmark, "Hace la linea de las notas mantenidas opaca.", NOT_FORCED],
 		'Ghost Tapping' => [
 			true,
 			Checkmark,
-			"Enables Ghost Tapping, allowing you to press inputs without missing.",
+			"Activa el Ghost Tapping, para presionar notas sin fallar.",
 			NOT_FORCED
 		],
-		'Centered Notefield' => [false, Checkmark, "Center the notes, disables the enemy's notes."],
-		"Custom Titlescreen" => [
+		'Notas centradas' => [false, Checkmark, "Centra tus notas, y deshabilita las notas del oponente."],
+		'Custom Titlescreen' => [
 			false,
 			Checkmark,
-			"Enables the custom Forever Engine titlescreen! (only effective with a restart)",
+			"estoy muy seguro de que esto ni sirve",
 			FORCED
 		],
-		'Skip Text' => [
-			'freeplay only',
+		'Dialogo' => [
+			'freeplay',
 			Selector,
-			'Decides whether to skip cutscenes and dialogue in gameplay. May be always, only in freeplay, or never.',
+			'Decide cuando quieres saltar los dialogos.',
 			NOT_FORCED,
-			['never', 'freeplay only', 'always']
+			['nunca', 'freeplay', 'siempre']
 		],
 		'Fixed Judgements' => [
 			false,
 			Checkmark,
-			"Fixes the judgements to the camera instead of to the world itself, making them easier to read.", 
+			"Pone los ratings en la camara y no en el escenario para que sean mas faciles de leer.", 
 			NOT_FORCED
 		],
 		'Simply Judgements' => [
 			true,
 			Checkmark,
-			"Simplifies the judgement animations, displaying only one judgement / rating sprite at a time.",
+			"Simplifica las animaciones de los ratings, solo se muestra uno a la vez",
 			NOT_FORCED
 		],
 
@@ -215,7 +215,7 @@ class Init extends FlxState
 		loadControls();
 
 		#if !html5
-		Main.updateFramerate(trueSettings.get("Framerate Cap"));
+		Main.updateFramerate(trueSettings.get("Limite de FPS"));
 		#end
 
 		// apply saved filters
@@ -258,15 +258,15 @@ class Init extends FlxState
 		}
 
 		// lemme fix that for you
-		if (!Std.isOfType(trueSettings.get("Framerate Cap"), Int)
-			|| trueSettings.get("Framerate Cap") < 30
-			|| trueSettings.get("Framerate Cap") > 360)
-			trueSettings.set("Framerate Cap", 30);
+		if (!Std.isOfType(trueSettings.get("Limite de FPS"), Int)
+			|| trueSettings.get("Limite de FPS") < 30
+			|| trueSettings.get("Limite de FPS") > 360)
+			trueSettings.set("Limite de FPS", 30);
 
-		if (!Std.isOfType(trueSettings.get("Stage Opacity"), Int)
-			|| trueSettings.get("Stage Opacity") < 0
-			|| trueSettings.get("Stage Opacity") > 100)
-			trueSettings.set("Stage Opacity", 100);
+		if (!Std.isOfType(trueSettings.get("Oscurecer"), Int)
+			|| trueSettings.get("Oscurecer") < 0
+			|| trueSettings.get("Oscurecer") > 100)
+			trueSettings.set("Oscurecer", 100);
 
 		// 'hardcoded' ui skins
 		gameSettings.get("UI Skin")[4] = CoolUtil.returnAssetsLibrary('UI');
@@ -306,17 +306,17 @@ class Init extends FlxState
 
 	public static function updateAll()
 	{
-		InfoHud.updateDisplayInfo(trueSettings.get('FPS Counter'), trueSettings.get('Debug Info'), trueSettings.get('Memory Counter'));
+		InfoHud.updateDisplayInfo(trueSettings.get('Mostrar FPS'), trueSettings.get('Modo Debug'), trueSettings.get('Contador de Memoria'));
 
 		#if !html5
-		Main.updateFramerate(trueSettings.get("Framerate Cap"));
+		Main.updateFramerate(trueSettings.get("Limite de FPS"));
 		#end
 
 		///*
 		filters = [];
 		FlxG.game.setFilters(filters);
 
-		var theFilter:String = trueSettings.get('Filter');
+		var theFilter:String = trueSettings.get('Filtro');
 		if (gameFilters.get(theFilter) != null)
 		{
 			var realFilter = gameFilters.get(theFilter).filter;

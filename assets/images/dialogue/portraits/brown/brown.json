@@ -1,0 +1,14 @@
+{
+	"name": "brown",
+	"expressions": {
+		"normal": "brown_talk",
+		"scared": "brown_scared",
+		"angry": "brownangry",
+		"pog": "brown_pog"
+    },
+    "position": [50, -5],
+	"scale": 0.55,
+	
+	"sounds": ["voice"],
+	"soundChance": 100
+}

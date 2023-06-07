@@ -93,9 +93,16 @@ class FreeplayState extends MusicBeatState
 				{
 					var castSong:SwagSong = Song.loadFromJson(i, i);
 					icon = (castSong != null) ? castSong.player2 : 'gf';
-					if (castSong.song.toLowerCase() == 'take five')
+
+					// freeplay songs
+					switch (CoolUtil.spaceToDash(castSong.song.toLowerCase()))
 					{
-						freeplayColor = FlxColor.fromRGB(176, 11, 115);
+						case 'nightmarish':
+							freeplayColor = FlxColor.fromRGB(146, 113, 253);
+						case 'take-five':
+							freeplayColor = FlxColor.fromRGB(176, 11, 115);
+						case 'temper-x':
+							freeplayColor = FlxColor.fromRGB(128, 20, 20);
 					}
 					
 					if (castSong.song.toLowerCase() != 'asf')
@@ -108,7 +115,7 @@ class FreeplayState extends MusicBeatState
 		// ForeverTools.resetMenuMusic();
 
 		#if !html5
-		Discord.changePresence('FREEPLAY MENU', 'Main Menu');
+		Discord.changePresence('En los Menús:', 'Menú de Freeplay');
 		#end
 
 		// LOAD CHARACTERS

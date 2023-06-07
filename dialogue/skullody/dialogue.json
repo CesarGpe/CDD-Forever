@@ -1,0 +1,116 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "que onda con la monda",
+			"boxState": "normal",
+			"sound": "voice_isaac",
+			"speed": 0.05,
+			"portrait": "isaac"
+		},
+		{
+			"expression": "talk",
+			"text": "voy a ocupar que le digas como cantar al menso este",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"speed": 0.04,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "confused",
+			"text": "Pero si ya se cantar...",
+			"boxState": "normal",
+			"sound": "dialogue",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "a ver quien fue el que entro al tutorial",
+			"boxState": "normal",
+			"sound": "voice_isaac",
+			"speed": 0.04,
+			"portrait": "isaac"
+		},
+		{
+			"expression": "shocked",
+			"text": "...",
+			"boxState": "normal",
+			"sound": "dialogue",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "es como Friday Night Funkin'",
+			"boxState": "normal",
+			"sound": "voice_isaac",
+			"portrait": "isaac",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "Que es Friday Night Funkin'?",
+			"boxState": "normal",
+			"sound": "dialogue",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "TsuyAr",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Un juego muerto"
+		},
+		{
+			"expression": "talk",
+			"text": "shhh no le digas",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "bueno pues nomas dale a las notas o si no pereces",
+			"boxState": "normal",
+			"sound": "voice_isaac",
+			"portrait": "isaac",
+			"speed": 0.035
+		},
+		{
+			"expression": "talk",
+			"text": "literal",
+			"boxState": "normal",
+			"sound": "voice_isaac",
+			"portrait": "isaac",
+			"speed": 0.04
+		},
+		{
+			"expression": "shocked",
+			"text": "De que estas hablando? Que es una nota?",
+			"boxState": "normal",
+			"sound": "dialogue",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "chingada madre isaac ya le dijiste mucho",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"speed": 0.05,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "que se aguante",
+			"boxState": "normal",
+			"sound": "voice_bule",
+			"speed": 0.05,
+			"portrait": "isaac"
+		}
+	]
+}

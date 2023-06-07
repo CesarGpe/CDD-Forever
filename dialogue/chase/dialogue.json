@@ -1,0 +1,46 @@
+{
+	"dialogue": [
+		{
+			"expression": "lookUp",
+			"text": "bienvenido a la cuevaslime32\n(patente pendiente)",
+			"boxState": "normal",
+			"speed": 0.04,
+			"portrait": "bule"
+		},
+		{
+			"expression": "shocked",
+			"text": "Ah caray, en donde estamos ahora?",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "",
+			"boxState": "normal",
+			"speed": 0,
+			"portrait": "bule"
+		},
+		{
+			"expression": "lookUp",
+			"text": "bienvenido a la cuevaslime32\\n(patente pendiente)",
+			"boxState": "normal",
+			"speed": 0.07,
+			"portrait": "bule"
+		},
+		{
+			"expression": "talk",
+			"text": "",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0
+		},
+		{
+			"expression": "talk",
+			"text": "a ver deja muevo la camara",
+			"boxState": "normal",
+			"speed": 0.04,
+			"portrait": "bule"
+		}
+	]
+}

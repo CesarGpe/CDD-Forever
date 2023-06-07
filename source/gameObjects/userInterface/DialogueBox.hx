@@ -5,13 +5,19 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxPoint;
+import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+import meta.CoolUtil;
+import meta.MusicBeat.MusicBeatState;
+import meta.data.Song.SwagSong;
 import meta.data.dependency.FNFSprite;
 import meta.data.font.Alphabet;
+import meta.state.PlayState;
+import openfl.media.Sound;
 
 typedef PortraitDataDef =
 {
@@ -131,6 +137,7 @@ class DialogueBox extends FlxSpriteGroup
 
 		// cur portrait
 		portrait = new FNFSprite(800, 160);
+		portrait.alpha = 0;
 
 		// thank u sammu for fixing alphabet.hx
 		// i dont wanna touch it ever
@@ -138,7 +145,7 @@ class DialogueBox extends FlxSpriteGroup
 
 		// text
 		text = new FlxText(100, 480, 1000, "", 35);
-		text.color = FlxColor.BLACK;
+		text.color = FlxColor.WHITE;
 		text.visible = false;
 
 		updateDialog(true);
@@ -150,13 +157,20 @@ class DialogueBox extends FlxSpriteGroup
 
 		add(alphabetText);
 
-		// skip text
-		var skipText = new FlxText(100, 670, 1000, "PRESS SHIFT TO SKIP", 20);
+		// saltar texto
+		var skipText = new FlxText(100, 15, 1000, "- PRESS SHIFT TO SKIP -", 20);
 		skipText.alignment = FlxTextAlign.CENTER;
 
 		skipText.borderStyle = FlxTextBorderStyle.OUTLINE;
 		skipText.borderColor = FlxColor.BLACK;
 		skipText.borderSize = 3;
+
+		FlxG.sound.music.volume = 0.0;
+		FlxG.sound.music.fadeIn(1.0, 0.0, 0.5);
+		if (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()) == 'temper')
+			FlxG.sound.playMusic(Paths.music('collapse'));
+		else
+			FlxG.sound.playMusic(Paths.music('conversation'));
 
 		skipText.screenCenter(X);
 		add(skipText);
@@ -492,6 +506,7 @@ class DialogueBox extends FlxSpriteGroup
 	{
 		whenDaFinish();
 		alphabetText.playSounds = false;
+		FlxG.sound.music.stop();
 		kill();
 	}
 
@@ -519,12 +534,17 @@ class DialogueBox extends FlxSpriteGroup
 		}
 
 		portrait.animation.paused = alphabetText.finishedLine;
+		// + probablemente hay una mejor forma de hacer esto
+		// - PERO ADIVINA CUANTO ME IMPORTA
 		if (portrait.animation.paused)
 			portrait.animation.finish();
 
 		bgFade.alpha += 0.02;
 		if (bgFade.alpha > 0.6)
 			bgFade.alpha = 0.6;
+
+		if (portrait.alpha < 1)
+			portrait.alpha += 0.04;
 
 		super.update(elapsed);
 	}

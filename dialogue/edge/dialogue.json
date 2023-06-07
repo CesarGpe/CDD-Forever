@@ -1,0 +1,396 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "ay que padre estuvo",
+			"boxState": "normal",
+			"sound": "voice_bule",
+			"speed": 0.05,
+			"portrait": "bule"
+		},
+		{
+			"expression": "talk",
+			"text": "No tengo idea de que acaba de pasar, pero estuvo genial.",
+			"boxState": "normal",
+			"sound": "dialogue",
+			"speed": 0.04,
+			"portrait": "bf"
+		},
+		{
+			"expression": "ghostTalk",
+			"text": "de seguro se veia muy genial",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"speed": 0.05,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "si vi",
+			"boxState": "normal",
+			"sound": "voice_bule",
+			"speed": 0.05,
+			"portrait": "bule"
+		},
+		{
+			"expression": "ghostLookdown",
+			"text": "yo no vi",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"speed": 0.045,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "que no estas muerto tu",
+			"boxState": "normal",
+			"sound": "voice_bule",
+			"portrait": "bule",
+			"speed": 0.05
+		},
+		{
+			"expression": "ghostTalk",
+			"text": "sicierto aguanta deja me muero",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "unRevive",
+			"text": "se muere",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "Ya me toca?",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.05,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "talk",
+			"text": "simon",
+			"boxState": "normal",
+			"portrait": "Brown",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "Ok",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.05,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "talk",
+			"text": "Como andas maldita perra lisiada?",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.035,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "talk",
+			"text": "Bien, y tu?",
+			"boxState": "normal",
+			"sound": "dialogue",
+			"speed": 0.04,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "...",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.05,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "talk",
+			"text": "Friday Night Funkin' murio en la Semana 5",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.035,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "dead",
+			"text": "la neta",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"speed": 0.04,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "angry",
+			"text": "shuta hombre",
+			"boxState": "normal",
+			"sound": "voice_brown",
+			"portrait": "brown",
+			"speed": 0.03
+		},
+		{
+			"expression": "talk",
+			"text": "POV: es humor",
+			"boxState": "normal",
+			"sound": "dialogue",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "unamused",
+			"text": "Puta madre, tengo que introducirme?",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.05,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "talk",
+			"text": "si",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "unamused",
+			"text": "Ok",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.05,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "talk",
+			"text": "Mi nombre es TsuyAr. Soy amigo de estos webones",
+			"boxState": "normal",
+			"portrait": "TsuyAr",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "Vas a retarme a mi tambien?",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.05,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "talk",
+			"text": "Que listo eres, TsuyAr. Obviamente si.",
+			"boxState": "normal",
+			"sound": "dialogue",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "Ahora, menos platica, mas canto.",
+			"boxState": "normal",
+			"sound": "dialogue",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "unamused",
+			"text": "Ok, esta bien.",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.05,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "talk",
+			"text": "Aunque, espera un segundo...",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.05,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "talk",
+			"text": "*forman un circulo",
+			"boxState": "normal",
+			"portrait": "TsuyAr",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "unamused",
+			"text": "Y si mejor lo baneamos a la chingada?",
+			"boxState": "normal",
+			"portrait": "TsuyAr",
+			"speed": 0.03,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "entretenlo un rato hombre",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.035,
+			"sound": ""
+		},
+		{
+			"expression": "no",
+			"text": "Tas pendejo, verdad?",
+			"boxState": "normal",
+			"portrait": "TsuyAr",
+			"speed": 0.03,
+			"sound": ""
+		},
+		{
+			"expression": "mad",
+			"text": "No me agrada en lo absoluto y no estamos lo suficientemente organizados para otra batalla de ''rap''",
+			"boxState": "normal",
+			"portrait": "TsuyAr",
+			"speed": 0.03,
+			"sound": ""
+		},
+		{
+			"expression": "hijole",
+			"text": "siempre estamos organizados",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.035,
+			"sound": ""
+		},
+		{
+			"expression": "unamused",
+			"text": "No te vayas a enojar conmigo pero eso es mentira",
+			"boxState": "normal",
+			"portrait": "TsuyAr",
+			"speed": 0.035,
+			"sound": ""
+		},
+		{
+			"expression": "scared",
+			"text": "bueno pues",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.035,
+			"sound": ""
+		},
+		{
+			"expression": "scared",
+			"text": "lo bueno que no me enojo por pendejadas como esas",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.035,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "tsuyar nomas juega con el un ratito ganes o pierdas lo sacas despues y ya",
+			"boxState": "normal",
+			"portrait": "Isaac",
+			"speed": 0.035,
+			"sound": ""
+		},
+		{
+			"expression": "angry",
+			"text": "si ",
+			"boxState": "normal",
+			"portrait": "brown",
+			"speed": 0.04,
+			"sound": ""
+		},
+		{
+			"expression": "angry",
+			"text": "osea",
+			"boxState": "normal",
+			"portrait": "brown",
+			"speed": 0.04,
+			"sound": ""
+		},
+		{
+			"expression": "angry",
+			"text": "no hagas",
+			"boxState": "normal",
+			"portrait": "brown",
+			"speed": 0.04,
+			"sound": ""
+		},
+		{
+			"expression": "angry",
+			"text": "tanto chow",
+			"boxState": "normal",
+			"portrait": "brown",
+			"speed": 0.04,
+			"sound": ""
+		},
+		{
+			"expression": "ghostTalk",
+			"text": "yo digo que-",
+			"boxState": "normal",
+			"portrait": "Cesar",
+			"speed": 0.035,
+			"sound": ""
+		},
+		{
+			"expression": "angry",
+			"text": "cesar",
+			"boxState": "normal",
+			"sound": "voice_brown",
+			"portrait": "brown",
+			"speed": 0.01
+		},
+		{
+			"expression": "unRevive",
+			"text": "ok ya se me sigue olvidando",
+			"boxState": "normal",
+			"sound": "voice_cesar",
+			"portrait": "cesar",
+			"speed": 0.01
+		},
+		{
+			"expression": "unamused",
+			"text": "Puta madre",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.05,
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "unamused",
+			"text": "Esta bien",
+			"boxState": "normal",
+			"portrait": "TsuyAr",
+			"speed": 0.03,
+			"sound": ""
+		},
+		{
+			"expression": "unamused",
+			"text": "*c deshace el cir culo",
+			"boxState": "normal",
+			"portrait": "TsuyAr",
+			"speed": 0.025,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "Quiubo?",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.045,
+			"sound": ""
+		},
+		{
+			"expression": "unamused",
+			"text": "Bueno, nunca viene mal cantar.\\nVeamos que tan bueno eres.",
+			"boxState": "normal",
+			"sound": "voice_tsuyar",
+			"speed": 0.04,
+			"portrait": "tsuyar"
+		}
+	]
+}

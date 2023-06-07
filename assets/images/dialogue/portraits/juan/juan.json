@@ -1,0 +1,12 @@
+{
+	"name": "juan",
+	"expressions": {
+		"normal": "JP_Talk",
+		"mad": "JP_furious"
+    },
+    "position": [-100, -40],
+	"scale": 0.55,
+	
+	"sounds": ["voice"],
+	"soundChance": 100
+}

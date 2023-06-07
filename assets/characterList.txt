@@ -3,6 +3,7 @@ bf-pixel
 bfMinecart
 mari
 mariCave
+mariGhost
 reimu
 2ndplayer
 BrownishSea

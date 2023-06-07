@@ -1,0 +1,80 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"portrait": "bf",
+			"expression": "mad",
+			"text": " "
+		},
+		{
+			"portrait": "bf",
+			"expression": "normal",
+			"text": "Donde estamos?"
+		},
+		{
+		
+			"portrait": "bf",
+			"expression": "normal",
+			"text": "...GF?"
+		},
+		{
+		
+			"portrait": "brown",
+			"expression": "normal",
+			"text": "quien se unio al vc"
+		},
+		{
+		
+			"portrait": "bf",
+			"expression": "normal",
+			"text": "Que?"
+		},
+		{
+		
+			"portrait": "bf",
+			"expression": "normal",
+			"text": "Donde estoy?"
+		},
+		{
+			"expression": "normal",
+			"text": "bienvenido al servidor de discord de la\ncamara de diputados",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "o CDD",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "...",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "Y que hacen para matar el tiempo aqui?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "jugar juegos",
+			"portrait": "brown"
+		},
+		{
+			"portrait": "bf",
+			"expression": "normal",
+			"text": "ah"
+		},
+		{
+			"expression": "normal",
+			"text": "Quieres rapear?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "ok pues ahi vamos",
+			"portrait": "brown"
+		}
+	]
+}

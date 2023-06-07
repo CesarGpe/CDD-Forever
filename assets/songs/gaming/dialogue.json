@@ -1,0 +1,76 @@
+{
+	"box": "wood-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "hyper",
+			"text": "Por fin ese idiota se bajo!",
+			"portrait": "pig"
+		},
+		{
+			"expression": "hyper",
+			"text": "Podre cantar lo que yo quiera!",
+			"portrait": "pig"
+		},
+		{
+			"expression": "hyper",
+			"text": "Sin que me mueva el microfono!",
+			"portrait": "pig"
+		},
+		{
+			"expression": "hyper",
+			"text": "Estas listo? Porque yo estoy mas que\nlisto.",
+			"portrait": "pig"
+		},
+		{
+			"expression": "smug",
+			"text": "Siempre!",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "Veamos si en verdad se voltearon todos\nlos jueces en La Voz Kids Mexico.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": " ",
+			"portrait": "bf"
+		},
+		{
+			"expression": "dead",
+			"text": " ",
+			"portrait": "cesar-dead"
+		},
+		{
+			"expression": "normal",
+			"text": " ",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "Cesar?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "dead",
+			"text": " ",
+			"portrait": "cesar-dead"
+		},
+		{
+			"expression": "dead",
+			"text": "q ves",
+			"portrait": "cesar-dead"
+		},
+		{
+			"expression": "normal",
+			"text": "Oh, nada es solo que-",
+			"portrait": "bf"
+		},
+		{
+			"expression": "dead",
+			"text": "t gusto o q",
+			"portrait": "cesar-dead"
+		}
+	]
+}

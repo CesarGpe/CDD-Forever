@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="brown.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="brown_poStop0000" x="0" y="0" width="507" height="630"/>
+	<SubTexture name="brown_poStop0001" x="0" y="0" width="507" height="630"/>
+	<SubTexture name="brown_poStop0002" x="0" y="0" width="507" height="630"/>
+	<SubTexture name="brown_poStop0003" x="0" y="0" width="507" height="630"/>
+	<SubTexture name="brown_poStop0004" x="0" y="0" width="507" height="630"/>
+	<SubTexture name="brown_poStop0005" x="0" y="0" width="507" height="630"/>
+	<SubTexture name="brown_pog0000" x="508" y="0" width="520" height="632"/>
+	<SubTexture name="brown_pog0001" x="508" y="0" width="520" height="632"/>
+	<SubTexture name="brown_pog0002" x="1029" y="0" width="520" height="632"/>
+	<SubTexture name="brown_pog0003" x="0" y="633" width="520" height="632"/>
+	<SubTexture name="brown_pog0004" x="521" y="633" width="520" height="632"/>
+	<SubTexture name="brown_pog0005" x="521" y="633" width="520" height="632"/>
+	<SubTexture name="brown_scared0000" x="1042" y="633" width="482" height="635"/>
+	<SubTexture name="brown_scared0001" x="1525" y="633" width="482" height="635"/>
+	<SubTexture name="brown_scared0002" x="0" y="1269" width="482" height="635"/>
+	<SubTexture name="brown_scared0003" x="483" y="1269" width="482" height="635"/>
+	<SubTexture name="brown_scared0004" x="966" y="1269" width="482" height="635"/>
+	<SubTexture name="brown_scared0005" x="1449" y="1269" width="482" height="635"/>
+	<SubTexture name="brown_talStop0000" x="0" y="1905" width="479" height="630"/>
+	<SubTexture name="brown_talk0000" x="480" y="1905" width="489" height="638"/>
+	<SubTexture name="brown_talk0001" x="970" y="1905" width="489" height="638"/>
+	<SubTexture name="brown_talk0002" x="1460" y="1905" width="489" height="638"/>
+	<SubTexture name="brown_talk0003" x="0" y="2544" width="489" height="638"/>
+	<SubTexture name="brown_talk0004" x="0" y="2544" width="489" height="638"/>
+	<SubTexture name="brown_talk0005" x="490" y="2544" width="489" height="638"/>
+	<SubTexture name="brownangry0000" x="980" y="2544" width="479" height="630"/>
+	<SubTexture name="brownangry0001" x="980" y="2544" width="479" height="630"/>
+	<SubTexture name="brownangry0002" x="980" y="2544" width="479" height="630"/>
+	<SubTexture name="brownangry0003" x="980" y="2544" width="479" height="630"/>
+	<SubTexture name="brownangry0004" x="980" y="2544" width="479" height="630"/>
+	<SubTexture name="brownangry0005" x="980" y="2544" width="479" height="630"/>
+</TextureAtlas>

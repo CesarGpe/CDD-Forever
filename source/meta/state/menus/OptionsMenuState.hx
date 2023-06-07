@@ -46,61 +46,60 @@ class OptionsMenuState extends MusicBeatState
 		// NOTE : Make sure to check Init.hx if you are trying to add options.
 
 		#if !html5
-		Discord.changePresence('OPTIONS MENU', 'Main Menu');
+		Discord.changePresence('En los Menús:', 'Menú de Opciones');
 		#end
 
 		categoryMap = [
 			'main' => [
 				[
-					['preferences', callNewGroup],
-					['appearance', callNewGroup],
-					['controls', openControlmenu],
-					['exit', exitMenu]
+					['preferencias', callNewGroup],
+					['apariencia', callNewGroup],
+					['controles', openControlmenu],
+					['salir', exitMenu]
 				]
 			],
-			'preferences' => [
+			'preferencias' => [
 				[
-					['Game Settings', null],
+					['Gameplay', null],
 					['', null],
 					['Downscroll', getFromOption],
-					['Centered Notefield', getFromOption],
+					['Notas centradas', getFromOption],
 					['Ghost Tapping', getFromOption],
-					['Display Accuracy', getFromOption],
-					['Skip Text', getFromOption],
+					['Mostrar Precision', getFromOption],
+					['Dialogo', getFromOption],
 					['', null],
-					['Meta Settings', null],
+					['Miscelaneo', null],
 					['', null],
-					["Framerate Cap", getFromOption],
-					['FPS Counter', getFromOption],
-					['Memory Counter', getFromOption],
-					['Debug Info', getFromOption],
+					['Limite de FPS', getFromOption],
+					['Mostrar FPS', getFromOption],
+					['Contador de Memoria', getFromOption],
+					['Modo Debug', getFromOption]
 				]
 			],
-			'appearance' => [
+			'apariencia' => [
 				[
 					['Judgements', null],
 					['', null],
-					["UI Skin", getFromOption],
+					['UI Skin', getFromOption],
 					['Fixed Judgements', getFromOption], 
 					['Simply Judgements', getFromOption],
-					['Counter', getFromOption],
+					['Contador', getFromOption],
 					['', null],
-					['Notes', null],
+					['Notas', null],
 					['', null],
-					["Note Skin", getFromOption],
-					["Clip Style", getFromOption],
-					['No Camera Note Movement', getFromOption],
-					['Disable Note Splashes', getFromOption],
-					['Opaque Arrows', getFromOption],
-					['Opaque Holds', getFromOption],
+					['Clip Style', getFromOption],
+					['Movimiento con Notas', getFromOption],
+					['Sin Note Splashes', getFromOption],
+					['Flechas Opacas', getFromOption],
+					['Holds Opacas', getFromOption],
 					['', null],
-					['Accessibility Settings', null],
+					['Accesibilidad', null],
 					['', null],
-					['Filter', getFromOption],
-					['Disable Antialiasing', getFromOption],
-					["Stage Opacity", getFromOption],
-					["Opacity Type", getFromOption],
-					['Reduced Movements', getFromOption],
+					['Filtro', getFromOption],
+					['Deshabilitar Suavizado', getFromOption],
+					['Oscurecer', getFromOption],
+					['Tipo', getFromOption],
+					['Movimiento Reducido', getFromOption]
 				]
 			]
 		];
@@ -386,8 +385,8 @@ class OptionsMenuState extends MusicBeatState
 						extrasMap.set(letter, checkmark);
 					case Init.SettingTypes.Selector:
 						// selector
-						var selector:Selector = new Selector(10, letter.y, letter.text, Init.gameSettings.get(letter.text)[4],
-							(letter.text == 'Framerate Cap') ? true : false, (letter.text == 'Stage Opacity') ? true : false);
+						var selector:Selector = new Selector(20, letter.y, letter.text, Init.gameSettings.get(letter.text)[4],
+							(letter.text == 'Limite de FPS') ? true : false, (letter.text == 'Oscurecer') ? true : false);
 
 						extrasMap.set(letter, selector);
 					default:

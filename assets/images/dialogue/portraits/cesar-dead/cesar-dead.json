@@ -1,0 +1,11 @@
+{
+	"name": "cesar-dead",
+	"expressions": {
+		"dead": "cesar_dead"
+    },
+    "position": [-350, -5],
+	"scale": 0.5,
+	
+	"sounds": ["ces-1", "ces-2", "ces-3", "ces-4", "ces-5"],
+	"soundChance": 90
+}

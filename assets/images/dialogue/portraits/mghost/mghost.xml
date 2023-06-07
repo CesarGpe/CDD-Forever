@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="mghost.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="MariGh_Vasote instance 10000" x="0" y="0" width="1111" height="836"/>
+	<SubTexture name="MariGh_Vasote instance 10001" x="1112" y="0" width="1111" height="836"/>
+	<SubTexture name="MariGh_Vasote instance 10002" x="2224" y="0" width="1111" height="836"/>
+	<SubTexture name="MariGh_Vasote instance 10003" x="3336" y="0" width="1111" height="836"/>
+	<SubTexture name="MariGh_Vasote instance 10004" x="4448" y="0" width="1111" height="836"/>
+	<SubTexture name="MariGh_Vasote instance 10005" x="5560" y="0" width="1111" height="836"/>
+	<SubTexture name="MariGh_Vasote instance 10006" x="6672" y="0" width="1111" height="836"/>
+	<SubTexture name="MariGh_Vasote instance 10007" x="0" y="837" width="1111" height="836"/>
+	<SubTexture name="MariGh_Vasote instance 10008" x="1112" y="837" width="1111" height="836"/>
+	<SubTexture name="MariGh_Vasote instance 10009" x="2224" y="837" width="1111" height="836"/>
+	<SubTexture name="MariGh_Vasote instance 10010" x="3336" y="837" width="1111" height="836"/>
+	<SubTexture name="MariGh_Vasote instance 10011" x="4448" y="837" width="1111" height="836"/>
+	<SubTexture name="MariGho_Point instance 10000" x="5560" y="837" width="777" height="1006"/>
+	<SubTexture name="MariGho_Point instance 10001" x="6338" y="837" width="777" height="1006"/>
+	<SubTexture name="MariGho_Point instance 10002" x="7116" y="837" width="777" height="1006"/>
+	<SubTexture name="MariGho_Point instance 10003" x="0" y="1844" width="777" height="1006"/>
+	<SubTexture name="MariGho_Point instance 10004" x="778" y="1844" width="777" height="1006"/>
+	<SubTexture name="MariGho_Point instance 10005" x="1556" y="1844" width="777" height="1006"/>
+	<SubTexture name="MariGho_Point instance 10006" x="2334" y="1844" width="777" height="1006"/>
+	<SubTexture name="MariGho_Point instance 10007" x="3112" y="1844" width="777" height="1006"/>
+	<SubTexture name="MariGho_Point instance 10008" x="3890" y="1844" width="777" height="1006"/>
+	<SubTexture name="MariGho_Point instance 10009" x="4668" y="1844" width="777" height="1006"/>
+	<SubTexture name="MariGho_Point instance 10010" x="5446" y="1844" width="777" height="1006"/>
+	<SubTexture name="MariGho_Point instance 10011" x="5446" y="1844" width="777" height="1006"/>
+	<SubTexture name="MariGhos_Talk instance 10000" x="6224" y="1844" width="720" height="1016"/>
+	<SubTexture name="MariGhos_Talk instance 10001" x="6945" y="1844" width="720" height="1016"/>
+	<SubTexture name="MariGhos_Talk instance 10002" x="0" y="2861" width="720" height="1016"/>
+	<SubTexture name="MariGhos_Talk instance 10003" x="721" y="2861" width="720" height="1016"/>
+	<SubTexture name="MariGhos_Talk instance 10004" x="1442" y="2861" width="720" height="1016"/>
+	<SubTexture name="MariGhos_Talk instance 10005" x="2163" y="2861" width="720" height="1016"/>
+	<SubTexture name="MariGhos_Talk instance 10006" x="2884" y="2861" width="720" height="1016"/>
+	<SubTexture name="MariGhos_Talk instance 10007" x="3605" y="2861" width="720" height="1016"/>
+	<SubTexture name="MariGhos_Talk instance 10008" x="4326" y="2861" width="720" height="1016"/>
+	<SubTexture name="MariGhos_Talk instance 10009" x="5047" y="2861" width="720" height="1016"/>
+	<SubTexture name="MariGhos_Talk instance 10010" x="5768" y="2861" width="720" height="1016"/>
+	<SubTexture name="MariGhos_Talk instance 10011" x="5768" y="2861" width="720" height="1016"/>
+	<SubTexture name="MariGhost_Wow instance 10000" x="6489" y="2861" width="778" height="895"/>
+	<SubTexture name="MariGhost_Wow instance 10001" x="7268" y="2861" width="778" height="895"/>
+	<SubTexture name="MariGhost_Wow instance 10002" x="0" y="3878" width="778" height="895"/>
+	<SubTexture name="MariGhost_Wow instance 10003" x="779" y="3878" width="778" height="895"/>
+	<SubTexture name="MariGhost_Wow instance 10004" x="1558" y="3878" width="778" height="895"/>
+	<SubTexture name="MariGhost_Wow instance 10005" x="2337" y="3878" width="778" height="895"/>
+	<SubTexture name="MariGhost_Wow instance 10006" x="3116" y="3878" width="778" height="895"/>
+	<SubTexture name="MariGhost_Wow instance 10007" x="3895" y="3878" width="778" height="895"/>
+	<SubTexture name="MariGhost_Wow instance 10008" x="4674" y="3878" width="778" height="895"/>
+	<SubTexture name="MariGhost_Wow instance 10009" x="5453" y="3878" width="778" height="895"/>
+	<SubTexture name="MariGhost_Wow instance 10010" x="6232" y="3878" width="778" height="895"/>
+	<SubTexture name="MariGhost_Wow instance 10011" x="7011" y="3878" width="778" height="895"/>
+</TextureAtlas>

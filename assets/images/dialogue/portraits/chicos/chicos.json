@@ -1,0 +1,11 @@
+{
+	"name": "chicos",
+	"expressions": {
+		"chicos": "sans"
+    },
+    "position": [-150, -60],
+	"scale": 0.3,
+	
+	"sounds": ["voice"],
+	"soundChance": 100
+}

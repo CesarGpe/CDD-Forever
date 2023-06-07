@@ -46,7 +46,7 @@ class UIStaticArrow extends FlxSprite
 	public var yTo:Float;
 	public var angleTo:Float;
 
-	public var setAlpha:Float = (Init.trueSettings.get('Opaque Arrows')) ? 1 : 0.8;
+	public var setAlpha:Float = (Init.trueSettings.get('Flechas Opacas')) ? 1 : 0.8;
 
 	public function new(x:Float, y:Float, ?babyArrowType:Int = 0)
 	{
@@ -137,15 +137,7 @@ class Strumline extends FlxTypedGroup<FlxBasic>
 	public var playState:PlayState;
 	public var displayJudgements:Bool = false;
 
-	var curStage = PlayState.curStage;
 	var bpm = PlayState.SONG.bpm;
-
-	// cave stage
-	var fx:FNFSprite;
-
-	// midas
-	var midasLines:FlxTypedGroup<FNFSprite>;
-	var midasAura:FNFSprite;
 
 	public function new(x:Float = 0, playState:PlayState, ?character:Character, ?displayJudgements:Bool = true, ?autoplay:Bool = true,
 			?noteSplashes:Bool = false, ?keyAmount:Int = 4, ?downscroll:Bool = false, ?parent:Strumline)
@@ -196,89 +188,6 @@ class Strumline extends FlxTypedGroup<FlxBasic>
 		add(notesGroup);
 		if (splashNotes != null)
 			add(splashNotes);
-
-		// cave black vignette
-		if (curStage == 'cave')
-		{
-			fx = new FNFSprite(-53, -32);
-			fx.antialiasing = true;
-			fx.loadGraphic(Paths.image('backgrounds/' + curStage + '/black_vignette'));
-			fx.setGraphicSize(Std.int(fx.width * 0.7), Std.int(fx.height * 0.7));
-			fx.updateHitbox();
-			fx.screenCenter(XY);
-			fx.scrollFactor.set();
-			add(fx);
-		}
-
-		// midas stuff
-		if (curStage == 'discord' || curStage == 'discordEvil' 
-			|| curStage == 'skyblock' || curStage == 'cave')
-		{
-			// vignette
-			midasAura = new FNFSprite(-53, -32);
-			midasAura.antialiasing = true;
-			midasAura.loadGraphic(Paths.image('midas/GoldenAura'));
-			midasAura.setGraphicSize(Std.int(midasAura.width * 0.7), Std.int(midasAura.height * 0.7));
-			midasAura.updateHitbox();
-			midasAura.screenCenter(XY);
-			midasAura.scrollFactor.set();
-			midasAura.alpha = 0;
-			add(midasAura);
-
-			// lines because loop is dumb
-			var line1:FNFSprite = new FNFSprite(375, -700);
-			var line2:FNFSprite = new FNFSprite(-500, -325);
-			var line3:FNFSprite = new FNFSprite(-600, 350);
-			var line4:FNFSprite = new FNFSprite(-500, 500);
-			var line5:FNFSprite = new FNFSprite(300, 550);
-			var line6:FNFSprite = new FNFSprite(700, 550);
-			var line7:FNFSprite = new FNFSprite(800, 400);
-			var line8:FNFSprite = new FNFSprite(900, 350);
-			var line9:FNFSprite = new FNFSprite(900, -400);
-			var line10:FNFSprite = new FNFSprite(700, -700);
-
-			line1.frames = Paths.getSparrowAtlas('midas/lines/name1');
-			line2.frames = Paths.getSparrowAtlas('midas/lines/name2');
-			line3.frames = Paths.getSparrowAtlas('midas/lines/name3');
-			line4.frames = Paths.getSparrowAtlas('midas/lines/name4');
-			line5.frames = Paths.getSparrowAtlas('midas/lines/name5');
-			line6.frames = Paths.getSparrowAtlas('midas/lines/name6');
-			line7.frames = Paths.getSparrowAtlas('midas/lines/name7');
-			line8.frames = Paths.getSparrowAtlas('midas/lines/name8');
-			line9.frames = Paths.getSparrowAtlas('midas/lines/name9');
-			line10.frames = Paths.getSparrowAtlas('midas/lines/name10');
-
-			line1.animation.addByPrefix('anim', '1_Line', Std.int(bpm / 6), false);
-			line2.animation.addByPrefix('anim', '2_Line', Std.int(bpm / 6), false);
-			line3.animation.addByPrefix('anim', '3_Line', Std.int(bpm / 6), false);
-			line4.animation.addByPrefix('anim', '4_Line', Std.int(bpm / 6), false);
-			line5.animation.addByPrefix('anim', '5_Line', Std.int(bpm / 6), false);
-			line6.animation.addByPrefix('anim', '6_Line', Std.int(bpm / 6), false);
-			line7.animation.addByPrefix('anim', '7_Line', Std.int(bpm / 6), false);
-			line8.animation.addByPrefix('anim', '8_Line', Std.int(bpm / 6), false);
-			line9.animation.addByPrefix('anim', '9_Line', Std.int(bpm / 6), false);
-			line10.animation.addByPrefix('anim', '10_Line', Std.int(bpm / 6), false);
-
-			midasLines = new FlxTypedGroup<FNFSprite>();
-			midasLines.add(line1);
-			midasLines.add(line2);
-			midasLines.add(line3);
-			midasLines.add(line4);
-			midasLines.add(line5);
-			midasLines.add(line6);
-			midasLines.add(line7);
-			midasLines.add(line8);
-			midasLines.add(line9);
-			midasLines.add(line10);
-			add(midasLines);
-
-			midasLines.forEach(function(spr:FNFSprite)
-			{
-				spr.antialiasing = true;
-				spr.scrollFactor.set();
-				spr.updateHitbox();
-			});
-		}
 	}
 
 	public function createSplash(coolNote:Note)
@@ -295,16 +204,5 @@ class Strumline extends FlxTypedGroup<FlxBasic>
 		chosenGroup.add(newNote);
 		allNotes.add(newNote);
 		chosenGroup.sort(FlxSort.byY, (!Init.trueSettings.get('Downscroll')) ? FlxSort.DESCENDING : FlxSort.ASCENDING);
-	}
-
-	public function midasNoteHit()
-	{
-		midasAura.alpha = 1;
-		FlxTween.tween(midasAura, {alpha: 0}, 0.3, {ease: FlxEase.linear});
-	}
-
-	public function midasVignette()
-	{
-		//
 	}
 }

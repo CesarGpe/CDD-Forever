@@ -1,0 +1,83 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "ay la mama no pense que si supieras",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "talk",
+			"text": "Que no me conoces?",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "si wey ahorita dije exactamente quien eres",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "talk",
+			"text": "Humille a Daddy Dearest en una batalla de rap.",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "Pues claro el era una estrella de rock no un rapero",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.035,
+			"portrait": "TsuyAr"
+		},
+		{
+			"expression": "talk",
+			"text": "Pedazo de imbecil",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.035,
+			"portrait": "TsuyAr"
+		},
+		{
+			"expression": "talk",
+			"text": "''rap''",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "talk",
+			"text": "y ese que o que",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		},
+		{
+			"expression": "talk",
+			"text": "Es el papa de mi no-",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.035
+		},
+		{
+			"expression": "talk",
+			"text": "orale",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.02
+		},
+		{
+			"expression": "talk",
+			"text": "voy a de que",
+			"boxState": "normal",
+			"portrait": "bule",
+			"speed": 0.04
+		}
+	]
+}

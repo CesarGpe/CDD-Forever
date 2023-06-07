@@ -1,0 +1,36 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "normal",
+			"text": "que suave",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "pero mas suave estaria si me dices\ncomo nos encontraste",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "asi lo requiere la trama",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "que suave",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "Por cierto, sabes donde esta GF?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "callate",
+			"portrait": "brown"
+		}
+	]
+}

@@ -1,0 +1,13 @@
+{
+	"name": "mari",
+	"expressions": {
+		"normal": "Mari_Talk",
+		"scared": "Mari_Scared",
+		"excited": "Mari_Ex_cited"
+    },
+    "position": [-130, -180],
+	"scale": 0.5,
+	
+	"sounds": ["voice"],
+	"soundChance": 100
+}

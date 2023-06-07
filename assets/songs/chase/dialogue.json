@@ -1,0 +1,81 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "normal",
+			"text": "ay la mama no pense que si supieras",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "Que no me conoces?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "si wey ahorita dije exactamente quien eres",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "Humille a Daddy Dearest en una batalla\nde rap.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "Pues claro el era una estrella de rock\nno de rap",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "Pedazo de imbecil",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "ok y ese que o que",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "Es el papa de mi no-",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "orale",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "pues",
+			"portrait": "bule"
+		},
+		{
+			"expression": "lookup",
+			"text": "bienvenido a la cuevaslime32\n(patente pendiente)",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "Ah caray, en donde estamos ahora?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": " ",
+			"portrait": "bule"
+		},
+		{
+			"expression": "lookup",
+			"text": "bienvenido a la cuevaslime32\n(patente pendiente)",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "ya hay que empezar me estoy aburriendo",
+			"portrait": "bule"
+		}
+	]
+}

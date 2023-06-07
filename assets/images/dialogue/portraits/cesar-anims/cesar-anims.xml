@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="cesar-anims.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="cesar_revive0000" x="5342" y="0" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0001" x="6606" y="0" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0002" x="0" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0003" x="1264" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0004" x="2528" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0005" x="3792" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0006" x="5056" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0007" x="6320" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0008" x="0" y="2010" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0009" x="1264" y="2010" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0010" x="2528" y="2010" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0011" x="3792" y="2010" width="1259" height="1000"/>
+	<SubTexture name="cesar_revive0012" x="5056" y="2010" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0000" x="5056" y="2010" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0001" x="3792" y="2010" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0002" x="2528" y="2010" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0003" x="1264" y="2010" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0004" x="0" y="2010" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0005" x="6320" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0006" x="5056" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0007" x="3792" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0008" x="2528" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0009" x="1264" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0010" x="0" y="1005" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0011" x="5040" y="3801" width="1259" height="1000"/>
+	<SubTexture name="cesar_unRevive0012" x="6304" y="3801" width="1259" height="1000"/>
+</TextureAtlas>

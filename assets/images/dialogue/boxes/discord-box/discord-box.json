@@ -1,0 +1,9 @@
+{
+    "position": [70, 370],
+    "states": {
+        "normal": {
+            "open": ["textboxOpen_default"],
+            "default": ["textboxStatic_default", [0, 0]]
+        }
+    }
+}

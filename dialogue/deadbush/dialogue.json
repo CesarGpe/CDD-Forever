@@ -1,0 +1,131 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "hola novio de fnf",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "Hola, tu eres Cesar, no?",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "si",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cesar"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Cesar",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "Bueno, muestrame lo que tienes!",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "si pero haz de cuenta que",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "no se cantar",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "confused",
+			"text": "...",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "showoff",
+			"text": "Yo si le se!",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cerdo"
+		},
+		{
+			"expression": "lookdown",
+			"text": "ah si cierto se me habia olvidado que habias participado en La Voz Kids Mexico del 2016",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "lookdown",
+			"text": "canta tu pues a ver si muy muy",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "Perfecto.",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cerdo"
+		},
+		{
+			"expression": "talk",
+			"text": "Tu cerdo habla?",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "pues si",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "no lo acabas de escuchar hablar burro cabezon tan buen oido que tienes para la musica y no alcanzas a oir a un cerdo",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "sordo",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "confused",
+			"text": ":(",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "lookdown",
+			"text": "amonos resio",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		}
+	]
+}

@@ -101,7 +101,7 @@ class Note extends FNFSprite
 		else // make sure the note can't be hit if it's the dad's I guess
 		{
 			canBeHit = false;
-			if (PlayState.SONG.song.toLowerCase() == 'take five')
+			if (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()) == 'take-five')
 			{
 				alpha = 0.1;
 			}
@@ -160,14 +160,6 @@ class Note extends FNFSprite
 					// NOTETYPE NO CAMBIA HASTA EL NUMERO 2 Y NO SE PORQUEEEEEEE
 					// pero me vale caca lo voy a poner asi por que funciona
 					// primera vez que escribo en español afuera del class de personajes jaja
-					case 1:
-						skin = 'midas';
-					case 2:
-						skin = 'midas';
-					case 3:
-						skin = 'mute';
-					case 4:
-						skin = 'rule';
 					default:
 						skin = 'NOTE_assets';
 				}
@@ -197,7 +189,7 @@ class Note extends FNFSprite
 		if (isSustainNote && prevNote != null)
 		{
 			newNote.noteSpeed = prevNote.noteSpeed;
-			newNote.alpha = (Init.trueSettings.get('Opaque Holds')) ? 1 : 0.6;
+			newNote.alpha = (Init.trueSettings.get('Holds Opacas')) ? 1 : 0.6;
 			newNote.animation.play(UIStaticArrow.getColorFromNumber(noteData) + 'holdend');
 			newNote.updateHitbox();
 			if (prevNote.isSustainNote)
@@ -314,7 +306,7 @@ class Note extends FNFSprite
 		if (isSustainNote && prevNote != null)
 		{
 			newNote.noteSpeed = prevNote.noteSpeed;
-			newNote.alpha = (Init.trueSettings.get('Opaque Holds')) ? 1 : 0.6;
+			newNote.alpha = (Init.trueSettings.get('Holds Opacas')) ? 1 : 0.6;
 			newNote.animation.play('holdend');
 			newNote.updateHitbox();
 

@@ -1,0 +1,9 @@
+{
+    "position": [45, 365],
+    "states": {
+        "normal": {
+            "open": ["textboxOpen_wood"],
+            "default": ["textboxStatic_wood", [0, 0]]
+        }
+    }
+}

@@ -1,0 +1,102 @@
+{
+	"dialogue": [
+		{
+			"expression": "hyper",
+			"text": "Por fin ese idiota se bajo!",
+			"boxState": "angry",
+			"speed": 0.025,
+			"portrait": "cerdo"
+		},
+		{
+			"expression": "hyper",
+			"text": "Podre cantar lo que yo quiera!",
+			"boxState": "normal",
+			"speed": 0.03,
+			"portrait": "cerdo"
+		},
+		{
+			"expression": "hyper",
+			"text": "Sin que me mueva el microfono!",
+			"boxState": "angry",
+			"speed": 0.03,
+			"portrait": "cerdo"
+		},
+		{
+			"expression": "hyper",
+			"text": "Estas listo? Porque yo estoy mas que listo.",
+			"boxState": "normal",
+			"speed": 0.03,
+			"portrait": "cerdo"
+		},
+		{
+			"expression": "excited",
+			"text": "Siempre!",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "Veamos si en verdad se voltearon todos los jueces en La Voz Kids Mexico.",
+			"boxState": "normal",
+			"speed": 0.045,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "...",
+			"boxState": "normal",
+			"speed": 0.065,
+			"portrait": "bf"
+		},
+		{
+			"expression": "dead",
+			"text": "",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "confused",
+			"text": "",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "confused",
+			"text": "Cesar?",
+			"boxState": "normal",
+			"speed": 0.075,
+			"portrait": "bf"
+		},
+		{
+			"expression": "dead",
+			"text": "",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "dead",
+			"text": "que ves",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "confused",
+			"text": "Oh, nada es solo que-",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "dead",
+			"text": "t gusto o q",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		}
+	]
+}

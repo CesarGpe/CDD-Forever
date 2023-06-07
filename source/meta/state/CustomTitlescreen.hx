@@ -70,7 +70,7 @@ class CustomTitlescreen extends MusicBeatState
 		{
 			///*
 			#if !html5
-			Discord.changePresence('TITLE SCREEN', 'Main Menu');
+			Discord.changePresence('A LA VERGA COMO LLEGUE AQUI', 'ALGUIEN AYUDEME POR FAVOR');
 			#end
 
 			var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);

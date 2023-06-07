@@ -1,0 +1,12 @@
+{
+	"name": "calaca",
+	"expressions": {
+		"normal": "calaca",
+		"excited": "calcafeliz"
+    },
+    "position": [-150, -60],
+	"scale": 0.3,
+	
+	"sounds": ["voice"],
+	"soundChance": 100
+}

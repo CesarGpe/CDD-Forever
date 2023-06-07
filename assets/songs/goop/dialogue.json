@@ -1,0 +1,221 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "normal",
+			"text": "hola ya volvi de cagar",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": " ",
+			"portrait": "bule"
+		},
+		{
+			"expression": "scared",
+			"text": "que paso?",
+			"portrait": "bule"
+		},
+		{
+			"expression": "scared",
+			"text": "que le paso al cesar y porque al cerdo\nle esta dando un ataque de epilepsia?",
+			"portrait": "bule"
+		},
+		{
+			"portrait": "chicos",
+			"expression": "chicos",
+			"text": "chicos"
+		},
+		{
+			"portrait": "calaca",
+			"expression": "normal",
+			"text": "no me lo van a creer"
+		},
+		{
+			"portrait": "calaca",
+			"expression": "normal",
+			"text": "ya regreso el internet"
+		},
+		{
+			"portrait": "tsuyar",
+			"expression": "normal",
+			"text": "when iscagas"
+		},
+		{
+			"expression": "normal",
+			"text": "Que pedo?",
+			"portrait": "bf"
+		},
+		{
+			"portrait": "tsuyar",
+			"expression": "normal",
+			"text": "elqueteechaste"
+		},
+		{
+			"expression": "normal",
+			"text": "lo veo y no lo creo",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "es nada mas y nada menos que el\nmismisimo novio de viernes noche\nfunkeando",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "mi juego favorito",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "Ese soy yo. Tu eres...?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "q no tu juego favorito era minecraft",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "en el canon de la vida real si",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "me llamo blueslime32",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "alias blueslime",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "alias bule",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "alias eslamio",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "alias llorlly",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "alias el ller ller",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "alias todos los nombres que me han\npuesto y no puedo recordar",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "...",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "Solo te dire Blueslime.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "que bueno ese me gusta",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "el llorlly",
+			"portrait": "calaca"
+		},
+		{
+			"expression": "ghost-talk",
+			"text": "el llorlly",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Cesar tu deberias estar tieso",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "dead",
+			"text": "ups sicierto",
+			"portrait": "cesar-dead"
+		},
+		{
+			"expression": "normal",
+			"text": "Bueno, Blueslime...",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "...Todos aqui han probado ser\noponentes con potencial.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "ghost-talk",
+			"text": "menos yo porque no se cantar",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "ghost-down",
+			"text": "(espera yo estoy muerto)",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "normal",
+			"text": "Puedes cantar?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "pues mira la verdad no diria cantar mas\nbien hacer sonidos melodicos pero creo\nque funciona",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "De acuerdo, cantemos!",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "ok",
+			"portrait": "bule"
+		},
+		{
+			"expression": "normal",
+			"text": "el llorlly",
+			"portrait": "calaca"
+		},
+		{
+			"expression": "normal",
+			"text": "el llorlly",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "el llorlly",
+			"portrait": "brown"
+		},
+		{
+			"expression": "ghost-talk",
+			"text": "el llorlly",
+			"portrait": "cesar"
+		},
+		{
+			"expression": "dead",
+			"text": "ups",
+			"portrait": "cesar-dead"
+		}
+	]
+}

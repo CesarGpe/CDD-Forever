@@ -1,0 +1,14 @@
+{
+	"name": "bule",
+	"expressions": {
+		"normal": "blueslime_talk",
+		"scared": "blueslime_scared",
+		"lookup": "blueslimelookUp",
+		"worried": "blueslim_hijole"
+    },
+    "position": [40, 10],
+	"scale": 0.6,
+	
+	"sounds": ["voice"],
+	"soundChance": 100
+}

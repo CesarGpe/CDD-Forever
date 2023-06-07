@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="wood-box.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="textboxOpen_wood0000" x="0" y="0" width="10" height="45" frameX="-588" frameY="-88" frameWidth="1188" frameHeight="318"/>
+	<SubTexture name="textboxOpen_wood0001" x="10" y="0" width="434" height="89" frameX="-377" frameY="-88" frameWidth="1188" frameHeight="318"/>
+	<SubTexture name="textboxOpen_wood0002" x="444" y="0" width="835" height="126" frameX="-175" frameY="-86" frameWidth="1188" frameHeight="318"/>
+	<SubTexture name="textboxOpen_wood0003" x="1279" y="0" width="1188" height="146" frameX="0" frameY="-61" frameWidth="1188" frameHeight="318"/>
+	<SubTexture name="textboxOpen_wood0004" x="2467" y="0" width="1188" height="176" frameX="0" frameY="-31" frameWidth="1188" frameHeight="318"/>
+	<SubTexture name="textboxOpen_wood0005" x="0" y="176" width="1184" height="270" frameX="-1" frameY="-3" frameWidth="1188" frameHeight="318"/>
+	<SubTexture name="textboxOpen_wood0006" x="1184" y="176" width="1186" height="318" frameX="-1" frameY="0" frameWidth="1188" frameHeight="318"/>
+	<SubTexture name="textboxOpen_wood0007" x="2370" y="176" width="1186" height="310" frameX="-1" frameY="-8" frameWidth="1188" frameHeight="318"/>
+	<SubTexture name="textboxOpen_wood0008" x="0" y="494" width="1186" height="307" frameX="0" frameY="-8" frameWidth="1188" frameHeight="318"/>
+	<SubTexture name="textboxStatic_wood0000" x="1186" y="494" width="1186" height="307" frameX="0" frameY="0" frameWidth="1188" frameHeight="307"/>
+	<SubTexture name="textboxStatic_wood0001" x="1186" y="494" width="1186" height="307" frameX="0" frameY="0" frameWidth="1188" frameHeight="307"/>
+	<SubTexture name="textboxStatic_wood0002" x="2372" y="494" width="1185" height="307" frameX="-1" frameY="0" frameWidth="1188" frameHeight="307"/>
+	<SubTexture name="textboxStatic_wood0003" x="2372" y="494" width="1185" height="307" frameX="-1" frameY="0" frameWidth="1188" frameHeight="307"/>
+	<SubTexture name="textboxStatic_wood0004" x="0" y="801" width="1188" height="307"/>
+	<SubTexture name="textboxStatic_wood0005" x="0" y="801" width="1188" height="307"/>
+	<SubTexture name="textboxStatic_wood0006" x="1188" y="801" width="1188" height="307"/>
+	<SubTexture name="textboxStatic_wood0007" x="1188" y="801" width="1188" height="307"/>
+</TextureAtlas>

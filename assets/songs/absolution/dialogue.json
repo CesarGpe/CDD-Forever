@@ -1,0 +1,56 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "mad",
+			"text": "Vienes a este servidor solo a causarme\nproblemas?",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "smug",
+			"text": "Pues no es mi culpa que no seas bueno\nen esto.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "no",
+			"text": "No digas pendejadas, pinche yolotroll",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "mad",
+			"text": "Tengo que recordarte quien manda aqui?",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "mad",
+			"text": "Yo a la verga",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "mad",
+			"text": "Te podria sacar de este servidor ahora\nmismo, y nunca te volveriamos a ver.",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "Una cancion mas, veamos quien es el\nmejor.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "no",
+			"text": "Te vas a tragar tus palabras.",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "mad",
+			"text": "...",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "mad",
+			"text": "y mi verga a la verga",
+			"portrait": "tsuyar"
+		}
+	]
+}

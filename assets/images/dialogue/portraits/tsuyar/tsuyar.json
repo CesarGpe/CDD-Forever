@@ -1,0 +1,18 @@
+{
+	"name": "tsuyar",
+	"expressions": {
+		"normal": "tsuyar_talk",
+		"mad": "tsuyar_mad",
+		"angry": "tsuyar_angry",
+		"shout": "tsuyar_grabHorns",
+		"unamused": "tsuyar_unamused",
+		"no": "tsuyar_shout",
+		"razor": "tsuyar_Razor",
+		"wtf": "tsuyar_wtf"
+    },
+    "position": [-60, -120],
+	"scale": 0.55,
+	
+	"sounds": ["voice"],
+	"soundChance": 100
+}

@@ -1,0 +1,112 @@
+{
+	"dialogue": [
+		{
+			"expression": "lookdown",
+			"text": "hijole que paso pues no que muy muy",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "A ver, te me vas bajando de alto que tu ni cantar sabes.",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cerdo"
+		},
+		{
+			"expression": "talk",
+			"text": "grrr",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "Oye, esa estuvo muy buena!",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "buenas mis nbalgass",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "No te decia a ti...",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "Ajaj que pendejo",
+			"boxState": "normal",
+			"portrait": "cerdo",
+			"speed": 0.05
+		},
+		{
+			"expression": "dead",
+			"text": "ay que malo",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "Es cierto, perdon Cesar.",
+			"boxState": "normal",
+			"portrait": "cerdo",
+			"speed": 0.05
+		},
+		{
+			"expression": "lookdown",
+			"text": "todo bien terrence",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "Ya vamos con la siguiente?",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "ok pero esta bien larga",
+			"boxState": "normal",
+			"portrait": "cesar",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "Que esta bien larga Cesar?",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.03,
+			"portrait": "TsuyAr"
+		},
+		{
+			"expression": "talk",
+			"text": "tu aun no sales tsuyar",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Cesar"
+		},
+		{
+			"expression": "talk",
+			"text": "Puta madre",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.03,
+			"portrait": "TsuyAr"
+		}
+	]
+}

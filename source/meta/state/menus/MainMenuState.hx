@@ -37,7 +37,7 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
-	var optionShit:Array<String> = ['story-mode', 'freeplay', 'options'];
+	var optionShit:Array<String> = ['modo-historia', 'juego-libre', 'configuracion'];
 	var canSnap:Array<Float> = [];
 
 	var codeStep:Int = 0;
@@ -55,7 +55,7 @@ class MainMenuState extends MusicBeatState
 		ForeverTools.resetMenuMusic();
 
 		#if !html5
-		Discord.changePresence('MENU SCREEN', 'Main Menu');
+		Discord.changePresence('En los Menús:', 'Menú Principal');
 		#end
 
 		// uh
@@ -79,7 +79,7 @@ class MainMenuState extends MusicBeatState
 		linelol.antialiasing = true;
 		add(linelol);
 
-		menutxt = new FlxText(120, 149, 550, 'MAIN MENU', 65);
+		menutxt = new FlxText(120, 149, 550, 'MENU PRINCIPAL', 65);
 		menutxt.setFormat(Paths.font("unisans.otf"), 65, FlxColor.fromRGB(139, 141, 146), LEFT);
 		menutxt.scrollFactor.set();
 		menutxt.updateHitbox();
@@ -124,7 +124,7 @@ class MainMenuState extends MusicBeatState
 		for (i in 0...optionShit.length)
 		{
 			//var menuItem:FlxSprite = new FlxSprite(0, 80 + (i * 200));
-			var menuItem:FlxText = new FlxText(220, (16 * 9 * i) + (29 * 8), 450, optionShit[i], 80);
+			var menuItem:FlxText = new FlxText(220, (16 * 9 * i) + (29 * 8), 500, optionShit[i], 80);
 			menuItem.setFormat(Paths.font("whitneymedium.otf"), 80, FlxColor.fromRGB(139, 141, 146), LEFT);
 
 			var htag:FlxText = new FlxText(130, (16 * 9 * i) + (29 * 8), 450, '#', 100);
@@ -185,7 +185,7 @@ class MainMenuState extends MusicBeatState
 
 		// from the base game lol
 
-		var versionShit:FlxText = new FlxText(5, FlxG.height - 25, 0, "Forever Engine v" + Main.gameVersion, 12);
+		var versionShit:FlxText = new FlxText(5, FlxG.height - 25, 0, "Forever Engine " + Main.gameVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -276,11 +276,11 @@ class MainMenuState extends MusicBeatState
 
 						switch (daChoice)
 						{
-							case 'story-mode':
+							case 'modo-historia':
 								Main.switchState(this, new StoryMenuState());
-							case 'freeplay':
+							case 'juego-libre':
 								Main.switchState(this, new FreeplayState());
-							case 'options':
+							case 'configuracion':
 								transIn = FlxTransitionableState.defaultTransIn;
 								transOut = FlxTransitionableState.defaultTransOut;
 								Main.switchState(this, new OptionsMenuState());
@@ -358,7 +358,7 @@ class MainMenuState extends MusicBeatState
 		add(black);
 
 		PlayState.SONG = Song.loadFromJson('asf', 'asf');
-		PlayState.isStoryMode = false;
+		PlayState.isStoryMode = true;
 		PlayState.storyDifficulty = 1;
 		PlayState.storyWeek = 0;
 

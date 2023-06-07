@@ -30,7 +30,7 @@ class Selector extends FlxTypedSpriteGroup<FlxSprite>
 		trace(options);
 
 		// oops magic numbers
-		var shiftX = 48;
+		var shiftX = 45;
 		var shiftY = 35;
 		// generate multiple pieces
 
@@ -39,14 +39,14 @@ class Selector extends FlxTypedSpriteGroup<FlxSprite>
 
 		#if html5
 		// lol heres how we fuck with everyone
-		var lock = new FlxSprite(shiftX + ((word.length) * 50) + (shiftX / 4) + ((fpsCap) ? 20 : 0), shiftY);
+		var lock = new FlxSprite(shiftX + ((word.length) * 56) + (shiftX / 4) + ((fpsCap) ? -100 : 0), shiftY);
 		lock.frames = Paths.getSparrowAtlas('menus/base/storymenu/campaign_menu_UI_assets');
 		lock.animation.addByPrefix('lock', 'lock', 24, false);
 		lock.animation.play('lock');
 		add(lock);
 		#else
 		leftSelector = createSelector(shiftX, shiftY, word, 'left');
-		rightSelector = createSelector(shiftX + ((word.length) * 50) + (shiftX / 4) + ((fpsCap) ? 20 : 0), shiftY, word, 'right');
+		rightSelector = createSelector(shiftX + ((word.length) * 56) + (shiftX / 4) + ((fpsCap) ? -100 : 0), shiftY, word, 'right');
 
 		add(leftSelector);
 		add(rightSelector);
@@ -59,7 +59,7 @@ class Selector extends FlxTypedSpriteGroup<FlxSprite>
 			optionChosen = new Alphabet(FlxG.width / 2 + 200, shiftY + 20, chosenOptionString, false, false);
 		}
 		else
-			optionChosen = new Alphabet(FlxG.width / 2, shiftY + 20, chosenOptionString, true, false);
+			optionChosen = new Alphabet(FlxG.width / 2, shiftY + 15, chosenOptionString, true, false);
 
 		add(optionChosen);
 	}

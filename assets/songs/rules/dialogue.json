@@ -1,0 +1,66 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "normal",
+			"text": "oh no estoy perdiendo",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "Ya me puedes decir donde esta GF?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "porai",
+			"portrait": "brown"
+		},
+		{
+			"expression": "mad",
+			"text": "Por ahi? Eso no es de gran ayuda.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "pues mira no es como si la haya\nvisto caer o algo nomas apareciste de\nla nada",
+			"portrait": "brown"
+		},
+		{
+			"expression": "mad",
+			"text": "...",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "Eh, tiene sentido.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "una ultima es que no estaba listo",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "Como no estabas...?",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "Sabes que? Esta bien.",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "es que ya me tengo que ir vuelvo\nluego cesar despues de esta sigues tu\nok",
+			"portrait": "brown"
+		},
+		{
+			"expression": "normal",
+			"text": "ok",
+			"portrait": "cesar"
+		}
+	]
+}
