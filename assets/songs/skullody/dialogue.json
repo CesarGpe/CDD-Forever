@@ -42,6 +42,12 @@
 		},
 		{
 		
+			"portrait": "tsuyar",
+			"expression": "normal",
+			"text": "Una mierda."
+		},
+		{
+		
 			"portrait": "cesar",
 			"expression": "normal",
 			"text": "shhh no le digas"

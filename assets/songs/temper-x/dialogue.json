@@ -1,0 +1,61 @@
+{
+	"box": "discord-box",
+	"boxState": "normal",
+	"dialogue": [
+		{
+			"expression": "normal",
+			"text": "aaaaa como chingas",
+			"portrait": "tsuyar"
+		},
+		{
+			"expression": "normal",
+			"text": "andale we",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "es divertido sufrir",
+			"portrait": "bf"
+		},
+		{
+			"expression": "normal",
+			"text": "pues si",
+			"portrait": "tsuyar"
+		},
+		{
+			"portrait": "tsuyar",
+			"expression": "normal",
+			"text": "Supongo que los fans de FNF disfrutan\nel sufrimiento"
+		},
+		{
+			"portrait": "tsuyar",
+			"expression": "normal",
+			"text": "¿Verdad blueslime?"
+		},
+		{
+			"portrait": "tsuyar",
+			"expression": "normal",
+			"text": " "
+		},
+		{
+			"portrait": "tsuyar",
+			"expression": "normal",
+			"text": "ah, cierto"
+		},
+		{
+			"expression": "normal",
+			"text": "Fue a cagar",
+			"portrait": "tsuyar"
+		},
+		{
+			"portrait": "tsuyar",
+			"expression": "normal",
+			"text": "Esta bien"
+		},
+		{
+			"expression": "normal",
+			"text": "Pero luego te banneo porque ya no te\nsoporto la neta.",
+			"portrait": "tsuyar"
+		}
+	]
+}
