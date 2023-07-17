@@ -306,7 +306,7 @@ class Init extends FlxState
 
 	public static function updateAll()
 	{
-		InfoHud.updateDisplayInfo(trueSettings.get('Mostrar FPS'), trueSettings.get('Modo Debug'), trueSettings.get('Contador de Memoria'));
+		InfoHud.updateDisplayInfo(trueSettings.get('Mostrar FPS'), false, trueSettings.get('Contador de Memoria'));
 
 		#if !html5
 		Main.updateFramerate(trueSettings.get("Limite de FPS"));

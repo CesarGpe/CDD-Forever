@@ -250,6 +250,9 @@ class PlayState extends MusicBeatState
 		gf.adjustPos = false;
 		gf.setCharacter(300, 100, stageBuild.returnGFtype(curStage));
 
+		if (SONG.song.toLowerCase() == 'nightmarish')
+			gf.setCharacter(300, 100, 'reimu');
+
 		if (SONG.song.toLowerCase() == 'skullody') {
 			// asegurarse de que remoo existe
 			gf.setCharacter(300, 100, 'reimu');
