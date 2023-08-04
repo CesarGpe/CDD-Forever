@@ -7,7 +7,9 @@ Descansa en paz, Camara de Diputados. Cambiaste mi vida. 25/01/2021 - 14/03/2022
 - [blueslime32](https://www.youtube.com/@blueslime32) - Artista y compositor.
 - [CesarGpe](https://www.youtube.com/channel/UCGWSW98YD-GO5cSgxW-lCfQ) - Programador.
 
-Aqui abajo dejare el README original del Forever Engine, ya que su creadora, CubicYoshi / Yoshubs se retiro del internet indefinidamente, ademas sirve para darle los creditos a los demas contribuidores de este engine.
+El mod usa una version bastante modificada del Forever Engine, ademas de estar un par de versiones atras de las resubidas que encontre del source code ya que deje el proyecto en espera por algunos meses. Solo actualice y cambie algunas partes del codigo, no lo modifique con fines de publicarlo, asi que no creo que le sirva a alguien mas. Deje un pequeño easter egg en la pantalla de titulo en honor a este gran engine que puedes activar pulsando SHIFT.
+
+Aqui abajo dejare el README original del Forever Engine, ya que su creadora, Yoshubs, se retiro del internet indefinidamente, ademas sirve para darle los creditos a los demas contribuidores de este engine.
 
 
 
@@ -84,6 +86,4 @@ How to Compile:
 Basically, all of the files you need are in the engine itself through the setup.bat (Huge thanks to [FNF Source Code Guide](https://gamebanana.com/tuts/13798) for the download to the file) except for Visual Studio Code, or whatever program you choose to use to program in the engine. If you've already worked with fnf, this should work perfectly with you and if it doesn't then you might have the wrong target settings, or Lime is probably broken, that's usually what happens with these things, it's happened to me a ton of times lmao. I'm not a very good programmer.
 If you want some external sources that will better walk you through how to compile the game, look no further than the [base game github](https://github.com/ninjamuffin99/Funkin) and [FNF Source Code Guide](https://gamebanana.com/tuts/13798), I really hope they help you out!
 
-----------------------------------------------
-Thank you for checking out my engine! Got any questions? DM me at Shubs#0404 on Discord!
 ----------------------------------------------
