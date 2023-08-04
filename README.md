@@ -1,7 +1,18 @@
 # [Cámara de Diputados : Forever](https://gamebanana.com/mods/423192)
-Este es un proyecto que empezamos yo y mi gran amigo blueslime32 durante los tiempos de pandemia en el 2020. Originalmente se empezo en el Psych Engine, pero por diversos motivos personales, blueslime32 decidio abandonar el proyecto. El nombre del mod es solo una referencia al nombre de nuestro servidor de Discord en donde yo y mis amigos nos conocimos mejor e hicimos bonitos recuerdos juntos. Hubo conflictos con algunos miembros, lo que termino con la eliminacion total del servidor, ahora este proyecto rinde tributo a ese rincon del internet que cambio mi vida. 
+Este es un proyecto que empezamos yo y mi gran amigo blueslime32 durante los tiempos de pandemia en el 2020. Originalmente se empezo en el Psych Engine, pero por diversos motivos personales, blueslime32 decidio abandonar el proyecto. El nombre del mod es solo una referencia al nombre de nuestro servidor de Discord en donde yo y mis amigos nos conocimos mejor e hicimos bonitos recuerdos juntos. Hubo conflictos con algunos miembros, lo que termino con la eliminacion total del servidor, ahora este proyecto rinde tributo a ese 
+diminuto rincon del internet que cambio mi vida. 
 
 Motivado por esto ultimo, empece a programar el mod en Forever Engine por la gran optimizacion que tiene, y para hacer el chiste de que la Cámara de Diputados (C.D.D.) es para siempre. Un agradecimiento muy especial a mis amigos Tsuyλr, The 2nd Player, BrownishSea, juanpapa34, y blueslime32, los amo :)
+
+Contenido del mod:
+- 4 semanas completas de 3 canciones cada una
+- 1 tutorial con la calaca mas chida
+- 8 canciones BONUS
+- (1 cancion secreta)
+
+EASTER EGGS:
+- Escribe "ASF" en el menu principal
+- Presiona SHIFT en la pantalla de titulo
 
 Descansa en paz, Camara de Diputados. Cambiaste mi vida. 25/01/2021 - 14/03/2022
 - [blueslime32](https://www.youtube.com/@blueslime32) - Artista y compositor.
