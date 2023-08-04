@@ -16,7 +16,7 @@ Motivado por esto ultimo, empece a programar el mod en Forever Engine por la gra
 
 #### Descansa en paz, Camara de Diputados. Cambiaste mi vida. 25/01/2021 - 14/03/2022
 - [blueslime32](https://www.youtube.com/@blueslime32) - Artista y compositor.
-- [CesarGpe](https://www.youtube.com/channel/UCGWSW98YD-GO5cSgxW-lCfQ) - Programador.
+- [CesarGpe](https://twitter.com/cesardicecosas) - Programador.
 
 El mod usa una version bastante modificada del Forever Engine, ademas de estar un par de versiones atras de las resubidas que encontre del source code ya que deje el proyecto en espera por algunos meses. Solo actualice y cambie algunas partes del codigo, no lo modifique con fines de publicarlo, asi que no creo que le sirva a alguien mas. Deje un pequeño easter egg en la pantalla de titulo en honor a este gran engine que puedes activar pulsando SHIFT.
 
