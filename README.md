@@ -21,7 +21,7 @@ Motivado por esto ultimo, empece a programar el mod en Forever Engine por la gra
 El mod usa una version bastante modificada del Forever Engine, ademas de estar un par de versiones atras de las resubidas que encontre del source code ya que deje el proyecto en espera por algunos meses. Solo actualice y cambie algunas partes del codigo, no lo modifique con fines de publicarlo, asi que no creo que le sirva a alguien mas. Deje un pequeño easter egg en la pantalla de titulo en honor a este gran engine que puedes activar pulsando SHIFT.
 
 Aqui abajo dejare el README original del Forever Engine, ya que su creadora, Yoshubs, se retiro del internet indefinidamente, ademas sirve para darle los creditos a los demas contribuidores de este engine.
-
+----------------------------------------------
 
 
 
