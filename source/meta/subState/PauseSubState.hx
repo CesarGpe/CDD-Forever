@@ -20,7 +20,7 @@ class PauseSubState extends MusicBeatSubState
 {
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['Resume', 'Restart Song', 'Exit to menu'];
+	var menuItems:Array<String> = ['Resumir', 'Reiniciar', 'Salir al Menu'];
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
@@ -134,15 +134,23 @@ class PauseSubState extends MusicBeatSubState
 
 			switch (daSelected)
 			{
-				case "Resume":
+				case "Resumir":
 					close();
-				case "Restart Song":
+				case "Reiniciar":
 					Main.switchState(this, new PlayState());
-				case "Exit to menu":
+				case "Salir al Menu":
+					openfl.Lib.application.window.title = 'Vs. CDD Forever';
+					FlxTransitionableState.skipNextTransIn = false;
+					FlxTransitionableState.skipNextTransOut = false;
 					PlayState.resetMusic();
 
 					if (PlayState.isStoryMode)
-						Main.switchState(this, new StoryMenuState());
+					{
+						if (PlayState.SONG.song.toLowerCase() == 'asf')
+							Main.switchState(this, new FreeplayState());
+						else
+							Main.switchState(this, new StoryMenuState());
+					}
 					else
 						Main.switchState(this, new FreeplayState());
 			}

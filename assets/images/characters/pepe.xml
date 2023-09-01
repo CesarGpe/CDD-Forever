@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="pepe.png">
+<SubTexture name="pepe idle0000" x="0" y="1080" width="681" height="784" frameX="-124" frameY="-123" frameWidth="926" frameHeight="1080" />
+<SubTexture name="pepe idle0001" x="681" y="1080" width="769" height="665" frameX="-68" frameY="-242" frameWidth="926" frameHeight="1080" />
+<SubTexture name="pepe idle0002" x="2312" y="0" width="877" height="488" frameX="-24" frameY="-419" frameWidth="926" frameHeight="1080" />
+<SubTexture name="pepe idle0003" x="681" y="1080" width="769" height="665" frameX="-68" frameY="-242" frameWidth="926" frameHeight="1080" />
+<SubTexture name="pepe idle0004" x="0" y="1080" width="681" height="784" frameX="-124" frameY="-123" frameWidth="926" frameHeight="1080" />
+<SubTexture name="pepe singUP0000" x="1802" y="0" width="510" height="911" frameX="-210" frameY="-4" frameWidth="926" frameHeight="1080" />
+<SubTexture name="pepe singDOWN0000" x="2312" y="488" width="755" height="416" frameX="-80" frameY="-500" frameWidth="926" frameHeight="1080" />
+<SubTexture name="pepe singLEFT0000" x="0" y="0" width="926" height="1080" frameX="0" frameY="0" frameWidth="926" frameHeight="1080" />
+<SubTexture name="pepe singRIGHT0000" x="926" y="0" width="876" height="1057" frameX="-34" frameY="-4" frameWidth="926" frameHeight="1080" />
+</TextureAtlas>

@@ -14,7 +14,7 @@
 		},
 		{
 			"expression": "normal",
-			"text": "si wey ahorita dije exactamente quien eres",
+			"text": "si wey ahorita dije exactamente quien\neres",
 			"portrait": "bule"
 		},
 		{
@@ -74,7 +74,7 @@
 		},
 		{
 			"expression": "normal",
-			"text": "ya hay que empezar me estoy aburriendo",
+			"text": "ya hay que empezar me estoy aburriend\no",
 			"portrait": "bule"
 		}
 	]

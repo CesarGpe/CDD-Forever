@@ -58,6 +58,9 @@ class UIStaticArrow extends FlxSprite
 
 		updateHitbox();
 		scrollFactor.set();
+
+		if (PlayState.SONG.song.toLowerCase() == 'chronomatron')
+			setAlpha = 0.7;
 	}
 
 	// literally just character code

@@ -158,7 +158,7 @@ class DialogueBox extends FlxSpriteGroup
 		add(alphabetText);
 
 		// saltar texto
-		var skipText = new FlxText(100, 15, 1000, "- PRESS SHIFT TO SKIP -", 20);
+		var skipText = new FlxText(100, 15, 1000, "- Pulsa SHIFT para saltar. -", 20);
 		skipText.alignment = FlxTextAlign.CENTER;
 
 		skipText.borderStyle = FlxTextBorderStyle.OUTLINE;
@@ -167,7 +167,8 @@ class DialogueBox extends FlxSpriteGroup
 
 		FlxG.sound.music.volume = 0.0;
 		FlxG.sound.music.fadeIn(1.0, 0.0, 0.5);
-		if (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()) == 'temper')
+		if (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()) == 'temper-x'
+			|| PlayState.SONG.song.toLowerCase() == 'temper')
 			FlxG.sound.playMusic(Paths.music('collapse'));
 		else
 			FlxG.sound.playMusic(Paths.music('conversation'));

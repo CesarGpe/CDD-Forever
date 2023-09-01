@@ -1,7 +1,7 @@
-idle 13 15
+idle 15 15
 singUP 56 17
-singRIGHT -6 1
-singLEFT -1 -10
-singDOWN -11 -45
-tired 54 16
-still 54 16
+singRIGHT -9 2
+singLEFT -2 -9
+singDOWN -14 -45
+tired 57 16
+still 57 16

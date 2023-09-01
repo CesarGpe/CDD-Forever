@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="story-bgs.png">
+<SubTexture name="brown0000" x="0" y="0" width="1280" height="386" frameX="0" frameY="0" frameWidth="1280" frameHeight="386" />
+<SubTexture name="bule0000" x="0" y="386" width="1280" height="386" frameX="0" frameY="0" frameWidth="1280" frameHeight="386" />
+<SubTexture name="cesar0000" x="0" y="772" width="1280" height="386" frameX="0" frameY="0" frameWidth="1280" frameHeight="386" />
+<SubTexture name="tutorial0000" x="1280" y="0" width="1280" height="386" frameX="0" frameY="0" frameWidth="1280" frameHeight="386" />
+<SubTexture name="tsuyar0000" x="1280" y="386" width="1280" height="386" frameX="0" frameY="0" frameWidth="1280" frameHeight="386" />
+</TextureAtlas>

@@ -2,6 +2,7 @@ package meta.data.dependency;
 
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.FlxUIState;
+import meta.data.dependency.LoadingScreen;
 
 class FNFUIState extends FlxUIState
 {
@@ -9,7 +10,12 @@ class FNFUIState extends FlxUIState
 	{
 		// state stuffs
 		if (!FlxTransitionableState.skipNextTransOut)
-			openSubState(new FNFTransition(0.5, true));
+		{
+			if (Main.onLoadingScreen)
+				openSubState(new LoadingScreen(0.5, true, LoadingScreen.fontUsed));
+			else
+				openSubState(new FNFTransition(0.5, true));
+		}
 	
 		super.create();
 	}

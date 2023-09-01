@@ -105,12 +105,24 @@ class OptionsSubstate extends MusicBeatSubState
 		keyOptions = new FlxTypedGroup<Alphabet>();
 
 		var arrayTemp:Array<String> = [];
-		// re-sort everything according to the list numbers
+		/*// re-sort everything according to the list numbers
 		for (controlString in Init.gameControls.keys()) {
 			arrayTemp[Init.gameControls.get(controlString)[1]] = controlString;
-		}
-		arrayTemp.push("EDIT OFFSET"); // append edit offset to the end of the array
-
+		}*/
+		
+		// ME VALE CACA LO VOY A HACER YO
+		arrayTemp.push('UP');
+		arrayTemp.push('DOWN');
+		arrayTemp.push('LEFT');
+		arrayTemp.push('RIGHT');
+		arrayTemp.push(null);
+		arrayTemp.push('ACCEPT');
+		arrayTemp.push('BACK');
+		arrayTemp.push('PAUSE');
+		arrayTemp.push('RESET');
+		arrayTemp.push(null);
+		arrayTemp.push('EDITAR OFFSET');
+		
 		for (i in 0...arrayTemp.length)
 		{
 			if (arrayTemp[i] == null)
@@ -181,7 +193,7 @@ class OptionsSubstate extends MusicBeatSubState
 	private function updateSelection(equal:Int = 0)
 	{
 		if (equal != curSelection) 
-			FlxG.sound.play(Paths.sound('scrollMenu'));
+			FlxG.sound.play(Paths.sound('menu/scrollMenu'));
 		var prevSelection:Int = curSelection;
 		curSelection = equal;
 		// wrap the current selection
@@ -232,7 +244,7 @@ class OptionsSubstate extends MusicBeatSubState
 						curHorizontalSelection = 0;
 
 					// update stuffs
-					FlxG.sound.play(Paths.sound('scrollMenu'));
+					FlxG.sound.play(Paths.sound('menu/scrollMenu'));
 				}
 			}
 
@@ -282,7 +294,7 @@ class OptionsSubstate extends MusicBeatSubState
 
 			if (controls.ACCEPT)
 			{
-				FlxG.sound.play(Paths.sound('confirmMenu'));
+				FlxG.sound.play(Paths.sound('menu/confirmMenu'));
 				submenuOpen = true;
 
 				FlxFlicker.flicker(otherKeys.members[(curSelection * 2) + curHorizontalSelection], 0.5, 0.06 * 2, true, false, function(flick:FlxFlicker)
@@ -301,6 +313,7 @@ class OptionsSubstate extends MusicBeatSubState
 	override public function close()
 	{
 		//
+		FlxG.sound.play(Paths.sound('menu/cancelmMenu'));
 		Init.saveControls(); // for controls
 		Init.saveSettings(); // for offset
 		super.close();

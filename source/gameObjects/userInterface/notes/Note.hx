@@ -84,18 +84,19 @@ class Note extends FNFSprite
 	{
 		super.update(elapsed);
 
+		if (PlayState.SONG.song.toLowerCase() == 'chronomatron')
+			alpha = 0.7;
+
 		if (mustPress)
 		{
 			if (strumTime > Conductor.songPosition - (Timings.msThreshold) 
 				&& strumTime < Conductor.songPosition + (Timings.msThreshold))
 			{
 				canBeHit = true;
-				alpha = 1;
 			}
 			else
 			{
 				canBeHit = false;
-				alpha = 1;
 			}
 		}
 		else // make sure the note can't be hit if it's the dad's I guess
@@ -159,7 +160,6 @@ class Note extends FNFSprite
 				{
 					// NOTETYPE NO CAMBIA HASTA EL NUMERO 2 Y NO SE PORQUEEEEEEE
 					// pero me vale caca lo voy a poner asi por que funciona
-					// primera vez que escribo en español afuera del class de personajes jaja
 					default:
 						skin = 'NOTE_assets';
 				}
@@ -189,7 +189,10 @@ class Note extends FNFSprite
 		if (isSustainNote && prevNote != null)
 		{
 			newNote.noteSpeed = prevNote.noteSpeed;
-			newNote.alpha = (Init.trueSettings.get('Holds Opacas')) ? 1 : 0.6;
+			if (PlayState.SONG.song.toLowerCase() != 'chronomatron')
+				newNote.alpha = (Init.trueSettings.get('Holds Opacas')) ? 1 : 0.6;
+			else
+				newNote.alpha = 0.7;
 			newNote.animation.play(UIStaticArrow.getColorFromNumber(noteData) + 'holdend');
 			newNote.updateHitbox();
 			if (prevNote.isSustainNote)
@@ -306,7 +309,11 @@ class Note extends FNFSprite
 		if (isSustainNote && prevNote != null)
 		{
 			newNote.noteSpeed = prevNote.noteSpeed;
-			newNote.alpha = (Init.trueSettings.get('Holds Opacas')) ? 1 : 0.6;
+
+			if (PlayState.SONG.song.toLowerCase() != 'chronomatron')
+				newNote.alpha = (Init.trueSettings.get('Holds Opacas')) ? 1 : 0.6;
+			else
+				newNote.alpha = 0.7;
 			newNote.animation.play('holdend');
 			newNote.updateHitbox();
 

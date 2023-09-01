@@ -32,18 +32,19 @@
 	<source path="source" />
 	<assets path="assets" />
 	<assets path="FE-CrashDialog.exe" type="template" if="windows release" />
-	<!--<assets path="mods" />-->
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />
 	<haxedev set='webgl' />
 
-	<haxelib name="flixel-addons" />
-	<haxelib name="hscript" />
-	<haxelib name="flixel-ui" />
+	<haxelib name="flixel-addons"/>
+	<haxelib name="hscript"/>
+	<haxelib name="flixel-ui"/>
 	<haxelib name="polymod"/>
 	<haxelib name="discord_rpc"/>
+	<haxelib name="hxCodec"/>
+	<haxelib name="hxcpp-debug-server"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
@@ -81,8 +82,9 @@
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
 
 	<!-- Akways enable Null Object Reference check for crash dialog -->
-	<haxedef name="HXCPP_CHECK_POINTER" if="release" />
-	<haxedef name="HXCPP_STACK_LINE" if="release" />
+	<haxedef name="HXCPP_CHECK_POINTER" />
+	<haxedef name="HXCPP_STACK_LINE" />
+	<haxedef name='no-deprecation-warnings' />
 
 	<!-- _________________________________ Custom _______________________________ -->
 

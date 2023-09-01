@@ -47,10 +47,10 @@ class Init extends FlxState
 		'Downscroll' => [
 			false,
 			Checkmark,
-			'Si activas esto es porque sabes lo que hace.',
+			'Las notas iran hacia abajo en vez de hacia arriba.',
 			NOT_FORCED
 		],
-		'Auto Pausa' => [true, Checkmark, 'Pausa automaticamente.', NOT_FORCED],
+		'Auto Pausa' => [true, Checkmark, 'Pausa automaticamente cuando el juego se minimiza.', NOT_FORCED],
 		'Mostrar FPS' => [false, Checkmark, 'ADIVINA QUE HACE ESTA OPCION', NOT_FORCED],
 		'Contador de Memoria' => [
 			false,
@@ -101,7 +101,7 @@ class Init extends FlxState
 		'Sin Note Splashes' => [
 			false,
 			Checkmark,
-			'Deshabilita los note splashes, por si te distraen supongo.',
+			'Deshabilita los note splashes, por si te distraen.',
 			NOT_FORCED
 		],
 		// custom ones lol
@@ -118,7 +118,7 @@ class Init extends FlxState
 		'UI Skin' => ['forever', Selector, 'Escoge una skin para los ratings, combos, etc.', NOT_FORCED, ''],
 		'Note Skin' => ['default', Selector, 'puto el que lo lea', NOT_FORCED, ''],
 		'Limite de FPS' => [120, Selector, 'Pon tu limite de FPS.', NOT_FORCED, ['']],
-		'Flechas Opacas' => [true, Checkmark, "Vuelve las flechas opacas.", NOT_FORCED],
+		'Flechas Opacas' => [false, Checkmark, "Vuelve los receptores de flechas opacos.", NOT_FORCED],
 		'Holds Opacas' => [false, Checkmark, "Hace la linea de las notas mantenidas opaca.", NOT_FORCED],
 		'Ghost Tapping' => [
 			true,
@@ -130,15 +130,15 @@ class Init extends FlxState
 		'Custom Titlescreen' => [
 			false,
 			Checkmark,
-			"estoy muy seguro de que esto ni sirve",
+			"MOTOR PARA SIEMPRE lesfaquin go",
 			FORCED
 		],
 		'Dialogo' => [
-			'freeplay',
+			'historia',
 			Selector,
-			'Decide cuando quieres saltar los dialogos.',
+			'Decide cuando se mostraran los dialogos.',
 			NOT_FORCED,
-			['nunca', 'freeplay', 'siempre']
+			['nunca', 'historia', 'siempre']
 		],
 		'Fixed Judgements' => [
 			false,
@@ -149,9 +149,21 @@ class Init extends FlxState
 		'Simply Judgements' => [
 			true,
 			Checkmark,
-			"Simplifica las animaciones de los ratings, solo se muestra uno a la vez",
+			"Simplifica las animaciones de los ratings, mostrando solo uno a la vez",
 			NOT_FORCED
 		],
+		'fpStory' => [
+			true,
+			Checkmark,
+			"controlador del menu de freeplay",
+			NOT_FORCED
+		],
+		'asfUnlock' => [
+			false,
+			Checkmark,
+			"mostrar asf si esta desbloqueado",
+			NOT_FORCED
+		]
 
 
 	];
@@ -160,18 +172,18 @@ class Init extends FlxState
 	public static var settingsDescriptions:Map<String, String> = [];
 
 	public static var gameControls:Map<String, Dynamic> = [
-		'UP' => [[FlxKey.UP, W], 2],
+		'UP' => [[FlxKey.UP, W], 0],
 		'DOWN' => [[FlxKey.DOWN, S], 1],
-		'LEFT' => [[FlxKey.LEFT, A], 0],
+		'LEFT' => [[FlxKey.LEFT, A], 2],
 		'RIGHT' => [[FlxKey.RIGHT, D], 3],
-		'ACCEPT' => [[FlxKey.SPACE, Z, FlxKey.ENTER], 4],
-		'BACK' => [[FlxKey.BACKSPACE, X, FlxKey.ESCAPE], 5],
-		'PAUSE' => [[FlxKey.ENTER, P], 6],
-		'RESET' => [[R, null], 13],
-		'UI_UP' => [[FlxKey.UP, W], 8],
-		'UI_DOWN' => [[FlxKey.DOWN, S], 9],
-		'UI_LEFT' => [[FlxKey.LEFT, A], 10],
-		'UI_RIGHT' => [[FlxKey.RIGHT, D], 11],
+		'ACCEPT' => [[FlxKey.SPACE, Z, FlxKey.ENTER], 5],
+		'BACK' => [[FlxKey.BACKSPACE, X, FlxKey.ESCAPE], 6],
+		'PAUSE' => [[FlxKey.ENTER, P], 7],
+		'RESET' => [[R, null], 8],
+		'UI_UP' => [[FlxKey.UP, W], 10],
+		'UI_DOWN' => [[FlxKey.DOWN, S], 11],
+		'UI_LEFT' => [[FlxKey.LEFT, A], 12],
+		'UI_RIGHT' => [[FlxKey.RIGHT, D], 13]
 	];
 
 	public static var filters:Array<BitmapFilter> = []; // the filters the game has active
@@ -227,15 +239,15 @@ class Init extends FlxState
 		FlxG.mouse.visible = false; // Hide mouse on start
 		FlxGraphic.defaultPersist = true; // make sure we control all of the memory
 		
-		gotoTitleScreen();
-	}
+		// volumen epico
+		if (FlxG.save.data.volume != null)
+			FlxG.sound.volume = FlxG.save.data.volume;
+		if (FlxG.save.data.mute != null)
+			FlxG.sound.muted = FlxG.save.data.mute;
+		FlxG.save.flush();
 
-	private function gotoTitleScreen()
-	{	
-		if (trueSettings.get("Custom Titlescreen"))
-			Main.switchState(this, new CustomTitlescreen());
-		else
-			Main.switchState(this, new TitleState());
+		Main.switchState(this, new TitleState());
+		//Main.switchState(this, new PreloadState());
 	}
 
 	public static function loadSettings():Void

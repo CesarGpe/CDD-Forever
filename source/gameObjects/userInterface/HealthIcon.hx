@@ -13,15 +13,17 @@ class HealthIcon extends FlxSprite
 	public var sprTracker:FlxSprite;
 	public var initialWidth:Float = 0;
 	public var initialHeight:Float = 0;
+	private var curChar:String = "";
 
 	public function new(char:String = 'bf', isPlayer:Bool = false)
 	{
 		super();
 		// avoids using 2 images
-		if (char == 'blueslime32minecart')
+		if (char == 'bs32minecart')
 			char = 'blueslime32';
 		if (char == 'bfMinecart')
 			char = 'bf';
+		curChar = char;
 		updateIcon(char, isPlayer);
 	}
 

@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Tsuraran.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="MISS Tsuraran Down instance 10000" x="10" y="10" width="321" height="412" frameX="0" frameY="-21" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10001" x="343" y="10" width="315" height="421" frameX="0" frameY="-12" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10002" x="670" y="10" width="315" height="428" frameX="0" frameY="-5" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10003" x="997" y="10" width="312" height="431" frameX="0" frameY="-2" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10004" x="1321" y="10" width="312" height="431" frameX="0" frameY="-2" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10005" x="1645" y="10" width="309" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10006" x="1966" y="10" width="309" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10007" x="2287" y="10" width="309" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10008" x="2287" y="10" width="309" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10009" x="2608" y="10" width="309" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10010" x="2608" y="10" width="309" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10011" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10012" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10013" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10014" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10015" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10016" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10017" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10018" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10019" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10020" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10021" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10022" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10023" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10024" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10025" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10026" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10027" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10028" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Down instance 10029" x="2929" y="10" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10000" x="3251" y="10" width="295" height="470" frameX="0" frameY="-7" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10001" x="10" y="492" width="293" height="469" frameX="-5" frameY="-8" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10002" x="315" y="492" width="293" height="477" frameX="-5" frameY="0" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10003" x="620" y="492" width="289" height="474" frameX="-9" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10004" x="921" y="492" width="289" height="475" frameX="-9" frameY="-2" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10005" x="1222" y="492" width="290" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10006" x="1524" y="492" width="290" height="473" frameX="-8" frameY="-4" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10007" x="1826" y="492" width="291" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10008" x="1826" y="492" width="291" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10009" x="2129" y="492" width="290" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10010" x="2129" y="492" width="290" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10011" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10012" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10013" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10014" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10015" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10016" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10017" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10018" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10019" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10020" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10021" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10022" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10023" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10024" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10025" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10026" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10027" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10028" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Left  instance 10029" x="2431" y="492" width="288" height="474" frameX="-8" frameY="-3" frameWidth="299" frameHeight="477"/>
+	<SubTexture name="MISS Tsuraran Right instance 10000" x="2731" y="492" width="331" height="452" frameX="0" frameY="-14" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10001" x="3074" y="492" width="326" height="455" frameX="0" frameY="-11" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10002" x="10" y="981" width="326" height="463" frameX="0" frameY="-3" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10003" x="348" y="981" width="322" height="465" frameX="0" frameY="-1" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10004" x="682" y="981" width="322" height="465" frameX="0" frameY="-1" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10005" x="1016" y="981" width="319" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10006" x="1347" y="981" width="319" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10007" x="1678" y="981" width="320" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10008" x="1678" y="981" width="320" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10009" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10010" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10011" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10012" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10013" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10014" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10015" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10016" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10017" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10018" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10019" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10020" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10021" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10022" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10023" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10024" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10025" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10026" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10027" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10028" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Right instance 10029" x="2010" y="981" width="321" height="466" frameX="0" frameY="0" frameWidth="331" frameHeight="466"/>
+	<SubTexture name="MISS Tsuraran Up instance 10000" x="2343" y="981" width="269" height="489" frameX="-7" frameY="-1" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10001" x="2624" y="981" width="271" height="480" frameX="-2" frameY="-10" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10002" x="2907" y="981" width="271" height="488" frameX="-2" frameY="-2" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10003" x="3190" y="981" width="272" height="485" frameX="-1" frameY="-5" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10004" x="10" y="1482" width="272" height="486" frameX="-1" frameY="-4" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10005" x="294" y="1482" width="272" height="490" frameX="0" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10006" x="578" y="1482" width="272" height="490" frameX="0" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10007" x="862" y="1482" width="272" height="490" frameX="-1" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10008" x="862" y="1482" width="272" height="490" frameX="-1" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10009" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10010" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10011" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10012" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10013" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10014" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10015" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10016" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10017" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10018" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10019" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10020" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10021" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10022" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10023" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10024" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10025" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10026" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10027" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10028" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="MISS Tsuraran Up instance 10029" x="1146" y="1482" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="490"/>
+	<SubTexture name="Tsuraran Down instance 10000" x="1429" y="1482" width="321" height="412" frameX="0" frameY="-21" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10001" x="1762" y="1482" width="315" height="421" frameX="0" frameY="-12" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10002" x="2089" y="1482" width="315" height="428" frameX="0" frameY="-5" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10003" x="2416" y="1482" width="312" height="431" frameX="0" frameY="-2" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10004" x="2740" y="1482" width="312" height="431" frameX="0" frameY="-2" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10005" x="3064" y="1482" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10006" x="10" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10007" x="332" y="1984" width="309" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10008" x="332" y="1984" width="309" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10009" x="653" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10010" x="653" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10011" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10012" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10013" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10014" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10015" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10016" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10017" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10018" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10019" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10020" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10021" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10022" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10023" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10024" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10025" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10026" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10027" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10028" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Down instance 10029" x="975" y="1984" width="310" height="433" frameX="0" frameY="0" frameWidth="321" frameHeight="433"/>
+	<SubTexture name="Tsuraran Hey instance 10000" x="1297" y="1984" width="277" height="482" frameX="0" frameY="-6" frameWidth="277" frameHeight="488"/>
+	<SubTexture name="Tsuraran Hey instance 10001" x="1586" y="1984" width="277" height="487" frameX="0" frameY="-1" frameWidth="277" frameHeight="488"/>
+	<SubTexture name="Tsuraran Hey instance 10002" x="1586" y="1984" width="277" height="487" frameX="0" frameY="-1" frameWidth="277" frameHeight="488"/>
+	<SubTexture name="Tsuraran Hey instance 10003" x="1875" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10004" x="1875" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10005" x="2164" y="1984" width="277" height="487" frameX="0" frameY="-1" frameWidth="277" frameHeight="488"/>
+	<SubTexture name="Tsuraran Hey instance 10006" x="2164" y="1984" width="277" height="487" frameX="0" frameY="-1" frameWidth="277" frameHeight="488"/>
+	<SubTexture name="Tsuraran Hey instance 10007" x="2453" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10008" x="2453" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10009" x="2742" y="1984" width="277" height="487" frameX="0" frameY="-1" frameWidth="277" frameHeight="488"/>
+	<SubTexture name="Tsuraran Hey instance 10010" x="2742" y="1984" width="277" height="487" frameX="0" frameY="-1" frameWidth="277" frameHeight="488"/>
+	<SubTexture name="Tsuraran Hey instance 10011" x="3031" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10012" x="3031" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10013" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10014" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10015" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10016" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10017" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10018" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10019" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10020" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10021" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10022" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10023" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10024" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10025" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10026" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10027" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10028" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Hey instance 10029" x="3320" y="1984" width="277" height="488"/>
+	<SubTexture name="Tsuraran Idle instance 10000" x="10" y="2484" width="273" height="469" frameX="-8" frameY="-19" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10001" x="10" y="2484" width="273" height="469" frameX="-8" frameY="-19" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10002" x="295" y="2484" width="274" height="485" frameX="-5" frameY="-3" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10003" x="295" y="2484" width="274" height="485" frameX="-5" frameY="-3" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10004" x="581" y="2484" width="275" height="488" frameX="-4" frameY="0" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10005" x="581" y="2484" width="275" height="488" frameX="-4" frameY="0" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10006" x="868" y="2484" width="276" height="488" frameX="-3" frameY="0" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10007" x="868" y="2484" width="276" height="488" frameX="-3" frameY="0" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10008" x="1156" y="2484" width="277" height="487" frameX="-1" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10009" x="1156" y="2484" width="277" height="487" frameX="-1" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10010" x="1445" y="2484" width="277" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10011" x="1445" y="2484" width="277" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10012" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10013" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10014" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10015" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10016" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10017" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10018" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10019" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10020" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10021" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10022" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10023" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10024" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10025" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10026" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10027" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10028" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Idle instance 10029" x="1734" y="2484" width="276" height="487" frameX="0" frameY="-1" frameWidth="281" frameHeight="488"/>
+	<SubTexture name="Tsuraran Left instance 10000" x="2022" y="2484" width="294" height="471" frameX="0" frameY="-6" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10001" x="2328" y="2484" width="291" height="470" frameX="-6" frameY="-7" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10002" x="2631" y="2484" width="291" height="477" frameX="-6" frameY="0" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10003" x="2934" y="2484" width="289" height="475" frameX="-9" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10004" x="3235" y="2484" width="289" height="475" frameX="-9" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10005" x="10" y="2984" width="288" height="474" frameX="-9" frameY="-3" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10006" x="310" y="2984" width="288" height="474" frameX="-9" frameY="-3" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10007" x="610" y="2984" width="290" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10008" x="610" y="2984" width="290" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10009" x="912" y="2984" width="289" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10010" x="912" y="2984" width="289" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10011" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10012" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10013" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10014" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10015" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10016" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10017" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10018" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10019" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10020" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10021" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10022" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10023" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10024" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10025" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10026" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10027" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10028" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Left instance 10029" x="1213" y="2984" width="287" height="475" frameX="-8" frameY="-2" frameWidth="298" frameHeight="477"/>
+	<SubTexture name="Tsuraran Right instance 10000" x="1512" y="2984" width="331" height="452" frameX="-1" frameY="-14" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10001" x="1855" y="2984" width="326" height="456" frameX="-1" frameY="-10" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10002" x="2193" y="2984" width="326" height="464" frameX="-1" frameY="-2" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10003" x="2531" y="2984" width="323" height="465" frameX="0" frameY="-1" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10004" x="2866" y="2984" width="323" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10005" x="3201" y="2984" width="320" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10006" x="10" y="3471" width="320" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10007" x="342" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10008" x="342" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10009" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10010" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10011" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10012" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10013" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10014" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10015" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10016" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10017" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10018" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10019" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10020" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10021" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10022" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10023" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10024" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10025" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10026" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10027" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10028" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Right instance 10029" x="675" y="3471" width="321" height="466" frameX="0" frameY="0" frameWidth="332" frameHeight="466"/>
+	<SubTexture name="Tsuraran Up instance 10000" x="1008" y="3471" width="270" height="489" frameX="-6" frameY="-2" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10001" x="1290" y="3471" width="271" height="480" frameX="-2" frameY="-11" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10002" x="1573" y="3471" width="271" height="488" frameX="-2" frameY="-3" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10003" x="1856" y="3471" width="272" height="486" frameX="-1" frameY="-5" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10004" x="2140" y="3471" width="272" height="487" frameX="-1" frameY="-4" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10005" x="2424" y="3471" width="272" height="490" frameX="0" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10006" x="2708" y="3471" width="272" height="490" frameX="0" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10007" x="2992" y="3471" width="272" height="490" frameX="-1" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10008" x="2992" y="3471" width="272" height="490" frameX="-1" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10009" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10010" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10011" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10012" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10013" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10014" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10015" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10016" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10017" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10018" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10019" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10020" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10021" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10022" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10023" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10024" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10025" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10026" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10027" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10028" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+	<SubTexture name="Tsuraran Up instance 10029" x="3276" y="3471" width="271" height="490" frameX="-2" frameY="0" frameWidth="276" frameHeight="491"/>
+</TextureAtlas>

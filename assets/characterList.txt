@@ -10,8 +10,13 @@ BrownishSea
 cesar
 hyperpig
 blueslime32
-blueslime32minecart
+bs32minecart
 TsuyAr-1
 TsuyAr-2
 TsuyAr-3
+Tsuraran
+twelve
+venudo
+pepe
+sech
 juan

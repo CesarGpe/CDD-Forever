@@ -76,7 +76,6 @@ class Character extends FNFSprite
 				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
-				animation.addByPrefix('scared', 'BF idle shaking', 24);
 
 				playAnim('idle');
 
@@ -116,7 +115,7 @@ class Character extends FNFSprite
 
 				characterData.offsetY = 70;
 
-			case 'bfMinecart-dead':
+			case 'bfMinecartDead':
 				// ay no que menso se volvio a morir
 				frames = Paths.getSparrowAtlas('characters/bfMinecart');
 
@@ -128,7 +127,22 @@ class Character extends FNFSprite
 
 				flipX = true;
 
+				characterData.offsetX = 100;
 				characterData.offsetY = 70;
+
+			case 'bfTemperDeath':
+				// no se puede estar mas pendejo
+				frames = Paths.getSparrowAtlas('characters/bfTemperDeath');
+
+				animation.addByPrefix('firstDeath', "BF dies", 24, false);
+				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
+
+				playAnim('firstDeath');
+
+				flipX = true;
+
+				characterData.offsetY = 130;
 
 			case 'mari':
 				// añade a la mari :o
@@ -188,7 +202,7 @@ class Character extends FNFSprite
 				animation.addByPrefix('singRIGHT', 'Isaac_Right', 24);
 				animation.addByPrefix('singDOWN', 'Isaac_Down', 24);
 				animation.addByPrefix('singLEFT', 'Isaac_Left', 24);
-				animation.addByPrefix('trabar', 'Isaac_Lag', 24, false);
+				animation.addByPrefix('still', 'Isaac_Lag', 24, false);
 				characterData.quickDancer = true;
 
 				playAnim('danceRight');
@@ -216,6 +230,18 @@ class Character extends FNFSprite
 				animation.addByPrefix('singLEFT', 'CesarGpe_Left', 24);
 				animation.addByPrefix('tired', 'CesarGpe_TiredPig', 24);
 				animation.addByPrefix('still', 'CesarGpe_StillPig', 24, true);
+
+				playAnim('idle');
+
+			case 'morir':
+				// el cesar si se muriera
+				iconColor = FlxColor.fromRGB(176, 11, 105);
+				frames = Paths.getSparrowAtlas('characters/Cesar_Assets');
+				animation.addByPrefix('idle', 'CesarGpe_Idle', 24, false);
+				animation.addByPrefix('singUP', 'CesarGpe_Idle', 24);
+				animation.addByPrefix('singRIGHT', 'CesarGpe_Idle', 24);
+				animation.addByPrefix('singDOWN', 'CesarGpe_Idle', 24);
+				animation.addByPrefix('singLEFT', 'CesarGpe_Idle', 24);
 
 				playAnim('idle');
 
@@ -255,10 +281,10 @@ class Character extends FNFSprite
 
 				playAnim('idle');
 
-			case 'blueslime32minecart':
+			case 'bs32minecart':
 				// el eslamio pero en carrito
 				iconColor = FlxColor.fromRGB(146, 113, 79);
-				frames = Paths.getSparrowAtlas('characters/blueslime32minecart');
+				frames = Paths.getSparrowAtlas('characters/bs32minecart');
 				animation.addByPrefix('idle', 'bs32_use_idle', 24, false);
 				animation.addByPrefix('singUP', 'bs32_use_up', 24);
 				animation.addByPrefix('singRIGHT', 'bs32_use_right', 24);
@@ -303,6 +329,23 @@ class Character extends FNFSprite
 
 				playAnim('idle');
 
+			case 'Tsuraran':
+				// ayra ayra
+				iconColor = FlxColor.fromRGB(204, 204, 204);
+				frames = Paths.getSparrowAtlas('characters/Tsuraran');
+				animation.addByPrefix('idle', 'Tsuraran Idle instance', 24, false);
+				animation.addByPrefix('singUP', 'Tsuraran Up instance', 24);
+				animation.addByPrefix('singRIGHT', 'Tsuraran Right instance', 24);
+				animation.addByPrefix('singDOWN', 'Tsuraran Down instance', 24);
+				animation.addByPrefix('singLEFT', 'Tsuraran Left instance', 24);
+				characterData.quickDancer = true;
+				characterData.offsetY = 37;
+				characterData.offsetX = 100;
+				flipX = true;
+
+				scale.set(1.25, 1.25);
+				playAnim('idle');
+
 			case 'juan':
 				// el juan papotas numero teintacuato
 				iconColor = FlxColor.fromRGB(115, 0, 60);
@@ -312,6 +355,54 @@ class Character extends FNFSprite
 				animation.addByPrefix('singRIGHT', 'JP_Right', 24);
 				animation.addByPrefix('singDOWN', 'JP_Down', 24);
 				animation.addByPrefix('singLEFT', 'JP_Left', 24);
+
+				playAnim('idle');
+
+			case 'twelve':
+				// gordo de michelin
+				iconColor = FlxColor.fromRGB(255, 255, 255);
+				frames = Paths.getSparrowAtlas('characters/twelve');
+				animation.addByPrefix('idle', 'twelve', 24, false);
+				animation.addByPrefix('singUP', 'twelve', 24);
+				animation.addByPrefix('singRIGHT', 'twelve', 24);
+				animation.addByPrefix('singDOWN', 'twelve', 24);
+				animation.addByPrefix('singLEFT', 'twelve', 24);
+
+				playAnim('idle');
+
+			case 'venudo':
+				// when todos quieren de tu venenoso
+				iconColor = FlxColor.fromRGB(0, 0, 0);
+				frames = Paths.getSparrowAtlas('characters/venudo');
+				animation.addByPrefix('idle', 'venudo', 24, false);
+				animation.addByPrefix('singUP', 'venudo', 24);
+				animation.addByPrefix('singRIGHT', 'venudo', 24);
+				animation.addByPrefix('singDOWN', 'venudo', 24);
+				animation.addByPrefix('singLEFT', 'venudo', 24);
+
+				playAnim('idle');
+
+			case 'pepe':
+				// mama huevaso
+				iconColor = FlxColor.fromRGB(181, 118, 112);
+				frames = Paths.getSparrowAtlas('characters/pepe');
+				animation.addByPrefix('idle', 'pepe idle', 24, false);
+				animation.addByPrefix('singUP', 'pepe singUP', 24);
+				animation.addByPrefix('singRIGHT', 'pepe singRIGHT', 24);
+				animation.addByPrefix('singDOWN', 'pepe singDOWN', 24);
+				animation.addByPrefix('singLEFT', 'pepe singLEFT', 24);
+
+				playAnim('idle');
+
+			case 'sech':
+				// aqui con mi compa el sech
+				iconColor = FlxColor.fromRGB(40, 20, 0);
+				frames = Paths.getSparrowAtlas('characters/sech');
+				animation.addByPrefix('idle', 'sech idle', 24, false);
+				animation.addByPrefix('singUP', 'sech singUP', 24);
+				animation.addByPrefix('singRIGHT', 'sech singRIGHT', 24);
+				animation.addByPrefix('singDOWN', 'sech singDOWN', 24);
+				animation.addByPrefix('singLEFT', 'sech singLEFT', 24);
 
 				playAnim('idle');
 				

@@ -16,6 +16,7 @@ import meta.data.PlayerSettings;
 import meta.data.dependency.Discord;
 import meta.data.dependency.FNFTransition;
 import meta.data.dependency.FNFUIState;
+import meta.data.dependency.LoadingScreen;
 import openfl.Assets;
 import openfl.Lib;
 import openfl.display.FPS;
@@ -72,6 +73,8 @@ class Main extends Sprite
 	public static var framerate:Int = 120; // How many frames per second the game should run at.
 
 	public static var gameVersion:String = 'Legacy';
+
+	public static var onLoadingScreen:Bool = false;
 
 	var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
@@ -163,7 +166,9 @@ class Main extends Sprite
 			// if set to negative one, it is done so automatically, which is the default.
 		}
 
-		FlxTransitionableState.skipNextTransIn = true;
+		//FlxTransitionableState.skipNextTransIn = true;
+		FlxTransitionableState.skipNextTransIn = false;
+		FlxTransitionableState.skipNextTransOut = false;
 		
 		// here we set up the base game
 		var gameCreate:FlxGame;
@@ -199,19 +204,35 @@ class Main extends Sprite
 	 */
 	public static var lastState:FlxState;
 
-	public static function switchState(curState:FlxState, target:FlxState)
+	public static function switchState(curState:FlxState, target:FlxState, ?showScreen:Bool = false)
 	{
 		// Custom made Trans in
 		mainClassState = Type.getClass(target);
+
 		if (!FlxTransitionableState.skipNextTransIn)
 		{
-			curState.openSubState(new FNFTransition(0.35, false));
-			FNFTransition.finishCallback = function() {
-				FlxG.switchState(target);
-			};
+			if (!showScreen)
+			{
+				onLoadingScreen = false;
+				curState.openSubState(new FNFTransition(0.35, false));
+				FNFTransition.finishCallback = function() {
+					FlxG.switchState(target);
+				};
+			}
+			else
+			{
+				onLoadingScreen = true;
+				curState.openSubState(new LoadingScreen(0.35, false));
+				LoadingScreen.finishCallback = function() {
+					FlxG.switchState(target);
+				};
+			}
 			return trace('changed state');
 		}
+
+		onLoadingScreen = false;
 		FlxTransitionableState.skipNextTransIn = false;
+		FlxTransitionableState.skipNextTransOut = false;
 		// load the state
 		FlxG.switchState(target);		
 	}

@@ -71,14 +71,14 @@ class Paths
 						openfl.Assets.cache.removeBitmapData(key);
 						FlxG.bitmap._cache.remove(key);
 					}
-					trace('removed $key, ' + (isTexture ? 'is a texture' : 'is not a texture'));
+					//trace('removed $key, ' + (isTexture ? 'is a texture' : 'is not a texture'));
 					obj.destroy();
 					currentTrackedAssets.remove(key);
 					counter++;
 				}
 			}
 		}
-		trace('removed $counter assets');
+		//trace('removed $counter assets');
 		// run the garbage collector for good measure lmfao
 		System.gc();
 	}
@@ -114,7 +114,7 @@ class Paths
 		localTrackedAssets = [];
 	}
 
-	public static function returnGraphic(key:String, ?library:String, ?textureCompression:Bool = false)
+	public static function returnGraphic(key:String, ?library:String, ?textureCompression:Bool = true)
 	{
 		var path = getPath('images/$key.png', IMAGE, library);
 		if (FileSystem.exists(path))
@@ -125,20 +125,21 @@ class Paths
 				var newGraphic:FlxGraphic;
 				if (textureCompression)
 				{
-					var texture = FlxG.stage.context3D.createTexture(bitmap.width, bitmap.height, BGRA, true, 0);
+					var texture:Texture = FlxG.stage.context3D.createTexture(bitmap.width, bitmap.height, BGRA, true);
 					texture.uploadFromBitmapData(bitmap);
 					currentTrackedTextures.set(key, texture);
+					bitmap.image.data = null;
 					bitmap.dispose();
 					bitmap.disposeImage();
-					bitmap = null;
-					trace('new texture $key, bitmap is $bitmap');
+					bitmap = BitmapData.fromTexture(texture);
 					newGraphic = FlxGraphic.fromBitmapData(BitmapData.fromTexture(texture), false, key, false);
 				}
 				else
 				{
 					newGraphic = FlxGraphic.fromBitmapData(bitmap, false, key, false);
-					trace('new bitmap $key, not textured');
 				}
+				newGraphic.persist = true;
+				newGraphic.destroyOnNoUse = false;
 				currentTrackedAssets.set(key, newGraphic);
 			}
 			localTrackedAssets.push(key);
@@ -273,7 +274,7 @@ class Paths
 		return inst;
 	}
 
-	inline static public function image(key:String, ?library:String, ?textureCompression:Bool = false) {
+	inline static public function image(key:String, ?library:String, ?textureCompression:Bool = true) {
 		var returnAsset:FlxGraphic = returnGraphic(key, library, textureCompression);
 		return returnAsset;
 	}
@@ -282,13 +283,16 @@ class Paths
 		return 'assets/fonts/$key';
 	}
 
-	inline static public function getSparrowAtlas(key:String, ?library:String) {
-		var graphic:FlxGraphic = returnGraphic(key, library);
+	inline static public function getSparrowAtlas(key:String, ?library:String, ?textureCompression:Bool = true) {
+		var graphic:FlxGraphic = returnGraphic(key, library, textureCompression);
 		return (FlxAtlasFrames.fromSparrow(graphic, File.getContent(file('images/$key.xml', library))));
 	}
 
-	inline static public function getPackerAtlas(key:String, ?library:String)
-	{
+	inline static public function getPackerAtlas(key:String, ?library:String) {
 		return (FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library)));
+	}
+
+	static public function video(key:String) {
+		return 'assets/videos/$key.mp4';
 	}
 }

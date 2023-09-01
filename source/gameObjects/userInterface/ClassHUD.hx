@@ -35,8 +35,8 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 	var scoreDisplay:String;
 	var infoDisplay:String;
 
-	private var healthBarBG:FlxSprite;
-	private var healthBar:FlxBar;
+	public var healthBarBG:FlxSprite;
+	public var healthBar:FlxBar;
 
 	private var SONG = PlayState.SONG;
 	public var iconP1:HealthIcon;
@@ -92,10 +92,23 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 
 		// small info bar, kinda like the KE watermark
 		// based on scoretxt which I will set up as well
-		if (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()) == 'take-five')
-			infoDisplay = 'Tsuraran - ' + CoolUtil.dashToSpace(PlayState.SONG.song);
-		else
-			infoDisplay = 'CDD Forever - ' + CoolUtil.dashToSpace(PlayState.SONG.song);
+		switch (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()))
+		{
+			case 'chronomatron':
+				infoDisplay = "Hypno's Lullaby - Monochrome";
+			case 'pelea-en-la-calle-tres':
+				infoDisplay = 'PELEADOR DE CALLE - NUMERO 3';
+			case 'pilin':
+				infoDisplay = 'Crypto Crackdown - Bankrupt';
+			case 'razortrousle':
+				infoDisplay = 'Undertale - Bonetrousle';
+			case 'succionar':
+				infoDisplay = 'puto el que lo lea';
+			case 'take-five':
+				infoDisplay = 'DM: Side Jam - Take Five';
+			default:
+				infoDisplay = 'CDD Forever - ' + CoolUtil.dashToSpace(PlayState.SONG.song);
+		}
 		infoBar = new FlxText(5, FlxG.height - 30, 0, infoDisplay, 20);
 		infoBar.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		infoBar.scrollFactor.set();
