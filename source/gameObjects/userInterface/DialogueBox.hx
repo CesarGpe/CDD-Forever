@@ -119,7 +119,10 @@ class DialogueBox extends FlxSpriteGroup
 	{
 		super();
 
-		trace("start");
+		// cargar personajes
+		var chars:Array<String> = CoolUtil.returnAssetsLibrary('images/dialogue/portraits', 'assets');
+		for (char in chars)
+			Paths.getSparrowAtlas('dialogue/portraits/$char/$char');
 
 		// get dialog data from dialogue.json
 		dialogueData = haxe.Json.parse(daDialogue);

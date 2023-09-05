@@ -5,17 +5,13 @@ import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
-import flixel.FlxState;
 import flixel.FlxSubState;
-import flixel.addons.effects.FlxTrail;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.input.keyboard.FlxKey;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
-import flixel.math.FlxRandom;
 import flixel.math.FlxRect;
-import flixel.system.FlxAssets.FlxSoundAsset;
 import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
@@ -37,12 +33,7 @@ import meta.data.Song.SwagSong;
 import meta.state.charting.*;
 import meta.state.menus.*;
 import meta.subState.*;
-import openfl.display.GraphicsShader;
 import openfl.events.KeyboardEvent;
-import openfl.filters.ShaderFilter;
-import openfl.media.Sound;
-import openfl.utils.Assets;
-import sys.io.File;
 
 using StringTools;
 
@@ -660,10 +651,7 @@ class PlayState extends MusicBeatState
 				if ((FlxG.keys.justPressed.SEVEN) && (!startingSong))
 				{
 					resetMusic();
-					if (FlxG.keys.pressed.SHIFT)
-						Main.switchState(this, new ChartingState());
-					else
-						Main.switchState(this, new OriginalChartingState());
+					Main.switchState(this, new ChartingState());
 				}
 
 				if ((FlxG.keys.justPressed.SIX))
@@ -2224,10 +2212,6 @@ class PlayState extends MusicBeatState
 				});
 			default:
 				callTextbox();
-				// cargar personajes
-				var chars:Array<String> = CoolUtil.returnAssetsLibrary('images/dialogue/portraits', 'assets');
-				for (char in chars)
-					Paths.getSparrowAtlas('dialogue/portraits/$char/$char');
 		}
 		//
 	}

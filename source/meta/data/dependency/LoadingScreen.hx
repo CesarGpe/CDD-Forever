@@ -32,6 +32,7 @@ class LoadingScreen extends MusicBeatSubState
 		'minecraft.ttf',
 		'terraria.ttf'];
 	var screen:FlxSprite;
+	var black:FlxSprite;
 	var txt:FlxText;
 
 	var isTransIn:Bool = false;
@@ -44,6 +45,13 @@ class LoadingScreen extends MusicBeatSubState
 			fontUsed = fonts[FlxG.random.int(0, 4)];
 		else
 			fontUsed = font;
+
+		black = new FlxSprite();
+		black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		black.scrollFactor.set();
+		black.screenCenter();
+		black.alpha = 0;
+		add(black);
 
 		screen = new FlxSprite().loadGraphic(Paths.image('menus/base/art/loadingScreen'));
 		screen.setGraphicSize(Std.int(FlxG.width));
@@ -75,28 +83,41 @@ class LoadingScreen extends MusicBeatSubState
 		if (isTransIn)
 		{
 			txt.alpha = 1;
+			black.alpha = 1;
 			screen.alpha = 1;
 			FlxTween.tween(txt, {alpha: 0}, duration, {ease: FlxEase.circInOut});
 			FlxTween.tween(screen, {alpha: 0}, duration, {
 				onComplete: function(twn:FlxTween)
 				{
-					close();
+					FlxTween.tween(black, {alpha: 0}, duration, {
+						ease: FlxEase.quadInOut,
+						onComplete: function(twn:FlxTween)
+						{
+							close();
+						}
+					});
 				},
 				ease: FlxEase.circInOut
 			});
 		}
 		else
 		{
-			FlxTween.tween(txt, {alpha: 1}, duration, {ease: FlxEase.circInOut});
-			FlxTween.tween(screen, {alpha: 1}, duration, {
+			FlxTween.tween(black, {alpha: 1}, duration, {
+				ease: FlxEase.quadInOut,
 				onComplete: function(twn:FlxTween)
 				{
-					if (finishCallback != null)
-					{
-						finishCallback();
-					}
-				},
-				ease: FlxEase.circInOut
+					FlxTween.tween(txt, {alpha: 1}, duration + 0.15, {ease: FlxEase.circInOut});
+					FlxTween.tween(screen, {alpha: 1}, duration + 0.15, {
+						onComplete: function(twn:FlxTween)
+						{
+							if (finishCallback != null)
+							{
+								finishCallback();
+							}
+						},
+						ease: FlxEase.circInOut
+					});
+				}
 			});
 		}
 	}
@@ -106,6 +127,7 @@ class LoadingScreen extends MusicBeatSubState
 		var camList = FlxG.cameras.list;
 		camera = camList[camList.length - 1];
 		txt.cameras = [camera];
+		black.cameras = [camera];
 		screen.cameras = [camera];
 
 		super.update(elapsed);

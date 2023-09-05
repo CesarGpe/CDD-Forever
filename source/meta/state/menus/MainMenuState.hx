@@ -114,13 +114,13 @@ class MainMenuState extends MusicBeatState
 		add(art);
 
 		// textos de la galeria
-		credArt = new FlxText(720, (FlxG.height - 576), 0, '', 32);
+		credArt = new FlxText(720, (FlxG.height - 576), 0, '');
 		credArt.setFormat("VCR OSD Mono", 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		credArt.textField.background = true;
 		credArt.textField.backgroundColor = FlxColor.BLACK;
 		add(credArt);
 
-		infoText = new FlxText(720, (FlxG.height - 100), 0, '', 32);
+		infoText = new FlxText(720, (FlxG.height - 100), 0, '');
 		infoText.setFormat("VCR OSD Mono", 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		infoText.textField.background = true;
 		infoText.textField.backgroundColor = FlxColor.BLACK;
@@ -154,12 +154,12 @@ class MainMenuState extends MusicBeatState
 		line2.antialiasing = true;
 		add(line2);
 
-		menutxt = new FlxText(35, 149, 550, 'MENU PRINCIPAL', 65);
+		menutxt = new FlxText(35, 149, 550, 'MENU PRINCIPAL');
 		menutxt.setFormat(Paths.font("unisans.otf"), 65, FlxColor.fromRGB(139, 141, 146), LEFT);
 		menutxt.antialiasing = true;
 		add(menutxt);
 
-		cddtxt = new FlxText(35, 15, 550, 'Vs. CDD', 70);
+		cddtxt = new FlxText(35, 15, 550, 'Vs. CDD');
 		cddtxt.setFormat(Paths.font("whitneysemibold.otf"), 70, FlxColor.fromRGB(243, 255, 238), LEFT);
 		cddtxt.antialiasing = true;
 		add(cddtxt);
@@ -259,7 +259,7 @@ class MainMenuState extends MusicBeatState
 		updateSelection();
 
 		// y ya por ultimo el texto de la version
-		var versionShit:FlxText = new FlxText(5, FlxG.height - 25, 0, "Forever Engine " + Main.gameVersion, 12);
+		var versionShit:FlxText = new FlxText(5, FlxG.height - 25, 0, "Forever Engine " + Main.gameVersion);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -267,15 +267,11 @@ class MainMenuState extends MusicBeatState
 		//
 	}
 
-	// var colorTest:Float = 0;
 	var selectedSomethin:Bool = false;
 	var counterControl:Float = 0;
 
 	override function update(elapsed:Float)
 	{
-		// colorTest += 0.125;
-		// bg.color = FlxColor.fromHSB(colorTest, 100, 100, 0.5);
-
 		var up = controls.UI_UP;
 		var down = controls.UI_DOWN;
 		var up_p = controls.UI_UP_P;
@@ -428,18 +424,12 @@ class MainMenuState extends MusicBeatState
 						Init.trueSettings.set('fpStory', false);
 						Init.saveSettings();
 
-						var black = new FlxSprite();
-						black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-						black.scrollFactor.set();
-						black.screenCenter();
-						add(black);
-
 						PlayState.SONG = Song.loadFromJson('asf', 'asf');
 						PlayState.isStoryMode = true;
 						PlayState.storyDifficulty = 1;
-						PlayState.storyWeek = 0;
+						PlayState.storyWeek = 34;
 						
-						Main.switchState(this, new PlayState());
+						Main.switchState(this, new PlayState(), true);
 					}
 			}
 

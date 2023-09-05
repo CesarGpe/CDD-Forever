@@ -49,18 +49,12 @@ class StoryMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		scoreText = new FlxText(10, 10, 0, "PUNTOS: 49324858", 36);
+		scoreText = new FlxText(10, 10, 0, "PUNTOS: 69420420", 36);
 		scoreText.setFormat("VCR OSD Mono", 32);
 
 		txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
 		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
 		txtWeekTitle.alpha = 0.7;
-
-		var rankText:FlxText = new FlxText(0, 10);
-		rankText.text = 'RANK: PENDEJO';
-		rankText.setFormat(Paths.font("vcr.ttf"), 32);
-		rankText.size = scoreText.size;
-		rankText.screenCenter(X);
 
 		yellowBG = new FlxSprite(0, 56);
 		yellowBG.frames = Paths.getSparrowAtlas('menus/base/storymenu/story-bgs');
@@ -102,12 +96,12 @@ class StoryMenuState extends MusicBeatState
 		add(yellowBG);
 		add(menuBF);
 
-		txtTracklist = new FlxText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, 0, "Pistas", 32);
-		txtTracklist.alignment = CENTER;
-		txtTracklist.font = rankText.font;
+		txtTracklist = new FlxText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, 0, "Pistas");
+		txtTracklist.setFormat(Paths.font("vcr.ttf"), 36);
 		txtTracklist.color = 0xFFe55777;
+		txtTracklist.alignment = CENTER;
+		
 		add(txtTracklist);
-		// add(rankText);
 		add(scoreText);
 		add(txtWeekTitle);
 

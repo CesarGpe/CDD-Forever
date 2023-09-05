@@ -1,1 +1,11 @@
-- Menu del modo historia???
+# MENUS (tematica de discord para todos)
+- modo historia
+- freeplay???
+- opciones
+
+# GAMEPLAY
+- notas de mute
+- notas de midas???
+
+# MISC
+- traduccion al ingles

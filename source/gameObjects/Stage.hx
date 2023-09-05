@@ -1,16 +1,10 @@
 package gameObjects;
 
 import flixel.FlxBasic;
-import flixel.FlxCamera;
 import flixel.FlxG;
-import flixel.FlxObject;
 import flixel.FlxSprite;
-import flixel.FlxState;
-import flixel.addons.effects.FlxTrail;
-import flixel.addons.effects.chainable.FlxWaveEffect;
 import flixel.graphics.FlxGraphic;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxPoint;
 import flixel.system.FlxSound;
 import flixel.text.FlxText;
@@ -18,7 +12,6 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import gameObjects.background.*;
 import gameObjects.userInterface.CelebiNote;
 import meta.CoolUtil;
 import meta.data.Conductor;
@@ -56,6 +49,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 	var cabin:FNFSprite;
 	// calamity
 	var dogSummoned:Bool = false;
+	var calEnded:Bool = false;
 	var bossSound:FlxSound;
 	var calbg:FNFSprite;
 	var aura:FNFSprite;
@@ -73,8 +67,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 
 	public var curStage:String;
 	private var curSong:String = CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase());
-
-	var daPixelZoom = PlayState.daPixelZoom;
 
 	// grupos de sprites
 	public var foreground:FlxTypedGroup<FlxBasic>;
@@ -283,7 +275,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				add(sbSprites);
 
 				// actualizar los objetos
-				triggerEvent('Calamity Mode', 'false');
+				triggerEvent('Calamity Mode', 'init');
 			
 			case 'cave':
 				PlayState.defaultCamZoom = 0.5;
@@ -751,12 +743,15 @@ class Stage extends FlxTypedGroup<FlxBasic>
 					cabin.animation.play('bop', true);
 					outpost.animation.play('bop', true);
 					// calamity
-					credit.animation.play('bop', true);
-					aura.animation.play('purple', true);
-					calbg.animation.play('purple', true);
-					
-					if (dogSummoned)
-						dog.animation.play('wiggle1', true);
+					if (!calEnded)
+					{
+						credit.animation.play('bop', true);
+						aura.animation.play('purple', true);
+						calbg.animation.play('purple', true);
+
+						if (dogSummoned)
+							dog.animation.play('wiggle1', true);
+					}
 				}
 				else if (curBeat % 4 == 2)
 				{
@@ -766,12 +761,15 @@ class Stage extends FlxTypedGroup<FlxBasic>
 					cabin.animation.play('bop', true);
 					outpost.animation.play('bop', true);
 					// calamity
-					credit.animation.play('bop', true);
-					aura.animation.play('blue', true);
-					calbg.animation.play('blue', true);
+					if (!calEnded)
+					{
+						credit.animation.play('bop', true);
+						aura.animation.play('blue', true);
+						calbg.animation.play('blue', true);
 
-					if (dogSummoned)
-						dog.animation.play('wiggle2', true);
+						if (dogSummoned)
+							dog.animation.play('wiggle2', true);
+					}
 				}
 			case 'calleTres':
 				if (wey.visible)
@@ -784,7 +782,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 		switch (PlayState.curStage)
 		{
 			case 'skyblock':
-				// putos
+				// putos todos
 		}
 	}
 
@@ -804,24 +802,42 @@ class Stage extends FlxTypedGroup<FlxBasic>
 		switch(name)
 		{
 			case 'Calamity Mode':
-				var parsed:Bool;
-				if (value == 'true')
-					parsed = true;
-				else
-					parsed = false;
-
-				aura.visible = parsed;
-				credit.visible = parsed;
-
-				sbSprites.forEach(function(spr:FNFSprite)
+				switch (value)
 				{
-					spr.visible = !parsed;
-				});
+					case 'init':
+						aura.kill();
+						credit.kill();
+						calSprites.forEach(function(spr:FNFSprite)
+						{
+							spr.kill();
+						});
+						
+					case 'true':
+						aura.revive();
+						credit.revive();
+						calSprites.forEach(function(spr:FNFSprite)
+						{
+							spr.revive();
+						});
+						sbSprites.forEach(function(spr:FNFSprite)
+						{
+							spr.kill();
+						});
 
-				calSprites.forEach(function(spr:FNFSprite)
-				{
-					spr.visible = parsed;
-				});
+					case 'false':
+						aura.destroy();
+						credit.destroy();
+						message.destroy();
+						calSprites.forEach(function(spr:FNFSprite)
+						{
+							spr.destroy();
+						});
+						sbSprites.forEach(function(spr:FNFSprite)
+						{
+							spr.revive();
+						});
+						calEnded = true;
+				}
 
 			case 'DOG Spawn':
 				triggerEvent('Display Message');
@@ -853,7 +869,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 						FlxTween.tween(dead.scale, {x: 0.65, y: 0.65}, 2, {ease: FlxEase.sineOut});
 				}
 				
-
 			case 'Jumpscare':
 				var newJumpscare:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/lost/jumpscare'));
 				var jumpscareSize:Float = 1.2;
@@ -961,7 +976,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 						for (i in 0...wordGroup.length)
 							wordGroup[i].destroy();
 					});
-
 		}
 	}
 }

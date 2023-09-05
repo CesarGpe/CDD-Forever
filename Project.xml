@@ -85,6 +85,13 @@
 	<haxedef name="HXCPP_CHECK_POINTER" />
 	<haxedef name="HXCPP_STACK_LINE" />
 	<haxedef name='no-deprecation-warnings' />
+	
+	<!-- ALLOW C# REGIONS -->
+	<haxedef name="REGION" />
+	
+	<!-- Fixes thing with macros -->
+	<define name="HL" if="hl"/>
+	<define name="SYS" if="desktop"/>
 
 	<!-- _________________________________ Custom _______________________________ -->
 
