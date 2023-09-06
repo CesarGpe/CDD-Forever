@@ -159,9 +159,9 @@ class Note extends FNFSprite
 				switch(noteType)
 				{
 					case 1, 2:
-						skin = 'midas/MidasNotes';
-					case 3:
 						skin = 'muted/MuteNotes';
+					case 3:
+						skin = 'midas/MidasNotes';
 					default:
 						skin = 'NOTE_assets';
 				}

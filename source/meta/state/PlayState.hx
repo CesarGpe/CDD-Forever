@@ -650,9 +650,6 @@ class PlayState extends MusicBeatState
 			{
 				if (FlxG.keys.justPressed.ONE && !startingSong)
 					endSong();
-
-				if (FlxG.keys.justPressed.TWO)
-					boyfriend.stunned = true;
 				
 				if (FlxG.keys.justPressed.SIX)
 					boyfriendStrums.autoplay = !boyfriendStrums.autoplay;
@@ -998,6 +995,12 @@ class PlayState extends MusicBeatState
 			coolNote.wasGoodHit = true;
 			vocals.volume = 1;
 
+			if (coolNote.noteType == 1 || coolNote.noteType == 2)
+			{
+				boyfriend.stunned = true;
+				missNoteCheck(true, coolNote.noteData, boyfriend, true, false, coolNote);
+			}
+
 			characterPlayAnimation(coolNote, character);
 			if (characterStrums.receptors.members[coolNote.noteData] != null)
 				characterStrums.receptors.members[coolNote.noteData].playAnim('confirm', true);
@@ -1048,14 +1051,18 @@ class PlayState extends MusicBeatState
 
 	function missNoteCheck(?includeAnimation:Bool = false, direction:Int = 0, character:Character, popMiss:Bool = false, lockMiss:Bool = false, coolNote:Note = null)
 	{
-		if (includeAnimation)
+		if (coolNote.noteType != 1 || coolNote.noteType != 2)
 		{
-			var stringDirection:String = UIStaticArrow.getArrowFromNumber(direction);
+			if (includeAnimation)
+			{
+				var stringDirection:String = UIStaticArrow.getArrowFromNumber(direction);
 
-			FlxG.sound.play(Paths.soundRandom('miss/bad', 1, 3), FlxG.random.float(0.1, 0.2));
-			character.playAnim('sing' + stringDirection.toUpperCase() + 'miss', lockMiss);
+				FlxG.sound.play(Paths.soundRandom('miss/bad', 1, 3), FlxG.random.float(0.1, 0.2));
+				character.playAnim('sing' + stringDirection.toUpperCase() + 'miss', lockMiss);
+			}
+
+			decreaseCombo(popMiss);
 		}
-		decreaseCombo(popMiss);
 	}
 
 	function characterPlayAnimation(coolNote:Note, character:Character)
