@@ -23,7 +23,7 @@ class Note extends FNFSprite
 	public var mustPress:Bool = false;
 	public var noteData:Int = 0;
 	public var noteAlt:Float = 0;
-	public var noteType:Float = 0;
+	public var noteType:Int = 0;
 	public var noteString:String = "";
 
 	public var canBeHit:Bool = false;
@@ -51,10 +51,9 @@ class Note extends FNFSprite
 	// it has come to this.
 	public var endHoldOffset:Float = Math.NEGATIVE_INFINITY;
 
-	public function new(strumTime:Float, noteData:Int, noteAlt:Float, ?prevNote:Note, ?sustainNote:Bool = false, noteType:Float)
+	public function new(strumTime:Float, noteData:Int, noteAlt:Float, ?prevNote:Note, ?sustainNote:Bool = false, noteType:Int)
 	{
 		super(x, y);
-		this.noteType = noteType;
 
 		if (prevNote == null)
 			prevNote = this;
@@ -68,6 +67,7 @@ class Note extends FNFSprite
 		this.strumTime = strumTime;
 		this.noteData = noteData;
 		this.noteAlt = noteAlt;
+		this.noteType = noteType;
 
 		// determine parent note
 		if (isSustainNote && prevNote != null)
@@ -158,14 +158,15 @@ class Note extends FNFSprite
 				var skin:String = 'NOTE_assets';
 				switch(noteType)
 				{
-					// NOTETYPE NO CAMBIA HASTA EL NUMERO 2 Y NO SE PORQUEEEEEEE
-					// pero me vale caca lo voy a poner asi por que funciona
+					case 1, 2:
+						skin = 'midas/MidasNotes';
+					case 3:
+						skin = 'muted/MuteNotes';
 					default:
 						skin = 'NOTE_assets';
 				}
 				// Init.trueSettings.get("Note Skin")
-				newNote.frames = Paths.getSparrowAtlas(ForeverTools.returnSkinAsset(skin, assetModifier, 'default',
-					'noteskins/notes'));
+				newNote.frames = Paths.getSparrowAtlas('noteskins/notes/default/base/' + skin);
 				newNote.animation.addByPrefix('greenScroll', 'green0');
 				newNote.animation.addByPrefix('redScroll', 'red0');
 				newNote.animation.addByPrefix('blueScroll', 'blue0');
@@ -192,7 +193,7 @@ class Note extends FNFSprite
 			if (PlayState.SONG.song.toLowerCase() != 'chronomatron')
 				newNote.alpha = (Init.trueSettings.get('Holds Opacas')) ? 1 : 0.6;
 			else
-				newNote.alpha = 0.7;
+				newNote.alpha = 0.5;
 			newNote.animation.play(UIStaticArrow.getColorFromNumber(noteData) + 'holdend');
 			newNote.updateHitbox();
 			if (prevNote.isSustainNote)
@@ -207,7 +208,7 @@ class Note extends FNFSprite
 	}
 
 	/**
-		esta funcion no se usa porque Vs. CDD no tiene quants
+		Esta funcion no se usa porque Vs. CDD no tiene quants.
 	**/
 	public static function returnQuantNote(assetModifier, strumTime, noteData, noteType, noteAlt, ?isSustainNote:Bool = false, ?prevNote:Note = null):Note
 	{

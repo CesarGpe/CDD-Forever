@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Muted_Assets.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Muted_Blink0000" x="177" y="966" width="153" height="168"/>
+	<SubTexture name="Muted_Blink0001" x="177" y="966" width="153" height="168"/>
+	<SubTexture name="Muted_Blink0002" x="177" y="966" width="153" height="168"/>
+	<SubTexture name="Muted_Blink0003" x="0" y="0" width="153" height="168"/>
+	<SubTexture name="Muted_Blink0004" x="0" y="0" width="153" height="168"/>
+	<SubTexture name="Muted_Blink0005" x="0" y="0" width="153" height="168"/>
+	<SubTexture name="Muted_Enter0000" x="158" y="0" width="442" height="203"/>
+	<SubTexture name="Muted_Enter0001" x="0" y="208" width="442" height="203"/>
+	<SubTexture name="Muted_Enter0002" x="447" y="208" width="442" height="203"/>
+	<SubTexture name="Muted_Enter0003" x="447" y="208" width="442" height="203"/>
+	<SubTexture name="Muted_Enter0004" x="0" y="416" width="442" height="203"/>
+	<SubTexture name="Muted_Enter0005" x="447" y="416" width="442" height="203"/>
+	<SubTexture name="Muted_Exit0000" x="0" y="624" width="172" height="337"/>
+	<SubTexture name="Muted_Exit0001" x="177" y="624" width="172" height="337"/>
+	<SubTexture name="Muted_Exit0002" x="354" y="624" width="172" height="337"/>
+	<SubTexture name="Muted_Exit0003" x="531" y="624" width="172" height="337"/>
+	<SubTexture name="Muted_Exit0004" x="708" y="624" width="172" height="337"/>
+	<SubTexture name="Muted_Exit0005" x="0" y="966" width="172" height="337"/>
+	<SubTexture name="Muted_Idle0000" x="177" y="966" width="153" height="168"/>
+	<SubTexture name="Muted_Idle0001" x="335" y="966" width="153" height="168"/>
+	<SubTexture name="Muted_Idle0002" x="493" y="966" width="153" height="168"/>
+	<SubTexture name="Muted_Idle0003" x="651" y="966" width="153" height="168"/>
+	<SubTexture name="Muted_Idle0004" x="493" y="966" width="153" height="168"/>
+	<SubTexture name="Muted_Idle0005" x="335" y="966" width="153" height="168"/>
+</TextureAtlas>

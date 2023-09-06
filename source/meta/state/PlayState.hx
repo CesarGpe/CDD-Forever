@@ -482,6 +482,7 @@ class PlayState extends MusicBeatState
 		var key:Int = getKeyFromEvent(eventKey);
 
 		if ((key >= 0)
+			&& !boyfriend.stunned
 			&& !boyfriendStrums.autoplay
 			&& (FlxG.keys.checkStatus(eventKey, JUST_PRESSED))
 			&& (FlxG.keys.enabled && !paused && (FlxG.state.active || FlxG.state.persistentUpdate)))
@@ -644,21 +645,23 @@ class PlayState extends MusicBeatState
 			if (controls.RESET && !startingSong && !unowning)
 				die();
 
-			// make sure you're not cheating lol
+			// cosas del modo debug bien padre a la verga
 			if (Init.trueSettings.get('Modo Debug') == true)
 			{
-				// charting state (more on that later)
-				if ((FlxG.keys.justPressed.SEVEN) && (!startingSong))
+				if (FlxG.keys.justPressed.ONE && !startingSong)
+					endSong();
+
+				if (FlxG.keys.justPressed.TWO)
+					boyfriend.stunned = true;
+				
+				if (FlxG.keys.justPressed.SIX)
+					boyfriendStrums.autoplay = !boyfriendStrums.autoplay;
+
+				if (FlxG.keys.justPressed.SEVEN && !startingSong)
 				{
 					resetMusic();
 					Main.switchState(this, new ChartingState());
 				}
-
-				if ((FlxG.keys.justPressed.SIX))
-					boyfriendStrums.autoplay = !boyfriendStrums.autoplay;
-
-				if (FlxG.keys.justPressed.P && !startingSong && !unowning)
-					endSong();
 			}
 
 			///*

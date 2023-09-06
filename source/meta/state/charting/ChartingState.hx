@@ -54,8 +54,6 @@ class ChartingState extends MusicBeatState
 	 */
 	var curSection:Int = 0;
 
-	var curNoteType:Int = 0;
-
 	public static var lastSection:Int = 0;
 
 	var bpmTxt:FlxText;
@@ -64,6 +62,8 @@ class ChartingState extends MusicBeatState
 	var curSong:String = 'Dadbattle';
 	var amountSteps:Int = 0;
 	var bullshitUI:FlxGroup;
+
+	var curNoteType:Int = 0;
 
 	var highlight:FlxSprite;
 
@@ -885,10 +885,10 @@ class ChartingState extends MusicBeatState
 
 		for (i in sectionInfo)
 		{
-			var daNoteInfo = i[1];
 			var daStrumTime = i[0];
+			var daNoteInfo = i[1];
 			var daSus = i[2];
-			var daNoteType = 0;
+			var daNoteType = i[3];
 
 			if (i.length > 2)
 				daNoteType = i[3];

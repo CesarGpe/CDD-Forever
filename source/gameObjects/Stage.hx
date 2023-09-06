@@ -637,18 +637,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				case 'gf':
 					char.setPosition(gf.x, gf.y);
 					gf.visible = false;
-				/*
-					if (isStoryMode)
-					{
-						camPos.x += 600;
-						tweenCamIn();
-				}*/
-				/*
-				case 'spirit':
-					var evilTrail = new FlxTrail(char, null, 4, 24, 0.3, 0.069);
-					evilTrail.changeValuesEnabled(false, false, false, false);
-					add(evilTrail);
-					*/
 			}
 		}
 	}
@@ -796,7 +784,11 @@ class Stage extends FlxTypedGroup<FlxBasic>
 	// ========================================================================================================
 	// !            EVENTOS EPICOS PARA LAS CANCIONES EPICAS
 	// ========================================================================================================
-	
+	/**
+	 * Eventos de las canciones epicas
+	 * @param name String del nombre del evento
+	 * @param value String para el valor del evento
+	 */
 	public function triggerEvent(name:String, ?value:String = '')
 	{
 		switch(name)

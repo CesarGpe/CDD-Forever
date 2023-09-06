@@ -51,14 +51,14 @@ class Init extends FlxState
 			NOT_FORCED
 		],
 		'Auto Pausa' => [true, Checkmark, 'Pausa automaticamente cuando el juego se minimiza.', NOT_FORCED],
-		'Mostrar FPS' => [false, Checkmark, 'ADIVINA QUE HACE ESTA OPCION', NOT_FORCED],
+		'Mostrar FPS' => [false, Checkmark, 'Muestra los FPS de tu juego en la esquina de la pantalla.', NOT_FORCED],
 		'Contador de Memoria' => [
 			false,
 			Checkmark,
 			'Muestra la cantidad aproximada de memoria que consume el juego.',
 			NOT_FORCED
 		],
-		'Modo Debug' => [false, Checkmark, 'Te permite usar el botplay y el editor de charts, solo para tramposos.', NOT_FORCED],
+		'Modo Debug' => [false, Checkmark, 'Habilita el botplay, el editor de charts y otras cosas utiles para desarrolladores.', NOT_FORCED],
 		'Movimiento Reducido' => [
 			false,
 			Checkmark,
@@ -85,17 +85,17 @@ class Init extends FlxState
 			NOT_FORCED,
 			['No', 'Izquierda', 'Derecha']
 		],
-		'Mostrar Precision' => [true, Checkmark, 'Escoge si quieres mostar tu precision en la pantalla.', NOT_FORCED],
+		'Mostrar Precision' => [true, Checkmark, 'Muestra tu precision en la barra de informacion.', NOT_FORCED],
 		'Deshabilitar Suavizado' => [
 			false,
 			Checkmark,
-			'Deshabilita el suavizado de bordes. Por si tienes problemas con FPS.',
+			'Deshabilita el suavizado de imagenes. Por si tienes problemas con FPS.',
 			NOT_FORCED
 		],
 		'Movimiento con Notas' => [
 			true,
 			Checkmark,
-			'Las notas izquierda y derecha mueven la camara hacia esa direccion.',
+			'Las notas moveran un poco la camara al ser presionadas.',
 			NOT_FORCED
 		],
 		'Sin Note Splashes' => [
@@ -117,13 +117,13 @@ class Init extends FlxState
 			['StepMania', 'FNF']],
 		'UI Skin' => ['forever', Selector, 'Escoge una skin para los ratings, combos, etc.', NOT_FORCED, ''],
 		'Note Skin' => ['default', Selector, 'puto el que lo lea', NOT_FORCED, ''],
-		'Limite de FPS' => [120, Selector, 'Pon tu limite de FPS.', NOT_FORCED, ['']],
+		'Limite de FPS' => [120, Selector, 'Establece un limite de FPS.', NOT_FORCED, ['']],
 		'Flechas Opacas' => [false, Checkmark, "Vuelve los receptores de flechas opacos.", NOT_FORCED],
 		'Holds Opacas' => [false, Checkmark, "Hace la linea de las notas mantenidas opaca.", NOT_FORCED],
 		'Ghost Tapping' => [
 			true,
 			Checkmark,
-			"Activa el Ghost Tapping, para presionar notas sin fallar.",
+			"Activa el Ghost Tapping, no recibiras fallos por presionar notas que no estaban ahi.",
 			NOT_FORCED
 		],
 		'Notas centradas' => [false, Checkmark, "Centra tus notas, y deshabilita las notas del oponente."],

@@ -41,7 +41,7 @@ class ChartLoader
 						var daNoteData:Int = Std.int(songNotes[1] % 4);
 						// define the note's animation (in accordance to the original game)!
 						var daNoteAlt:Float = 0;
-						var daNoteType:Float = 0;
+						var daNoteType:Int = 0;
 
 						// very stupid but I'm lazy
 						if (songNotes.length > 2)
