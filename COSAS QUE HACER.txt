@@ -3,9 +3,5 @@
 - freeplay???
 - opciones
 
-# GAMEPLAY
-- notas de mute
-- notas de midas???
-
 # MISC
 - traduccion al ingles

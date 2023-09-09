@@ -158,10 +158,8 @@ class Note extends FNFSprite
 				var skin:String = 'NOTE_assets';
 				switch(noteType)
 				{
-					case 1, 2:
+					case 1:
 						skin = 'muted/MuteNotes';
-					case 3:
-						skin = 'midas/MidasNotes';
 					default:
 						skin = 'NOTE_assets';
 				}

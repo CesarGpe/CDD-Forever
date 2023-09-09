@@ -172,6 +172,10 @@ class PlayState extends MusicBeatState
 	var canSkip:Bool;
 	var longIntro:Bool;
 
+	// timer de las notas muteadas
+	// lo ocupo cancelar para que no crashee
+	var muteTimer:FlxTimer;
+
 	// at the beginning of the playstate
 	override public function create()
 	{
@@ -615,6 +619,10 @@ class PlayState extends MusicBeatState
 				persistentUpdate = false;
 				persistentDraw = true;
 				paused = true;
+				if (muteTimer != null)
+					muteTimer.active = false;
+				if (skipTimer != null) 
+					skipTimer.active = false;
 
 				// open pause substate
 				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
@@ -915,7 +923,7 @@ class PlayState extends MusicBeatState
 									note.tooLate = true;
 								
 								vocals.volume = 0;
-								missNoteCheck((Init.trueSettings.get('Ghost Tapping')) ? true : false, daNote.noteData, boyfriend, true, false, daNote);
+								missNoteCheck((Init.trueSettings.get('Ghost Tapping')) ? true : false, daNote.noteData, boyfriend, true, false, daNote.noteType);
 								// ambiguous name
 								Timings.updateAccuracy(0);
 							}
@@ -935,7 +943,7 @@ class PlayState extends MusicBeatState
 										}
 										if (!breakFromLate)
 										{
-											missNoteCheck((Init.trueSettings.get('Ghost Tapping')) ? true : false, daNote.noteData, boyfriend, true, false, daNote);
+											missNoteCheck((Init.trueSettings.get('Ghost Tapping')) ? true : false, daNote.noteData, boyfriend, true, false, daNote.noteType);
 											for (note in parentNote.childrenNotes)
 												note.tooLate = true;
 										}
@@ -995,10 +1003,30 @@ class PlayState extends MusicBeatState
 			coolNote.wasGoodHit = true;
 			vocals.volume = 1;
 
-			if (coolNote.noteType == 1 || coolNote.noteType == 2)
+			if (coolNote.noteType == 1)
 			{
-				boyfriend.stunned = true;
-				missNoteCheck(true, coolNote.noteData, boyfriend, true, false, coolNote);
+				if (boyfriend.stunned)
+					muteTimer.reset();
+				else
+				{
+					FlxG.sound.play(Paths.sound('event/discordMute'));
+					boyfriend.playAnim('muted', true);
+					boyfriend.stunned = true;
+					boyfriendStrums.receptors.forEach(function(arrow:UIStaticArrow)
+					{
+						arrow.color = 0xffff4a4a;
+					});
+					muteTimer = new FlxTimer().start(2, function(tmr:FlxTimer)
+					{
+						boyfriend.dance();
+						boyfriend.stunned = false;
+						FlxG.sound.play(Paths.sound('event/discordUnmute'));
+						boyfriendStrums.receptors.forEach(function(arrow:UIStaticArrow)
+						{
+							arrow.color = FlxColor.WHITE;
+						});
+					});
+				}
 			}
 
 			characterPlayAnimation(coolNote, character);
@@ -1049,16 +1077,17 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	function missNoteCheck(?includeAnimation:Bool = false, direction:Int = 0, character:Character, popMiss:Bool = false, lockMiss:Bool = false, coolNote:Note = null)
+	function missNoteCheck(?includeAnimation:Bool = false, direction:Int = 0, character:Character, popMiss:Bool = false, lockMiss:Bool = false, noteStyle:Int = 0)
 	{
-		if (coolNote.noteType != 1 || coolNote.noteType != 2)
+		if (noteStyle != 1)
 		{
 			if (includeAnimation)
 			{
 				var stringDirection:String = UIStaticArrow.getArrowFromNumber(direction);
 
 				FlxG.sound.play(Paths.soundRandom('miss/bad', 1, 3), FlxG.random.float(0.1, 0.2));
-				character.playAnim('sing' + stringDirection.toUpperCase() + 'miss', lockMiss);
+				if (!boyfriend.stunned)
+					character.playAnim('sing' + stringDirection.toUpperCase() + 'miss', lockMiss);
 			}
 
 			decreaseCombo(popMiss);
@@ -1067,6 +1096,16 @@ class PlayState extends MusicBeatState
 
 	function characterPlayAnimation(coolNote:Note, character:Character)
 	{
+		// esto es el life drain de asf jaja
+		if (character == dadOpponent && dadOpponent.curCharacter == 'juan' && health > 0.04)
+			health -= 0.02;
+		if (character == dadOpponent && dadOpponent.curCharacter == 'juan' && health > 1)
+			bumpCamera(0.03, 0.02);
+
+		// el gordo de michelin pone un vine boom con cada nota
+		if (character == dadOpponent && dadOpponent.curCharacter == 'twelve')
+			FlxG.sound.play(Paths.sound('event/twelve/vineBoom'));
+
 		// alright so we determine which animation needs to play
 		// get alt strings and stuffs
 		var stringArrow:String = '';
@@ -1087,21 +1126,13 @@ class PlayState extends MusicBeatState
 		}
 
 		stringArrow = baseString + altString;
-		// if (coolNote.foreverMods.get('string')[0] != "")
-		//	stringArrow = coolNote.noteString;
-
-		// JUAN PEPITO EN SU CAMINO A ESLAMIARTE BIEN FEITO
-		// esto es el life drain de asf jaja
-		if (character == dadOpponent && dadOpponent.curCharacter == 'juan' && health > 0.04)
-			health -= 0.02;
-		if (character == dadOpponent && dadOpponent.curCharacter == 'juan' && health > 1)
-			bumpCamera(0.03, 0.02);
-
-		// el gordo de michelin pone un vine boom con cada nota
-		if (character == dadOpponent && dadOpponent.curCharacter == 'twelve')
-			FlxG.sound.play(Paths.sound('event/twelve/vineBoom'));
-
-		character.playAnim(stringArrow, true);
+		if (character == dadOpponent)
+			character.playAnim(stringArrow, true);
+		else
+		{
+			if (!boyfriend.stunned)
+				character.playAnim(stringArrow, true);
+		}
 		character.holdTimer = 0;
 	}
 
@@ -1191,8 +1222,7 @@ class PlayState extends MusicBeatState
 
 	private function strumCameraRoll(cStrum:FlxTypedGroup<UIStaticArrow>, mustHit:Bool)
 	{
-		if (Init.trueSettings.get('Movimiento con Notas') 
-			|| curStage == 'cave' || curStage == 'skyblock' || curSong.toLowerCase() == 'asf')
+		if (Init.trueSettings.get('Movimiento con Notas') || curSong.toLowerCase() == 'asf')
 		{
 			if (PlayState.SONG.notes[Std.int(curStep / 16)] != null)
 			{
@@ -1255,7 +1285,7 @@ class PlayState extends MusicBeatState
 		var score:Int = 50;
 
 		// notesplashes
-		if (baseRating == "sick")
+		if (baseRating == "sick" && coolNote.noteType == 0)
 			// create the note splash if you hit a sick
 			createSplash(coolNote, strumline);
 		else
@@ -1948,9 +1978,9 @@ class PlayState extends MusicBeatState
 			vocals.pause();
 			songMusic.pause();
 			for (hud in strumHUD)
-				FlxTween.tween(hud, {alpha: 0}, Conductor.crochet / 1000);
-			FlxTween.tween(camHUD, {alpha: 0}, Conductor.crochet / 1000);
-			FlxTween.tween(camGame, {alpha: 0}, Conductor.crochet / 1000, {
+				FlxTween.tween(hud, {alpha: 0}, 1.5);
+			FlxTween.tween(camHUD, {alpha: 0}, 1.5);
+			FlxTween.tween(camGame, {alpha: 0}, 1.5, {
 				onComplete: function(twn:FlxTween) 
 				{
 					camGame.alpha = 1;
@@ -1968,6 +1998,10 @@ class PlayState extends MusicBeatState
 		persistentDraw = false;
 		paused = true;
 		resetMusic();
+		if (muteTimer.active)
+			muteTimer.cancel();
+		if (skipTimer.active)
+			skipTimer.cancel();
 	}
 
 	function bumpCamera(gameZoom:Float = 0.015, uiZoom:Float = 0.03)
@@ -2045,6 +2079,12 @@ class PlayState extends MusicBeatState
 
 			if ((startTimer != null) && (!startTimer.finished))
 				startTimer.active = true;
+	
+			if (muteTimer != null)
+				muteTimer.active = true;
+			if (skipTimer != null)
+				skipTimer.active = true;
+
 			paused = false;
 
 			///*

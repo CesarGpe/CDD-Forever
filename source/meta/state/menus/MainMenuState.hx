@@ -1,18 +1,14 @@
 package meta.state.menus;
 
 import flixel.FlxG;
-import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
-import flixel.util.FlxTimer;
 import meta.MusicBeat.MusicBeatState;
 import meta.data.*;
 import meta.data.Conductor;
@@ -51,6 +47,15 @@ class MainMenuState extends MusicBeatState
 	var credArt:FlxText;
 	var infoText:FlxText;
 	var daTween:FlxTween;
+
+	var userBG:FlxSprite;
+	var mic:FlxSprite;
+	var deaf:FlxSprite;
+	var cog:FlxSprite;
+	var pfp:FlxSprite;
+	var status:FlxSprite;
+	var userTxt1:FlxSprite;
+	var userTxt2:FlxSprite;
 	
 	var canChange:Bool = false;
 	var galleryNum:Int;
@@ -81,22 +86,22 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		bg1 = new FlxSprite();
-		bg1.makeGraphic(FlxG.width, FlxG.height, FlxColor.fromRGB(49, 51, 56));
+		bg1.makeGraphic(FlxG.width, FlxG.height, 0xff313338);
 		bg1.screenCenter();
 		add(bg1);
 
 		line1 = new FlxSprite(0, 115);
-		line1.makeGraphic(Std.int(FlxG.width * 0.5) + 20, 4, FlxColor.fromRGB(39, 40, 45));
+		line1.makeGraphic(Std.int(FlxG.width * 0.5) + 20, 4, 0xff27282d);
 		line1.antialiasing = true;
 		add(line1);
 
 		channeltxt = new FlxText(770, 10, 550, 'galeria');
-		channeltxt.setFormat(Paths.font("whitneymedium.otf"), 70, FlxColor.fromRGB(243, 255, 238), LEFT);
+		channeltxt.setFormat(Paths.font("whitneymedium.otf"), 70, 0xfff3ffee, LEFT);
 		channeltxt.antialiasing = true;
 		add(channeltxt);
 
 		channeltag = new FlxText(690, 0, 550, '#');
-		channeltag.setFormat(Paths.font("whitneymedium.otf"), 90, FlxColor.fromRGB(139, 141, 146), LEFT);
+		channeltag.setFormat(Paths.font("whitneymedium.otf"), 90, 0xff8b8d92, LEFT);
 		channeltag.antialiasing = true;
 		add(channeltag);
 
@@ -128,14 +133,14 @@ class MainMenuState extends MusicBeatState
 
 		// flechitas para la galeria
 		arrow1 = new FlxText(0, 0, 0, '<');
-		arrow1.setFormat(Paths.font("unisans.otf"), 90, FlxColor.fromRGB(139, 141, 146), LEFT);
+		arrow1.setFormat(Paths.font("unisans.otf"), 90, 0xff8b8d92, LEFT);
 		arrow1.screenCenter();
 		arrow1.x += 75;
 		arrow1.y += 40;
 		add(arrow1);
 
 		arrow2 = new FlxText(0, 0, 0, '>');
-		arrow2.setFormat(Paths.font("unisans.otf"), 90, FlxColor.fromRGB(139, 141, 146), LEFT);
+		arrow2.setFormat(Paths.font("unisans.otf"), 90, 0xff8b8d92, LEFT);
 		arrow2.screenCenter();
 		arrow2.x += 595;
 		arrow2.y += 40;
@@ -146,23 +151,27 @@ class MainMenuState extends MusicBeatState
 
 		// segundo fondo para los botones del menu
 		bg2 = new FlxSprite();
-		bg2.makeGraphic(Std.int(FlxG.width * 0.5) + 20, FlxG.height, FlxColor.fromRGB(43, 45, 49));
+		bg2.makeGraphic(Std.int(FlxG.width * 0.5) + 20, FlxG.height, 0xff2b2d31);
 		add(bg2);
 
 		line2 = new FlxSprite(0, 115);
-		line2.makeGraphic(FlxG.width, 4, FlxColor.fromRGB(36, 37, 41));
+		line2.makeGraphic(FlxG.width, 4, 0xff242529);
 		line2.antialiasing = true;
 		add(line2);
 
 		menutxt = new FlxText(35, 149, 550, 'MENU PRINCIPAL');
-		menutxt.setFormat(Paths.font("unisans.otf"), 65, FlxColor.fromRGB(139, 141, 146), LEFT);
+		menutxt.setFormat(Paths.font("unisans.otf"), 65, 0xff8b8d92, LEFT);
 		menutxt.antialiasing = true;
 		add(menutxt);
 
 		cddtxt = new FlxText(35, 15, 550, 'Vs. CDD');
-		cddtxt.setFormat(Paths.font("whitneysemibold.otf"), 70, FlxColor.fromRGB(243, 255, 238), LEFT);
+		cddtxt.setFormat(Paths.font("whitneysemibold.otf"), 70, 0xfff3ffee, LEFT);
 		cddtxt.antialiasing = true;
 		add(cddtxt);
+
+		userBG = new FlxSprite(0, 610);
+		userBG.makeGraphic(Std.int(FlxG.width * 0.5) + 20, Std.int(FlxG.height * (1 / 6)), 0xff232428);
+		add(userBG);
 
 		// prepara los grupos padrisimos
 		boxes = new FlxTypedGroup<FlxSprite>();
@@ -175,14 +184,14 @@ class MainMenuState extends MusicBeatState
 		// bucle para las opciones del menu
 		for (i in 0...optionShit.length)
 		{
-			var box:FlxSprite = new FlxSprite(20, (16 * 9 * i) + (29 * 8));
-			box.makeGraphic(615, 110, FlxColor.fromRGB(53, 55, 60));
+			var box:FlxSprite = new FlxSprite(20, (16 * 8 * i) + (28 * 8));
+			box.makeGraphic(615, 110, 0xff35373c);
 
-			var menuItem:FlxText = new FlxText(120, (16 * 9 * i) + (29 * 8), 500, optionShit[i]);
-			menuItem.setFormat(Paths.font("whitneymedium.otf"), 80, FlxColor.fromRGB(139, 141, 146), LEFT);
+			var menuItem:FlxText = new FlxText(120, (16 * 8 * i) + (28 * 8), 500, optionShit[i]);
+			menuItem.setFormat(Paths.font("whitneymedium.otf"), 80, 0xff8b8d92, LEFT);
 
-			var htag:FlxText = new FlxText(35, (16 * 9 * i) + (29 * 8), 450, '#');
-			htag.setFormat(Paths.font("whitneymedium.otf"), 90, FlxColor.fromRGB(139, 141, 146), LEFT);
+			var htag:FlxText = new FlxText(35, (16 * 8 * i) + (28 * 8), 450, '#');
+			htag.setFormat(Paths.font("whitneymedium.otf"), 90, 0xff8b8d92, LEFT);
 
 			menuItem.ID = i;
 			htag.ID = i;
@@ -205,7 +214,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.updateHitbox();	
 		}
 
-		/// AQUI EMPIEZAN LOS TWEENS
+		///* AQUI EMPIEZAN LOS TWEENS
 		menuItems.forEach(function(spr:FlxText)
 		{
 			spr.x -= 800;
@@ -254,15 +263,15 @@ class MainMenuState extends MusicBeatState
 				});
 			}
 		});
-		/// AQUI SE TERMINAN LOS TWEENS
+		///* AQUI SE TERMINAN LOS TWEENS
 
 		updateSelection();
 
 		// y ya por ultimo el texto de la version
-		var versionShit:FlxText = new FlxText(5, FlxG.height - 25, 0, "Forever Engine " + Main.gameVersion);
+		/*var versionShit:FlxText = new FlxText(5, FlxG.height - 25, 0, "Forever Engine " + Main.gameVersion);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(versionShit);
+		add(versionShit);*/
 
 		//
 	}
@@ -381,7 +390,7 @@ class MainMenuState extends MusicBeatState
 					spr.kill();
 				else
 				{
-					spr.makeGraphic(615, 110, FlxColor.fromRGB(63, 66, 72));
+					spr.makeGraphic(615, 110, 0xff3f4248);
 					FlxFlicker.flicker(spr, 1, 0.06, false, false);
 				}
 			});
@@ -447,12 +456,12 @@ class MainMenuState extends MusicBeatState
 		// reset all selections
 		menuItems.forEach(function(spr:FlxText)
 		{
-			spr.setFormat(Paths.font("whitneymedium.otf"), 80, FlxColor.fromRGB(139, 141, 146));
+			spr.setFormat(Paths.font("whitneymedium.otf"), 80, 0xff8b8d92);
 			spr.updateHitbox();
 		});
 
-		if (menuItems.members[Math.floor(curSelected)].color == FlxColor.fromRGB(139, 141, 146))
-			menuItems.members[Math.floor(curSelected)].setFormat(Paths.font("whitneymedium.otf"), 80, FlxColor.fromRGB(219, 222, 255));
+		if (menuItems.members[Math.floor(curSelected)].color == 0xff8b8d92)
+			menuItems.members[Math.floor(curSelected)].setFormat(Paths.font("whitneymedium.otf"), 80, 0xffdbdeff);
 
 		menuItems.members[Math.floor(curSelected)].updateHitbox();
 

@@ -4,16 +4,10 @@ package gameObjects;
 	The character class initialises any and all characters that exist within gameplay. For now, the character class will
 	stay the same as it was in the original source of the game. I'll most likely make some changes afterwards though!
 **/
-import flixel.FlxG;
-import flixel.addons.util.FlxSimplex;
-import flixel.animation.FlxBaseAnimation;
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.FlxColor;
-import gameObjects.userInterface.HealthIcon;
 import meta.*;
 import meta.data.*;
 import meta.data.dependency.FNFSprite;
-import meta.state.PlayState;
 import openfl.utils.Assets as OpenFlAssets;
 
 using StringTools;
@@ -48,7 +42,6 @@ class Character extends FNFSprite
 	public function setCharacter(x:Float, y:Float, character:String):Character
 	{
 		curCharacter = character;
-		var tex:FlxAtlasFrames;
 		antialiasing = true;
 
 		characterData = {
@@ -130,9 +123,33 @@ class Character extends FNFSprite
 				characterData.offsetX = 100;
 				characterData.offsetY = 70;
 
+			case 'bfTemper':
+				// pinche boifren con una gota de sudor no mames
+				iconColor = FlxColor.fromRGB(49, 176, 209);
+				frames = Paths.getSparrowAtlas('characters/bfTemper');
+
+				animation.addByPrefix('idle', 'BF idle dance', 24, false);
+				animation.addByPrefix('muted', 'BF idle shaking', 48, true);
+				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
+				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
+				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
+				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
+				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
+				animation.addByPrefix('hey', 'BF HEY', 24, false);
+
+				playAnim('idle');
+
+				flipX = true;
+
+				characterData.offsetX = 30;
+				characterData.offsetY = -10;
+
 			case 'bfTemperDeath':
 				// no se puede estar mas pendejo
-				frames = Paths.getSparrowAtlas('characters/bfTemperDeath');
+				frames = Paths.getSparrowAtlas('characters/bfTemper');
 
 				animation.addByPrefix('firstDeath', "BF dies", 24, false);
 				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);

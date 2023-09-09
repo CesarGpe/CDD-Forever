@@ -1,19 +1,16 @@
 import flixel.FlxG;
 import flixel.FlxState;
-import flixel.addons.transition.FlxTransitionableState;
 import flixel.graphics.FlxGraphic;
 import flixel.input.keyboard.FlxKey;
 import meta.CoolUtil;
 import meta.InfoHud;
 import meta.data.Highscore;
-import meta.data.dependency.Discord;
+import meta.data.Windows;
 import meta.state.*;
-import meta.state.charting.*;
 import openfl.filters.BitmapFilter;
 import openfl.filters.ColorMatrixFilter;
 
 using StringTools;
-
 /** 
 	Enumerator for settingtypes
 **/
@@ -246,8 +243,12 @@ class Init extends FlxState
 			FlxG.sound.muted = FlxG.save.data.mute;
 		FlxG.save.flush();
 
+		// modo oscuro
+		#if windows
+		Windows.setDarkMode('Vs. CDD Forever', true);
+		#end
+
 		Main.switchState(this, new TitleState());
-		//Main.switchState(this, new PreloadState());
 	}
 
 	public static function loadSettings():Void

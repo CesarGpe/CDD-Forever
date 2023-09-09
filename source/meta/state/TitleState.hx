@@ -40,7 +40,6 @@ using StringTools;
 class TitleState extends MusicBeatState
 {
 	static var initialized:Bool = false;
-	private static var playJingle:Bool = false;
 
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
@@ -85,9 +84,6 @@ class TitleState extends MusicBeatState
 			ForeverTools.resetMenuMusic(true);
 		}
 		persistentUpdate = true;
-
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		add(bg);
 
 		logoBl = new FlxSprite(-5, 10);
 		if (FlxG.save.data.shubsEgg)

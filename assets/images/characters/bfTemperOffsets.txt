@@ -1,0 +1,11 @@
+idle -5 0
+muted -4 0
+singUP -29 27
+singRIGHT -48 -7
+singLEFT 5 -6
+singDOWN -10 -50
+singUPmiss -36 27
+singRIGHTmiss -44 22
+singLEFTmiss 7 19
+singDOWNmiss -15 -19
+hey -3 5
