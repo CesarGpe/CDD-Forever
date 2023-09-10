@@ -26,7 +26,7 @@ class OptionsSubstate extends MusicBeatSubState
 	{
 		// call the options menu
 		var bg = new FlxSprite(-85);
-		bg.loadGraphic(Paths.image('menus/base/menuDesat'));
+		bg.loadGraphic(Paths.image('menus/menuDesat'));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.18;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));

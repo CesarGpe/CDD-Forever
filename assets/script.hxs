@@ -1,0 +1,10 @@
+var putos;
+
+function onCreate()
+{
+    trace('puta madre march');
+    //putos = new FlxSprite();
+    //putos.loadGraphic(getAsset('bf.png', 'image'));
+    //add(putos);
+
+}

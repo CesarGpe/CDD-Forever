@@ -90,13 +90,13 @@ class TitleState extends MusicBeatState
 		{
 			logoBl.x = 450;
 			logoBl.y = 0;
-			logoBl.frames = Paths.getSparrowAtlas('menus/base/title/foreverlogo');
+			logoBl.frames = Paths.getSparrowAtlas('menus/title/foreverlogo');
 			logoBl.animation.addByIndices('bump', 'forever bop', [1, 2, 3, 4], "", 24, false);
 			logoBl.setGraphicSize(Std.int(logoBl.width / 1.8));
 		}
 		else
 		{
-			logoBl.frames = Paths.getSparrowAtlas('menus/base/title/logoBumpin');
+			logoBl.frames = Paths.getSparrowAtlas('menus/title/logoBumpin');
 			logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
 		}
 		logoBl.antialiasing = true;
@@ -108,13 +108,13 @@ class TitleState extends MusicBeatState
 		{
 			gfDance.x = 60; //672
 			gfDance.y = 30;
-			gfDance.frames = Paths.getSparrowAtlas('menus/base/title/ShubBump');
+			gfDance.frames = Paths.getSparrowAtlas('menus/title/ShubBump');
 			gfDance.animation.addByPrefix('danceLeft', 'Shubs Title Bump', 24, false);
 			gfDance.animation.addByPrefix('danceRight', 'Shubs Title Bump', 24, false);
 		}
 		else
 		{
-			gfDance.frames = Paths.getSparrowAtlas('menus/base/title/CDDTitle');
+			gfDance.frames = Paths.getSparrowAtlas('menus/title/CDDTitle');
 			gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 			gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		}
@@ -124,7 +124,7 @@ class TitleState extends MusicBeatState
 		add(logoBl);
 
 		titleText = new FlxSprite(160, FlxG.height * 0.8);
-		titleText.frames = Paths.getSparrowAtlas('menus/base/title/enterText');
+		titleText.frames = Paths.getSparrowAtlas('menus/title/enterText');
 		titleText.animation.addByPrefix('idle', "ENTER IDLE", 24);
 		titleText.animation.addByPrefix('press', "ENTER PRESSED", 24);
 		titleText.antialiasing = true;
@@ -139,7 +139,7 @@ class TitleState extends MusicBeatState
 		blackScreen = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		credGroup.add(blackScreen);
 
-		spr = new FlxSprite(0, FlxG.height * 0.38).loadGraphic(Paths.image('menus/base/title/forever'));
+		spr = new FlxSprite(0, FlxG.height * 0.38).loadGraphic(Paths.image('menus/title/forever'));
 		add(spr);
 		spr.visible = false;
 		spr.setGraphicSize(Std.int(spr.width * 0.65));

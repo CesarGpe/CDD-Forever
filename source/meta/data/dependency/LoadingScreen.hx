@@ -53,7 +53,7 @@ class LoadingScreen extends MusicBeatSubState
 		black.alpha = 0;
 		add(black);
 
-		screen = new FlxSprite().loadGraphic(Paths.image('menus/base/art/loadingScreen'));
+		screen = new FlxSprite().loadGraphic(Paths.image('menus/art/loadingScreen'));
 		screen.setGraphicSize(Std.int(FlxG.width));
 		screen.updateHitbox();
 		screen.scrollFactor.set();

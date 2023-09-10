@@ -255,7 +255,7 @@ class Main extends Sprite
 		dateNow = StringTools.replace(dateNow, " ", "_");
 		dateNow = StringTools.replace(dateNow, ":", "'");
 
-		path = "./crash/" + "FE_" + dateNow + ".txt";
+		path = "./crash/" + "CDD_" + dateNow + ".txt";
 
 		for (stackItem in callStack)
 		{
@@ -268,7 +268,7 @@ class Main extends Sprite
 			}
 		}
 
-		errMsg += "\nError inesperado: " + e.error + "\nReportalo a la pagina de GitHub (si quieres): https://github.com/CesarGpe/CDD-Forever";
+		errMsg += "\nError inesperado: " + e.error + "\nPor favor, reportalo a mi GitHub: https://github.com/CesarGpe/CDD-Forever";
 
 		if (!FileSystem.exists("./crash/"))
 			FileSystem.createDirectory("./crash/");

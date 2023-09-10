@@ -57,7 +57,7 @@ class StoryMenuState extends MusicBeatState
 		txtWeekTitle.alpha = 0.7;
 
 		yellowBG = new FlxSprite(0, 56);
-		yellowBG.frames = Paths.getSparrowAtlas('menus/base/storymenu/story-bgs');
+		yellowBG.frames = Paths.getSparrowAtlas('menus/storymenu/story-bgs');
 		yellowBG.animation.addByPrefix('week0', 'tutorial', 24, true);
 		yellowBG.animation.addByPrefix('week1', 'brown', 24, true);
 		yellowBG.animation.addByPrefix('week2', 'cesar', 24, true);
@@ -85,7 +85,7 @@ class StoryMenuState extends MusicBeatState
 		}
 
 		menuBF = new FlxSprite(455, 70);
-		menuBF.frames = Paths.getSparrowAtlas('menus/base/storymenu/MenuBF');
+		menuBF.frames = Paths.getSparrowAtlas('menus/storymenu/MenuBF');
 		menuBF.animation.addByPrefix('idle', 'idle', 24, true);
 		menuBF.animation.addByPrefix('press', 'hey', 24, false);
 		menuBF.animation.play('idle', true);

@@ -9,9 +9,11 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import haxe.ds.StringMap;
 import meta.MusicBeat.MusicBeatState;
-import meta.data.*;
 import meta.data.Conductor;
+import meta.data.ScriptHandler;
+import meta.data.Song;
 import meta.data.dependency.Discord;
 import meta.state.PlayState;
 import meta.state.menus.*;
@@ -66,10 +68,20 @@ class MainMenuState extends MusicBeatState
 	var curSelected:Float = 0;
 	var codeStep:Int = 0;
 
-	// the create 'state'
+	// script
+	var coolScript:ForeverModule;
+
 	override function create()
 	{
 		super.create();
+
+		var exposure:StringMap<Dynamic> = new StringMap<Dynamic>();
+		exposure.set('add', add);
+
+		coolScript = ScriptHandler.loadModule('script', 'images/menus/mainmenu', exposure);
+		if (coolScript.exists("onCreate"))
+			coolScript.get("onCreate")();
+		trace('Menu script loaded successfully');
 
 		// set the transitions to the previously set ones
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -107,7 +119,7 @@ class MainMenuState extends MusicBeatState
 
 		// hacer la imagen para la galeria epica
 		art = new FlxSprite();
-		images = FileSystem.readDirectory('assets/images/menus/base/art');
+		images = FileSystem.readDirectory('assets/images/menus/art');
 		for (file in images)
 		{
 			if (!file.endsWith('.png'))
@@ -172,6 +184,13 @@ class MainMenuState extends MusicBeatState
 		userBG = new FlxSprite(0, 610);
 		userBG.makeGraphic(Std.int(FlxG.width * 0.5) + 20, Std.int(FlxG.height * (1 / 6)), 0xff232428);
 		add(userBG);
+
+		pfp = new FlxSprite(20, 590);
+		pfp.loadGraphic(Paths.image('menus/mainmenu/bf'));
+		pfp.setGraphicSize(Std.int(pfp.width * 0.25), Std.int(pfp.height * 0.25));
+		pfp.updateHitbox();
+		pfp.antialiasing = true;
+		add(pfp);
 
 		// prepara los grupos padrisimos
 		boxes = new FlxTypedGroup<FlxSprite>();
@@ -489,14 +508,14 @@ class MainMenuState extends MusicBeatState
 		// cambia la imagen de la galeria
 		if (galleryNum == 12 || galleryNum == 19)
 		{
-			art.frames = Paths.getSparrowAtlas('menus/base/art/' + images[galleryNum]);
+			art.frames = Paths.getSparrowAtlas('menus/art/' + images[galleryNum]);
 			art.animation.addByPrefix('idle', 'bop', 24, false);
 			//art.animation.play('idle', true);
 			art.flipX = true;
 		}
 		else
 		{
-			art.loadGraphic(Paths.image('menus/base/art/' + images[galleryNum]));
+			art.loadGraphic(Paths.image('menus/art/' + images[galleryNum]));
 			art.flipX = false;
 		}
 		art.setGraphicSize(Std.int(FlxG.width * 0.35));
@@ -619,6 +638,7 @@ class MainMenuState extends MusicBeatState
 		art.screenCenter();
 		art.x += 335;
 		art.y += 37;
+		art.antialiasing = true;
 
 		infoText.screenCenter(X);
 		infoText.x += 335;

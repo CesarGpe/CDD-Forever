@@ -83,7 +83,7 @@ class FreeplayState extends MusicBeatState
 		story = Init.trueSettings.get('fpStory');
 		if (story)
 		{
-			bg = new FlxSprite().loadGraphic(Paths.image('menus/base/menuDesat'));
+			bg = new FlxSprite().loadGraphic(Paths.image('menus/menuDesat'));
 			add(bg);
 			for (i in 0...Main.gameWeeks.length)
 			{
@@ -95,7 +95,7 @@ class FreeplayState extends MusicBeatState
 		else
 		{
 			var num:String = Std.string(FlxG.random.int(1, 3));
-			bg = new FlxSprite().loadGraphic(Paths.image('menus/base/bonus/cast' + num));
+			bg = new FlxSprite().loadGraphic(Paths.image('menus/bonus/cast' + num));
 			add(bg);
 			for (i in folderSongs)
 			{

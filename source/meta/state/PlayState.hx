@@ -2280,7 +2280,7 @@ class PlayState extends MusicBeatState
 		}
 
 		// proceder
-		var screen = new FlxSprite().loadGraphic(Paths.image('menus/base/art/loadingScreen'));
+		var screen = new FlxSprite().loadGraphic(Paths.image('menus/art/loadingScreen'));
 		screen.setGraphicSize(Std.int(FlxG.width));
 		screen.updateHitbox();
 		screen.scrollFactor.set();
@@ -2364,8 +2364,9 @@ class PlayState extends MusicBeatState
 
 			var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 			introAssets.set('default', [
-				ForeverTools.returnSkinAsset('ready', assetModifier, changeableSkin, 'UI'),
-				ForeverTools.returnSkinAsset('set', assetModifier, changeableSkin, 'UI'),
+				ForeverTools.returnSkinAsset('3', assetModifier, changeableSkin, 'UI'),
+				ForeverTools.returnSkinAsset('2', assetModifier, changeableSkin, 'UI'),
+				ForeverTools.returnSkinAsset('1', assetModifier, changeableSkin, 'UI'),
 				ForeverTools.returnSkinAsset('go', assetModifier, changeableSkin, 'UI')
 			]);
 
@@ -2379,7 +2380,7 @@ class PlayState extends MusicBeatState
 			switch (swagCounter)
 			{
 				case 0:
-					var three:FlxSprite = new FlxSprite().loadGraphic(Paths.image('UI/default/base/three'));
+					var three:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
 					three.scrollFactor.set();
 					three.updateHitbox();
 
@@ -2399,46 +2400,46 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('intro/count'), 0.6);
 					Conductor.songPosition = -(Conductor.crochet * 4);
 				case 1:
-					var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
-					ready.scrollFactor.set();
-					ready.updateHitbox();
+					var two:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
+					two.scrollFactor.set();
+					two.updateHitbox();
 
 					if (assetModifier == 'pixel')
-						ready.setGraphicSize(Std.int(ready.width * PlayState.daPixelZoom));
+						two.setGraphicSize(Std.int(two.width * PlayState.daPixelZoom));
 
-					ready.screenCenter();
-					add(ready);
-					FlxTween.tween(ready, {y: ready.y += 30, alpha: 0}, Conductor.crochet / 1000, {
+					two.screenCenter();
+					add(two);
+					FlxTween.tween(two, {y: two.y += 30, alpha: 0}, Conductor.crochet / 1000, {
 						ease: FlxEase.cubeInOut,
 						onComplete: function(twn:FlxTween)
 						{
-							ready.destroy();
+							two.destroy();
 						}
 					});
 
 					FlxG.sound.play(Paths.sound('intro/count'), 0.6);
 					Conductor.songPosition = -(Conductor.crochet * 3);
 				case 2:
-					var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
-					set.scrollFactor.set();
+					var one:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
+					one.scrollFactor.set();
 
 					if (assetModifier == 'pixel')
-						set.setGraphicSize(Std.int(set.width * PlayState.daPixelZoom));
+						one.setGraphicSize(Std.int(one.width * PlayState.daPixelZoom));
 
-					set.screenCenter();
-					add(set);
-					FlxTween.tween(set, {y: set.y += 30, alpha: 0}, Conductor.crochet / 1000, {
+					one.screenCenter();
+					add(one);
+					FlxTween.tween(one, {y: one.y += 30, alpha: 0}, Conductor.crochet / 1000, {
 						ease: FlxEase.cubeInOut,
 						onComplete: function(twn:FlxTween)
 						{
-							set.destroy();
+							one.destroy();
 						}
 					});
 
 					FlxG.sound.play(Paths.sound('intro/count'), 0.6);
 					Conductor.songPosition = -(Conductor.crochet * 2);
 				case 3:
-					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
+					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[3]));
 					go.scrollFactor.set();
 
 					if (assetModifier == 'pixel')
