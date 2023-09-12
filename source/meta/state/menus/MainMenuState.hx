@@ -9,10 +9,8 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
-import haxe.ds.StringMap;
 import meta.MusicBeat.MusicBeatState;
 import meta.data.Conductor;
-import meta.data.ScriptHandler;
 import meta.data.Song;
 import meta.data.dependency.Discord;
 import meta.state.PlayState;
@@ -68,20 +66,9 @@ class MainMenuState extends MusicBeatState
 	var curSelected:Float = 0;
 	var codeStep:Int = 0;
 
-	// script
-	var coolScript:ForeverModule;
-
 	override function create()
 	{
 		super.create();
-
-		var exposure:StringMap<Dynamic> = new StringMap<Dynamic>();
-		exposure.set('add', add);
-
-		coolScript = ScriptHandler.loadModule('script', 'images/menus/mainmenu', exposure);
-		if (coolScript.exists("onCreate"))
-			coolScript.get("onCreate")();
-		trace('Menu script loaded successfully');
 
 		// set the transitions to the previously set ones
 		transIn = FlxTransitionableState.defaultTransIn;

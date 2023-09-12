@@ -65,7 +65,6 @@ class PlayState extends MusicBeatState
 	public static var changeableSkin:String = 'default';
 
 	private var unspawnNotes:Array<Note> = [];
-	private var ratingArray:Array<String> = [];
 	private var allSicks:Bool = true;
 
 	// if you ever wanna add more keys
@@ -163,7 +162,6 @@ class PlayState extends MusicBeatState
 	//* CHRONOMATRON
 	public static var minHealth:Float = 0.0; // esto te mata
 	public static var unowning:Bool = false; // nwo
-	var newMin:Float = 0; // cebeli
 
 	//* saltar intros largas de canciones en freeplay
 	var skipTimer:FlxTimer;

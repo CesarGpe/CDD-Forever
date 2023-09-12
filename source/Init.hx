@@ -55,7 +55,24 @@ class Init extends FlxState
 			'Muestra la cantidad aproximada de memoria que consume el juego.',
 			NOT_FORCED
 		],
-		'Modo Debug' => [false, Checkmark, 'Habilita el botplay, el editor de charts y otras cosas utiles para desarrolladores.', NOT_FORCED],
+		'Modo Debug' => [
+			false,
+			Checkmark,
+			'Habilita el botplay, el editor de charts y otras cosas utiles para desarrolladores.',
+			NOT_FORCED
+		],
+		'Ventana Coloreada' => [
+			true,
+			Checkmark,
+			'Habilita el uso del tema de tu sistema para el color de la ventana del juego.',
+			NOT_FORCED
+		],
+		'Discord Modo Luz' => [
+			false,
+			Checkmark,
+			'Activa el modo luz en el menu, ademas de certificarte como un psicopata.',
+			NOT_FORCED
+		],
 		'Movimiento Reducido' => [
 			false,
 			Checkmark,
@@ -243,11 +260,6 @@ class Init extends FlxState
 			FlxG.sound.muted = FlxG.save.data.mute;
 		FlxG.save.flush();
 
-		// modo oscuro
-		#if windows
-		Windows.setDarkMode('Vs. CDD Forever', true);
-		#end
-
 		Main.switchState(this, new TitleState());
 	}
 
@@ -323,6 +335,11 @@ class Init extends FlxState
 
 		#if !html5
 		Main.updateFramerate(trueSettings.get("Limite de FPS"));
+		#end
+
+		// modo oscuro
+		#if windows
+		Windows.setDarkMode('Vs. CDD Forever', trueSettings.get('Ventana Coloreada'));
 		#end
 
 		///*

@@ -83,9 +83,14 @@ class OptionsMenuState extends MusicBeatState
 			],
 			'apariencia' => [
 				[
+					['Visuales', null],
+					['', null],
+					['Ventana Coloreada', getFromOption],
+					['Discord Modo Luz', getFromOption],
+					['UI Skin', getFromOption],
+					['', null],
 					['Judgements', null],
 					['', null],
-					['UI Skin', getFromOption],
 					['Fixed Judgements', getFromOption], 
 					['Simply Judgements', getFromOption],
 					['Contador', getFromOption],
