@@ -3,17 +3,10 @@ package gameObjects.userInterface.notes;
 import flixel.FlxBasic;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.FlxState;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.math.FlxMath;
-import flixel.math.FlxRect;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxSort;
-import flixel.util.FlxTimer;
-import meta.data.Conductor;
-import meta.data.Timings;
-import meta.data.dependency.FNFSprite;
 import meta.state.PlayState;
 
 using StringTools;

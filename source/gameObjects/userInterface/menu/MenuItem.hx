@@ -2,21 +2,27 @@ package gameObjects.userInterface.menu;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxMath;
+import flixel.text.FlxText;
 import flixel.util.FlxColor;
 
 class MenuItem extends FlxSpriteGroup
 {
 	public var targetY:Float = 0;
-	public var week:FlxSprite;
+	public var week:FlxText;
 	public var flashingInt:Int = 0;
 
 	public function new(x:Float, y:Float, weekNum:Int = 0)
 	{
 		super(x, y);
-		week = new FlxSprite().loadGraphic(Paths.image('menus/storymenu/weeks/week' + weekNum));
+		//week = new FlxSprite().loadGraphic(Paths.image('menus/storymenu/weeks/week' + weekNum));
+		if (weekNum > 0)
+			week = new FlxText(0, 0, 0, 'Week ' + weekNum);
+		else
+			week = new FlxText(0, 0, 0, 'Tutorial');
+		week.setFormat(Paths.font("whitneymedium.otf"), 50, FlxColor.WHITE, LEFT);
+		week.antialiasing = true;
 		add(week);
 	}
 
@@ -38,14 +44,15 @@ class MenuItem extends FlxSpriteGroup
 	{
 		super.update(elapsed);
 		var lerpVal = Main.framerateAdjust(0.17);
-		y = FlxMath.lerp(y, (targetY * 120) + 480, lerpVal);
+		y = FlxMath.lerp(y, (targetY * 120) + 200, lerpVal);
 
 		if (isFlashing)
+		{
 			flashingInt += 1;
-
-		if (flashingInt % fakeFramerate >= Math.floor(fakeFramerate / 2))
-			week.color = 0xFF33ffff;
-		else
-			week.color = FlxColor.WHITE;
+			if (flashingInt % fakeFramerate >= Math.floor(fakeFramerate / 2))
+				week.alpha = 0;
+			else
+				week.alpha = 1;
+		}
 	}
 }

@@ -3,7 +3,6 @@ package gameObjects;
 import flixel.FlxBasic;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.graphics.FlxGraphic;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
 import flixel.system.FlxSound;
@@ -17,7 +16,6 @@ import meta.CoolUtil;
 import meta.data.Conductor;
 import meta.data.dependency.FNFSprite;
 import meta.state.PlayState;
-import openfl.display.BitmapData;
 
 using StringTools;
 
@@ -56,13 +54,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 	var credit:FNFSprite;
 	var dog:FNFSprite;
 
-	// cave stage
-	var stone1:FNFSprite;
-	var stone2:FNFSprite;
-	var bg1:FNFSprite;
-	var bg2:FNFSprite;
-	var bg3:FNFSprite;
-
 	// end of stage sprites
 
 	public var curStage:String;
@@ -82,11 +73,8 @@ class Stage extends FlxTypedGroup<FlxBasic>
 		super();
 		this.curStage = curStage;
 
-		/// get hardcoded stage type if chart is fnf style
 		if (PlayState.determinedChartType == "FNF")
 		{
-			// this is because I want to avoid editing the fnf chart type
-			// custom stage stuffs will come with forever charts
 			switch (curSong)
 			{
 				case 'gaming':
@@ -132,16 +120,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				bossSound.persist = true;
 				bossSound.play();
 
-				var bitmapData:Map<String, FlxGraphic>;
-				bitmapData = new Map<String, FlxGraphic>();
-				Paths.image('backgrounds/skyblock/DOG_Assets');
-				
-				var data:BitmapData = BitmapData.fromFile("assets/images/backgrounds/skyblock/DOG_Assets");
-				var graph = FlxGraphic.fromBitmapData(data);
-				graph.persist = true;
-				graph.destroyOnNoUse = false;
-				bitmapData.set('DOG_Assets', graph);
-
 				// * ESTA ES LA STAGE DE CALAMITY
 
 				black = new FNFSprite();
@@ -186,14 +164,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				plat2.updateHitbox();
 				credit.updateHitbox();
 				dog.updateHitbox();
-
-				aura.antialiasing = true;
-				message.antialiasing = true;
-				calbg.antialiasing = true;
-				plat1.antialiasing = true;
-				plat2.antialiasing = true;
-				credit.antialiasing = true;
-				dog.antialiasing = true;
 
 				aura.scrollFactor.set(0, 0);
 				credit.scrollFactor.set(0, 0);
@@ -258,13 +228,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 
 				sky.scrollFactor.set(0.2, 0.2);
 
-				sky.antialiasing = true;
-				tree.antialiasing = true;
-				outpost.antialiasing = true;
-				floor.antialiasing = true;
-				cabin.antialiasing = true;
-				cesar.antialiasing = true;
-
 				sbSprites.add(bg);
 				sbSprites.add(sky);
 				sbSprites.add(tree);
@@ -289,11 +252,11 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				var track3:FNFSprite = new FNFSprite(-1383, 580);
 
 				// objetos del fondo para mover
-				stone1 = new FNFSprite(-990, -371);
-				stone2 = new FNFSprite(1550, -371);
-				bg1 = new FNFSprite(-710, -885);
-				bg2 = new FNFSprite(675, -883);
-				bg3 = new FNFSprite(2060, -881);
+				var stone1:FNFSprite = new FNFSprite(-990, -370);
+				var stone2:FNFSprite = new FNFSprite(1550, -370);
+				var bg1:FNFSprite = new FNFSprite(-710, -885);
+				var bg2:FNFSprite = new FNFSprite(675, -885);
+				var bg3:FNFSprite = new FNFSprite(2060, -885);
 
 				fx.loadGraphic(Paths.image('backgrounds/' + curStage + '/black_vignette'));
 				fx.setGraphicSize(Std.int(fx.width * 0.7), Std.int(fx.height * 0.7));
@@ -339,19 +302,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				fx.updateHitbox();
 				fx.screenCenter(XY);
 
-				fx.antialiasing = true;
-				stone1.antialiasing = true;
-				stone2.antialiasing = true;
-				bg1.antialiasing = true;
-				bg2.antialiasing = true;
-				bg3.antialiasing = true;
-				track1.antialiasing = true;
-				track2.antialiasing = true;
-				track3.antialiasing = true;
-				wood1.antialiasing = true;
-				wood2.antialiasing = true;
-				wood3.antialiasing = true;
-
 				aboveNote.add(fx);
 				add(stone1);
 				add(stone2);
@@ -365,13 +315,11 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				add(wood2);
 				add(wood3);
 
-
-				FlxTween.tween(bg1, {x: -2060}, 0.6, {onComplete: function(twn:FlxTween) {loopCompleted('bg1');}});
-				FlxTween.tween(bg2, {x: -2060}, 1.2, {onComplete: function(twn:FlxTween) {loopCompleted('bg2');}});
-				FlxTween.tween(bg3, {x: -2060}, 1.8, {onComplete: function(twn:FlxTween) {loopCompleted('bg3');}});
-
-				FlxTween.tween(stone1, {x: -3500}, 10, {onComplete: function(twn:FlxTween) {loopCompleted('stone1');}});
-				FlxTween.tween(stone2, {x: -3500}, 20, {onComplete: function(twn:FlxTween) {loopCompleted('stone2');}});
+				caveTween(bg1, -2060, 2060, 0.6, 1.8);
+				caveTween(bg2, -2060, 2060, 1.2, 1.8);
+				caveTween(bg3, -2060, 2060, 1.8, 1.8);
+				caveTween(stone1, -3500, 1500, 10, 20);
+				caveTween(stone2, -3500, 1500, 20, 20);
 
 			case 'lost':
 				// JAJAJAJAJAJA ME MORI NO LEAS ESTO PORFA
@@ -386,13 +334,11 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				gore.loadGraphic(Paths.image('backgrounds/' + curStage + '/CesarTieso'));
 				gore.setGraphicSize(Std.int(gore.width * 0.68), Std.int(gore.height * 0.68));
 				gore.updateHitbox();
-				gore.antialiasing = true;
 
 				dead = new FNFSprite(215, 350);
 				dead.loadGraphic(Paths.image('backgrounds/' + curStage + '/Cesar_Dead'));
 				dead.setGraphicSize(Std.int(dead.width * 0.7), Std.int(dead.height * 0.7));
 				dead.updateHitbox();
-				dead.antialiasing = true;
 
 				black = new FNFSprite();
 				black.makeGraphic(2548, 2048, FlxColor.BLACK);
@@ -424,7 +370,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				{
 					var word:FlxSprite = new FlxSprite();
 					word.loadGraphic(Paths.image('backgrounds/calleTres/' + asset[i]));
-					word.antialiasing = true;
 					word.scrollFactor.set();
 					word.screenCenter();
 					word.updateHitbox();
@@ -516,13 +461,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				corner1.animation.play('idle', true);
 				corner2.animation.play('idle', true);
 
-				bg.antialiasing = true;
-				floor.antialiasing = true;
-				leftSide.antialiasing = true;
-				rightSide.antialiasing = true;
-				corner1.antialiasing = true;
-				corner2.antialiasing = true;
-
 				corner1.scrollFactor.set(0, 0);
 				corner2.scrollFactor.set(0, 0);
 
@@ -566,14 +504,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				message.updateHitbox();
 				message.visible = false;
 
-				bg.antialiasing = true;
-				floor.antialiasing = true;
-				leftSide.antialiasing = true;
-				rightSide.antialiasing = true;
-				groovy.antialiasing = true;
-				txt.antialiasing = true;
-				message.antialiasing = true;
-
 				add(bg);
 				add(groovy);
 				add(txt);
@@ -583,31 +513,24 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				aboveNote.add(message);
 		}
 	}
-
-	function loopCompleted(tag:String):Void
+	
+	function caveTween(sprite:FlxSprite, initX:Int, loopX:Float, startTime:Float, afterTime:Float)
 	{
-		// esto ya sirve asi que ni le muevo
-		switch (tag)
-		{
-			case 'bg1':
-				bg1.x = 2060;
-				FlxTween.tween(bg1, {x: -2060}, 1.8, {onComplete: function(twn:FlxTween) {loopCompleted('bg1');}});
-			case 'bg2':
-				bg2.x = 2060;
-				FlxTween.tween(bg2, {x: -2060}, 1.8, {onComplete: function(twn:FlxTween) {loopCompleted('bg2');}});
-			case 'bg3':
-				bg3.x = 2060;
-				FlxTween.tween(bg3, {x: -2060}, 1.8, {onComplete: function(twn:FlxTween) {loopCompleted('bg3');}});
-			case 'stone1':
-				stone1.x = 1500;
-				FlxTween.tween(stone1, {x: -3500}, 20, {onComplete: function(twn:FlxTween) {loopCompleted('stone1');}});
-			case 'stone2':
-				stone2.x = 1500;
-				FlxTween.tween(stone2, {x: -3500}, 20, {onComplete: function(twn:FlxTween) {loopCompleted('stone2');}});
-		}
+		FlxTween.tween(sprite, {x: initX}, startTime, {
+			onComplete: function(twn:FlxTween)
+			{
+				sprite.x = loopX;
+				FlxTween.tween(sprite, {x: initX}, afterTime, {
+					type: FlxTweenType.LOOPING,
+					onComplete: function(twn:FlxTween)
+					{
+						sprite.x = loopX;
+					}
+				});
+			}
+		});
 	}
 
-	// return the girlfriend's type
 	public function returnGFtype(curStage)
 	{
 		var gfVersion:String = 'mari';
@@ -627,7 +550,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 		return gfVersion;
 	}
 
-	// get the dad's position
 	public function dadPosition(curStage, boyfriend:Character, dad:Character, gf:Character, camPos:FlxPoint):Void
 	{
 		var characterArray:Array<Character> = [dad, boyfriend];
@@ -652,12 +574,10 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				dad.x -= 50;
 				dad.y -= 160;
 				gf.y = -140;
-				gf.scrollFactor.set(1, 1);
 			case 'discordEvil':
 				boyfriend.y -= 65;
 				dad.y -= 65;
 				gf.y = -70;
-				gf.scrollFactor.set(1, 1);
 			case 'skyblock':
 				boyfriend.x = 890;
 				boyfriend.y = 320;
@@ -665,7 +585,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				dad.y = 390;
 				gf.x = 340;
 				gf.y = -160;
-				gf.scrollFactor.set(1, 1);
 			case 'cave':
 				boyfriend.x += 550;
 				boyfriend.y -= 60;
@@ -673,7 +592,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				dad.y += 25;
 				gf.x = 200;
 				gf.y = 120;
-				gf.scrollFactor.set(0.95, 1);
 				FlxTween.tween(boyfriend, {x: boyfriend.x - 170}, 0.8, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
 				FlxTween.tween(dad, {x: dad.x - 160}, 0.8, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
 				FlxTween.tween(gf, {x: gf.x + 300}, 1, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
@@ -696,7 +614,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				dad.y = 60;
 				gf.x = 255;
 				gf.y = -105;
-				gf.scrollFactor.set(1, 1);
 			case 'calleTres':
 				gf.visible = false;
 				boyfriend.x = 1200;
@@ -765,25 +682,18 @@ class Stage extends FlxTypedGroup<FlxBasic>
 		}
 	}
 
-	public function stageUpdateConstant(elapsed:Float, boyfriend:Boyfriend, gf:Character, dadOpponent:Character)
+	/*public function stageUpdateConstant(elapsed:Float, boyfriend:Boyfriend, gf:Character, dadOpponent:Character)
 	{
 		switch (PlayState.curStage)
 		{
 			case 'skyblock':
 				// putos todos
 		}
-	}
+	}*/
 
-	override function add(Object:FlxBasic):FlxBasic
-	{
-		if (Init.trueSettings.get('Deshabilitar Suavizado') && Std.isOfType(Object, FlxSprite))
-			cast(Object, FlxSprite).antialiasing = false;
-		return super.add(Object);
-	}
-
-	// ========================================================================================================
-	// !            EVENTOS EPICOS PARA LAS CANCIONES EPICAS
-	// ========================================================================================================
+	// * ======================================================================
+	// !                EVENTOS EPICOS PARA LAS CANCIONES EPICAS
+	// * ======================================================================
 	/**
 	 * Eventos de las canciones epicas
 	 * @param name String del nombre del evento
@@ -862,6 +772,8 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				}
 				
 			case 'Jumpscare':
+				var length:Float = Std.parseFloat(value);
+				
 				var newJumpscare:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/lost/jumpscare'));
 				var jumpscareSize:Float = 1.2;
 				newJumpscare.setGraphicSize(Std.int(FlxG.width * jumpscareSize));
@@ -870,7 +782,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				add(newJumpscare);
 
 				jumpscareSize = jumpscareSize + 0.05;
-				FlxTween.tween(newJumpscare, {alpha: 0}, 0.5, {
+				FlxTween.tween(newJumpscare, {alpha: 0}, length, {
 					ease: FlxEase.expoIn,
 					onUpdate: function(tween:FlxTween)
 					{
@@ -880,6 +792,11 @@ class Stage extends FlxTypedGroup<FlxBasic>
 							shakeIntensity * FlxG.width) * jumpscareSizeInterval * newJumpscare.scale.x;
 						newJumpscare.y += FlxG.random.float(-shakeIntensity * FlxG.height,
 							shakeIntensity * FlxG.height) * jumpscareSizeInterval * newJumpscare.scale.y;
+					},
+					onComplete: function(tween:FlxTween)
+					{
+						newJumpscare.kill();
+						newJumpscare.destroy();
 					}
 				});
 
@@ -895,7 +812,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				celebi.animation.addByIndices('recede', 'Celebi Spawn Full', [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], '', 24, false);
 				celebi.animation.addByPrefix('idle', 'Celebi Idle', 24, false);
 				celebi.animation.play('spawn');
-				celebi.antialiasing = true;
 
 				var direction:Int = -1;
 				if (FlxG.random.bool(50))
@@ -914,11 +830,9 @@ class Stage extends FlxTypedGroup<FlxBasic>
 						note.frames = Paths.getSparrowAtlas('backgrounds/lost/Note_asset');
 						note.animation.addByPrefix('spawn', 'Note Full', 24, false);
 						note.animation.play('spawn');
-						//
 						note.setGraphicSize(Std.int(note.width * 1.5));
 						note.updateHitbox();
-						note.antialiasing = true;
-						//
+						
 						FlxTween.tween(note, {alpha: 0}, Conductor.stepCrochet * 8 / 1000, {
 							ease: FlxEase.linear,
 							startDelay: Conductor.stepCrochet * 8 / 1000,
@@ -969,5 +883,12 @@ class Stage extends FlxTypedGroup<FlxBasic>
 							wordGroup[i].destroy();
 					});
 		}
+	}
+
+	override function add(Object:FlxBasic):FlxBasic
+	{
+		if (Std.isOfType(Object, FlxSprite))
+			cast(Object, FlxSprite).antialiasing = !Init.trueSettings.get('Deshabilitar Suavizado');
+		return super.add(Object);
 	}
 }

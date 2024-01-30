@@ -37,6 +37,7 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 
 	public var healthBarBG:FlxSprite;
 	public var healthBar:FlxBar;
+	var smoothHealth:Float = 1;
 
 	private var SONG = PlayState.SONG;
 	public var iconP1:HealthIcon;
@@ -72,8 +73,6 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8));
 		healthBar.scrollFactor.set();
 		healthBar.createFilledBar(dad.iconColor, boyfriend.iconColor);
-		// healthBar.createFilledBar(FlxColor.fromString('#' + dad.iconColor), FlxColor.fromString('#' + boyfriend.iconColor));
-		// healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
 		add(healthBar);
 
 		iconP1 = new HealthIcon(SONG.player1, true);
@@ -154,8 +153,14 @@ class ClassHUD extends FlxTypedGroup<FlxBasic>
 
 	override public function update(elapsed:Float)
 	{
-		// YA VAN COMO 7 INTENTOS POR FAVOR FUNCIONA
-		healthBar.percent = (PlayState.health * 50);
+		if (PlayState.SONG.song.toLowerCase() == 'chronomatron')
+			healthBar.percent = (PlayState.health * 50);
+		else
+		{
+			// barra de vida interpolada rico delicioso rico rico
+			smoothHealth = FlxMath.lerp(smoothHealth, PlayState.health, (PlayState.health / smoothHealth) * (elapsed * 8));
+			healthBar.percent = smoothHealth * 50;
+		}
 
 		var iconLerp = 0.5;
 		iconP1.setGraphicSize(Std.int(FlxMath.lerp(iconP1.initialWidth, iconP1.width, iconLerp)));

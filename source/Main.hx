@@ -87,31 +87,31 @@ class Main extends Sprite
 			['Skullody'],
 			['2ndplayer'],
 			[FlxColor.fromRGB(40, 73, 20)],
-			'Tutorial?'
+			'"Tutorial?"'
 		],
 		[
 			['Coffee', 'Spring', 'Rules'],
 			['BrownishSea'],
 			[FlxColor.fromRGB(164, 215, 215)],
-			'Sea of Possibilities'
+			'"Sea of Possibilities"'
 		],
 		[
 			['Deadbush', 'Necron', 'Gaming'],
 			['cesar', 'cesar', 'hyperpig'],
 			[FlxColor.fromRGB(180, 115, 53)],
-			'el cesar'
+			'el cesar jaja'
 		],
 		[
 			['Goop', 'Chase', 'Pandemonium'],
 			['blueslime32'],
 			[FlxColor.fromRGB(86, 164, 164)],
-			'Sticky Situation'
+			'"Sticky Situation"'
 		],
 		[
 			['Edge', 'Absolution', 'Temper'],
 			['TsuyAr-1', 'TsuyAr-2', 'TsuyAr-3'],
 			[FlxColor.fromRGB(128, 64, 64)],
-			'On The Edge'
+			'"On The Edge"'
 		]
 	];
 
@@ -197,26 +197,36 @@ class Main extends Sprite
 	 */
 	public static var lastState:FlxState;
 
-	public static function switchState(curState:FlxState, target:FlxState, ?showScreen:Bool = false)
+	/**
+	 * Changes the game's state with a transition inbetween.
+	 * @param curState The game's current state, mostly used with 'this'.
+	 * @param target The state that the game will change to.
+	 * @param showScreen Wether to show a loading screen or not.
+	 * @param showMouse Wether to show the mouse by default on the next state.
+	 */
+	public static function switchState(curState:FlxState, target:FlxState, ?showScreen:Bool = false, ?showMouse:Bool = false, ?autoPause:Bool = true)
 	{
+		// shit
+		FlxG.mouse.visible = showMouse;
+		FlxG.autoPause = autoPause;
 		// Custom made Trans in
 		mainClassState = Type.getClass(target);
 
 		if (!FlxTransitionableState.skipNextTransIn)
 		{
-			if (!showScreen)
+			if (showScreen)
 			{
-				onLoadingScreen = false;
-				curState.openSubState(new FNFTransition(0.35, false));
-				FNFTransition.finishCallback = function() {
+				onLoadingScreen = true;
+				curState.openSubState(new LoadingScreen(0.35, false));
+				LoadingScreen.finishCallback = function() {
 					FlxG.switchState(target);
 				};
 			}
 			else
 			{
-				onLoadingScreen = true;
-				curState.openSubState(new LoadingScreen(0.35, false));
-				LoadingScreen.finishCallback = function() {
+				onLoadingScreen = false;
+				curState.openSubState(new FNFTransition(0.35, false));
+				FNFTransition.finishCallback = function() {
 					FlxG.switchState(target);
 				};
 			}
@@ -227,7 +237,7 @@ class Main extends Sprite
 		FlxTransitionableState.skipNextTransIn = false;
 		FlxTransitionableState.skipNextTransOut = false;
 		// load the state
-		FlxG.switchState(target);		
+		FlxG.switchState(target);
 	}
 
 	public static function updateFramerate(newFramerate:Int)

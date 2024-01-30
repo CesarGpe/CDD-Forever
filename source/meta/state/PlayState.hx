@@ -164,7 +164,7 @@ class PlayState extends MusicBeatState
 	public static var unowning:Bool = false; // nwo
 
 	//* saltar intros largas de canciones en freeplay
-	var skipTimer:FlxTimer;
+	var skipTimer:FlxTimer = null;
 	var skipTxt:FlxText;
 	var skipTime:Int;
 	var canSkip:Bool;
@@ -172,7 +172,7 @@ class PlayState extends MusicBeatState
 
 	// timer de las notas muteadas
 	// lo ocupo cancelar para que no crashee
-	var muteTimer:FlxTimer;
+	var muteTimer:FlxTimer = null;
 
 	// at the beginning of the playstate
 	override public function create()
@@ -579,7 +579,7 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-		stageBuild.stageUpdateConstant(elapsed, boyfriend, gf, dadOpponent);
+		//stageBuild.stageUpdateConstant(elapsed, boyfriend, gf, dadOpponent);
 
 		super.update(elapsed);
 
@@ -617,9 +617,9 @@ class PlayState extends MusicBeatState
 				persistentUpdate = false;
 				persistentDraw = true;
 				paused = true;
-				if (muteTimer != null)
+				if (muteTimer != null && muteTimer.active)
 					muteTimer.active = false;
-				if (skipTimer != null) 
+				if (skipTimer != null && skipTimer.active) 
 					skipTimer.active = false;
 
 				// open pause substate
@@ -652,7 +652,7 @@ class PlayState extends MusicBeatState
 				die();
 
 			// cosas del modo debug bien padre a la verga
-			if (Init.trueSettings.get('Modo Debug') == true)
+			if (Init.trueSettings.get('Modo Debug'))
 			{
 				if (FlxG.keys.justPressed.ONE && !startingSong)
 					endSong();
@@ -1697,7 +1697,7 @@ class PlayState extends MusicBeatState
 					case 218, 220, 222, 224, 227, 250, 252, 254, 256, 259, 282, 284, 286, 288, 291, 988, 990, 
 						 1128, 1144, 1160, 1176, 1192, 1208, 1224, 1240, 1267, 1280, 1283, 1296, 1299, 1312, 1315, 
 						 1328, 1331, 1336, 1339, 1344, 1347, 1352, 1355, 1360, 1364, 1368, 1372, 1404, 1406, 1664:
-						bumpCamera(0.05, 0.05); // SON MUCHOS STEPS YA SE PERO PUES QUE QUIERES QUE HAGA
+						bumpCamera(0.05, 0.05);
 
 					case 864:
 						defaultCamZoom = 0.8;
@@ -1986,6 +1986,11 @@ class PlayState extends MusicBeatState
 				}
 			});
 		}
+		else
+		{
+			canPause = true;
+			unowning = false;
+		}
 	}
 
 	function die()
@@ -1996,9 +2001,9 @@ class PlayState extends MusicBeatState
 		persistentDraw = false;
 		paused = true;
 		resetMusic();
-		if (muteTimer.active)
+		if (muteTimer != null)
 			muteTimer.cancel();
-		if (skipTimer.active)
+		if (skipTimer != null)
 			skipTimer.cancel();
 	}
 
@@ -2078,9 +2083,9 @@ class PlayState extends MusicBeatState
 			if ((startTimer != null) && (!startTimer.finished))
 				startTimer.active = true;
 	
-			if (muteTimer != null)
+			if (muteTimer != null && !muteTimer.finished)
 				muteTimer.active = true;
-			if (skipTimer != null)
+			if (skipTimer != null && !skipTimer.finished)
 				skipTimer.active = true;
 
 			paused = false;
@@ -2387,7 +2392,7 @@ class PlayState extends MusicBeatState
 
 					three.screenCenter();
 					add(three);
-					FlxTween.tween(three, {y: three.y += 30, alpha: 0}, Conductor.crochet / 1000, {
+					FlxTween.tween(three, {y: three.y + 30, alpha: 0}, Conductor.crochet / 1000, {
 						ease: FlxEase.cubeInOut,
 						onComplete: function(twn:FlxTween)
 						{
@@ -2407,7 +2412,7 @@ class PlayState extends MusicBeatState
 
 					two.screenCenter();
 					add(two);
-					FlxTween.tween(two, {y: two.y += 30, alpha: 0}, Conductor.crochet / 1000, {
+					FlxTween.tween(two, {y: two.y + 30, alpha: 0}, Conductor.crochet / 1000, {
 						ease: FlxEase.cubeInOut,
 						onComplete: function(twn:FlxTween)
 						{
@@ -2426,7 +2431,7 @@ class PlayState extends MusicBeatState
 
 					one.screenCenter();
 					add(one);
-					FlxTween.tween(one, {y: one.y += 30, alpha: 0}, Conductor.crochet / 1000, {
+					FlxTween.tween(one, {y: one.y + 30, alpha: 0}, Conductor.crochet / 1000, {
 						ease: FlxEase.cubeInOut,
 						onComplete: function(twn:FlxTween)
 						{
@@ -2447,7 +2452,7 @@ class PlayState extends MusicBeatState
 
 					go.screenCenter();
 					add(go);
-					FlxTween.tween(go, {y: go.y += 30, alpha: 0}, Conductor.crochet / 1000, {
+					FlxTween.tween(go, {y: go.y + 30, alpha: 0}, Conductor.crochet / 1000, {
 						ease: FlxEase.cubeInOut,
 						onComplete: function(twn:FlxTween)
 						{
@@ -2466,8 +2471,8 @@ class PlayState extends MusicBeatState
 
 	override function add(Object:FlxBasic):FlxBasic
 	{
-		if (Init.trueSettings.get('Deshabilitar Suavizado') && Std.isOfType(Object, FlxSprite))
-			cast(Object, FlxSprite).antialiasing = false;
+		if (Std.isOfType(Object, FlxSprite))
+			cast(Object, FlxSprite).antialiasing = !Init.trueSettings.get('Deshabilitar Suavizado');
 		return super.add(Object);
 	}
 }

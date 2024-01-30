@@ -36,7 +36,6 @@ class Windows {
 		int darkMode = enable ? 1 : 0;
 
 		HWND window = FindWindowA(NULL, title.c_str());
-		// Look for child windows if top level aint found
 		if (window == NULL) window = FindWindowExA(GetActiveWindow(), NULL, NULL, title.c_str());
 
 		if (window != NULL && S_OK != DwmSetWindowAttribute(window, 19, &darkMode, sizeof(darkMode))) {

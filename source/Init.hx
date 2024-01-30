@@ -61,10 +61,10 @@ class Init extends FlxState
 			'Habilita el botplay, el editor de charts y otras cosas utiles para desarrolladores.',
 			NOT_FORCED
 		],
-		'Ventana Coloreada' => [
+		'Ventana Oscura' => [
 			true,
 			Checkmark,
-			'Habilita el uso del tema de tu sistema para el color de la ventana del juego.',
+			'Colorea la ventana del juego de color oscuro, solo funciona en Windows.',
 			NOT_FORCED
 		],
 		'Discord Modo Luz' => [
@@ -339,7 +339,7 @@ class Init extends FlxState
 
 		// modo oscuro
 		#if windows
-		Windows.setDarkMode('Vs. CDD Forever', trueSettings.get('Ventana Coloreada'));
+		Windows.setDarkMode('Vs. CDD Forever', trueSettings.get('Ventana Oscura'));
 		#end
 
 		///*

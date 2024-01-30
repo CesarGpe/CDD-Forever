@@ -3,14 +3,10 @@ package meta.data.dependency;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.transition.Transition;
-import flixel.addons.transition.TransitionData;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
-import flixel.util.FlxGradient;
-import flixel.util.FlxTimer;
 import meta.MusicBeat.MusicBeatSubState;
 
 /**
@@ -40,6 +36,9 @@ class LoadingScreen extends MusicBeatSubState
 	{
 		super();
 		this.isTransIn = isTransIn;
+		#if !html5
+		Discord.changePresence('Cargando...');
+		#end
 
 		if (font == null)
 			fontUsed = fonts[FlxG.random.int(0, 4)];

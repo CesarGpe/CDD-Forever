@@ -14,6 +14,7 @@ import meta.data.*;
 import meta.data.Song.SwagSong;
 import meta.data.dependency.Discord;
 import meta.data.font.Alphabet;
+import meta.state.menus.FreeplayState.SongMetadata;
 import openfl.media.Sound;
 import sys.FileSystem;
 import sys.thread.Mutex;
@@ -21,9 +22,8 @@ import sys.thread.Thread;
 
 using StringTools;
 
-class FreeplayState extends MusicBeatState
+class RadioState extends MusicBeatState
 {
-	//
 	var songs:Array<SongMetadata> = [];
 
 	var curSelected:Int = 0;
@@ -57,95 +57,71 @@ class FreeplayState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-
 		mutex = new Mutex();
+		FlxG.autoPause = false;
 
-		/**
-			Wanna add songs? They're in the Main state now, you can just find the week array and add a song there to a specific week.
-			Alternatively, you can make a folder in the Songs folder and put your songs there, however, this gives you less
-			control over what you can display about the song (color, icon, etc) since it will be pregenerated for you instead.
-		**/
 		var folderSongs:Array<String> = CoolUtil.returnAssetsLibrary('songs', 'assets');
-		var mainSongs:Array<String> = ['skullody',
-		'coffee','spring','rules',
-		'deadbush','necron','gaming',
-		'goop','chase','pandemonium',
-		'edge','absolution','temper'];
-		for (i in mainSongs)
-			folderSongs.remove(i);
-		
-		story = Init.trueSettings.get('fpStory');
-		if (story)
+		for (i in 0...Main.gameWeeks.length)
 		{
-			bg = new FlxSprite().loadGraphic(Paths.image('menus/base/menuDesat'));
-			add(bg);
-			for (i in 0...Main.gameWeeks.length)
-			{
-				addWeek(Main.gameWeeks[i][0], i, Main.gameWeeks[i][1], Main.gameWeeks[i][2]);
-				for (j in cast(Main.gameWeeks[i][0], Array<Dynamic>))
-					existingSongs.push(j.toLowerCase());
-			}
+			addWeek(Main.gameWeeks[i][0], i, Main.gameWeeks[i][1], Main.gameWeeks[i][2]);
+			for (j in cast(Main.gameWeeks[i][0], Array<Dynamic>))
+				existingSongs.push(j.toLowerCase());
 		}
-		else
+
+		for (i in folderSongs)
 		{
-			var num:String = Std.string(FlxG.random.int(1, 3));
-			bg = new FlxSprite().loadGraphic(Paths.image('menus/base/cast' + num));
-			add(bg);
-			for (i in folderSongs)
+			if (!existingSongs.contains(i.toLowerCase()))
 			{
-				if (!existingSongs.contains(i.toLowerCase()))
+				var icon:String = 'face';
+				var freeplayColor:FlxColor = FlxColor.WHITE;
+				var chartExists:Bool = FileSystem.exists(Paths.songJson(i, i));
+				if (chartExists)
 				{
-					var icon:String = 'face';
-					var freeplayColor:FlxColor = FlxColor.WHITE;
-					var chartExists:Bool = FileSystem.exists(Paths.songJson(i, i));
-					if (chartExists)
+					var castSong:SwagSong = Song.loadFromJson(i, i);
+					icon = (castSong != null) ? castSong.player2 : 'face';
+
+					// colores epicos
+					switch (CoolUtil.spaceToDash(castSong.song.toLowerCase()))
 					{
-						var castSong:SwagSong = Song.loadFromJson(i, i);
-						icon = (castSong != null) ? castSong.player2 : 'face';
+						case 'asf':
+							freeplayColor = FlxColor.fromRGB(0, 113, 40);
+						case 'chronomatron':
+							freeplayColor = FlxColor.fromRGB(127, 127, 127);
+						case 'memories':
+							freeplayColor = FlxColor.fromRGB(204, 204, 204);
+						case 'pelea-en-la-calle-tres':
+							freeplayColor = FlxColor.fromRGB(255, 255, 255);
+						case 'pilin':
+							freeplayColor = FlxColor.fromRGB(0, 255, 160);
+						case 'razortrousle':
+							freeplayColor = FlxColor.fromRGB(186, 76, 173);
+						case 'succionar':
+							freeplayColor = FlxColor.fromRGB(255, 0, 255);
+							icon = 'face';
+						case 'take-five':
+							freeplayColor = FlxColor.fromRGB(176, 11, 115);
+						case 'temper-x':
+							freeplayColor = FlxColor.fromRGB(128, 20, 20);
+					}
 
-						// colores epicos
-						switch (CoolUtil.spaceToDash(castSong.song.toLowerCase()))
-						{
-							case 'asf':
-								freeplayColor = FlxColor.fromRGB(0, 113, 40);
-							case 'chronomatron':
-								freeplayColor = FlxColor.fromRGB(127, 127, 127);
-							case 'memories':
-								freeplayColor = FlxColor.fromRGB(204, 204, 204);
-							case 'pelea-en-la-calle-tres':
-								freeplayColor = FlxColor.fromRGB(255, 255, 255);
-							case 'pilin':
-								freeplayColor = FlxColor.fromRGB(0, 255, 160);
-							case 'razortrousle':
-								freeplayColor = FlxColor.fromRGB(186, 76, 173);
-							case 'succionar':
-								freeplayColor = FlxColor.fromRGB(255, 0, 255);
-								icon = 'face';
-							case 'take-five':
-								freeplayColor = FlxColor.fromRGB(176, 11, 115);
-							case 'temper-x':
-								freeplayColor = FlxColor.fromRGB(128, 20, 20);
-						}
-
-						if (Init.trueSettings.get('asfUnlock'))
+					if (Init.trueSettings.get('asfUnlock'))
+						addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
+					else
+					{
+						if (castSong.song.toLowerCase() != 'asf')
 							addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
-						else {
-							if (castSong.song.toLowerCase() != 'asf')
-								addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
-						}
 					}
 				}
 			}
 		}
 
-		// LOAD MUSIC
-		// ForeverTools.resetMenuMusic();
-
 		#if !html5
-		Discord.changePresence('En los Menús:', 'Menú de Freeplay');
+		Discord.changePresence('En los Menús:', 'Escuchando la rockola');
 		#end
 
-		// LOAD THE TEXTS
+		bg = new FlxSprite().loadGraphic(Paths.image('menus/base/menuDesat'));
+		add(bg);
+		
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
 
@@ -251,16 +227,10 @@ class FreeplayState extends MusicBeatState
 			changeSelection(1);
 
 		if (controls.UI_LEFT_P) {
-			Init.trueSettings.set('fpStory', !story);
-			Main.switchState(this, new FreeplayState());
-			threadActive = false;
-			Init.saveSettings();
+			// do shit
 		}
 		if (controls.UI_RIGHT_P) {
-			Init.trueSettings.set('fpStory', !story);
-			Main.switchState(this, new FreeplayState());
-			threadActive = false;
-			Init.saveSettings();
+			// do shit
 		}
 
 		if (controls.BACK)
@@ -427,20 +397,4 @@ class FreeplayState extends MusicBeatState
 
 	var playingSongs:Array<FlxSound> = [];
 
-}
-
-class SongMetadata
-{
-	public var songName:String = "";
-	public var week:Int = 0;
-	public var songCharacter:String = "";
-	public var songColor:FlxColor = FlxColor.WHITE;
-
-	public function new(song:String, week:Int, songCharacter:String, songColor:FlxColor)
-	{
-		this.songName = song;
-		this.week = week;
-		this.songCharacter = songCharacter;
-		this.songColor = songColor;
-	}
 }

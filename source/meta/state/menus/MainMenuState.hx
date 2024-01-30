@@ -2,6 +2,7 @@ package meta.state.menus;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.addons.display.shapes.FlxShapeCircle;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -9,6 +10,7 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import haxe.Json;
 import meta.MusicBeat.MusicBeatState;
 import meta.data.Conductor;
 import meta.data.Song;
@@ -16,8 +18,41 @@ import meta.data.dependency.Discord;
 import meta.state.PlayState;
 import meta.state.menus.*;
 import sys.FileSystem;
+import sys.io.File;
 
 using StringTools;
+
+typedef ButtonData = 
+{
+	micX:Float,
+	micY:Float,
+	micSF:Float,
+
+	deafX:Float,
+	deafY:Float,
+	deafSF:Float,
+
+	cogX:Float,
+	cogY:Float,
+	cogSF:Float,
+
+	pfpX:Float,
+	pfpY:Float,
+	pfpSF:Float,
+
+	statusX:Float,
+	statusY:Float,
+	statusTH:Float,
+	statusSF:Int,
+
+	txt1X:Float,
+	txt1Y:Float,
+	txt1SF:Int,
+	
+	txt2X:Float,
+	txt2Y:Float,
+	txt2SF:Int
+}
 
 /**
 	This is the main menu state! Not a lot is going to change about it so it'll remain similar to the original, but I do want to condense some code and such.
@@ -25,21 +60,23 @@ using StringTools;
 **/
 class MainMenuState extends MusicBeatState
 {
-	var optionShit:Array<String> = ['modo-historia', 'juego-libre', 'configuracion'];
+	// de que el menu real
+	var optionShit:Array<String> = ['modo-historia', 'juego-libre', 'rockola'];
 	var menuItems:FlxTypedGroup<FlxText>;
 	var htags:FlxTypedGroup<FlxText>;
 	var boxes:FlxTypedGroup<FlxSprite>;
 
+	// fondo
 	var bg1:FlxSprite;
 	var bg2:FlxSprite;
 	var line1:FlxSprite;
 	var line2:FlxSprite;
-
 	var menutxt:FlxText;
 	var cddtxt:FlxText;
 	var channeltxt:FlxText;
 	var channeltag:FlxText;
 
+	// galeria
 	var images:Array<String>;
 	var art:FlxSprite;
 	var arrow1:FlxText;
@@ -48,20 +85,23 @@ class MainMenuState extends MusicBeatState
 	var infoText:FlxText;
 	var daTween:FlxTween;
 
+	// la cosa de abajo
 	var userBG:FlxSprite;
 	var mic:FlxSprite;
 	var deaf:FlxSprite;
+	var cogBox:FlxSprite;
 	var cog:FlxSprite;
 	var pfp:FlxSprite;
 	var status:FlxSprite;
-	var userTxt1:FlxSprite;
-	var userTxt2:FlxSprite;
+	var userTxt1:FlxText;
+	var userTxt2:FlxText;
+	var buttonJSON:ButtonData;
 	
+	// datos
 	var canChange:Bool = false;
 	var galleryNum:Int;
 	var coolBeat:Int;
 	var oldBeat:Int = 0;
-
 	var lastCurSelected:Int = 0;
 	var curSelected:Float = 0;
 	var codeStep:Int = 0;
@@ -69,6 +109,9 @@ class MainMenuState extends MusicBeatState
 	override function create()
 	{
 		super.create();
+
+		FlxG.mouse.visible = true;
+		buttonJSON = Json.parse(File.getContent(Paths.getPath('images/menus/mainmenu/buttonPos.json', TEXT)));
 
 		// set the transitions to the previously set ones
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -172,12 +215,52 @@ class MainMenuState extends MusicBeatState
 		userBG.makeGraphic(Std.int(FlxG.width * 0.5) + 20, Std.int(FlxG.height * (1 / 6)), 0xff232428);
 		add(userBG);
 
-		pfp = new FlxSprite(20, 590);
+		pfp = new FlxSprite(buttonJSON.pfpX, buttonJSON.pfpY);
 		pfp.loadGraphic(Paths.image('menus/mainmenu/bf'));
-		pfp.setGraphicSize(Std.int(pfp.width * 0.25), Std.int(pfp.height * 0.25));
+		pfp.setGraphicSize(Std.int(pfp.width * buttonJSON.pfpSF), Std.int(pfp.height * buttonJSON.pfpSF));
 		pfp.updateHitbox();
 		pfp.antialiasing = true;
 		add(pfp);
+
+		status = new FlxShapeCircle(buttonJSON.statusX, buttonJSON.statusY, buttonJSON.statusSF, {thickness: buttonJSON.statusTH, color: 0xff232428}, 0xff23a55a);
+		status.antialiasing = true;
+		add(status);
+
+		mic = new FlxSprite(buttonJSON.micX, buttonJSON.micY);
+		mic.loadGraphic(Paths.image('menus/mainmenu/microphone'));
+		mic.setGraphicSize(Std.int(mic.width * buttonJSON.micSF), Std.int(mic.height * buttonJSON.micSF));
+		mic.updateHitbox();
+		mic.antialiasing = true;
+		add(mic);
+
+		deaf = new FlxSprite(buttonJSON.deafX, buttonJSON.deafY);
+		deaf.loadGraphic(Paths.image('menus/mainmenu/headphones'));
+		deaf.setGraphicSize(Std.int(deaf.width * buttonJSON.deafSF), Std.int(deaf.height * buttonJSON.deafSF));
+		deaf.updateHitbox();
+		deaf.antialiasing = true;
+		add(deaf);
+
+		cog = new FlxSprite(buttonJSON.cogX, buttonJSON.cogY);
+		cog.loadGraphic(Paths.image('menus/mainmenu/cog'));
+		cog.setGraphicSize(Std.int(cog.width * buttonJSON.cogSF), Std.int(cog.height * buttonJSON.cogSF));
+		cog.updateHitbox();
+		cog.antialiasing = true;
+
+		cogBox = new FlxSprite(cog.x - 5, cog.y - 5);
+		cogBox.makeGraphic(Std.int(cog.width + 10), Std.int(cog.height + 10), 0xff35373c);
+		cogBox.visible = false;
+		add(cogBox);
+		add(cog);
+
+		userTxt1 = new FlxText(buttonJSON.txt1X, buttonJSON.txt1Y, 0, 'Boyfriend');
+		userTxt1.setFormat(Paths.font("whitneysemibold.otf"), buttonJSON.txt1SF, 0xfff3ffee, LEFT);
+		userTxt1.antialiasing = true;
+		add(userTxt1);
+
+		userTxt2 = new FlxText(buttonJSON.txt2X, buttonJSON.txt2Y, 0, 'En linea');
+		userTxt2.setFormat(Paths.font("whitneymedium.otf"), buttonJSON.txt2SF, 0xff8b8d92, LEFT);
+		userTxt2.antialiasing = true;
+		add(userTxt2);
 
 		// prepara los grupos padrisimos
 		boxes = new FlxTypedGroup<FlxSprite>();
@@ -187,7 +270,7 @@ class MainMenuState extends MusicBeatState
 		add(menuItems);
 		add(htags);
 
-		// bucle para las opciones del menu
+		// ! bucle para las opciones del menu
 		for (i in 0...optionShit.length)
 		{
 			var box:FlxSprite = new FlxSprite(20, (16 * 8 * i) + (28 * 8));
@@ -304,11 +387,10 @@ class MainMenuState extends MusicBeatState
 					// if single press
 					if (i > 1)
 					{
-						// up is 2 and down is 3
 						// paaaaaiiiiiiinnnnn
-						if (i == 2)
+						if (i == 2) // up
 							curSelected--;
-						else if (i == 3)
+						else if (i == 3) // down
 							curSelected++;
 
 						FlxG.sound.play(Paths.sound('menu/scrollMenu'));
@@ -357,17 +439,15 @@ class MainMenuState extends MusicBeatState
 					spr.setFormat(Paths.font("whitneymedium.otf"), 80, FlxColor.WHITE);
 					FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 					{
-						var daChoice:String = optionShit[Math.floor(curSelected)];
+						var daChoice:Int = Math.floor(curSelected);
 						switch (daChoice)
 						{
-							case 'modo-historia':
+							case 0: // modo historia
 								Main.switchState(this, new StoryMenuState());
-							case 'juego-libre':
+							case 1: // juego libre
 								Main.switchState(this, new FreeplayState());
-							case 'configuracion':
-								transIn = FlxTransitionableState.defaultTransIn;
-								transOut = FlxTransitionableState.defaultTransOut;
-								Main.switchState(this, new OptionsMenuState());
+							case 2: // rockola
+								Main.switchState(this, new RadioState());
 						}
 					});
 				}
@@ -412,10 +492,62 @@ class MainMenuState extends MusicBeatState
 			changeGalleryArt(-1);
 		if (controls.UI_RIGHT_P && canChange)
 			changeGalleryArt(1);
-
 		
 		if (Math.floor(curSelected) != lastCurSelected)
 			updateSelection();
+
+		cogBox.visible = FlxG.mouse.overlaps(cog);
+		if (FlxG.mouse.overlaps(cog))
+		{
+			if (FlxG.mouse.justPressed && !selectedSomethin)
+			{
+				selectedSomethin = true;
+				FlxG.sound.play(Paths.sound('menu/scrollMenu'));
+
+				menuItems.forEach(function(spr:FlxText)
+				{
+					FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
+					FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
+						ease: FlxEase.quadInOut,
+						onComplete: function(twn:FlxTween)
+						{
+							spr.kill();
+						}
+					});
+				});
+
+				htags.forEach(function(spr:FlxText)
+				{
+					FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
+					FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
+						ease: FlxEase.quadInOut,
+						onComplete: function(twn:FlxTween)
+						{
+							spr.kill();
+						}
+					});
+				});
+
+				boxes.forEach(function(spr:FlxSprite)
+				{
+					FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
+					FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
+						ease: FlxEase.quadInOut,
+						onComplete: function(twn:FlxTween)
+						{
+							spr.kill();
+						}
+					});
+				});
+
+				transIn = FlxTransitionableState.defaultTransIn;
+				transOut = FlxTransitionableState.defaultTransOut;
+				Main.switchState(this, new OptionsMenuState());
+			}
+		}
+
+		if (FlxG.keys.justPressed.R && Init.trueSettings.get('Modo Debug'))
+			FlxG.switchState(new MainMenuState());
 
 		if (FlxG.keys.anyJustPressed([Q, W, E, R, T, Y, U, I, O, P, A, S, D, F, G, H, J, K, L, Z, X, C, V, B, N, M]))
 		{
@@ -534,7 +666,7 @@ class MainMenuState extends MusicBeatState
 				art.setGraphicSize(Std.int(FlxG.width * 0.35));
 			case 4:
 				infoText.text = 'Dibujo de los miembros de CDD\n(no leas lo que dice en la esquina)';
-				credArt.text = '@TsuyAr';
+				credArt.text = '@tsuyar20';
 
 				art.setGraphicSize(Std.int(FlxG.width * 0.35));
 			case 5:
@@ -564,7 +696,7 @@ class MainMenuState extends MusicBeatState
 				art.setGraphicSize(Std.int(FlxG.width * 0.35));
 			case 10:
 				infoText.text = '(si se llama juan pablo solo es chiste)';
-				credArt.text = '@TsuyAr';
+				credArt.text = '@tsuyar20';
 
 				art.setGraphicSize(Std.int(FlxG.width * 0.35));
 			case 11:
@@ -589,7 +721,7 @@ class MainMenuState extends MusicBeatState
 				art.scale.set(0.3, 0.3);
 			case 15:
 				infoText.text = 'Boceto del primer diseño de TsuyAr.';
-				credArt.text = '@TsuyAr';
+				credArt.text = '@tsuyar20';
 
 				art.scale.set(0.5, 0.5);
 			case 16:
@@ -608,7 +740,10 @@ class MainMenuState extends MusicBeatState
 
 				art.setGraphicSize(Std.int(FlxG.width * 0.35));
 			case 19:
-				infoText.text = 'Shubs se mudara a tu juego si\npresionas SHIFT en la pantalla de titulo.';
+				if (!FlxG.save.data.shubsEgg || FlxG.save.data.shubsEgg == null)
+					infoText.text = 'Shubs se mudara a tu juego si\npresionas SHIFT en la pantalla de titulo.';
+				else
+					infoText.text = 'gabby gaming jaja si o no raza';
 				credArt.text = '@kazzyrus';
 
 				art.scale.set(0.9, 0.9);

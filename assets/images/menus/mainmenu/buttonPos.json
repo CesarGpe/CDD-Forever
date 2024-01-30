@@ -1,0 +1,30 @@
+{	
+	"micX": 360,
+	"micY": 627,
+	"micSF": 0.3,
+	
+	"deafX": 460,
+	"deafY": 627,
+	"deafSF": 0.3,
+	
+	"cogX": 560,
+	"cogY": 627,
+	"cogSF": 0.3,
+	
+	"pfpX": 30,
+	"pfpY": 625,
+	"pfpSF": 0.2,
+	
+	"statusX": 80,
+	"statusY": 675,
+	"statusSF": 16,
+	"statusTH": 8,
+	
+	"txt1X": 137,
+	"txt1Y": 622,
+	"txt1SF": 40,
+	
+	"txt2X": 137,
+	"txt2Y": 667,
+	"txt2SF": 30
+}
