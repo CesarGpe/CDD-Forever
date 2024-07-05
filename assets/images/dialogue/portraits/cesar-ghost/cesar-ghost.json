@@ -1,0 +1,14 @@
+{
+	"name": "cesar-ghost",
+	"expressions": {
+		"normal": "cesar_ghostTalk",
+		"scared": "cesar_ghostScared",
+		"lookdown": "cesar_ghostLookdown"
+    },
+    "position": [-160, -120],
+	"scale": 0.5,
+	
+	"sounds": ["ces-1", "ces-2", "ces-3", "ces-4", "ces-5"],
+	"soundPath": "images/dialogue/portraits/cesar/",
+	"soundChance": 80
+}

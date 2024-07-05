@@ -1,77 +1,78 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="blueslime32.png">
-	<!-- Created with Adobe Animate version 19.2.0.405 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="bs32_use_down0000" x="0" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0001" x="0" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0002" x="373" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0003" x="746" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0004" x="746" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0005" x="746" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0006" x="746" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0007" x="746" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0008" x="746" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0009" x="746" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0010" x="746" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0011" x="746" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0012" x="746" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_down0013" x="746" y="0" width="370" height="594"/>
-	<SubTexture name="bs32_use_idle0000" x="1119" y="0" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0001" x="1466" y="0" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0002" x="0" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0003" x="0" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0004" x="347" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0005" x="347" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0006" x="694" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0007" x="694" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0008" x="694" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0009" x="694" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0010" x="694" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0011" x="694" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0012" x="694" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_idle0013" x="694" y="633" width="344" height="630"/>
-	<SubTexture name="bs32_use_left0000" x="1041" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0001" x="1041" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0002" x="1375" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0003" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0004" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0005" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0006" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0007" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0008" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0009" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0010" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0011" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0012" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0013" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0014" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_left0015" x="1709" y="633" width="331" height="630"/>
-	<SubTexture name="bs32_use_right0000" x="0" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0001" x="0" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0002" x="347" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0003" x="694" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0004" x="1041" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0005" x="1041" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0006" x="1041" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0007" x="1041" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0008" x="1041" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0009" x="1041" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0010" x="1041" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0011" x="1041" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0012" x="1041" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_right0013" x="1041" y="1266" width="344" height="630"/>
-	<SubTexture name="bs32_use_up0000" x="1388" y="1266" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0001" x="1388" y="1266" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0002" x="0" y="1934" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0003" x="370" y="1934" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0004" x="370" y="1934" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0005" x="370" y="1934" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0006" x="370" y="1934" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0007" x="370" y="1934" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0008" x="370" y="1934" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0009" x="370" y="1934" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0010" x="370" y="1934" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0011" x="370" y="1934" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0012" x="370" y="1934" width="367" height="665"/>
-	<SubTexture name="bs32_use_up0013" x="370" y="1934" width="367" height="665"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="blueslime32.png" width="2081" height="1955">
+	<SubTexture name="bs32_use_down0000" x="1698" y="1263" width="369" height="587" frameX="-0" frameY="-6" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0001" x="1698" y="1263" width="369" height="587" frameX="-0" frameY="-6" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0002" x="1726" y="1" width="354" height="593" frameX="-3" frameY="-0" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0003" x="1726" y="597" width="349" height="592" frameX="-6" frameY="-1" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0004" x="1726" y="597" width="349" height="592" frameX="-6" frameY="-1" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0005" x="1726" y="597" width="349" height="592" frameX="-6" frameY="-1" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0006" x="1726" y="597" width="349" height="592" frameX="-6" frameY="-1" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0007" x="1726" y="597" width="349" height="592" frameX="-6" frameY="-1" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0008" x="1726" y="597" width="349" height="592" frameX="-6" frameY="-1" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0009" x="1726" y="597" width="349" height="592" frameX="-6" frameY="-1" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0010" x="1726" y="597" width="349" height="592" frameX="-6" frameY="-1" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0011" x="1726" y="597" width="349" height="592" frameX="-6" frameY="-1" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0012" x="1726" y="597" width="349" height="592" frameX="-6" frameY="-1" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_down0013" x="1726" y="597" width="349" height="592" frameX="-6" frameY="-1" frameWidth="370" frameHeight="594"/>
+	<SubTexture name="bs32_use_idle0000" x="1354" y="1267" width="341" height="626" frameX="-2" frameY="-3" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0001" x="667" y="1302" width="343" height="628" frameX="-0" frameY="-2" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0002" x="363" y="669" width="338" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0003" x="363" y="669" width="338" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0004" x="1385" y="1" width="338" height="627" frameX="-0" frameY="-2" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0005" x="1385" y="1" width="338" height="627" frameX="-0" frameY="-2" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0006" x="1013" y="1267" width="338" height="628" frameX="-0" frameY="-1" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0007" x="1013" y="1267" width="338" height="628" frameX="-0" frameY="-1" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0008" x="1013" y="1267" width="338" height="628" frameX="-0" frameY="-1" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0009" x="1013" y="1267" width="338" height="628" frameX="-0" frameY="-1" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0010" x="1013" y="1267" width="338" height="628" frameX="-0" frameY="-1" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0011" x="1013" y="1267" width="338" height="628" frameX="-0" frameY="-1" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0012" x="1013" y="1267" width="338" height="628" frameX="-0" frameY="-1" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_idle0013" x="1013" y="1267" width="338" height="628" frameX="-0" frameY="-1" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0000" x="1383" y="634" width="330" height="626" frameX="-0" frameY="-4" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0001" x="1383" y="634" width="330" height="626" frameX="-0" frameY="-4" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0002" x="728" y="1" width="322" height="630" frameX="-9" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0003" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0004" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0005" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0006" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0007" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0008" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0009" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0010" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0011" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0012" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0013" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0014" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_left0015" x="728" y="634" width="319" height="630" frameX="-12" frameY="-0" frameWidth="331" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0000" x="1053" y="1" width="329" height="630" frameX="-15" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0001" x="1053" y="1" width="329" height="630" frameX="-15" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0002" x="1050" y="634" width="330" height="630" frameX="-5" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0003" x="1" y="1324" width="329" height="630" frameX="-2" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0004" x="333" y="1324" width="331" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0005" x="333" y="1324" width="331" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0006" x="333" y="1324" width="331" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0007" x="333" y="1324" width="331" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0008" x="333" y="1324" width="331" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0009" x="333" y="1324" width="331" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0010" x="333" y="1324" width="331" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0011" x="333" y="1324" width="331" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0012" x="333" y="1324" width="331" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_right0013" x="333" y="1324" width="331" height="630" frameX="-0" frameY="-0" frameWidth="344" frameHeight="630"/>
+	<SubTexture name="bs32_use_up0000" x="1" y="1" width="360" height="665" frameX="-7" frameY="-0" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0001" x="1" y="1" width="360" height="665" frameX="-7" frameY="-0" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0002" x="364" y="1" width="361" height="657" frameX="-2" frameY="-7" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0003" x="1" y="669" width="359" height="652" frameX="-0" frameY="-12" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0004" x="1" y="669" width="359" height="652" frameX="-0" frameY="-12" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0005" x="1" y="669" width="359" height="652" frameX="-0" frameY="-12" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0006" x="1" y="669" width="359" height="652" frameX="-0" frameY="-12" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0007" x="1" y="669" width="359" height="652" frameX="-0" frameY="-12" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0008" x="1" y="669" width="359" height="652" frameX="-0" frameY="-12" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0009" x="1" y="669" width="359" height="652" frameX="-0" frameY="-12" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0010" x="1" y="669" width="359" height="652" frameX="-0" frameY="-12" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0011" x="1" y="669" width="359" height="652" frameX="-0" frameY="-12" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0012" x="1" y="669" width="359" height="652" frameX="-0" frameY="-12" frameWidth="367" frameHeight="665"/>
+	<SubTexture name="bs32_use_up0013" x="1" y="669" width="359" height="652" frameX="-0" frameY="-12" frameWidth="367" frameHeight="665"/>
 </TextureAtlas>

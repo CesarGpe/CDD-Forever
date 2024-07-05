@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="mari.png" width="3510" height="2973">
+	<SubTexture name="Mari_Idle0000" x="1406" y="1485" width="700" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0001" x="704" y="745" width="703" height="737" frameX="-0" frameY="-4" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0002" x="1410" y="745" width="703" height="737" frameX="-0" frameY="-4" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0003" x="2108" y="2227" width="699" height="738" frameX="-1" frameY="-3" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0004" x="2810" y="2227" width="699" height="738" frameX="-1" frameY="-3" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0005" x="2109" y="1485" width="700" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0006" x="2109" y="1485" width="700" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0007" x="2116" y="743" width="699" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0008" x="2116" y="743" width="699" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0009" x="2116" y="743" width="699" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0010" x="2116" y="1" width="700" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0011" x="2116" y="1" width="700" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0012" x="2116" y="1" width="700" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0013" x="2116" y="1" width="700" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0014" x="703" y="2229" width="699" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0015" x="704" y="1485" width="699" height="741" frameX="-1" frameY="-0" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0016" x="1" y="1" width="703" height="741" frameX="-0" frameY="-0" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0017" x="707" y="1" width="703" height="741" frameX="-0" frameY="-0" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0018" x="1" y="745" width="700" height="741" frameX="-1" frameY="-0" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0019" x="1" y="1489" width="699" height="741" frameX="-1" frameY="-0" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0020" x="1" y="1489" width="699" height="741" frameX="-1" frameY="-0" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0021" x="1406" y="2227" width="699" height="740" frameX="-1" frameY="-1" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0022" x="1406" y="2227" width="699" height="740" frameX="-1" frameY="-1" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0023" x="1413" y="1" width="700" height="740" frameX="-1" frameY="-1" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0024" x="1413" y="1" width="700" height="740" frameX="-1" frameY="-1" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0025" x="1413" y="1" width="700" height="740" frameX="-1" frameY="-1" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0026" x="1413" y="1" width="700" height="740" frameX="-1" frameY="-1" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0027" x="1413" y="1" width="700" height="740" frameX="-1" frameY="-1" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0028" x="1413" y="1" width="700" height="740" frameX="-1" frameY="-1" frameWidth="703" frameHeight="741"/>
+	<SubTexture name="Mari_Idle0029" x="1" y="2233" width="699" height="739" frameX="-1" frameY="-2" frameWidth="703" frameHeight="741"/>
+</TextureAtlas>

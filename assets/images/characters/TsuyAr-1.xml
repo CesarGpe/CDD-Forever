@@ -1,50 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="TsuyAr-1.png">
-	<!-- Created with Adobe Animate version 19.2.0.405 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="TsuyAr_Down0000" x="0" y="0" width="404" height="686"/>
-	<SubTexture name="TsuyAr_Down0001" x="0" y="0" width="404" height="686"/>
-	<SubTexture name="TsuyAr_Down0002" x="407" y="0" width="404" height="686"/>
-	<SubTexture name="TsuyAr_Down0003" x="814" y="0" width="404" height="686"/>
-	<SubTexture name="TsuyAr_Down0004" x="814" y="0" width="404" height="686"/>
-	<SubTexture name="TsuyAr_Down0005" x="1221" y="0" width="404" height="686"/>
-	<SubTexture name="TsuyAr_Down0006" x="1221" y="0" width="404" height="686"/>
-	<SubTexture name="TsuyAr_Down0007" x="1221" y="0" width="404" height="686"/>
-	<SubTexture name="TsuyAr_Down0008" x="1221" y="0" width="404" height="686"/>
-	<SubTexture name="TsuyAr_Idle0000" x="1628" y="0" width="332" height="765"/>
-	<SubTexture name="TsuyAr_Idle0001" x="1628" y="0" width="332" height="765"/>
-	<SubTexture name="TsuyAr_Idle0002" x="1963" y="0" width="332" height="765"/>
-	<SubTexture name="TsuyAr_Idle0003" x="2298" y="0" width="332" height="765"/>
-	<SubTexture name="TsuyAr_Idle0004" x="2298" y="0" width="332" height="765"/>
-	<SubTexture name="TsuyAr_Idle0005" x="2633" y="0" width="332" height="765"/>
-	<SubTexture name="TsuyAr_Idle0006" x="2633" y="0" width="332" height="765"/>
-	<SubTexture name="TsuyAr_Idle0007" x="2633" y="0" width="332" height="765"/>
-	<SubTexture name="TsuyAr_Idle0008" x="2633" y="0" width="332" height="765"/>
-	<SubTexture name="TsuyAr_Left0000" x="2968" y="0" width="484" height="757"/>
-	<SubTexture name="TsuyAr_Left0001" x="2968" y="0" width="484" height="757"/>
-	<SubTexture name="TsuyAr_Left0002" x="3455" y="0" width="484" height="757"/>
-	<SubTexture name="TsuyAr_Left0003" x="0" y="768" width="484" height="757"/>
-	<SubTexture name="TsuyAr_Left0004" x="487" y="768" width="484" height="757"/>
-	<SubTexture name="TsuyAr_Left0005" x="974" y="768" width="484" height="757"/>
-	<SubTexture name="TsuyAr_Left0006" x="1461" y="768" width="484" height="757"/>
-	<SubTexture name="TsuyAr_Left0007" x="1461" y="768" width="484" height="757"/>
-	<SubTexture name="TsuyAr_Left0008" x="1461" y="768" width="484" height="757"/>
-	<SubTexture name="TsuyAr_Right0000" x="1948" y="768" width="540" height="770"/>
-	<SubTexture name="TsuyAr_Right0001" x="1948" y="768" width="540" height="770"/>
-	<SubTexture name="TsuyAr_Right0002" x="2491" y="768" width="540" height="770"/>
-	<SubTexture name="TsuyAr_Right0003" x="3034" y="768" width="540" height="770"/>
-	<SubTexture name="TsuyAr_Right0004" x="3034" y="768" width="540" height="770"/>
-	<SubTexture name="TsuyAr_Right0005" x="0" y="1541" width="540" height="770"/>
-	<SubTexture name="TsuyAr_Right0006" x="543" y="1541" width="540" height="770"/>
-	<SubTexture name="TsuyAr_Right0007" x="1086" y="1541" width="540" height="770"/>
-	<SubTexture name="TsuyAr_Right0008" x="1086" y="1541" width="540" height="770"/>
-	<SubTexture name="TsuyAr_Up0000" x="1629" y="1541" width="426" height="798"/>
-	<SubTexture name="TsuyAr_Up0001" x="1629" y="1541" width="426" height="798"/>
-	<SubTexture name="TsuyAr_Up0002" x="2058" y="1541" width="426" height="798"/>
-	<SubTexture name="TsuyAr_Up0003" x="2487" y="1541" width="426" height="798"/>
-	<SubTexture name="TsuyAr_Up0004" x="2487" y="1541" width="426" height="798"/>
-	<SubTexture name="TsuyAr_Up0005" x="2916" y="1541" width="426" height="798"/>
-	<SubTexture name="TsuyAr_Up0006" x="2916" y="1541" width="426" height="798"/>
-	<SubTexture name="TsuyAr_Up0007" x="2916" y="1541" width="426" height="798"/>
-	<SubTexture name="TsuyAr_Up0008" x="2916" y="1541" width="426" height="798"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="TsuyAr-1.png" width="2863" height="3026">
+	<SubTexture name="TsuyAr_Down0000" x="2423" y="417" width="404" height="673" frameX="-0" frameY="-13" frameWidth="404" frameHeight="686"/>
+	<SubTexture name="TsuyAr_Down0001" x="2423" y="417" width="404" height="673" frameX="-0" frameY="-13" frameWidth="404" frameHeight="686"/>
+	<SubTexture name="TsuyAr_Down0002" x="2407" y="1561" width="404" height="681" frameX="-0" frameY="-5" frameWidth="404" frameHeight="686"/>
+	<SubTexture name="TsuyAr_Down0003" x="797" y="2298" width="685" height="404" rotated="true" frameX="-0" frameY="-1" frameWidth="404" frameHeight="686"/>
+	<SubTexture name="TsuyAr_Down0004" x="797" y="2298" width="685" height="404" rotated="true" frameX="-0" frameY="-1" frameWidth="404" frameHeight="686"/>
+	<SubTexture name="TsuyAr_Down0005" x="2001" y="1561" width="403" height="686" frameX="-0" frameY="-0" frameWidth="404" frameHeight="686"/>
+	<SubTexture name="TsuyAr_Down0006" x="2001" y="1561" width="403" height="686" frameX="-0" frameY="-0" frameWidth="404" frameHeight="686"/>
+	<SubTexture name="TsuyAr_Down0007" x="2001" y="1561" width="403" height="686" frameX="-0" frameY="-0" frameWidth="404" frameHeight="686"/>
+	<SubTexture name="TsuyAr_Down0008" x="2001" y="1561" width="403" height="686" frameX="-0" frameY="-0" frameWidth="404" frameHeight="686"/>
+	<SubTexture name="TsuyAr_Idle0000" x="2407" y="2245" width="332" height="756" frameX="-0" frameY="-9" frameWidth="332" frameHeight="765"/>
+	<SubTexture name="TsuyAr_Idle0001" x="2407" y="2245" width="332" height="756" frameX="-0" frameY="-9" frameWidth="332" frameHeight="765"/>
+	<SubTexture name="TsuyAr_Idle0002" x="797" y="2708" width="760" height="317" rotated="true" frameX="-7" frameY="-5" frameWidth="332" frameHeight="765"/>
+	<SubTexture name="TsuyAr_Idle0003" x="1560" y="2708" width="763" height="309" rotated="true" frameX="-11" frameY="-2" frameWidth="332" frameHeight="765"/>
+	<SubTexture name="TsuyAr_Idle0004" x="1560" y="2708" width="763" height="309" rotated="true" frameX="-11" frameY="-2" frameWidth="332" frameHeight="765"/>
+	<SubTexture name="TsuyAr_Idle0005" x="1" y="2714" width="765" height="309" rotated="true" frameX="-11" frameY="-0" frameWidth="332" frameHeight="765"/>
+	<SubTexture name="TsuyAr_Idle0006" x="1" y="2714" width="765" height="309" rotated="true" frameX="-11" frameY="-0" frameWidth="332" frameHeight="765"/>
+	<SubTexture name="TsuyAr_Idle0007" x="1" y="2714" width="765" height="309" rotated="true" frameX="-11" frameY="-0" frameWidth="332" frameHeight="765"/>
+	<SubTexture name="TsuyAr_Idle0008" x="1" y="2714" width="765" height="309" rotated="true" frameX="-11" frameY="-0" frameWidth="332" frameHeight="765"/>
+	<SubTexture name="TsuyAr_Left0000" x="1" y="1309" width="756" height="468" rotated="true" frameX="-0" frameY="-0" frameWidth="484" frameHeight="757"/>
+	<SubTexture name="TsuyAr_Left0001" x="1" y="1309" width="756" height="468" rotated="true" frameX="-0" frameY="-0" frameWidth="484" frameHeight="757"/>
+	<SubTexture name="TsuyAr_Left0002" x="1545" y="773" width="456" height="756" frameX="-22" frameY="-0" frameWidth="484" frameHeight="757"/>
+	<SubTexture name="TsuyAr_Left0003" x="1615" y="1" width="453" height="756" frameX="-31" frameY="-0" frameWidth="484" frameHeight="757"/>
+	<SubTexture name="TsuyAr_Left0004" x="1" y="1780" width="756" height="453" rotated="true" frameX="-31" frameY="-0" frameWidth="484" frameHeight="757"/>
+	<SubTexture name="TsuyAr_Left0005" x="1545" y="1532" width="453" height="756" frameX="-31" frameY="-0" frameWidth="484" frameHeight="757"/>
+	<SubTexture name="TsuyAr_Left0006" x="760" y="1842" width="756" height="453" rotated="true" frameX="-31" frameY="-0" frameWidth="484" frameHeight="757"/>
+	<SubTexture name="TsuyAr_Left0007" x="760" y="1842" width="756" height="453" rotated="true" frameX="-31" frameY="-0" frameWidth="484" frameHeight="757"/>
+	<SubTexture name="TsuyAr_Left0008" x="760" y="1842" width="756" height="453" rotated="true" frameX="-31" frameY="-0" frameWidth="484" frameHeight="757"/>
+	<SubTexture name="TsuyAr_Right0000" x="1" y="1" width="539" height="769" frameX="-1" frameY="-1" frameWidth="540" frameHeight="770"/>
+	<SubTexture name="TsuyAr_Right0001" x="1" y="1" width="539" height="769" frameX="-1" frameY="-1" frameWidth="540" frameHeight="770"/>
+	<SubTexture name="TsuyAr_Right0002" x="543" y="1" width="535" height="769" frameX="-0" frameY="-1" frameWidth="540" frameHeight="770"/>
+	<SubTexture name="TsuyAr_Right0003" x="1" y="773" width="769" height="533" rotated="true" frameX="-0" frameY="-1" frameWidth="540" frameHeight="770"/>
+	<SubTexture name="TsuyAr_Right0004" x="1" y="773" width="769" height="533" rotated="true" frameX="-0" frameY="-1" frameWidth="540" frameHeight="770"/>
+	<SubTexture name="TsuyAr_Right0005" x="773" y="773" width="769" height="532" rotated="true" frameX="-0" frameY="-1" frameWidth="540" frameHeight="770"/>
+	<SubTexture name="TsuyAr_Right0006" x="1081" y="1" width="531" height="769" frameX="-0" frameY="-1" frameWidth="540" frameHeight="770"/>
+	<SubTexture name="TsuyAr_Right0007" x="773" y="1308" width="769" height="531" rotated="true" frameX="-0" frameY="-1" frameWidth="540" frameHeight="770"/>
+	<SubTexture name="TsuyAr_Right0008" x="773" y="1308" width="769" height="531" rotated="true" frameX="-0" frameY="-1" frameWidth="540" frameHeight="770"/>
+	<SubTexture name="TsuyAr_Up0000" x="2004" y="760" width="416" height="798" frameX="-0" frameY="-0" frameWidth="426" frameHeight="798"/>
+	<SubTexture name="TsuyAr_Up0001" x="2004" y="760" width="416" height="798" frameX="-0" frameY="-0" frameWidth="426" frameHeight="798"/>
+	<SubTexture name="TsuyAr_Up0002" x="1519" y="2291" width="795" height="414" rotated="true" frameX="-9" frameY="-3" frameWidth="426" frameHeight="798"/>
+	<SubTexture name="TsuyAr_Up0003" x="1" y="2298" width="793" height="413" rotated="true" frameX="-12" frameY="-5" frameWidth="426" frameHeight="798"/>
+	<SubTexture name="TsuyAr_Up0004" x="1" y="2298" width="793" height="413" rotated="true" frameX="-12" frameY="-5" frameWidth="426" frameHeight="798"/>
+	<SubTexture name="TsuyAr_Up0005" x="2071" y="1" width="791" height="413" rotated="true" frameX="-12" frameY="-7" frameWidth="426" frameHeight="798"/>
+	<SubTexture name="TsuyAr_Up0006" x="2071" y="1" width="791" height="413" rotated="true" frameX="-12" frameY="-7" frameWidth="426" frameHeight="798"/>
+	<SubTexture name="TsuyAr_Up0007" x="2071" y="1" width="791" height="413" rotated="true" frameX="-12" frameY="-7" frameWidth="426" frameHeight="798"/>
+	<SubTexture name="TsuyAr_Up0008" x="2071" y="1" width="791" height="413" rotated="true" frameX="-12" frameY="-7" frameWidth="426" frameHeight="798"/>
 </TextureAtlas>

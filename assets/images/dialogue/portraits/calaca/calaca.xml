@@ -1,12 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="calaca.png">
-	<!-- Created with Adobe Animate version 19.2.0.405 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="calaca0000" x="0" y="0" width="837" height="817"/>
-	<SubTexture name="calaca0001" x="0" y="818" width="837" height="817"/>
-	<SubTexture name="calastop0000" x="0" y="818" width="837" height="817"/>
-	<SubTexture name="calcafeliz0000" x="0" y="1636" width="840" height="817"/>
-	<SubTexture name="calcafeliz0001" x="0" y="2454" width="840" height="817"/>
-	<SubTexture name="calcafeliz0002" x="0" y="3272" width="840" height="817"/>
-	<SubTexture name="calcafeliz0003" x="0" y="2454" width="840" height="817"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="calaca.png" width="4202" height="819">
+	<SubTexture name="calaca0000" x="844" y="1" width="837" height="817" frameX="-0" frameY="-0" frameWidth="837" frameHeight="817"/>
+	<SubTexture name="calaca0001" x="1684" y="1" width="837" height="817" frameX="-0" frameY="-0" frameWidth="837" frameHeight="817"/>
+	<SubTexture name="calastop0000" x="1684" y="1" width="837" height="817" frameX="-0" frameY="-0" frameWidth="837" frameHeight="817"/>
+	<SubTexture name="calcafeliz0000" x="2524" y="1" width="837" height="817" frameX="-2" frameY="-0" frameWidth="840" frameHeight="817"/>
+	<SubTexture name="calcafeliz0001" x="1" y="1" width="840" height="816" frameX="-0" frameY="-0" frameWidth="840" frameHeight="817"/>
+	<SubTexture name="calcafeliz0002" x="3364" y="1" width="837" height="817" frameX="-2" frameY="-0" frameWidth="840" frameHeight="817"/>
+	<SubTexture name="calcafeliz0003" x="1" y="1" width="840" height="816" frameX="-0" frameY="-0" frameWidth="840" frameHeight="817"/>
 </TextureAtlas>

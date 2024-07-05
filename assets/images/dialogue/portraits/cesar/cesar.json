@@ -2,17 +2,9 @@
 	"name": "cesar",
 	"expressions": {
 		"normal": "cesar_talk",
-		"scared": "cesar_scared",
-		"lookdown": "cesar_lookdown",
-		"troll": "cesar_troll",
-		"revive": "cesar_revive",
-		"unrevive": "cesar_unRevive",
-		"dead": "cesar_dead",
-		"ghost-talk": "cesar_ghostTalk",
-		"ghost-scared": "cesar_ghostScared",
-		"ghost-down": "cesar_ghostLookdown"
+		"lookdown": "cesar_lookdown"
     },
-    "position": [-250, -120],
+    "position": [-160, -120],
 	"scale": 0.5,
 	
 	"sounds": ["ces-1", "ces-2", "ces-3", "ces-4", "ces-5"],

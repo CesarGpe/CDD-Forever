@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="cesar-ghost.png" width="3221" height="778">
+	<SubTexture name="cesar_ghostLookdown0000" x="1" y="1" width="835" height="775" frameX="-0" frameY="-1" frameWidth="835" frameHeight="776"/>
+	<SubTexture name="cesar_ghostLookdown0001" x="1" y="1" width="835" height="775" frameX="-0" frameY="-1" frameWidth="835" frameHeight="776"/>
+	<SubTexture name="cesar_ghostLookdown0002" x="1" y="1" width="835" height="775" frameX="-0" frameY="-1" frameWidth="835" frameHeight="776"/>
+	<SubTexture name="cesar_ghostLookdown0003" x="1" y="1" width="835" height="775" frameX="-0" frameY="-1" frameWidth="835" frameHeight="776"/>
+	<SubTexture name="cesar_ghostLookdown0004" x="1" y="1" width="835" height="775" frameX="-0" frameY="-1" frameWidth="835" frameHeight="776"/>
+	<SubTexture name="cesar_ghostLookdown0005" x="1" y="1" width="835" height="775" frameX="-0" frameY="-1" frameWidth="835" frameHeight="776"/>
+	<SubTexture name="cesar_ghostScared0000" x="1677" y="1" width="770" height="776" frameX="-4" frameY="-0" frameWidth="774" frameHeight="776"/>
+	<SubTexture name="cesar_ghostScared0001" x="2450" y="1" width="770" height="776" frameX="-0" frameY="-0" frameWidth="774" frameHeight="776"/>
+	<SubTexture name="cesar_ghostScared0002" x="1677" y="1" width="770" height="776" frameX="-4" frameY="-0" frameWidth="774" frameHeight="776"/>
+	<SubTexture name="cesar_ghostScared0003" x="2450" y="1" width="770" height="776" frameX="-0" frameY="-0" frameWidth="774" frameHeight="776"/>
+	<SubTexture name="cesar_ghostScared0004" x="1677" y="1" width="770" height="776" frameX="-4" frameY="-0" frameWidth="774" frameHeight="776"/>
+	<SubTexture name="cesar_ghostScared0005" x="2450" y="1" width="770" height="776" frameX="-0" frameY="-0" frameWidth="774" frameHeight="776"/>
+	<SubTexture name="cesar_ghostTalk0000" x="839" y="1" width="835" height="775" frameX="-0" frameY="-1" frameWidth="835" frameHeight="776"/>
+</TextureAtlas>

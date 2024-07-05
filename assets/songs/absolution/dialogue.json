@@ -5,7 +5,7 @@
 		{
 			"expression": "mad",
 			"text": "Vienes a este servidor solo a causarme\nproblemas?",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "smug",
@@ -15,22 +15,22 @@
 		{
 			"expression": "no",
 			"text": "No digas pendejadas, pinche yolotroll",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "mad",
 			"text": "Tengo que recordarte quien manda aqui?",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "mad",
 			"text": "Yo a la verga",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "mad",
 			"text": "Te podria sacar de este servidor ahora\nmismo, y nunca te volveriamos a ver.",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "normal",
@@ -40,17 +40,17 @@
 		{
 			"expression": "no",
 			"text": "Te vas a tragar tus palabras.",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "mad",
 			"text": "...",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "mad",
 			"text": "y mi verga a la verga",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		}
 	]
 }

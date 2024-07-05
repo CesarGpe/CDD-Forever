@@ -1,24 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="discord_sideRight.png">
-	<!-- Created with Adobe Animate version 19.2.0.405 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="discord_sideRight instance 10000" x="0" y="0" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10001" x="1213" y="0" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10002" x="2426" y="0" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10003" x="3639" y="0" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10004" x="4852" y="0" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10005" x="6065" y="0" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10006" x="0" y="1853" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10007" x="1213" y="1853" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10008" x="2426" y="1853" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10009" x="3639" y="1853" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10010" x="2426" y="1853" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10011" x="4852" y="1853" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10012" x="6065" y="1853" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10013" x="6065" y="0" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10014" x="4852" y="0" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10015" x="0" y="3706" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10016" x="1213" y="3706" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10017" x="2426" y="3706" width="1208" height="1848"/>
-	<SubTexture name="discord_sideRight instance 10018" x="0" y="0" width="1208" height="1848"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="discord_sideRight.png" width="6009" height="5493">
+	<SubTexture name="discord_sideRight instance 10000" x="1203" y="1834" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10001" x="1" y="1837" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10002" x="2405" y="1" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10003" x="2405" y="1830" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10004" x="3607" y="1" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10005" x="3607" y="1830" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10006" x="1" y="3666" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10007" x="1203" y="3663" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10008" x="1203" y="1" width="1199" height="1830" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10009" x="1" y="1" width="1199" height="1833" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10010" x="1203" y="1" width="1199" height="1830" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10011" x="2405" y="3659" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10012" x="3607" y="3659" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10013" x="3607" y="1830" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10014" x="3607" y="1" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10015" x="4809" y="1" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10016" x="4809" y="1830" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10017" x="4809" y="3659" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
+	<SubTexture name="discord_sideRight instance 10018" x="1203" y="1834" width="1199" height="1826" frameX="-9" frameY="-0" frameWidth="1208" frameHeight="1848"/>
 </TextureAtlas>

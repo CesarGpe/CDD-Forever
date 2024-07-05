@@ -1,4 +1,4 @@
-idle 13 46
+idle 13 20
 singUP 74 41
 singRIGHT -27 14
 singLEFT 150 16

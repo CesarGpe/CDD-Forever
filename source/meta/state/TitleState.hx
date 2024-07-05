@@ -40,6 +40,7 @@ using StringTools;
 class TitleState extends MusicBeatState
 {
 	static var initialized:Bool = false;
+	static var playJingle:Bool = false;
 
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
@@ -147,8 +148,16 @@ class TitleState extends MusicBeatState
 		spr.screenCenter(X);
 		spr.antialiasing = true;
 
-		if (initialized)
+		if (initialized) 
+		{
 			skipIntro();
+			if (FreeplayState.changedMenuSong)
+			{
+				FlxG.sound.music.stop();
+				ForeverTools.resetMenuMusic(true);
+				FreeplayState.changedMenuSong = false;
+			}
+		}
 		else
 			initialized = true;
 	}
@@ -245,7 +254,7 @@ class TitleState extends MusicBeatState
 			FlxG.save.data.shubsEgg = !FlxG.save.data.shubsEgg;
 			FlxG.save.flush();
 
-			FlxG.save.data.playJingle = true;
+			playJingle = true;
 
 			FlxG.sound.play(Paths.sound('secret/ToggleJingle'));
 			FlxG.sound.music.fadeOut();
@@ -352,7 +361,7 @@ class TitleState extends MusicBeatState
 	{
 		if (!skippedIntro)
 		{
-			if (FlxG.save.data.playJingle)
+			if (playJingle)
 			{
 				var sound:FlxSound = null;
 				if (FlxG.save.data.shubsEgg)
@@ -369,7 +378,7 @@ class TitleState extends MusicBeatState
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 					transitioning = false;
 				}
-				FlxG.save.data.playJingle = false;
+				playJingle = false;
 			}
 
 			remove(spr);

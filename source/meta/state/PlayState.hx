@@ -22,7 +22,6 @@ import flixel.util.FlxTimer;
 import gameObjects.*;
 import gameObjects.userInterface.*;
 import gameObjects.userInterface.ClassHUD;
-import gameObjects.userInterface.UnownSubstate;
 import gameObjects.userInterface.notes.*;
 import gameObjects.userInterface.notes.Strumline.UIStaticArrow;
 import hxcodec.flixel.FlxVideo;
@@ -99,6 +98,8 @@ class PlayState extends MusicBeatState
 	var startedCountdown:Bool = false;
 	var inCutscene:Bool = false;
 
+	public static var seenCutscene:Bool = false;
+
 	var canPause:Bool = true;
 
 	var previousFrameTime:Int = 0;
@@ -171,7 +172,6 @@ class PlayState extends MusicBeatState
 	var longIntro:Bool;
 
 	// timer de las notas muteadas
-	// lo ocupo cancelar para que no crashee
 	var muteTimer:FlxTimer = null;
 
 	// at the beginning of the playstate
@@ -180,6 +180,8 @@ class PlayState extends MusicBeatState
 		super.create();
 
 		// reset any values and variables that are static
+		unowning = false;
+		minHealth = 0;
 		songScore = 0;
 		combo = 0;
 		health = 1;
@@ -217,7 +219,7 @@ class PlayState extends MusicBeatState
 		dialogueHUD = new FlxCamera();
 		dialogueHUD.bgColor.alpha = 0;
 
-		// en caso de que todo falle, poner una calaca chida
+		// oh no!! la cagaste!! no te preocupes el hijo de su puta madre esta aqui para evitar que el juego no crashee
 		if (SONG == null)
 			SONG = Song.loadFromJson('skullody', 'skullody');
 
@@ -227,9 +229,7 @@ class PlayState extends MusicBeatState
 		/// here we determine the chart type!
 		// determine the chart type here
 		determinedChartType = "FNF";
-
-		//
-
+		
 		// set up a class for the stage type in here afterwards
 		curStage = "";
 		// call the song's stage if it exists
@@ -359,7 +359,8 @@ class PlayState extends MusicBeatState
 		generateSong(SONG.song);
 
 		// top 10 unowns *intro de ali4*
-		UnownSubstate.init();
+		if (PlayState.SONG.song.toLowerCase() != 'chronomatron')
+			UnownSubstate.init();
 
 		// set the camera position to the center of the stage
 		camPos.set(gf.x + (gf.frameWidth / 2), gf.y + (gf.frameHeight / 2));
@@ -584,7 +585,7 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		if (lag)
-			dadOpponent.animation.play('still', true);
+			dadOpponent.animation.play('still', false);
 
 		if (health > 2)
 			health = 2;
@@ -617,10 +618,6 @@ class PlayState extends MusicBeatState
 				persistentUpdate = false;
 				persistentDraw = true;
 				paused = true;
-				if (muteTimer != null && muteTimer.active)
-					muteTimer.active = false;
-				if (skipTimer != null && skipTimer.active) 
-					skipTimer.active = false;
 
 				// open pause substate
 				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
@@ -911,7 +908,7 @@ class PlayState extends MusicBeatState
 						daNote.active = true;
 					}
 
-					if (!daNote.tooLate && daNote.strumTime < Conductor.songPosition - (Timings.msThreshold) && !daNote.wasGoodHit)
+					if (!daNote.tooLate && daNote.strumTime < Conductor.songPosition - (Timings.msThreshold) && !daNote.wasGoodHit && daNote.noteType != 1)
 					{
 						if ((!daNote.tooLate) && (daNote.mustPress)) {
 							if (!daNote.isSustainNote)
@@ -1003,6 +1000,7 @@ class PlayState extends MusicBeatState
 
 			if (coolNote.noteType == 1)
 			{
+				//decreaseCombo(true);
 				if (boyfriend.stunned)
 					muteTimer.reset();
 				else
@@ -1032,7 +1030,7 @@ class PlayState extends MusicBeatState
 				characterStrums.receptors.members[coolNote.noteData].playAnim('confirm', true);
 	
 			// special thanks to sam, they gave me the original system which kinda inspired my idea for this new one
-			if (canDisplayJudgement) {
+			if (canDisplayJudgement && coolNote.noteType != 1) {
 				// get the note ms timing
 				var noteDiff:Float = Math.abs(coolNote.strumTime - Conductor.songPosition);
 				// get the timing
@@ -1054,7 +1052,7 @@ class PlayState extends MusicBeatState
 					}
 				}
 
-				if (!coolNote.isSustainNote) {
+				if (!coolNote.isSustainNote && coolNote.noteType != 1) {
 					increaseCombo(foundRating, coolNote.noteData, character);
 					popUpScore(foundRating, ratingTiming, characterStrums, coolNote);
 					if (coolNote.childrenNotes.length > 0)
@@ -1096,9 +1094,12 @@ class PlayState extends MusicBeatState
 	{
 		// esto es el life drain de asf jaja
 		if (character == dadOpponent && dadOpponent.curCharacter == 'juan' && health > 0.04)
-			health -= 0.02;
-		if (character == dadOpponent && dadOpponent.curCharacter == 'juan' && health > 1)
-			bumpCamera(0.03, 0.02);
+		{
+			if (health > 0.04)
+				health -= 0.02;
+			if (health > 1)
+				bumpCamera(0.03, 0.02);
+		}	
 
 		// el gordo de michelin pone un vine boom con cada nota
 		if (character == dadOpponent && dadOpponent.curCharacter == 'twelve')
@@ -1166,7 +1167,7 @@ class PlayState extends MusicBeatState
 		if (autoplay)
 		{
 			// check if the note was a good hit
-			if (daNote.strumTime <= Conductor.songPosition)
+			if (daNote.strumTime <= Conductor.songPosition && daNote.noteType != 1)
 			{
 				// use a switch thing cus it feels right idk lol
 				// make sure the strum is played for the autoplay stuffs
@@ -1517,6 +1518,9 @@ class PlayState extends MusicBeatState
 			updateRPC(false);
 			#end
 		}
+
+		// cuando yo la void
+		new FlxTimer().start(songLength, function(tmr:FlxTimer) { endSong(); });
 	}
 
 	private function generateSong(dataPath:String):Void
@@ -1551,11 +1555,7 @@ class PlayState extends MusicBeatState
 	
 		// genera el chart
 		unspawnNotes = ChartLoader.generateChartType(SONG, determinedChartType);
-		// a veces mi cerebro se pedorrea no se porque esto estaba separado
-
-		// organizar
 		unspawnNotes.sort(sortByShit);
-		// ahora si a jugar
 		generatedMusic = true;
 
 		Timings.accuracyMaxCalculation(unspawnNotes);
@@ -1972,6 +1972,8 @@ class PlayState extends MusicBeatState
 			persistentUpdate = false;
 			persistentDraw = false;
 			paused = true;
+			canPause = true;
+			unowning = false;
 			resetMusic();
 			vocals.pause();
 			songMusic.pause();
@@ -1997,14 +1999,14 @@ class PlayState extends MusicBeatState
 	{
 		openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 		detailsPausedText = "Game Over - " + songDetails;
+
 		persistentUpdate = false;
 		persistentDraw = false;
 		paused = true;
 		resetMusic();
-		if (muteTimer != null)
-			muteTimer.cancel();
-		if (skipTimer != null)
-			skipTimer.cancel();
+
+		FlxTimer.globalManager.clear();
+		FlxTween.globalManager.clear();
 	}
 
 	function bumpCamera(gameZoom:Float = 0.015, uiZoom:Float = 0.03)
@@ -2054,23 +2056,20 @@ class PlayState extends MusicBeatState
 	{
 		if (paused)
 		{
-			// trace('null song');
 			if (songMusic != null)
 			{
-				//	trace('nulled song');
 				songMusic.pause();
 				vocals.pause();
-				//	trace('nulled song finished');
 			}
 
 			// trace('ui shit break');
-			if ((startTimer != null) && (!startTimer.finished))
-				startTimer.active = false;
-		}
+			/*if ((startTimer != null) && (!startTimer.finished))
+				startTimer.active = false;*/
 
-		// trace('open substate');
+			FlxTimer.globalManager.forEach(function(tmr:FlxTimer) if (!tmr.finished) tmr.active = false);
+			//FlxTween.globalManager.forEach(function(twn:FlxTween) if (!twn.finished) twn.active = false);
+		}
 		super.openSubState(SubState);
-		// trace('open substate end ');
 	}
 
 	override function closeSubState()
@@ -2080,19 +2079,14 @@ class PlayState extends MusicBeatState
 			if (songMusic != null && !startingSong)
 				resyncVocals();
 
-			if ((startTimer != null) && (!startTimer.finished))
-				startTimer.active = true;
-	
-			if (muteTimer != null && !muteTimer.finished)
-				muteTimer.active = true;
-			if (skipTimer != null && !skipTimer.finished)
-				skipTimer.active = true;
+			/*if ((startTimer != null) && (!startTimer.finished))
+				startTimer.active = true;*/
+
+			FlxTimer.globalManager.forEach(function(tmr:FlxTimer) if (!tmr.finished) tmr.active = true);
+			//FlxTween.globalManager.forEach(function(twn:FlxTween) if (!twn.finished) twn.active = true);
 
 			paused = false;
-
-			///*
 			updateRPC(false);
-			// */
 		}
 
 		super.closeSubState();
@@ -2107,10 +2101,15 @@ class PlayState extends MusicBeatState
 	function endSong():Void
 	{
 		openfl.Lib.application.window.title = 'Vs. CDD Forever';
+
+		seenCutscene = false;
+		inCutscene = false;
 		endingSong = true;
 		canPause = false;
+
 		songMusic.volume = 0;
 		vocals.volume = 0;
+
 		if (SONG.validScore)
 			Highscore.saveScore(SONG.song, songScore, storyDifficulty);
 
@@ -2299,10 +2298,19 @@ class PlayState extends MusicBeatState
 		txt.antialiasing = true;
 		add(txt);
 
+		var saveVolume = FlxG.sound.volume;
+		FlxG.sound.volume = 0.6;
+		FlxG.sound.volumeUpKeys = [];
+		FlxG.sound.volumeDownKeys = [];
+
 		var video:FlxVideo = new FlxVideo();
 		video.play(filepath);
 		video.onEndReached.add(function()
 		{
+			FlxG.sound.volume = saveVolume;
+			FlxG.sound.volumeUpKeys = [PLUS, NUMPADPLUS];
+			FlxG.sound.volumeDownKeys = [MINUS, NUMPADMINUS];
+
 			video.dispose();
 			callDefaultSongEnd();
 			return;
@@ -2327,6 +2335,9 @@ class PlayState extends MusicBeatState
 	}
 
 	public static function showCutscenes():Bool {
+		if (seenCutscene)
+			return false;
+
 		// pretty messy but an if statement is messier
 		if (Init.trueSettings.get('Dialogo') != null
 		&& Std.isOfType(Init.trueSettings.get('Dialogo'), String)) {
@@ -2350,6 +2361,7 @@ class PlayState extends MusicBeatState
 
 	private function startCountdown():Void
 	{
+		seenCutscene = true;
 		inCutscene = false;
 		Conductor.songPosition = -(Conductor.crochet * 5);
 		swagCounter = 0;

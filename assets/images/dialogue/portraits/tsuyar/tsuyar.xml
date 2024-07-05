@@ -1,192 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="tsuyar.png">
-	<!-- Created with Adobe Animate version 19.2.0.405 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="tsuyar_RazoStop0000" x="0" y="0" width="785" height="814"/>
-	<SubTexture name="tsuyar_RazoStop0001" x="786" y="0" width="785" height="814"/>
-	<SubTexture name="tsuyar_RazoStop0002" x="1572" y="0" width="785" height="814"/>
-	<SubTexture name="tsuyar_RazoStop0003" x="2358" y="0" width="785" height="814"/>
-	<SubTexture name="tsuyar_RazoStop0004" x="786" y="0" width="785" height="814"/>
-	<SubTexture name="tsuyar_RazoStop0005" x="3144" y="0" width="785" height="814"/>
-	<SubTexture name="tsuyar_Razor0000" x="0" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0001" x="789" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0002" x="1578" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0003" x="2367" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0004" x="3156" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0005" x="0" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0006" x="789" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0007" x="3156" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0008" x="1578" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0009" x="2367" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0010" x="3156" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0011" x="0" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0012" x="789" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0013" x="3156" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0014" x="1578" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0015" x="2367" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0016" x="3156" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0017" x="0" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0018" x="789" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0019" x="3156" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0020" x="1578" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0021" x="2367" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0022" x="3156" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0023" x="0" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0024" x="789" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0025" x="3156" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0026" x="1578" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0027" x="2367" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0028" x="3156" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0029" x="0" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0030" x="789" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0031" x="3156" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0032" x="1578" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0033" x="2367" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0034" x="3156" y="815" width="788" height="882"/>
-	<SubTexture name="tsuyar_Razor0035" x="0" y="1698" width="788" height="882"/>
-	<SubTexture name="tsuyar_Sotp_talk0000" x="2882" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_Sotp_talk0001" x="2882" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_Sotp_talk0002" x="2882" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_Sotp_talk0003" x="2882" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_Sotp_talk0004" x="2882" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_Sotp_talk0005" x="2882" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_St_op_mad0000" x="2944" y="3303" width="427" height="724"/>
-	<SubTexture name="tsuyar_St_op_mad0001" x="2944" y="3303" width="427" height="724"/>
-	<SubTexture name="tsuyar_St_op_mad0002" x="2944" y="3303" width="427" height="724"/>
-	<SubTexture name="tsuyar_St_op_mad0003" x="2944" y="3303" width="427" height="724"/>
-	<SubTexture name="tsuyar_St_op_mad0004" x="2944" y="3303" width="427" height="724"/>
-	<SubTexture name="tsuyar_St_op_mad0005" x="2944" y="3303" width="427" height="724"/>
-	<SubTexture name="tsuyar_Stop_angry0000" x="2367" y="1698" width="507" height="689"/>
-	<SubTexture name="tsuyar_Stop_angry0001" x="2875" y="1698" width="507" height="689"/>
-	<SubTexture name="tsuyar_Stop_angry0002" x="3383" y="1698" width="507" height="689"/>
-	<SubTexture name="tsuyar_Stop_angry0003" x="0" y="2581" width="507" height="689"/>
-	<SubTexture name="tsuyar_Stop_angry0004" x="2875" y="1698" width="507" height="689"/>
-	<SubTexture name="tsuyar_Stop_angry0005" x="0" y="2581" width="507" height="689"/>
-	<SubTexture name="tsuyar_Stopunamused0000" x="508" y="2581" width="427" height="721"/>
-	<SubTexture name="tsuyar_Stopunamused0001" x="508" y="2581" width="427" height="721"/>
-	<SubTexture name="tsuyar_Stopunamused0002" x="508" y="2581" width="427" height="721"/>
-	<SubTexture name="tsuyar_Stopunamused0003" x="508" y="2581" width="427" height="721"/>
-	<SubTexture name="tsuyar_Stopunamused0004" x="508" y="2581" width="427" height="721"/>
-	<SubTexture name="tsuyar_Stopunamused0005" x="508" y="2581" width="427" height="721"/>
-	<SubTexture name="tsuyar_angry0000" x="936" y="2581" width="507" height="695"/>
-	<SubTexture name="tsuyar_angry0001" x="1444" y="2581" width="507" height="695"/>
-	<SubTexture name="tsuyar_angry0002" x="1952" y="2581" width="507" height="695"/>
-	<SubTexture name="tsuyar_angry0003" x="2460" y="2581" width="507" height="695"/>
-	<SubTexture name="tsuyar_angry0004" x="2968" y="2581" width="507" height="695"/>
-	<SubTexture name="tsuyar_angry0005" x="2460" y="2581" width="507" height="695"/>
-	<SubTexture name="tsuyar_grabHorns0000" x="0" y="3303" width="735" height="683"/>
-	<SubTexture name="tsuyar_grabHorns0001" x="736" y="3303" width="735" height="683"/>
-	<SubTexture name="tsuyar_grabHorns0002" x="0" y="3303" width="735" height="683"/>
-	<SubTexture name="tsuyar_grabHorns0003" x="1472" y="3303" width="735" height="683"/>
-	<SubTexture name="tsuyar_grabHorns0004" x="2208" y="3303" width="735" height="683"/>
-	<SubTexture name="tsuyar_grabHorns0005" x="1472" y="3303" width="735" height="683"/>
-	<SubTexture name="tsuyar_mad0000" x="2944" y="3303" width="427" height="724"/>
-	<SubTexture name="tsuyar_mad0001" x="3372" y="3303" width="427" height="724"/>
-	<SubTexture name="tsuyar_mad0002" x="2944" y="3303" width="427" height="724"/>
-	<SubTexture name="tsuyar_mad0003" x="0" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_mad0004" x="2944" y="3303" width="427" height="724"/>
-	<SubTexture name="tsuyar_mad0005" x="3372" y="3303" width="427" height="724"/>
-	<SubTexture name="tsuyar_shoutNo0000" x="428" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0001" x="927" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0002" x="927" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0003" x="1426" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0004" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0005" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0006" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0007" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0008" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0009" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0010" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0011" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0012" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0013" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0014" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0015" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0016" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0017" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0018" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0019" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0020" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0021" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0022" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0023" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0024" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0025" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0026" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0027" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0028" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0029" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0030" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0031" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0032" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0033" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0034" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0035" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0036" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0037" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0038" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0039" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0040" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0041" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0042" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0043" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0044" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0045" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0046" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0047" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0048" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0049" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0050" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0051" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0052" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0053" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0054" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0055" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0056" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0057" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0058" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0059" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0060" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0061" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0062" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0063" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0064" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0065" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0066" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0067" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0068" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0069" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0070" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0071" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_shoutNo0072" x="1925" y="4028" width="498" height="755"/>
-	<SubTexture name="tsuyar_stpo_shout0000" x="2424" y="4028" width="457" height="755"/>
-	<SubTexture name="tsuyar_stpo_shout0001" x="2424" y="4028" width="457" height="755"/>
-	<SubTexture name="tsuyar_stpo_shout0002" x="2424" y="4028" width="457" height="755"/>
-	<SubTexture name="tsuyar_stpo_shout0003" x="2424" y="4028" width="457" height="755"/>
-	<SubTexture name="tsuyar_stpo_shout0004" x="2424" y="4028" width="457" height="755"/>
-	<SubTexture name="tsuyar_stpo_shout0005" x="2424" y="4028" width="457" height="755"/>
-	<SubTexture name="tsuyar_talk0000" x="2882" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_talk0001" x="3310" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_talk0002" x="2882" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_talk0003" x="3310" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_talk0004" x="2882" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_talk0005" x="3310" y="4028" width="427" height="724"/>
-	<SubTexture name="tsuyar_unamused0000" x="0" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_unamused0001" x="428" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_unamused0002" x="856" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_unamused0003" x="1284" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_unamused0004" x="1712" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_unamused0005" x="2140" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtStop0000" x="2568" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtStop0001" x="2568" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtStop0002" x="2568" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtStop0003" x="2568" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtStop0004" x="2568" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtStop0005" x="2568" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtf0000" x="2568" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtf0001" x="2996" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtf0002" x="2568" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtf0003" x="2996" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtf0004" x="2568" y="4784" width="427" height="724"/>
-	<SubTexture name="tsuyar_wtf0005" x="2996" y="4784" width="427" height="724"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="tsuyar.png" width="429" height="7254">
+	<SubTexture name="tsuyar_talk0000" x="1" y="1" width="427" height="724" frameX="-0" frameY="-0" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_talk0001" x="1" y="3636" width="427" height="721" frameX="-0" frameY="-3" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_talk0002" x="1" y="1" width="427" height="724" frameX="-0" frameY="-0" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_talk0003" x="1" y="3636" width="427" height="721" frameX="-0" frameY="-3" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_talk0004" x="1" y="1" width="427" height="724" frameX="-0" frameY="-0" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_talk0005" x="1" y="3636" width="427" height="721" frameX="-0" frameY="-3" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_unamused0000" x="1" y="728" width="427" height="724" frameX="-0" frameY="-0" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_unamused0001" x="1" y="4360" width="427" height="721" frameX="-0" frameY="-3" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_unamused0002" x="1" y="1455" width="427" height="724" frameX="-0" frameY="-0" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_unamused0003" x="1" y="5084" width="427" height="721" frameX="-0" frameY="-3" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_unamused0004" x="1" y="2182" width="427" height="724" frameX="-0" frameY="-0" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_unamused0005" x="1" y="5808" width="427" height="721" frameX="-0" frameY="-3" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_wtf0000" x="1" y="2909" width="427" height="724" frameX="-0" frameY="-0" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_wtf0001" x="1" y="6532" width="427" height="721" frameX="-0" frameY="-3" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_wtf0002" x="1" y="2909" width="427" height="724" frameX="-0" frameY="-0" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_wtf0003" x="1" y="6532" width="427" height="721" frameX="-0" frameY="-3" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_wtf0004" x="1" y="2909" width="427" height="724" frameX="-0" frameY="-0" frameWidth="427" frameHeight="724"/>
+	<SubTexture name="tsuyar_wtf0005" x="1" y="6532" width="427" height="721" frameX="-0" frameY="-3" frameWidth="427" frameHeight="724"/>
 </TextureAtlas>

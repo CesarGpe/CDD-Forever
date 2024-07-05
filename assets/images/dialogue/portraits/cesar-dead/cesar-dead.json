@@ -7,5 +7,6 @@
 	"scale": 0.5,
 	
 	"sounds": ["ces-1", "ces-2", "ces-3", "ces-4", "ces-5"],
-	"soundChance": 90
+	"soundPath": "images/dialogue/portraits/cesar/",
+	"soundChance": 80
 }

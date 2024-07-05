@@ -1,6 +1,7 @@
 package meta.state.menus;
 
 import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.addons.display.shapes.FlxShapeCircle;
 import flixel.addons.transition.FlxTransitionableState;
@@ -10,6 +11,7 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
 import haxe.Json;
 import meta.MusicBeat.MusicBeatState;
 import meta.data.Conductor;
@@ -60,11 +62,15 @@ typedef ButtonData =
 **/
 class MainMenuState extends MusicBeatState
 {
+	// por lo de la rockola
+	public static var resetMusic:Bool = false;
+
 	// de que el menu real
-	var optionShit:Array<String> = ['modo-historia', 'juego-libre', 'rockola'];
-	var menuItems:FlxTypedGroup<FlxText>;
-	var htags:FlxTypedGroup<FlxText>;
-	var boxes:FlxTypedGroup<FlxSprite>;
+	var optionShit:Array<String> = ['modo-historia', 'juego-libre', 'rockola', 'config'];
+	var menuItems:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
+	var boxes:FlxTypedGroup<FlxSprite> = new FlxTypedGroup<FlxSprite>();
+	var htags:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
+	var selectedSomethin:Bool = false;
 
 	// fondo
 	var bg1:FlxSprite;
@@ -100,17 +106,13 @@ class MainMenuState extends MusicBeatState
 	// datos
 	var canChange:Bool = false;
 	var galleryNum:Int;
-	var coolBeat:Int;
-	var oldBeat:Int = 0;
-	var lastCurSelected:Int = 0;
-	var curSelected:Float = 0;
+	static var curSelected:Int = 0;
 	var codeStep:Int = 0;
 
 	override function create()
 	{
 		super.create();
 
-		FlxG.mouse.visible = true;
 		buttonJSON = Json.parse(File.getContent(Paths.getPath('images/menus/mainmenu/buttonPos.json', TEXT)));
 
 		// set the transitions to the previously set ones
@@ -118,7 +120,18 @@ class MainMenuState extends MusicBeatState
 		transOut = FlxTransitionableState.defaultTransOut;
 
 		// make sure the music is playing
-		ForeverTools.resetMenuMusic();
+		if (resetMusic)
+		{
+			if (FreeplayState.changedMenuSong)
+				Conductor.changeBPM(FreeplayState.curSongBPM);
+			else
+				Conductor.changeBPM(102);
+
+			FlxG.sound.music.fadeIn(4, 0, 0.7);
+			resetMusic = false;
+		}
+		else
+			ForeverTools.resetMenuMusic();
 
 		#if !html5
 		Discord.changePresence('En los Menús:', 'Menú Principal');
@@ -138,7 +151,7 @@ class MainMenuState extends MusicBeatState
 		add(line1);
 
 		channeltxt = new FlxText(770, 10, 550, 'galeria');
-		channeltxt.setFormat(Paths.font("whitneymedium.otf"), 70, 0xfff3ffee, LEFT);
+		channeltxt.setFormat(Paths.font("whitneysemibold.otf"), 70, 0xfff3ffee, LEFT);
 		channeltxt.antialiasing = true;
 		add(channeltxt);
 
@@ -149,7 +162,7 @@ class MainMenuState extends MusicBeatState
 
 		// hacer la imagen para la galeria epica
 		art = new FlxSprite();
-		images = FileSystem.readDirectory('assets/images/menus/art');
+		images = FileSystem.readDirectory('assets/images/menus/storymenu/art');
 		for (file in images)
 		{
 			if (!file.endsWith('.png'))
@@ -173,6 +186,9 @@ class MainMenuState extends MusicBeatState
 		infoText.textField.backgroundColor = FlxColor.BLACK;
 		add(infoText);
 
+		// preparar esta madre antes de los tweens
+		changeGalleryArt();
+
 		// flechitas para la galeria
 		arrow1 = new FlxText(0, 0, 0, '<');
 		arrow1.setFormat(Paths.font("unisans.otf"), 90, 0xff8b8d92, LEFT);
@@ -187,9 +203,6 @@ class MainMenuState extends MusicBeatState
 		arrow2.x += 595;
 		arrow2.y += 40;
 		add(arrow2);
-
-		// ya que los objetos esten listos
-		changeGalleryArt();
 
 		// segundo fondo para los botones del menu
 		bg2 = new FlxSprite();
@@ -231,6 +244,7 @@ class MainMenuState extends MusicBeatState
 		mic.setGraphicSize(Std.int(mic.width * buttonJSON.micSF), Std.int(mic.height * buttonJSON.micSF));
 		mic.updateHitbox();
 		mic.antialiasing = true;
+		mic.alpha = 0.7;
 		add(mic);
 
 		deaf = new FlxSprite(buttonJSON.deafX, buttonJSON.deafY);
@@ -238,6 +252,7 @@ class MainMenuState extends MusicBeatState
 		deaf.setGraphicSize(Std.int(deaf.width * buttonJSON.deafSF), Std.int(deaf.height * buttonJSON.deafSF));
 		deaf.updateHitbox();
 		deaf.antialiasing = true;
+		deaf.alpha = 0.7;
 		add(deaf);
 
 		cog = new FlxSprite(buttonJSON.cogX, buttonJSON.cogY);
@@ -245,13 +260,14 @@ class MainMenuState extends MusicBeatState
 		cog.setGraphicSize(Std.int(cog.width * buttonJSON.cogSF), Std.int(cog.height * buttonJSON.cogSF));
 		cog.updateHitbox();
 		cog.antialiasing = true;
+		cog.alpha = 0.7;
 
 		cogBox = new FlxSprite(cog.x - 5, cog.y - 5);
 		cogBox.makeGraphic(Std.int(cog.width + 10), Std.int(cog.height + 10), 0xff35373c);
 		cogBox.visible = false;
 		add(cogBox);
 		add(cog);
-
+		
 		userTxt1 = new FlxText(buttonJSON.txt1X, buttonJSON.txt1Y, 0, 'Boyfriend');
 		userTxt1.setFormat(Paths.font("whitneysemibold.otf"), buttonJSON.txt1SF, 0xfff3ffee, LEFT);
 		userTxt1.antialiasing = true;
@@ -262,16 +278,13 @@ class MainMenuState extends MusicBeatState
 		userTxt2.antialiasing = true;
 		add(userTxt2);
 
-		// prepara los grupos padrisimos
-		boxes = new FlxTypedGroup<FlxSprite>();
-		menuItems = new FlxTypedGroup<FlxText>();
-		htags = new FlxTypedGroup<FlxText>();
+		// añade cosas
 		add(boxes);
 		add(menuItems);
 		add(htags);
 
 		// ! bucle para las opciones del menu
-		for (i in 0...optionShit.length)
+		for (i in 0...3)
 		{
 			var box:FlxSprite = new FlxSprite(20, (16 * 8 * i) + (28 * 8));
 			box.makeGraphic(615, 110, 0xff35373c);
@@ -303,315 +316,169 @@ class MainMenuState extends MusicBeatState
 			menuItem.updateHitbox();	
 		}
 
-		///* AQUI EMPIEZAN LOS TWEENS
-		menuItems.forEach(function(spr:FlxText)
-		{
-			spr.x -= 800;
-			FlxTween.tween(spr, {x: (spr.x + 800)}, 0.75, {ease: FlxEase.quadInOut});
-		});
-		htags.forEach(function(spr:FlxText)
-		{
-			spr.x -= 800;
-			FlxTween.tween(spr, {x: (spr.x + 800)}, 0.75, {ease: FlxEase.quadInOut});
-		});
-		boxes.forEach(function(spr:FlxSprite)
-		{
-			spr.x -= 800;
-			FlxTween.tween(spr, {x: (spr.x + 800)}, 0.75, {ease: FlxEase.quadInOut});
-		});
+		///* AQUI EMPIEZAN LOS TWEENS !!
+		menuItems.forEach(function(spr:FlxSprite) { setAndTween(spr, -800, 0.75, 'x'); });
+		htags.forEach(function(spr:FlxSprite)     { setAndTween(spr, -800, 0.75, 'x'); });
+		boxes.forEach(function(spr:FlxSprite)     { setAndTween(spr, -800, 0.75, 'x'); });
+
+		setAndTween(cddtxt,     -200, 0.75, 'y');
+		setAndTween(channeltxt, -200, 0.75, 'y');
+		setAndTween(channeltag, -200, 0.75, 'y');
+
+		setAndTween(menutxt,    -800, 0.75, 'x');
+
+		setAndTween(infoText,   800, 1.25, 'x');
+		setAndTween(credArt,    800, 1.25, 'x');
+		setAndTween(art,        800, 1.25, 'x');
 
 		arrow1.alpha = 0;
 		arrow2.alpha = 0;
-
-		art.x += 800;
-		infoText.x += 800;
-		credArt.x += 800;
-		menutxt.x -= 800;
-
-		cddtxt.y -= 200;
-		channeltxt.y -= 200;
-		channeltag.y -= 200;
-
-		FlxTween.tween(cddtxt,     {y: (cddtxt.y + 200)},     0.75, {ease: FlxEase.quadInOut});
-		FlxTween.tween(channeltxt, {y: (channeltxt.y + 200)}, 0.75, {ease: FlxEase.quadInOut});
-		FlxTween.tween(channeltag, {y: (channeltag.y + 200)}, 0.75, {ease: FlxEase.quadInOut});
-		FlxTween.tween(menutxt,	   {x: (menutxt.x + 800)},    0.75, {ease: FlxEase.quadInOut});
-		
-		FlxTween.tween(infoText,   {x: (infoText.x - 800)},   1.25, {ease: FlxEase.quadInOut});
-		FlxTween.tween(credArt,    {x: (credArt.x - 800)},    1.25, {ease: FlxEase.quadInOut});
-		FlxTween.tween(art,        {x: (art.x - 800)},        1.25, {
-			ease: FlxEase.quadInOut,
-			onComplete: function(twn:FlxTween)
-			{
-				FlxTween.tween(arrow1, {alpha: 1}, 0.5);
-				FlxTween.tween(arrow2, {alpha: 1}, 0.5, {
-					onComplete: function(twn:FlxTween)
-					{
-						canChange = true;
-					}
-				});
-			}
+		new FlxTimer().start(1.25, function(tmr:FlxTimer)
+		{
+			FlxTween.tween(arrow1, {alpha: 1}, 0.5);
+			FlxTween.tween(arrow2, {alpha: 1}, 0.5, {
+				onComplete: function(twn:FlxTween)
+				{
+					canChange = true;
+				}
+			});
 		});
-		///* AQUI SE TERMINAN LOS TWEENS
+		///* AQUI TERMINAN LOS TWEENS !!
 
-		updateSelection();
-
-		// y ya por ultimo el texto de la version
-		/*var versionShit:FlxText = new FlxText(5, FlxG.height - 25, 0, "Forever Engine " + Main.gameVersion);
-		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(versionShit);*/
-
-		//
+		changeSelection();
 	}
-
-	var selectedSomethin:Bool = false;
-	var counterControl:Float = 0;
 
 	override function update(elapsed:Float)
 	{
-		var up = controls.UI_UP;
-		var down = controls.UI_DOWN;
-		var up_p = controls.UI_UP_P;
-		var down_p = controls.UI_DOWN_P;
-		var back = controls.BACK;
-		var controlArray:Array<Bool> = [up, down, up_p, down_p, back];
+		if (FlxG.sound.music != null)
+			Conductor.songPosition = FlxG.sound.music.time;
 
-		if ((controlArray.contains(true)) && (!selectedSomethin))
+		// cambiar entre las opciones
+		if (controls.UI_UP_P && !selectedSomethin)
+			changeSelection(-1);
+		else if (controls.UI_DOWN_P && !selectedSomethin)
+			changeSelection(1);
+
+		// cambia la imagen de la galeria
+		if (controls.UI_LEFT_P && canChange && !selectedSomethin)
+			changeGalleryArt(-1);
+		if (controls.UI_RIGHT_P && canChange && !selectedSomethin)
+			changeGalleryArt(1);
+
+		// volver a la pantalla de titulo
+		if (controls.BACK && !selectedSomethin)
 		{
-			for (i in 0...controlArray.length)
-			{
-				// here we check which keys are pressed
-				if (controlArray[i] == true)
-				{
-					// if single press
-					if (i > 1)
-					{
-						// paaaaaiiiiiiinnnnn
-						if (i == 2) // up
-							curSelected--;
-						else if (i == 3) // down
-							curSelected++;
-
-						FlxG.sound.play(Paths.sound('menu/scrollMenu'));
-					}
-					if (controls.BACK)
-					{
-						FlxG.sound.play(Paths.sound('menu/cancelMenu'));
-						Main.switchState(this, new TitleState());
-					}
-
-					if (curSelected < 0)
-						curSelected = optionShit.length - 1;
-					else if (curSelected >= optionShit.length)
-						curSelected = 0;
-				}
-				//
-			}
-		}
-		else
-		{
-			// reset variables
-			counterControl = 0;
-		}
-
-		if ((controls.ACCEPT) && (!selectedSomethin))
-		{
-			//
 			selectedSomethin = true;
-			FlxG.sound.play(Paths.sound('menu/confirmMenu'));
+			FlxG.sound.play(Paths.sound('menu/cancelMenu'));
+			Main.switchState(this, new TitleState());
+		}
 
+		// selecciona una opcion
+		if (controls.ACCEPT && !selectedSomethin)
+		{
+			selectedSomethin = true;
+
+			if (curSelected == 3)
+			{
+				FlxG.sound.play(Paths.sound('menu/scrollMenu'));
+				Main.switchState(this, new OptionsMenuState());
+			}
+			else
+			{
+				FlxG.sound.play(Paths.sound('menu/confirmMenu'));
+				new FlxTimer().start(1, function(tmr:FlxTimer)
+				{
+					switch (curSelected)
+					{
+						case 0: // modo historia
+							Main.switchState(this, new StoryMenuState());
+						case 1: // juego libre
+							Main.switchState(this, new FreeplayState());
+						case 2: // rockola
+							Main.switchState(this, new RadioState(), true, false, false);
+					}
+				});
+			}
+			
 			menuItems.forEach(function(spr:FlxText)
 			{
-				if (curSelected != spr.ID)
+				if (curSelected == spr.ID)
 				{
-					FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
-					FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
-						ease: FlxEase.quadInOut,
-						onComplete: function(twn:FlxTween)
-						{
-							spr.kill();
-						}
-					});
+					spr.color = FlxColor.WHITE;
+					FlxFlicker.flicker(spr, 1, 0.06, false, false);
 				}
 				else
-				{
-					spr.setFormat(Paths.font("whitneymedium.otf"), 80, FlxColor.WHITE);
-					FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
-					{
-						var daChoice:Int = Math.floor(curSelected);
-						switch (daChoice)
-						{
-							case 0: // modo historia
-								Main.switchState(this, new StoryMenuState());
-							case 1: // juego libre
-								Main.switchState(this, new FreeplayState());
-							case 2: // rockola
-								Main.switchState(this, new RadioState());
-						}
-					});
-				}
+					tweenKill(spr);
 			});
 
 			htags.forEach(function(spr:FlxText)
 			{
-				if (curSelected != spr.ID)
-				{
-					FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
-					FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
-						ease: FlxEase.quadInOut,
-						onComplete: function(twn:FlxTween)
-						{
-							spr.kill();
-						}
-					});
-				}
-				else
+				if (curSelected == spr.ID)
 					FlxFlicker.flicker(spr, 1, 0.06, false, false);
+				else
+					tweenKill(spr);
 			});
 
 			boxes.forEach(function(spr:FlxSprite)
 			{
-				if (curSelected != spr.ID)
-					spr.kill();
-				else
+				if (curSelected == spr.ID)
 				{
 					spr.makeGraphic(615, 110, 0xff3f4248);
 					FlxFlicker.flicker(spr, 1, 0.06, false, false);
 				}
+				else
+					spr.kill();
 			});
 
 		}
 
-		// como curBeat pero mas barato
-		coolBeat = Math.floor(FlxG.sound.music.time / Conductor.stepCrochet);
-		coolHit(coolBeat);
-
-		// cambia la imagen de la galeria
-		if (controls.UI_LEFT_P && canChange)
-			changeGalleryArt(-1);
-		if (controls.UI_RIGHT_P && canChange)
-			changeGalleryArt(1);
-		
-		if (Math.floor(curSelected) != lastCurSelected)
-			updateSelection();
-
-		cogBox.visible = FlxG.mouse.overlaps(cog);
-		if (FlxG.mouse.overlaps(cog))
-		{
-			if (FlxG.mouse.justPressed && !selectedSomethin)
-			{
-				selectedSomethin = true;
-				FlxG.sound.play(Paths.sound('menu/scrollMenu'));
-
-				menuItems.forEach(function(spr:FlxText)
-				{
-					FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
-					FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
-						ease: FlxEase.quadInOut,
-						onComplete: function(twn:FlxTween)
-						{
-							spr.kill();
-						}
-					});
-				});
-
-				htags.forEach(function(spr:FlxText)
-				{
-					FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
-					FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
-						ease: FlxEase.quadInOut,
-						onComplete: function(twn:FlxTween)
-						{
-							spr.kill();
-						}
-					});
-				});
-
-				boxes.forEach(function(spr:FlxSprite)
-				{
-					FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
-					FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
-						ease: FlxEase.quadInOut,
-						onComplete: function(twn:FlxTween)
-						{
-							spr.kill();
-						}
-					});
-				});
-
-				transIn = FlxTransitionableState.defaultTransIn;
-				transOut = FlxTransitionableState.defaultTransOut;
-				Main.switchState(this, new OptionsMenuState());
-			}
-		}
-
+		// me ahorra tiempo reiniciando el menu jaja
 		if (FlxG.keys.justPressed.R && Init.trueSettings.get('Modo Debug'))
 			FlxG.switchState(new MainMenuState());
-
-		if (FlxG.keys.anyJustPressed([Q, W, E, R, T, Y, U, I, O, P, A, S, D, F, G, H, J, K, L, Z, X, C, V, B, N, M]))
-		{
-			var resetCode = true;
-			switch (codeStep)
-			{
-				case 0:
-					if (FlxG.keys.justPressed.A)
-						resetCode = false;
-				case 1:
-					if (FlxG.keys.justPressed.S)
-						resetCode = false;
-				case 2:
-					if (FlxG.keys.justPressed.F)
-					{
-						FlxG.sound.play(Paths.sound('menu/click'));
-						if (FlxG.sound.music != null)
-							FlxG.sound.music.stop();
-
-						Init.trueSettings.set('asfUnlock', true);
-						Init.trueSettings.set('fpStory', false);
-						Init.saveSettings();
-
-						PlayState.SONG = Song.loadFromJson('asf', 'asf');
-						PlayState.isStoryMode = true;
-						PlayState.storyDifficulty = 1;
-						PlayState.storyWeek = 34;
-						
-						Main.switchState(this, new PlayState(), true);
-					}
-			}
-
-			if (resetCode)
-				codeStep = 0;
-			else
-				codeStep += 1;
-		}
+		
+		easterEggCheck();
 
 		super.update(elapsed);
 	}
 
-	private function updateSelection()
+	function changeSelection(change:Int = 0)
 	{
-		// reset all selections
+		if (change != 0)
+			FlxG.sound.play(Paths.sound('menu/scrollMenu'));
+
+		curSelected += change;
+		if (curSelected < 0)
+			curSelected = optionShit.length - 1;
+		else if (curSelected >= optionShit.length)
+			curSelected = 0;
+
 		menuItems.forEach(function(spr:FlxText)
 		{
-			spr.setFormat(Paths.font("whitneymedium.otf"), 80, 0xff8b8d92);
-			spr.updateHitbox();
+			if (curSelected == spr.ID)
+				spr.color = 0xffdbdeff;
+			else
+				spr.color = 0xff8b8d92;
 		});
-
-		if (menuItems.members[Math.floor(curSelected)].color == 0xff8b8d92)
-			menuItems.members[Math.floor(curSelected)].setFormat(Paths.font("whitneymedium.otf"), 80, 0xffdbdeff);
-
-		menuItems.members[Math.floor(curSelected)].updateHitbox();
 
 		boxes.forEach(function(spr:FlxSprite)
 		{
-			if (curSelected != spr.ID)
-				spr.visible = false;
-			else
+			if (curSelected == spr.ID)
 				spr.visible = true;
+			else
+				spr.visible = false;
 		});
 
-		lastCurSelected = Math.floor(curSelected);
+		if (curSelected == 3)
+		{
+			cogBox.visible = true;
+			cog.alpha = 0.85;
+		}
+		else
+		{
+			cogBox.visible = false;
+			cog.alpha = 0.7;
+		}
+			
 	}
 
 	function changeGalleryArt(change:Int = 0)
@@ -627,19 +494,17 @@ class MainMenuState extends MusicBeatState
 		// cambia la imagen de la galeria
 		if (galleryNum == 12 || galleryNum == 19)
 		{
-			art.frames = Paths.getSparrowAtlas('menus/art/' + images[galleryNum]);
+			art.frames = Paths.getSparrowAtlas('menus/storymenu/art/' + images[galleryNum]);
 			art.animation.addByPrefix('idle', 'bop', 24, false);
-			//art.animation.play('idle', true);
 			art.flipX = true;
 		}
 		else
 		{
-			art.loadGraphic(Paths.image('menus/art/' + images[galleryNum]));
+			art.loadGraphic(Paths.image('menus/storymenu/art/' + images[galleryNum]));
 			art.flipX = false;
 		}
 		art.setGraphicSize(Std.int(FlxG.width * 0.35));
 		art.updateHitbox();
-		art.antialiasing = true;
 
 		// textos y tamaños de las imagenes
 		switch (galleryNum)
@@ -748,8 +613,8 @@ class MainMenuState extends MusicBeatState
 
 				art.scale.set(0.9, 0.9);
 			default:
-				infoText.text = 'ah pinche puto pendejo idiota\nmetiste otro archivo a la carpeta verdad';
-				credArt.text = 'puto el que lo lea';
+				infoText.text = 'que le hiciste a mi bonita carpeta??';
+				credArt.text = 'oh no';
 		}
 		art.alpha = 0;
 		if (daTween != null)
@@ -768,13 +633,111 @@ class MainMenuState extends MusicBeatState
 		credArt.x += 335;
 	}
 
-	function coolHit(beat:Int)
+	function tweenKill(spr:FlxSprite)
 	{
-		if (oldBeat != beat)
+		FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
+		FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
+			ease: FlxEase.quadInOut,
+			onComplete: function(twn:FlxTween)
+			{
+				spr.kill();
+			}
+		});
+	}
+
+	function tweenKillSprites(group:FlxTypedGroup<FlxSprite>)
+	{
+		group.forEach(function(spr:FlxSprite)
 		{
-			if (beat % 4 == 0)
-				art.animation.play('idle', true);
+			FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
+			FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
+				ease: FlxEase.quadInOut,
+				onComplete: function(twn:FlxTween)
+				{
+					spr.kill();
+				}
+			});
+		});
+	}
+
+	function tweenKillTexts(group:FlxTypedGroup<FlxText>)
+	{
+		group.forEach(function(spr:FlxText)
+		{
+			FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
+			FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
+				ease: FlxEase.quadInOut,
+				onComplete: function(twn:FlxTween)
+				{
+					spr.kill();
+				}
+			});
+		});
+	}
+
+	function setAndTween(spr:FlxSprite, pos:Int, time:Float, type:String)
+	{
+		if (type == 'x')
+		{
+			spr.x += pos;
+			FlxTween.tween(spr, {x: spr.x - pos}, time, {ease: FlxEase.quadInOut});
 		}
-		oldBeat = beat;
+		else if (type == 'y')
+		{
+			spr.y += pos;
+			FlxTween.tween(spr, {y: spr.y - pos}, time, {ease: FlxEase.quadInOut});
+		}
+	}
+
+	function easterEggCheck()
+	{
+		if (FlxG.keys.anyJustPressed([Q, W, E, R, T, Y, U, I, O, P, A, S, D, F, G, H, J, K, L, Z, X, C, V, B, N, M]))
+		{
+			var resetCode = true;
+			switch (codeStep)
+			{
+				case 0:
+					if (FlxG.keys.justPressed.A)
+						resetCode = false;
+				case 1:
+					if (FlxG.keys.justPressed.S)
+						resetCode = false;
+				case 2:
+					if (FlxG.keys.justPressed.F)
+					{
+						var black:FlxSprite = new FlxSprite();
+						black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+						black.scrollFactor.set();
+						black.screenCenter();
+						add(black);
+
+						FlxG.sound.play(Paths.sound('menu/click'));
+						if (FlxG.sound.music != null)
+							FlxG.sound.music.stop();
+
+						Init.trueSettings.set('asfUnlock', true);
+						Init.trueSettings.set('fpStory', false);
+						Init.saveSettings();
+
+						PlayState.SONG = Song.loadFromJson('asf', 'asf');
+						PlayState.isStoryMode = true;
+						PlayState.seenCutscene = false;
+						PlayState.storyDifficulty = 1;
+						PlayState.storyWeek = 34;
+
+						Main.switchState(this, new PlayState(), true);
+					}
+			}
+			if (resetCode)
+				codeStep = 0;
+			else
+				codeStep += 1;
+		}
+	}
+
+	override function beatHit()
+	{
+		super.beatHit();
+		art.animation.play('idle', true);
 	}
 }

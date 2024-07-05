@@ -3,9 +3,10 @@
 	"expressions": {
 		"chicos": "sans"
     },
-    "position": [-150, -60],
+    "position": [-150, -80],
 	"scale": 0.3,
 	
 	"sounds": ["voice"],
+	"soundPath": "images/dialogue/portraits/calaca/",
 	"soundChance": 100
 }

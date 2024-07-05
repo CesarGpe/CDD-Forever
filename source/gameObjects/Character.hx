@@ -194,18 +194,9 @@ class Character extends FNFSprite
 			case 'reimu':
 				// LA REIMU HAKUREI DEL PROYECTO TOUHOU
 				iconColor = FlxColor.fromRGB(255, 0, 135);
-				frames = Paths.getSparrowAtlas('characters/Reimu_Assets');
-				animation.addByPrefix('cheer', 'Reimu_Cheer', 24, false);
-				animation.addByPrefix('singLEFT', 'Reimu_Left', 24, false);
-				animation.addByPrefix('singRIGHT', 'Reimu_Right', 24, false);
-				animation.addByPrefix('singUP', 'Reimu_Up', 24, false);
-				animation.addByPrefix('singDOWN', 'Reimu_Down', 24, false);
-				animation.addByIndices('sad', 'Reimu_Sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
+				frames = Paths.getSparrowAtlas('characters/reimu');
 				animation.addByIndices('danceLeft', 'Reimu_Idle', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 				animation.addByIndices('danceRight', 'Reimu_Idle', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-				animation.addByIndices('hairBlow', "Reimu_HairBlowLeft", [0, 1, 2, 3], "", 24);
-				animation.addByIndices('hairFall', "Reimu_HairLand", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
-				animation.addByPrefix('scared', 'Reimu_Scared', 24);
 				
 				playAnim('danceRight');
 				
@@ -227,7 +218,7 @@ class Character extends FNFSprite
 			case 'BrownishSea':
 				// doug
 				iconColor = FlxColor.fromRGB(255, 102, 255);
-				frames = Paths.getSparrowAtlas('characters/BrownishSea_Assets');
+				frames = Paths.getSparrowAtlas('characters/BrownishSea');
 				animation.addByPrefix('idle', 'Brown_Idle', 24, false);
 				animation.addByPrefix('singUP', 'Brown_Up', 24);
 				animation.addByPrefix('singRIGHT', 'Brown_Right', 24);
@@ -239,7 +230,7 @@ class Character extends FNFSprite
 			case 'cesar':
 				// yo el cesar
 				iconColor = FlxColor.fromRGB(176, 11, 105);
-				frames = Paths.getSparrowAtlas('characters/Cesar_Assets');
+				frames = Paths.getSparrowAtlas('characters/cesar');
 				animation.addByPrefix('idle', 'CesarGpe_Idle', 24, false);
 				animation.addByPrefix('singUP', 'CesarGpe_Up', 24);
 				animation.addByPrefix('singRIGHT', 'CesarGpe_Right', 24);
@@ -253,31 +244,31 @@ class Character extends FNFSprite
 			case 'morir':
 				// el cesar si se muriera
 				iconColor = FlxColor.fromRGB(176, 11, 105);
-				frames = Paths.getSparrowAtlas('characters/Cesar_Assets');
-				animation.addByPrefix('idle', 'CesarGpe_Idle', 24, false);
-				animation.addByPrefix('singUP', 'CesarGpe_Idle', 24);
-				animation.addByPrefix('singRIGHT', 'CesarGpe_Idle', 24);
-				animation.addByPrefix('singDOWN', 'CesarGpe_Idle', 24);
-				animation.addByPrefix('singLEFT', 'CesarGpe_Idle', 24);
+				frames = Paths.getSparrowAtlas('characters/blank');
+				animation.addByPrefix('idle', 'blank', 24, false);
+				animation.addByPrefix('singUP', 'blank', 24);
+				animation.addByPrefix('singRIGHT', 'blank', 24);
+				animation.addByPrefix('singDOWN', 'blank', 24);
+				animation.addByPrefix('singLEFT', 'blank', 24);
 
 				playAnim('idle');
 
 			case 'cesarito':
 				// solo esta para el icono, no hay otro personaje
 				iconColor = FlxColor.fromRGB(153, 0, 0);
-				frames = Paths.getSparrowAtlas('characters/Cesar_Assets');
-				animation.addByPrefix('idle', 'CesarGpe_Idle', 24, false);
-				animation.addByPrefix('singUP', 'CesarGpe_Up', 24);
-				animation.addByPrefix('singRIGHT', 'CesarGpe_Right', 24);
-				animation.addByPrefix('singDOWN', 'CesarGpe_Down', 24);
-				animation.addByPrefix('singLEFT', 'CesarGpe_Left', 24);
+				frames = Paths.getSparrowAtlas('characters/blank');
+				animation.addByPrefix('idle', 'blank', 24, false);
+				animation.addByPrefix('singUP', 'blank', 24);
+				animation.addByPrefix('singRIGHT', 'blank', 24);
+				animation.addByPrefix('singDOWN', 'blank', 24);
+				animation.addByPrefix('singLEFT', 'blank', 24);
 
 				playAnim('idle');
 
 			case 'hyperpig':
 				// terrence god potioneado
 				iconColor = FlxColor.fromRGB(255, 102, 153);
-				frames = Paths.getSparrowAtlas('characters/HyperPig_Assets');
+				frames = Paths.getSparrowAtlas('characters/hyperpig');
 				animation.addByPrefix('idle', 'HyperPig_Idle', 24, false);
 				animation.addByPrefix('singUP', 'HyperPig_Up', 24);
 				animation.addByPrefix('singRIGHT', 'HyperPig_Right', 24);

@@ -1,11 +1,14 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="foreverlogo.png">
-	<SubTexture name="forever bop0000" x="0" y="0" width="1578" height="976" frameX="0" frameY="0" frameWidth="1578" frameHeight="976" />
-	<SubTexture name="forever bop0001" x="1578" y="0" width="1578" height="976" frameX="0" frameY="0" frameWidth="1578" frameHeight="976" />
-	<SubTexture name="forever bop0002" x="0" y="976" width="1578" height="976" frameX="0" frameY="0" frameWidth="1578" frameHeight="976" />
-	<SubTexture name="forever bop0003" x="1578" y="976" width="1578" height="976" frameX="0" frameY="0" frameWidth="1578" frameHeight="976" />
-	<SubTexture name="forever bop0004" x="0" y="1952" width="1578" height="976" frameX="0" frameY="0" frameWidth="1578" frameHeight="976" />
-	<SubTexture name="forever bop0005" x="1578" y="1952" width="1578" height="976" frameX="0" frameY="0" frameWidth="1578" frameHeight="976" />
-	<SubTexture name="forever bop0006" x="0" y="2928" width="1578" height="976" frameX="0" frameY="0" frameWidth="1578" frameHeight="976" />
-	<SubTexture name="forever bop0007" x="1578" y="2928" width="1578" height="976" frameX="0" frameY="0" frameWidth="1578" frameHeight="976" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="foreverlogo.png" width="2585" height="1430">
+	<SubTexture name="forever bop0000" x="1" y="1" width="1309" height="735" frameX="-127" frameY="-153" frameWidth="1578" frameHeight="976"/>
+	<SubTexture name="forever bop0001" x="1" y="1" width="1309" height="735" frameX="-127" frameY="-153" frameWidth="1578" frameHeight="976"/>
+	<SubTexture name="forever bop0002" x="1" y="739" width="1304" height="690" frameX="-130" frameY="-203" frameWidth="1578" frameHeight="976"/>
+	<SubTexture name="forever bop0003" x="1308" y="739" width="1260" height="689" frameX="-145" frameY="-183" frameWidth="1578" frameHeight="976"/>
+	<SubTexture name="forever bop0004" x="1313" y="1" width="1271" height="693" frameX="-139" frameY="-183" frameWidth="1578" frameHeight="976"/>
+	<SubTexture name="forever bop0005" x="1313" y="1" width="1271" height="693" frameX="-139" frameY="-183" frameWidth="1578" frameHeight="976"/>
+	<SubTexture name="forever bop0006" x="1313" y="1" width="1271" height="693" frameX="-139" frameY="-183" frameWidth="1578" frameHeight="976"/>
+	<SubTexture name="forever bop0007" x="1313" y="1" width="1271" height="693" frameX="-139" frameY="-183" frameWidth="1578" frameHeight="976"/>
 </TextureAtlas>

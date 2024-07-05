@@ -1,12 +1,15 @@
-<?xml version='1.0' encoding='utf-8'?>
-<TextureAtlas imagePath="sech.png">
-<SubTexture name="sech idle0000" x="0" y="1053" width="681" height="784" frameX="-124" frameY="-123" frameWidth="926" frameHeight="1080" />
-<SubTexture name="sech idle0001" x="681" y="1053" width="769" height="664" frameX="-68" frameY="-243" frameWidth="926" frameHeight="1080" />
-<SubTexture name="sech idle0002" x="2291" y="0" width="877" height="488" frameX="-24" frameY="-419" frameWidth="926" frameHeight="1080" />
-<SubTexture name="sech idle0003" x="681" y="1053" width="769" height="664" frameX="-68" frameY="-243" frameWidth="926" frameHeight="1080" />
-<SubTexture name="sech idle0004" x="0" y="1053" width="681" height="784" frameX="-124" frameY="-123" frameWidth="926" frameHeight="1080" />
-<SubTexture name="sech singUP0000" x="1781" y="0" width="510" height="911" frameX="-210" frameY="-4" frameWidth="926" frameHeight="1080" />
-<SubTexture name="sech singDOWN0000" x="2291" y="488" width="755" height="416" frameX="-80" frameY="-500" frameWidth="926" frameHeight="1080" />
-<SubTexture name="sech singLEFT0000" x="0" y="0" width="911" height="1053" frameX="-13" frameY="0" frameWidth="926" frameHeight="1080" />
-<SubTexture name="sech singRIGHT0000" x="911" y="0" width="870" height="1036" frameX="-34" frameY="-5" frameWidth="926" frameHeight="1080" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="sech.png" width="2470" height="1969">
+	<SubTexture name="sech idle0000" x="1788" y="1" width="681" height="784" frameX="-124" frameY="-123" frameWidth="926" frameHeight="1080"/>
+	<SubTexture name="sech idle0001" x="1391" y="1040" width="769" height="664" frameX="-68" frameY="-243" frameWidth="926" frameHeight="1080"/>
+	<SubTexture name="sech idle0002" x="511" y="1057" width="877" height="488" frameX="-24" frameY="-419" frameWidth="926" frameHeight="1080"/>
+	<SubTexture name="sech idle0003" x="1391" y="1040" width="769" height="664" frameX="-68" frameY="-243" frameWidth="926" frameHeight="1080"/>
+	<SubTexture name="sech idle0004" x="1788" y="1" width="681" height="784" frameX="-124" frameY="-123" frameWidth="926" frameHeight="1080"/>
+	<SubTexture name="sech singUP0000" x="1" y="1057" width="507" height="911" frameX="-213" frameY="-4" frameWidth="926" frameHeight="1080"/>
+	<SubTexture name="sech singDOWN0000" x="511" y="1548" width="755" height="416" frameX="-80" frameY="-500" frameWidth="926" frameHeight="1080"/>
+	<SubTexture name="sech singLEFT0000" x="1" y="1" width="911" height="1053" frameX="-13" frameY="-0" frameWidth="926" frameHeight="1080"/>
+	<SubTexture name="sech singRIGHT0000" x="915" y="1" width="870" height="1036" frameX="-34" frameY="-5" frameWidth="926" frameHeight="1080"/>
 </TextureAtlas>

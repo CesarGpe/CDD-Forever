@@ -87,7 +87,7 @@ class Main extends Sprite
 			['Skullody'],
 			['2ndplayer'],
 			[FlxColor.fromRGB(40, 73, 20)],
-			'"Tutorial?"'
+			'"Tutorial..."'
 		],
 		[
 			['Coffee', 'Spring', 'Rules'],
@@ -207,8 +207,8 @@ class Main extends Sprite
 	public static function switchState(curState:FlxState, target:FlxState, ?showScreen:Bool = false, ?showMouse:Bool = false, ?autoPause:Bool = true)
 	{
 		// shit
-		FlxG.mouse.visible = showMouse;
-		FlxG.autoPause = autoPause;
+		FlxG.autoPause = false;
+		FlxG.mouse.visible = false;
 		// Custom made Trans in
 		mainClassState = Type.getClass(target);
 
@@ -219,6 +219,8 @@ class Main extends Sprite
 				onLoadingScreen = true;
 				curState.openSubState(new LoadingScreen(0.35, false));
 				LoadingScreen.finishCallback = function() {
+					FlxG.autoPause = autoPause;
+					FlxG.mouse.visible = showMouse;
 					FlxG.switchState(target);
 				};
 			}
@@ -227,6 +229,8 @@ class Main extends Sprite
 				onLoadingScreen = false;
 				curState.openSubState(new FNFTransition(0.35, false));
 				FNFTransition.finishCallback = function() {
+					FlxG.autoPause = autoPause;
+					FlxG.mouse.visible = showMouse;
 					FlxG.switchState(target);
 				};
 			}

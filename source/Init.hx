@@ -67,12 +67,6 @@ class Init extends FlxState
 			'Colorea la ventana del juego de color oscuro, solo funciona en Windows.',
 			NOT_FORCED
 		],
-		'Discord Modo Luz' => [
-			false,
-			Checkmark,
-			'Activa el modo luz en el menu, ademas de certificarte como un psicopata.',
-			NOT_FORCED
-		],
 		'Movimiento Reducido' => [
 			false,
 			Checkmark,

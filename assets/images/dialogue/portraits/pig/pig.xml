@@ -1,36 +1,37 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="pig.png">
-	<!-- Created with Adobe Animate version 19.2.0.405 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="cerdo_hypeStop0000" x="0" y="0" width="727" height="796"/>
-	<SubTexture name="cerdo_hypeStop0001" x="728" y="0" width="727" height="796"/>
-	<SubTexture name="cerdo_hypeStop0002" x="1456" y="0" width="727" height="796"/>
-	<SubTexture name="cerdo_hypeStop0003" x="2184" y="0" width="727" height="796"/>
-	<SubTexture name="cerdo_hypeStop0004" x="2912" y="0" width="727" height="796"/>
-	<SubTexture name="cerdo_hypeStop0005" x="0" y="797" width="727" height="796"/>
-	<SubTexture name="cerdo_hyper0000" x="728" y="797" width="742" height="805"/>
-	<SubTexture name="cerdo_hyper0001" x="1471" y="797" width="742" height="805"/>
-	<SubTexture name="cerdo_hyper0002" x="2214" y="797" width="742" height="805"/>
-	<SubTexture name="cerdo_hyper0003" x="2957" y="797" width="742" height="805"/>
-	<SubTexture name="cerdo_hyper0004" x="0" y="1603" width="742" height="805"/>
-	<SubTexture name="cerdo_hyper0005" x="743" y="1603" width="742" height="805"/>
-	<SubTexture name="cerdo_showofStop0000" x="1486" y="1603" width="884" height="790"/>
-	<SubTexture name="cerdo_showofStop0001" x="1486" y="1603" width="884" height="790"/>
-	<SubTexture name="cerdo_showofStop0002" x="1486" y="1603" width="884" height="790"/>
-	<SubTexture name="cerdo_showofStop0003" x="2371" y="1603" width="884" height="790"/>
-	<SubTexture name="cerdo_showofStop0004" x="2371" y="1603" width="884" height="790"/>
-	<SubTexture name="cerdo_showofStop0005" x="2371" y="1603" width="884" height="790"/>
-	<SubTexture name="cerdo_showoff0000" x="0" y="2409" width="884" height="792"/>
-	<SubTexture name="cerdo_showoff0001" x="885" y="2409" width="884" height="792"/>
-	<SubTexture name="cerdo_showoff0002" x="885" y="2409" width="884" height="792"/>
-	<SubTexture name="cerdo_showoff0003" x="1770" y="2409" width="884" height="792"/>
-	<SubTexture name="cerdo_showoff0004" x="2655" y="2409" width="884" height="792"/>
-	<SubTexture name="cerdo_showoff0005" x="2655" y="2409" width="884" height="792"/>
-	<SubTexture name="cerdo_talk0000" x="0" y="3202" width="707" height="795"/>
-	<SubTexture name="cerdo_talk0001" x="708" y="3202" width="707" height="795"/>
-	<SubTexture name="cerdo_talk0002" x="708" y="3202" width="707" height="795"/>
-	<SubTexture name="cerdo_talk0003" x="1416" y="3202" width="707" height="795"/>
-	<SubTexture name="cerdo_talk0004" x="2124" y="3202" width="707" height="795"/>
-	<SubTexture name="cerdo_talk0005" x="2124" y="3202" width="707" height="795"/>
-	<SubTexture name="cerdo_talkstop0000" x="2832" y="3202" width="706" height="794"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="pig.png" width="3902" height="3952">
+	<SubTexture name="cerdo_hypeStop0000" x="1" y="3165" width="715" height="786" frameX="-0" frameY="-10" frameWidth="727" frameHeight="796"/>
+	<SubTexture name="cerdo_hypeStop0001" x="719" y="3164" width="710" height="786" frameX="-4" frameY="-4" frameWidth="727" frameHeight="796"/>
+	<SubTexture name="cerdo_hypeStop0002" x="2479" y="1" width="702" height="792" frameX="-0" frameY="-4" frameWidth="727" frameHeight="796"/>
+	<SubTexture name="cerdo_hypeStop0003" x="2455" y="809" width="723" height="790" frameX="-4" frameY="-0" frameWidth="727" frameHeight="796"/>
+	<SubTexture name="cerdo_hypeStop0004" x="1432" y="3164" width="720" height="784" frameX="-0" frameY="-12" frameWidth="727" frameHeight="796"/>
+	<SubTexture name="cerdo_hypeStop0005" x="3184" y="1" width="717" height="782" frameX="-4" frameY="-8" frameWidth="727" frameHeight="796"/>
+	<SubTexture name="cerdo_hyper0000" x="1773" y="1" width="703" height="805" frameX="-0" frameY="-0" frameWidth="742" frameHeight="805"/>
+	<SubTexture name="cerdo_hyper0001" x="2838" y="2362" width="738" height="716" frameX="-4" frameY="-83" frameWidth="742" frameHeight="805"/>
+	<SubTexture name="cerdo_hyper0002" x="2894" y="3081" width="733" height="721" frameX="-0" frameY="-84" frameWidth="742" frameHeight="805"/>
+	<SubTexture name="cerdo_hyper0003" x="2455" y="1602" width="724" height="757" frameX="-4" frameY="-42" frameWidth="742" frameHeight="805"/>
+	<SubTexture name="cerdo_hyper0004" x="2155" y="3154" width="736" height="783" frameX="-0" frameY="-22" frameWidth="742" frameHeight="805"/>
+	<SubTexture name="cerdo_hyper0005" x="3184" y="786" width="710" height="782" frameX="-4" frameY="-17" frameWidth="742" frameHeight="805"/>
+	<SubTexture name="cerdo_showofStop0000" x="1" y="1574" width="869" height="790" frameX="-0" frameY="-0" frameWidth="884" frameHeight="790"/>
+	<SubTexture name="cerdo_showofStop0001" x="1" y="1574" width="869" height="790" frameX="-0" frameY="-0" frameWidth="884" frameHeight="790"/>
+	<SubTexture name="cerdo_showofStop0002" x="1" y="1574" width="869" height="790" frameX="-0" frameY="-0" frameWidth="884" frameHeight="790"/>
+	<SubTexture name="cerdo_showofStop0003" x="1" y="1" width="883" height="790" frameX="-0" frameY="-0" frameWidth="884" frameHeight="790"/>
+	<SubTexture name="cerdo_showofStop0004" x="1" y="1" width="883" height="790" frameX="-0" frameY="-0" frameWidth="884" frameHeight="790"/>
+	<SubTexture name="cerdo_showofStop0005" x="1" y="1" width="883" height="790" frameX="-0" frameY="-0" frameWidth="884" frameHeight="790"/>
+	<SubTexture name="cerdo_showoff0000" x="873" y="1574" width="869" height="790" frameX="-0" frameY="-0" frameWidth="884" frameHeight="792"/>
+	<SubTexture name="cerdo_showoff0001" x="887" y="786" width="869" height="776" frameX="-0" frameY="-16" frameWidth="884" frameHeight="792"/>
+	<SubTexture name="cerdo_showoff0002" x="887" y="786" width="869" height="776" frameX="-0" frameY="-16" frameWidth="884" frameHeight="792"/>
+	<SubTexture name="cerdo_showoff0003" x="1" y="794" width="883" height="777" frameX="-0" frameY="-13" frameWidth="884" frameHeight="792"/>
+	<SubTexture name="cerdo_showoff0004" x="887" y="1" width="883" height="782" frameX="-0" frameY="-8" frameWidth="884" frameHeight="792"/>
+	<SubTexture name="cerdo_showoff0005" x="887" y="1" width="883" height="782" frameX="-0" frameY="-8" frameWidth="884" frameHeight="792"/>
+	<SubTexture name="cerdo_talk0000" x="1745" y="1565" width="707" height="795" frameX="-0" frameY="-0" frameWidth="707" frameHeight="795"/>
+	<SubTexture name="cerdo_talk0001" x="2128" y="2363" width="707" height="788" frameX="-0" frameY="-7" frameWidth="707" frameHeight="795"/>
+	<SubTexture name="cerdo_talk0002" x="2128" y="2363" width="707" height="788" frameX="-0" frameY="-7" frameWidth="707" frameHeight="795"/>
+	<SubTexture name="cerdo_talk0003" x="710" y="2367" width="706" height="794" frameX="-0" frameY="-1" frameWidth="707" frameHeight="795"/>
+	<SubTexture name="cerdo_talk0004" x="1" y="2367" width="706" height="795" frameX="-0" frameY="-0" frameWidth="707" frameHeight="795"/>
+	<SubTexture name="cerdo_talk0005" x="1" y="2367" width="706" height="795" frameX="-0" frameY="-0" frameWidth="707" frameHeight="795"/>
+	<SubTexture name="cerdo_talkstop0000" x="1419" y="2367" width="706" height="794" frameX="-0" frameY="-0" frameWidth="706" frameHeight="794"/>
 </TextureAtlas>

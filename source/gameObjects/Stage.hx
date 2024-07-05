@@ -48,7 +48,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 	// calamity
 	var dogSummoned:Bool = false;
 	var calEnded:Bool = false;
-	var bossSound:FlxSound;
+	//var bossSound:FlxSound;
 	var calbg:FNFSprite;
 	var aura:FNFSprite;
 	var credit:FNFSprite;
@@ -116,9 +116,10 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				calSprites = new FlxTypedGroup<FNFSprite>();
 				sbSprites = new FlxTypedGroup<FNFSprite>();
 				
-				bossSound = new FlxSound().loadEmbedded(Paths.sound('event/spawnBoss'));
-				bossSound.persist = true;
-				bossSound.play();
+				FlxG.sound.cache(Paths.sound('event/spawnBoss'));
+				//bossSound = new FlxSound().loadEmbedded(Paths.sound('event/spawnBoss'));
+				//bossSound.persist = true;
+				//bossSound.play();
 
 				// * ESTA ES LA STAGE DE CALAMITY
 
@@ -336,7 +337,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				gore.updateHitbox();
 
 				dead = new FNFSprite(215, 350);
-				dead.loadGraphic(Paths.image('backgrounds/' + curStage + '/Cesar_Dead'));
+				dead.loadGraphic(Paths.image('backgrounds/skyblock/cesar_dead'));
 				dead.setGraphicSize(Std.int(dead.width * 0.7), Std.int(dead.height * 0.7));
 				dead.updateHitbox();
 
@@ -442,21 +443,22 @@ class Stage extends FlxTypedGroup<FlxBasic>
 
 				bg.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/discord_backGround');
 				floor.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/discord_Floor');
-				leftSide.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/discord_sideLeft');
+				leftSide.makeGraphic(1131, 1517, 0xff393338);
+				//leftSide.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/discord_sideLeft');
 				rightSide.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/discord_sideRight');
 				corner1.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/corner1');
 				corner2.frames = Paths.getSparrowAtlas('backgrounds/' + curStage + '/corner2');
 
 				bg.animation.addByPrefix('idle', 'discord_background', 24, true);
 				floor.animation.addByPrefix('idle', 'discord_floor', 24, true);
-				leftSide.animation.addByPrefix('idle', 'discord_sideRight', 24, true);
-				rightSide.animation.addByPrefix('idle', 'discord_sideRight', 24, true);
+				//leftSide.animation.addByPrefix('idle', 'discord_sideRight', 24, true);
+				rightSide.animation.addByPrefix('idle', 'discord_sideRight instance', 24, true);
 				corner1.animation.addByPrefix('idle', 'corner1', 24, true);
 				corner2.animation.addByPrefix('idle', 'corner2', 24, true);
 
 				bg.animation.play('idle', true);
 				floor.animation.play('idle', true);
-				leftSide.animation.play('idle', true);
+				//leftSide.animation.play('idle', true);
 				rightSide.animation.play('idle', true);
 				corner1.animation.play('idle', true);
 				corner2.animation.play('idle', true);
@@ -481,7 +483,8 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				var rightSide:FNFSprite = new FNFSprite(1417, -978);
 				message = new FNFSprite(15, 510);
 
-				bg.loadGraphic(Paths.image('backgrounds/' + curStage + '/discordExtenseBg'));
+				//bg.loadGraphic(Paths.image('backgrounds/' + curStage + '/discordExtenseBg'));
+				bg.makeGraphic(3043, 2060, 0xff363a40);
 				floor.loadGraphic(Paths.image('backgrounds/' + curStage + '/discordFloor'));
 				leftSide.loadGraphic(Paths.image('backgrounds/' + curStage + '/discordSideLeft'));
 				rightSide.loadGraphic(Paths.image('backgrounds/' + curStage + '/discordSideRight'));
@@ -494,15 +497,21 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				groovy.animation.addByPrefix('right', 'bganimated_2', 24, false);
 				groovy.setGraphicSize(Std.int(groovy.width * 0.8), Std.int(groovy.height * 0.8));
 				groovy.updateHitbox();
+				groovy.antialiasing = true;
 
 				// texto del groovoso
 				var txt:FlxText = new FlxText(-175, 312, 0, 'Now playing: ' + CoolUtil.dashToSpace(PlayState.SONG.song), 56);
 				txt.setFormat(Paths.font("whitneybook.otf"), 56, FlxColor.WHITE);
 				txt.updateHitbox();
 
+				floor.antialiasing = true;
+				leftSide.antialiasing = true;
+				rightSide.antialiasing = true;
+
 				message.scale.set(0.35, 0.35);
 				message.updateHitbox();
 				message.visible = false;
+				message.antialiasing = true;
 
 				add(bg);
 				add(groovy);
@@ -744,7 +753,8 @@ class Stage extends FlxTypedGroup<FlxBasic>
 			case 'DOG Spawn':
 				triggerEvent('Display Message');
 				FlxTween.tween(dog, {x: 4000}, 10);
-				bossSound.play();
+				//bossSound.play();
+				FlxG.sound.play(Paths.sound('event/spawnBoss'));
 				dogSummoned = true;
 
 			case 'Display Message':

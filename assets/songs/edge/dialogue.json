@@ -158,9 +158,9 @@
 			"portrait": "brown"
 		},
 		{
-			"expression": "ghost-talk",
+			"expression": "normal",
 			"text": "yo digo que",
-			"portrait": "cesar"
+			"portrait": "cesar-ghost"
 		},
 		{
 			"expression": "angry",

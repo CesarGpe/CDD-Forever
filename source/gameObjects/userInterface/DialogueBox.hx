@@ -19,6 +19,21 @@ import meta.data.font.Alphabet;
 import meta.state.PlayState;
 import openfl.media.Sound;
 
+using StringTools;
+
+typedef BoxDataDef =
+{
+	var position:Null<Array<Int>>;
+	var textPos:Null<Array<Int>>;
+	var scale:Null<Float>;
+	var antialiasing:Null<Bool>;
+	var singleFrame:Null<Bool>;
+	var doFlip:Null<Bool>;
+	var bgColor:Null<Array<Int>>;
+
+	var states:Null<Dynamic>;
+}
+
 typedef PortraitDataDef =
 {
 	var name:String;
@@ -35,6 +50,13 @@ typedef PortraitDataDef =
 	var soundPath:Null<String>;
 }
 
+typedef DialogueFileDataDef =
+{
+	var box:String;
+	var boxState:Null<String>;
+	var dialogue:Array<DialogueDataDef>;
+}
+
 typedef DialogueDataDef =
 {
 	var events:Array<Array<Dynamic>>;
@@ -45,26 +67,6 @@ typedef DialogueDataDef =
 
 	var speed:Null<Int>;
 	var scale:Null<Int>;
-}
-
-typedef BoxDataDef =
-{
-	var position:Null<Array<Int>>;
-	var textPos:Null<Array<Int>>;
-	var scale:Null<Float>;
-	var antialiasing:Null<Bool>;
-	var singleFrame:Null<Bool>;
-	var doFlip:Null<Bool>;
-	var bgColor:Null<Array<Int>>;
-
-	var states:Null<Dynamic>;
-}
-
-typedef DialogueFileDataDef =
-{
-	var box:String;
-	var boxState:Null<String>;
-	var dialogue:Array<DialogueDataDef>;
 }
 
 class DialogueBox extends FlxSpriteGroup
@@ -95,6 +97,7 @@ class DialogueBox extends FlxSpriteGroup
 	public var whenDaFinish:Void->Void;
 
 	public var textStarted:Bool = false;
+	var prtTween:FlxTween;
 
 	public static function createDialogue(thisDialogue:String):DialogueBox
 	{
@@ -119,13 +122,21 @@ class DialogueBox extends FlxSpriteGroup
 	{
 		super();
 
-		// cargar personajes
-		var chars:Array<String> = CoolUtil.returnAssetsLibrary('images/dialogue/portraits', 'assets');
-		for (char in chars)
-			Paths.getSparrowAtlas('dialogue/portraits/$char/$char');
-
 		// get dialog data from dialogue.json
 		dialogueData = haxe.Json.parse(daDialogue);
+
+		// tomar los personajes del dialogo actual y cargarlos
+		var chars:Array<String> = [];
+		for (i in 0...dialogueData.dialogue.length)
+		{
+			var curPortrait = dialogueData.dialogue[i].portrait;
+			if (!chars.contains(curPortrait))
+				chars.push(curPortrait);
+		}
+		for (char in chars)
+			Paths.getSparrowAtlas('dialogue/portraits/$char/$char');
+		//
+		trace('Loaded portraits: ' + chars);
 
 		dialogDataCheck();
 
@@ -170,8 +181,7 @@ class DialogueBox extends FlxSpriteGroup
 
 		FlxG.sound.music.volume = 0.0;
 		FlxG.sound.music.fadeIn(1.0, 0.0, 0.5);
-		if (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()) == 'temper-x'
-			|| PlayState.SONG.song.toLowerCase() == 'temper')
+		if (PlayState.SONG.song.toLowerCase().startsWith('temper'))
 			FlxG.sound.playMusic(Paths.music('collapse'));
 		else
 			FlxG.sound.playMusic(Paths.music('conversation'));
@@ -198,6 +208,7 @@ class DialogueBox extends FlxSpriteGroup
 				textToDisplay = pageData.text;
 
 			alphabetText.startText(textToDisplay, true);
+			portrait.animation.play(curExpression);
 		}
 
 		// change speed
@@ -218,7 +229,7 @@ class DialogueBox extends FlxSpriteGroup
 			// Set the text to nothing for now
 			alphabetText.startText('', true);
 			// To prevent awkward text not against a dialogue background, a quick fix is to delay the initial text
-			new FlxTimer().start(0.375, function(tmr:FlxTimer)
+			new FlxTimer().start(1.35, function(tmr:FlxTimer)
 			{
 				textStarted = true;
 				startText();
@@ -433,7 +444,9 @@ class DialogueBox extends FlxSpriteGroup
 				// this causes problems, and i know exactly what the problem is... i just cant fix it
 				// basically i need to get rid of the last tween before doing a new one, or else the portraits slide around all over the place
 				// ngl its kinda funny
-				FlxTween.tween(portrait, {x: newX + enterX}, 0.2, {ease: FlxEase.quadInOut});
+				if (prtTween != null)
+					prtTween.cancel();
+				prtTween = FlxTween.tween(portrait, {x: newX + enterX}, 0.2, {ease: FlxEase.quadInOut});
 			}
 		}
 
@@ -443,6 +456,7 @@ class DialogueBox extends FlxSpriteGroup
 			curExpression = newExpression;
 
 		portrait.animation.play(curExpression);
+		portrait.animation.finish();
 	}
 
 	function runEvent(eventArray:Array<Dynamic>)
@@ -537,11 +551,14 @@ class DialogueBox extends FlxSpriteGroup
 			text.visible = true;
 		}
 
-		portrait.animation.paused = alphabetText.finishedLine;
-		// + probablemente hay una mejor forma de hacer esto
+		// + probablemente hay una mejor forma de hacer esto...
 		// - PERO ADIVINA CUANTO ME IMPORTA
-		if (portrait.animation.paused)
-			portrait.animation.finish();
+		if (textStarted == true)
+		{
+			portrait.animation.paused = alphabetText.finishedLine;
+			if (portrait.animation.paused)
+				portrait.animation.finish();
+		}
 
 		bgFade.alpha += 0.02;
 		if (bgFade.alpha > 0.6)

@@ -1,0 +1,15 @@
+{
+	"name": "tsuyar-angry",
+	"expressions": {
+		"mad": "tsuyar_mad",
+		"angry": "tsuyar_angry",
+		"no": "tsuyar_shout",
+		"razor": "tsuyar_Razor"
+    },
+    "position": [-60, -120],
+	"scale": 0.55,
+	
+	"sounds": ["voice"],
+	"soundPath": "images/dialogue/portraits/tsuyar/",
+	"soundChance": 100
+}

@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="cave1.png">
-	<!-- Created with Adobe Animate version 19.2.0.405 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="cave_1 instance 10000" x="0" y="0" width="1405" height="1630"/>
-	<SubTexture name="cave_1 instance 10001" x="1406" y="0" width="1405" height="1630"/>
-	<SubTexture name="cave_1 instance 10002" x="0" y="1631" width="1405" height="1630"/>
-	<SubTexture name="cave_1 instance 10003" x="1406" y="1631" width="1405" height="1630"/>
-	<SubTexture name="cave_1 instance 10004" x="0" y="3262" width="1405" height="1630"/>
-	<SubTexture name="cave_1 instance 10005" x="1406" y="3262" width="1405" height="1630"/>
-	<SubTexture name="cave_1 instance 10006" x="0" y="4893" width="1405" height="1630"/>
-	<SubTexture name="cave_1 instance 10007" x="1406" y="4893" width="1405" height="1630"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="cave1.png" width="4223" height="4895">
+	<SubTexture name="cave_1 instance 10000" x="2817" y="1" width="1405" height="1629" frameX="-0" frameY="-0" frameWidth="1405" frameHeight="1630"/>
+	<SubTexture name="cave_1 instance 10001" x="2817" y="1633" width="1405" height="1629" frameX="-0" frameY="-0" frameWidth="1405" frameHeight="1630"/>
+	<SubTexture name="cave_1 instance 10002" x="2817" y="3265" width="1405" height="1628" frameX="-0" frameY="-0" frameWidth="1405" frameHeight="1630"/>
+	<SubTexture name="cave_1 instance 10003" x="1" y="3266" width="1405" height="1628" frameX="-0" frameY="-0" frameWidth="1405" frameHeight="1630"/>
+	<SubTexture name="cave_1 instance 10004" x="1" y="1" width="1405" height="1630" frameX="-0" frameY="-0" frameWidth="1405" frameHeight="1630"/>
+	<SubTexture name="cave_1 instance 10005" x="1409" y="1" width="1405" height="1630" frameX="-0" frameY="-0" frameWidth="1405" frameHeight="1630"/>
+	<SubTexture name="cave_1 instance 10006" x="1" y="1634" width="1405" height="1629" frameX="-0" frameY="-0" frameWidth="1405" frameHeight="1630"/>
+	<SubTexture name="cave_1 instance 10007" x="1409" y="1634" width="1405" height="1629" frameX="-0" frameY="-0" frameWidth="1405" frameHeight="1630"/>
 </TextureAtlas>

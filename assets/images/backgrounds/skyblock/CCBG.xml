@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="CCBG.png">
-	<!-- Created with Adobe Animate version 19.2.0.405 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="blueBg0000" x="0" y="0" width="1937" height="1109"/>
-	<SubTexture name="purpleBg0000" x="0" y="1114" width="1937" height="1109"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="CCBG.png" width="3879" height="1111">
+	<SubTexture name="blueBg0000" x="1" y="1" width="1937" height="1109" frameX="-0" frameY="-0" frameWidth="1937" frameHeight="1109"/>
+	<SubTexture name="purpleBg0000" x="1941" y="1" width="1937" height="1109" frameX="-0" frameY="-0" frameWidth="1937" frameHeight="1109"/>
 </TextureAtlas>

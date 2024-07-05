@@ -1,22 +1,23 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="discord_backGround.png">
-	<!-- Created with Adobe Animate version 19.2.0.405 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="discord_background instance 10000" x="0" y="0" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10001" x="0" y="0" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10002" x="2174" y="0" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10003" x="2174" y="0" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10004" x="4348" y="0" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10005" x="4348" y="0" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10006" x="0" y="1269" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10007" x="0" y="1269" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10008" x="2174" y="1269" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10009" x="2174" y="1269" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10010" x="4348" y="1269" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10011" x="4348" y="1269" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10012" x="0" y="2538" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10013" x="0" y="2538" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10014" x="2174" y="2538" width="2169" height="1264"/>
-	<SubTexture name="discord_background instance 10015" x="2174" y="2538" width="2169" height="1264"/>
-	<SubTexture name="reallyBg instance 10000" x="4348" y="2538" width="2089" height="1264"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="discord_backGround.png" width="6357" height="3800">
+	<SubTexture name="discord_background instance 10000" x="1" y="1268" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10001" x="1" y="1268" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10002" x="2094" y="1268" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10003" x="2094" y="1268" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10004" x="2173" y="1" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10005" x="2173" y="1" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10006" x="4187" y="1268" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10007" x="4187" y="1268" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10008" x="1" y="1" width="2169" height="1264" frameX="-0" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10009" x="1" y="1" width="2169" height="1264" frameX="-0" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10010" x="4266" y="1" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10011" x="4266" y="1" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10012" x="1" y="2535" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10013" x="1" y="2535" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10014" x="2094" y="2535" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="discord_background instance 10015" x="2094" y="2535" width="2090" height="1264" frameX="-79" frameY="-0" frameWidth="2169" frameHeight="1264"/>
+	<SubTexture name="reallyBg instance 10000" x="4187" y="2535" width="2089" height="1264" frameX="-0" frameY="-0" frameWidth="2089" frameHeight="1264"/>
 </TextureAtlas>

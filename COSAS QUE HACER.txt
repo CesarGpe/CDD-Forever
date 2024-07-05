@@ -1,7 +1,0 @@
-# MENUS (tematica de discord para todos)
-- modo historia
-- freeplay???
-- opciones
-
-# MISC
-- traduccion al ingles

@@ -1,19 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="MinionOutpost.png">
-	<!-- Created with Adobe Animate version 19.2.0.405 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="MinionOutpost0000" x="0" y="0" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0001" x="0" y="0" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0002" x="0" y="147" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0003" x="0" y="147" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0004" x="0" y="294" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0005" x="0" y="294" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0006" x="0" y="294" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0007" x="0" y="294" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0008" x="0" y="294" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0009" x="0" y="294" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0010" x="0" y="294" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0011" x="0" y="294" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0012" x="0" y="294" width="498" height="147"/>
-	<SubTexture name="MinionOutpost0013" x="0" y="294" width="498" height="147"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="MinionOutpost.png" width="1502" height="149">
+	<SubTexture name="MinionOutpost0000" x="1003" y="1" width="498" height="145" frameX="-0" frameY="-2" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0001" x="1003" y="1" width="498" height="145" frameX="-0" frameY="-2" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0002" x="1" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0003" x="1" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0004" x="502" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0005" x="502" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0006" x="502" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0007" x="502" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0008" x="502" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0009" x="502" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0010" x="502" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0011" x="502" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0012" x="502" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
+	<SubTexture name="MinionOutpost0013" x="502" y="1" width="498" height="147" frameX="-0" frameY="-0" frameWidth="498" frameHeight="147"/>
 </TextureAtlas>

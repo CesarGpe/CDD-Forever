@@ -138,9 +138,9 @@
 			"portrait": "calaca"
 		},
 		{
-			"expression": "ghost-talk",
+			"expression": "normal",
 			"text": "el llorlly",
-			"portrait": "cesar"
+			"portrait": "cesar-ghost"
 		},
 		{
 			"expression": "normal",
@@ -163,14 +163,14 @@
 			"portrait": "bf"
 		},
 		{
-			"expression": "ghost-talk",
+			"expression": "normal",
 			"text": "menos yo porque no se cantar",
-			"portrait": "cesar"
+			"portrait": "cesar-ghost"
 		},
 		{
-			"expression": "ghost-down",
+			"expression": "lookdown",
 			"text": "(espera yo estoy muerto)",
-			"portrait": "cesar"
+			"portrait": "cesar-ghost"
 		},
 		{
 			"expression": "normal",
@@ -208,9 +208,9 @@
 			"portrait": "brown"
 		},
 		{
-			"expression": "ghost-talk",
+			"expression": "normal",
 			"text": "el llorlly",
-			"portrait": "cesar"
+			"portrait": "cesar-ghost"
 		},
 		{
 			"expression": "dead",

@@ -26,7 +26,7 @@ class FreeplayState extends MusicBeatState
 	//
 	var songs:Array<SongMetadata> = [];
 
-	var curSelected:Int = 0;
+	static var curSelected:Int = 0;
 	var curSongPlaying:Int = -1;
 	var curDifficulty:Int = 1;
 
@@ -53,6 +53,8 @@ class FreeplayState extends MusicBeatState
 	private var existingDifficulties:Array<Array<String>> = [];
 
 	public static var story:Bool;
+	public static var curSongBPM:Float;
+	public static var changedMenuSong:Bool = false;
 
 	override function create()
 	{
@@ -77,7 +79,7 @@ class FreeplayState extends MusicBeatState
 		story = Init.trueSettings.get('fpStory');
 		if (story)
 		{
-			bg = new FlxSprite().loadGraphic(Paths.image('menus/base/menuDesat'));
+			bg = new FlxSprite().loadGraphic(Paths.image('menus/bgs/menuDesat'));
 			add(bg);
 			for (i in 0...Main.gameWeeks.length)
 			{
@@ -89,7 +91,7 @@ class FreeplayState extends MusicBeatState
 		else
 		{
 			var num:String = Std.string(FlxG.random.int(1, 3));
-			bg = new FlxSprite().loadGraphic(Paths.image('menus/base/cast' + num));
+			bg = new FlxSprite().loadGraphic(Paths.image('menus/bgs/cast' + num));
 			add(bg);
 			for (i in folderSongs)
 			{
@@ -277,6 +279,7 @@ class FreeplayState extends MusicBeatState
 
 			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
 			PlayState.isStoryMode = false;
+			PlayState.seenCutscene = false;
 			PlayState.storyDifficulty = curDifficulty;
 
 			PlayState.storyWeek = songs[curSelected].week;
@@ -381,6 +384,7 @@ class FreeplayState extends MusicBeatState
 		changeSongPlaying();
 	}
 
+	public static var epicSong:SwagSong;
 	function changeSongPlaying()
 	{
 		if (songThread == null)
@@ -402,7 +406,19 @@ class FreeplayState extends MusicBeatState
 						{
 							trace("Loading index " + index);
 
-							var inst:Sound = Paths.inst(songs[curSelected].songName);
+							// var inst:Sound = Paths.inst(songs[curSelected].songName);
+							var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(),
+								CoolUtil.difficultyArray.indexOf(existingDifficulties[curSelected][curDifficulty]));
+
+							epicSong = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
+
+							curSongBPM = epicSong.bpm;
+							if (epicSong.song == 'succionar')
+								Conductor.changeBPM(420);
+							else
+								Conductor.changeBPM(curSongBPM);
+
+							var inst:Sound = Paths.inst(epicSong.song);
 
 							if (index == curSelected && threadActive)
 							{
@@ -411,6 +427,7 @@ class FreeplayState extends MusicBeatState
 								mutex.release();
 
 								curSongPlaying = curSelected;
+								changedMenuSong = true;
 							}
 							else
 								trace("Nevermind, skipping " + index);

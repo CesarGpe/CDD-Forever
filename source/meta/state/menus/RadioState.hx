@@ -6,13 +6,17 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.system.FlxSound;
 import flixel.text.FlxText;
+import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
+import gameObjects.Character;
 import gameObjects.userInterface.HealthIcon;
-import meta.MusicBeat.MusicBeatState;
+import meta.RadioBeat.RadioBeatState;
 import meta.data.*;
 import meta.data.Song.SwagSong;
 import meta.data.dependency.Discord;
+import meta.data.dependency.FNFSprite;
 import meta.data.font.Alphabet;
 import meta.state.menus.FreeplayState.SongMetadata;
 import openfl.media.Sound;
@@ -22,332 +26,337 @@ import sys.thread.Thread;
 
 using StringTools;
 
-class RadioState extends MusicBeatState
+class RadioState extends RadioBeatState
 {
-	var songs:Array<SongMetadata> = [];
-
-	var curSelected:Int = 0;
 	var curSongPlaying:Int = -1;
-	var curDifficulty:Int = 1;
+	var curSelected:Int = 0;
 
-	var scoreText:FlxText;
-	var subText:FlxText;
-	var lerpScore:Int = 0;
-	var intendedScore:Int = 0;
-
-	var songThread:Thread;
 	var threadActive:Bool = true;
+	var songThread:Thread;
 	var mutex:Mutex;
-	var songToPlay:Sound = null;
+	
+	var songInst:FlxSound = new FlxSound();
+	var songVocals:FlxSound = new FlxSound();
 
-	private var grpSongs:FlxTypedGroup<Alphabet>;
-	private var curPlaying:Bool = false;
+	var shitBeat:Int = 0;
+	var playVocals:Bool = true;
+	var pauseMusic:Bool = false;
+	var songs:Array<SongMetadata> = [];
+	var radioSongs:Array<String> = [
+		'skullody',
+		'coffee','spring','rules',
+		'deadbush','necron','gaming',
+		'goop','chase','pandemonium',
+		'edge','absolution','temper',
+		'temper-x', 'memories',
+	];
 
-	private var iconArray:Array<HealthIcon> = [];
+	var epicSong:SwagSong;
+	var groovy:FNFSprite;
+	var vocTxt:FlxText;
+	var volTxt:FlxText;
+	var gText:FlxText;
+	var gf:Character;
 
-	private var mainColor = FlxColor.WHITE;
-	private var bg:FlxSprite;
-	private var scoreBG:FlxSprite;
+	var volTween:FlxTween;
+	var vocTween:FlxTween;
+	var prevTween:FlxTween;
+	var nextTween:FlxTween;
+	var playTween:FlxTween;
+	var pauseTween:FlxTween;
 
-	private var existingSongs:Array<String> = [];
-	private var existingDifficulties:Array<Array<String>> = [];
-
-	public static var story:Bool;
+	var playIcon:FlxSprite;
+	var pauseIcon:FlxSprite;
+	var prevIcon:FlxSprite;
+	var nextIcon:FlxSprite;
 
 	override function create()
 	{
 		super.create();
 		mutex = new Mutex();
-		FlxG.autoPause = false;
 
-		var folderSongs:Array<String> = CoolUtil.returnAssetsLibrary('songs', 'assets');
-		for (i in 0...Main.gameWeeks.length)
-		{
-			addWeek(Main.gameWeeks[i][0], i, Main.gameWeeks[i][1], Main.gameWeeks[i][2]);
-			for (j in cast(Main.gameWeeks[i][0], Array<Dynamic>))
-				existingSongs.push(j.toLowerCase());
-		}
+		FlxG.sound.list.add(songInst);
+		FlxG.sound.list.add(songVocals);
 
-		for (i in folderSongs)
-		{
-			if (!existingSongs.contains(i.toLowerCase()))
-			{
-				var icon:String = 'face';
-				var freeplayColor:FlxColor = FlxColor.WHITE;
-				var chartExists:Bool = FileSystem.exists(Paths.songJson(i, i));
-				if (chartExists)
-				{
-					var castSong:SwagSong = Song.loadFromJson(i, i);
-					icon = (castSong != null) ? castSong.player2 : 'face';
+		var bg:FlxSprite = new FlxSprite();
+		bg.makeGraphic(FlxG.width, FlxG.height, 0xff313338);
+		bg.screenCenter();
+		add(bg);
 
-					// colores epicos
-					switch (CoolUtil.spaceToDash(castSong.song.toLowerCase()))
-					{
-						case 'asf':
-							freeplayColor = FlxColor.fromRGB(0, 113, 40);
-						case 'chronomatron':
-							freeplayColor = FlxColor.fromRGB(127, 127, 127);
-						case 'memories':
-							freeplayColor = FlxColor.fromRGB(204, 204, 204);
-						case 'pelea-en-la-calle-tres':
-							freeplayColor = FlxColor.fromRGB(255, 255, 255);
-						case 'pilin':
-							freeplayColor = FlxColor.fromRGB(0, 255, 160);
-						case 'razortrousle':
-							freeplayColor = FlxColor.fromRGB(186, 76, 173);
-						case 'succionar':
-							freeplayColor = FlxColor.fromRGB(255, 0, 255);
-							icon = 'face';
-						case 'take-five':
-							freeplayColor = FlxColor.fromRGB(176, 11, 115);
-						case 'temper-x':
-							freeplayColor = FlxColor.fromRGB(128, 20, 20);
-					}
+		//var topBar:FlxSprite = new FlxSprite(0, -20);
+		//topBar.makeGraphic(FlxG.width, Std.int(FlxG.height * (1 / 6)), 0xff232428);
+		//add(topBar);
 
-					if (Init.trueSettings.get('asfUnlock'))
-						addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
-					else
-					{
-						if (castSong.song.toLowerCase() != 'asf')
-							addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
-					}
-				}
-			}
-		}
+		var sepLine:FlxSprite = new FlxSprite(0, 115);
+		sepLine.makeGraphic(FlxG.width, 4, 0xff27282d);
+		add(sepLine);
+
+		var channeltag:FlxText = new FlxText(30, 0, 550, '#');
+		channeltag.setFormat(Paths.font("whitneymedium.otf"), 90, 0xff8b8d92, LEFT);
+		channeltag.antialiasing = true;
+		add(channeltag);
+
+		var channeltxt:FlxText = new FlxText(110, 15, 550, 'rockola');
+		channeltxt.setFormat(Paths.font("whitneysemibold.otf"), 70, 0xfff3ffee, LEFT);
+		channeltxt.antialiasing = true;
+		add(channeltxt);
+
+		var poopLine:FlxSprite = new FlxSprite(373, 30);
+		poopLine.makeGraphic(4, 60, 0xff3f4147);
+		add(poopLine);
+
+		var channeltxt:FlxText = new FlxText(420, 30, 0, 'Escucha el soundtrack de Vs. CDD!');
+		channeltxt.setFormat(Paths.font("whitneymedium.otf"), 50, 0xff8b8d92, LEFT);
+		channeltxt.antialiasing = true;
+		add(channeltxt);
+
+		var subBar:FlxSprite = new FlxSprite(0, 620);
+		subBar.makeGraphic(FlxG.width, Std.int(FlxG.height * (1/6)), 0xff232428);
+		add(subBar);
+
+		var dirTxt:FlxText = new FlxText(120, 385, 0, 'IZQUIERDA/DERECHA: Cambiar canciones\nARRIBA/ABAJO: Cambiar volumen\nESPACIO: Pausar y reanudar\nENTER: Alternar vocales');
+		dirTxt.setFormat(Paths.font("whitneybook.otf"), 25, FlxColor.WHITE, FlxTextAlign.LEFT);
+		dirTxt.scrollFactor.set();
+		dirTxt.antialiasing = true;
+		add(dirTxt);
+
+		volTxt = new FlxText(0, FlxG.height - 65, 0, 'Volumen: 100%');
+		volTxt.setFormat(Paths.font("whitneymedium.otf"), 30, FlxColor.WHITE, FlxTextAlign.CENTER);
+		volTxt.scrollFactor.set();
+		volTxt.updateHitbox();
+		volTxt.x = FlxG.width - volTxt.width - 25;
+		volTxt.antialiasing = true;
+		volTxt.alpha = 0.5;
+		add(volTxt);
+
+		vocTxt = new FlxText(25, FlxG.height - 65, 0, 'Vocales: O');
+		vocTxt.setFormat(Paths.font("whitneymedium.otf"), 30, FlxColor.WHITE, FlxTextAlign.CENTER);
+		vocTxt.scrollFactor.set();
+		vocTxt.updateHitbox();
+		vocTxt.antialiasing = true;
+		vocTxt.alpha = 0.5;
+		add(vocTxt);
+
+		pauseIcon = new FlxSprite(0, FlxG.height - 78);
+		pauseIcon.loadGraphic(Paths.image('menus/radio/pause'));
+		pauseIcon.setGraphicSize(Std.int(pauseIcon.width * 0.25), Std.int(pauseIcon.height * 0.25));
+		pauseIcon.updateHitbox();
+		pauseIcon.antialiasing = true;
+		pauseIcon.screenCenter(X);
+		pauseIcon.x -= 5;
+		pauseIcon.alpha = 0.5;
+		add(pauseIcon);
+
+		playIcon = new FlxSprite(0, FlxG.height - 78);
+		playIcon.loadGraphic(Paths.image('menus/radio/play'));
+		playIcon.setGraphicSize(Std.int(playIcon.width * 0.25), Std.int(playIcon.height * 0.25));
+		playIcon.updateHitbox();
+		playIcon.antialiasing = true;
+		playIcon.screenCenter(X);
+		playIcon.alpha = 0;
+		add(playIcon);
+
+		prevIcon = new FlxSprite(0, FlxG.height - 78);
+		prevIcon.loadGraphic(Paths.image('menus/radio/skip'));
+		prevIcon.setGraphicSize(Std.int(prevIcon.width * 0.25), Std.int(prevIcon.height * 0.25));
+		prevIcon.updateHitbox();
+		prevIcon.antialiasing = true;
+		prevIcon.screenCenter(X);
+		prevIcon.flipX = true;
+		prevIcon.x -= 90;
+		prevIcon.alpha = 0.5;
+		add(prevIcon);
+
+		nextIcon = new FlxSprite(0, FlxG.height - 78);
+		nextIcon.loadGraphic(Paths.image('menus/radio/skip'));
+		nextIcon.setGraphicSize(Std.int(nextIcon.width * 0.25), Std.int(nextIcon.height * 0.25));
+		nextIcon.updateHitbox();
+		nextIcon.antialiasing = true;
+		nextIcon.screenCenter(X);
+		nextIcon.x += 80;
+		nextIcon.alpha = 0.5;
+		add(nextIcon);
+
+		gf = new Character();
+		gf.adjustPos = false;
+		gf.setCharacter(570, 10, 'reimu');
+		gf.setGraphicSize(Std.int(gf.width * 0.6), Std.int(gf.height * 0.6));
+		gf.updateHitbox();
+		gf.dance(true);
+		gf.dance(true);
+		add(gf);
+
+		groovy = new FNFSprite(80, 140);
+		groovy.frames = Paths.getSparrowAtlas('backgrounds/discord/groovySong');
+		groovy.animation.addByPrefix('left', 'bganimated_1', 24, false);
+		groovy.animation.addByPrefix('right', 'bganimated_2', 24, false);
+		groovy.setGraphicSize(Std.int(groovy.width * 0.5), Std.int(groovy.height * 0.5));
+		groovy.updateHitbox();
+		add(groovy);
+
+		gText = new FlxText(140, 295, 0, 'Now playing: Skullody');
+		gText.setFormat(Paths.font("whitneybook.otf"), 40, FlxColor.WHITE);
+		gText.updateHitbox();
+		add(gText);
+
+		var black:FlxSprite = new FlxSprite();
+		black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		black.scrollFactor.set();
+		black.screenCenter();
+		add(black);
+
+		var introTxt:FlxText = new FlxText(30, FlxG.height - 685, 0, 'Sincronizando audio...');
+		introTxt.setFormat(Paths.font("whitneybook.otf"), 30, FlxColor.WHITE, FlxTextAlign.CENTER);
+		introTxt.scrollFactor.set();
+		introTxt.antialiasing = true;
+		add(introTxt);
+
+		// ASF en la rokola si lo tienes desbloqueado
+		if (Init.trueSettings.get('asfUnlock'))
+			radioSongs.push('asf');
+
+		// añadir cancionesss verga
+		for (song in radioSongs)
+			songs.push(new SongMetadata(song, 1, '', FlxColor.WHITE));
 
 		#if !html5
 		Discord.changePresence('En los Menús:', 'Escuchando la rockola');
 		#end
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menus/base/menuDesat'));
-		add(bg);
-		
-		grpSongs = new FlxTypedGroup<Alphabet>();
-		add(grpSongs);
-
-		for (i in 0...songs.length)
+		FlxG.sound.music.fadeOut(1.5, 0);
+		new FlxTimer().start(1.5, function(tmr:FlxTimer)
 		{
-			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
-			songText.isMenuItem = true;
-			songText.targetY = i;
-			grpSongs.add(songText);
-
-			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
-			icon.sprTracker = songText;
-
-			// using a FlxGroup is too much fuss!
-			iconArray.push(icon);
-			add(icon);
-
-			// songText.x += 40;
-			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
-		}
-
-		scoreText = new FlxText(FlxG.width * 0.77, 5, 0, "", 32);
-		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
-
-		scoreBG = new FlxSprite(scoreText.x - scoreText.width, 0).makeGraphic(Std.int(FlxG.width * 0.36), 66, 0xFF000000);
-		scoreBG.alpha = 0.6;
-		add(scoreBG);
-
-		subText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
-		subText.alignment = CENTER;
-		subText.font = scoreText.font;
-		subText.x = scoreBG.getGraphicMidpoint().x;
-		add(subText);
-
-		if (story)
-			subText.text = "< HISTORIA >";
-		else
-			subText.text = "< BONUS >";
-
-		add(scoreText);
+			FlxTween.tween(black, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});
+			FlxTween.tween(introTxt, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});
+		});
 
 		changeSelection();
-
-		// FlxG.sound.playMusic(Paths.music('title'), 0);
-		// FlxG.sound.music.fadeIn(2, 0, 0.8);
-	}
-
-	public function addSong(songName:String, weekNum:Int, songCharacter:String, songColor:FlxColor)
-	{
-		///*
-		var coolDifficultyArray = [];
-		for (i in CoolUtil.difficultyArray)
-			if (FileSystem.exists(Paths.songJson(songName, songName + '-' + i))
-				|| (FileSystem.exists(Paths.songJson(songName, songName)) && i == "NORMAL"))
-				coolDifficultyArray.push(i);
-
-		if (coolDifficultyArray.length > 0)
-		{ //*/
-			songs.push(new SongMetadata(songName, weekNum, songCharacter, songColor));
-			existingDifficulties.push(coolDifficultyArray);
-		}
-	}
-
-	public function addWeek(songs:Array<String>, weekNum:Int, ?songCharacters:Array<String>, ?songColor:Array<FlxColor>)
-	{
-		if (songCharacters == null)
-			songCharacters = ['bf'];
-		if (songColor == null)
-			songColor = [FlxColor.WHITE];
-
-		var num:Array<Int> = [0, 0];
-		for (song in songs)
-		{
-			addSong(song, weekNum, songCharacters[num[0]], songColor[num[1]]);
-
-			if (songCharacters.length != 1)
-				num[0]++;
-			if (songColor.length != 1)
-				num[1]++;
-		}
 	}
 
 	override function update(elapsed:Float)
 	{
+		if (FlxG.sound.music != null)
+			Conductor.songPosition = songInst.time;
+			//Conductor.songPosition = FlxG.sound.music.time;
+
 		super.update(elapsed);
 
-		FlxTween.color(bg, 0.35, bg.color, mainColor);
+		mutex.acquire();
 
-		var lerpVal = Main.framerateAdjust(0.1);
-		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, lerpVal));
-
-		if (Math.abs(lerpScore - intendedScore) <= 10)
-			lerpScore = intendedScore;
-
-		var upP = controls.UI_UP_P;
-		var downP = controls.UI_DOWN_P;
-		var accepted = controls.ACCEPT;
-
-		if (upP)
+		// cambiar canciones
+		if (FlxG.keys.justPressed.LEFT)
 			changeSelection(-1);
-		else if (downP)
+		else if (FlxG.keys.justPressed.RIGHT)
 			changeSelection(1);
 
-		if (controls.UI_LEFT_P) {
-			// do shit
-		}
-		if (controls.UI_RIGHT_P) {
-			// do shit
+		// cambiar volumen
+		if (FlxG.keys.pressed.UP)
+			changeVolume(0.01);
+		else if (FlxG.keys.pressed.DOWN)
+			changeVolume(-0.01);
+
+		// pausar y reanudar
+		if (FlxG.keys.justPressed.SPACE && epicSong != null)
+		{
+			pauseMusic = !pauseMusic;
+			if (pauseMusic)
+				pauseSong();
+			else
+				resumeSong();
 		}
 
+		// alternar voces
+		if (FlxG.keys.justPressed.ENTER && epicSong != null && epicSong.needsVoices)
+		{
+			playVocals = !playVocals;
+			songVocals.volume = (playVocals) ? songInst.volume : 0;
+			vocTxt.text = 'Vocales: ' + ((playVocals) ? 'O' : 'X');
+
+			vocTxt.alpha = 1;
+			if (vocTween != null) vocTween.cancel();
+			vocTween = FlxTween.tween(vocTxt, {alpha: 0.5}, 0.5, {ease: FlxEase.quadInOut});
+		}
+
+		// regresar al menu principal
 		if (controls.BACK)
 		{
 			threadActive = false;
 			FlxG.sound.play(Paths.sound('menu/cancelMenu'));
+
+			songInst.destroy();
+			songVocals.destroy();
+
+			MainMenuState.resetMusic = true;
 			Main.switchState(this, new MainMenuState());
 		}
 
-		if (accepted)
-		{
-			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(),
-				CoolUtil.difficultyArray.indexOf(existingDifficulties[curSelected][curDifficulty]));
-
-			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
-			PlayState.isStoryMode = false;
-			PlayState.storyDifficulty = curDifficulty;
-
-			PlayState.storyWeek = songs[curSelected].week;
-			trace('CUR WEEK' + PlayState.storyWeek);
-
-			if (FlxG.sound.music != null)
-				FlxG.sound.music.stop();
-
-			threadActive = false;
-
-			Main.switchState(this, new PlayState(), true);
-		}
-
-		// Adhere the position of all the things (I'm sorry it was just so ugly before I had to fix it Shubs)
-		scoreText.text = "MEJOR PUNTAJE:" + lerpScore;
-		scoreText.x = FlxG.width - scoreText.width - 5;
-		scoreBG.width = scoreText.width + 8;
-		scoreBG.x = FlxG.width - scoreBG.width;
-		subText.x = scoreBG.x + (scoreBG.width / 2) - (subText.width / 2);
-
-		mutex.acquire();
-		if (songToPlay != null)
-		{
-			FlxG.sound.playMusic(songToPlay);
-
-			if (FlxG.sound.music.fadeTween != null)
-				FlxG.sound.music.fadeTween.cancel();
-
-			FlxG.sound.music.volume = 0.0;
-			FlxG.sound.music.fadeIn(1.0, 0.0, 1.0);
-
-			songToPlay = null;
-		}
 		mutex.release();
 	}
 
-	var lastDifficulty:String;
-
-	function changeDiff(change:Int = 0)
+	function changeVolume(change:Float = 0)
 	{
-		curDifficulty += change;
-		if (lastDifficulty != null && change != 0)
-			while (existingDifficulties[curSelected][curDifficulty] == lastDifficulty)
-				curDifficulty += change;
+		songInst.volume += change;
+		if (playVocals)
+			songVocals.volume = songInst.volume;
 
-		if (curDifficulty < 0)
-			curDifficulty = existingDifficulties[curSelected].length - 1;
-		if (curDifficulty > existingDifficulties[curSelected].length - 1)
-			curDifficulty = 0;
+		volTxt.alpha = 1;
+		volTxt.text = 'Volumen: ' + Std.int(songInst.volume * 100) + '%';
 
-		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
+		if (volTween != null) volTween.cancel();
+		volTween = FlxTween.tween(volTxt, {alpha: 0.5}, 0.5, {ease: FlxEase.quadInOut});
+		
+	}
 
-		lastDifficulty = existingDifficulties[curSelected][curDifficulty];
+	function pauseSong()
+	{
+		songInst.pause();
+		songVocals.pause();
+
+		pauseIcon.alpha = 1;
+
+		if (playTween != null) playTween.cancel();
+		playTween = FlxTween.tween(playIcon, {alpha: 0.5}, 0.25, {ease: FlxEase.quadInOut});
+
+		if (pauseTween != null) pauseTween.cancel();
+		pauseTween = FlxTween.tween(pauseIcon, {alpha: 0}, 0.25, {ease: FlxEase.quadInOut});
+	}
+
+	function resumeSong()
+	{
+		resyncVocals();
+
+		playIcon.alpha = 1;
+
+		if (playTween != null) playTween.cancel();
+		playTween = FlxTween.tween(playIcon, {alpha: 0}, 0.25, {ease: FlxEase.quadInOut});
+
+		if (pauseTween != null) pauseTween.cancel();
+		pauseTween = FlxTween.tween(pauseIcon, {alpha: 0.5}, 0.25, {ease: FlxEase.quadInOut});
 	}
 
 	function changeSelection(change:Int = 0)
 	{
-		FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.4);
+		if (change != 0)
+			FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.4);
 
 		curSelected += change;
-
 		if (curSelected < 0)
 			curSelected = songs.length - 1;
 		if (curSelected >= songs.length)
 			curSelected = 0;
 
-		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
-
-		// set up color stuffs
-		mainColor = songs[curSelected].songColor;
-
-		// song switching stuffs
-
-		var bullShit:Int = 0;
-
-		for (i in 0...iconArray.length)
-		{
-			iconArray[i].alpha = 0.6;
-		}
-
-		iconArray[curSelected].alpha = 1;
-
-		for (item in grpSongs.members)
-		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
-			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
-
-			if (item.targetY == 0)
-			{
-				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
-			}
-		}
-		//
-
 		trace("curSelected: " + curSelected);
 
-		changeDiff();
+		if (change == 1) {
+			nextIcon.alpha = 1;
+			if (nextTween != null) nextTween.cancel();
+			nextTween = FlxTween.tween(nextIcon, {alpha: 0.5}, 0.25, {ease: FlxEase.quadInOut});
+		} else {
+			prevIcon.alpha = 1;
+			if (prevTween != null) prevTween.cancel();
+			prevTween = FlxTween.tween(prevIcon, {alpha: 0.5}, 0.25, {ease: FlxEase.quadInOut});
+		}
+		
 		changeSongPlaying();
 	}
 
@@ -372,15 +381,31 @@ class RadioState extends MusicBeatState
 						{
 							trace("Loading index " + index);
 
-							var inst:Sound = Paths.inst(songs[curSelected].songName);
+							songInst.stop();
+							songVocals.stop();
 
+							var poop:String = songs[curSelected].songName.toLowerCase();
+
+							epicSong = Song.loadFromJson(poop, poop);
+							Conductor.changeBPM(epicSong.bpm);
+							
 							if (index == curSelected && threadActive)
 							{
 								mutex.acquire();
-								songToPlay = inst;
+
+								loadSong();
+								if (pauseMusic && songInst != null && songVocals != null)
+								{
+									songInst.pause();
+									songVocals.pause();
+								}
+								else
+									resyncVocals(true);
+
 								mutex.release();
 
 								curSongPlaying = curSelected;
+								gText.text = 'Now playing: ' + CoolUtil.dashToSpace(epicSong.song);
 							}
 							else
 								trace("Nevermind, skipping " + index);
@@ -395,6 +420,79 @@ class RadioState extends MusicBeatState
 		songThread.sendMessage(curSelected);
 	}
 
-	var playingSongs:Array<FlxSound> = [];
+	function loadSong()
+	{
+		songInst.loadEmbedded(Paths.inst(epicSong.song));
+		songVocals.loadEmbedded(Paths.voices(epicSong.song));
+
+		if (songInst != null)
+		{
+			songInst.play();
+			songInst.onComplete = restartSong;
+		}
+		if (songVocals != null)
+		{
+			songVocals.play();
+			songVocals.volume = (playVocals) ? songInst.volume : 0;
+		}
+	}
+
+	function restartSong()
+	{
+		trace('Restarting song');
+		if (epicSong != null)
+		{
+			mutex.acquire();
+
+			songInst.destroy();
+			songVocals.destroy();
+
+			songInst = new FlxSound();
+			songVocals = new FlxSound();
+
+			loadSong();
+			resyncVocals(true);
+
+			mutex.release();
+		}
+	}
+
+	function resyncVocals(resetBeat:Bool = false)
+	{
+		songInst.pause();
+		songVocals.pause();
+		Conductor.songPosition = songInst.time;
+		songVocals.time = Conductor.songPosition;
+		songInst.play();
+		songVocals.play();
+
+		if (resetBeat)
+			shitBeat = 0;
+	}
+
+	private var danced:Bool = false;
+	override function beatHit()
+	{
+		super.beatHit();
+
+		shitBeat++;
+		switch (shitBeat)
+		{
+			case 0:
+				resyncVocals();
+			default:
+				if (!pauseMusic)
+				{
+					gf.dance(true);
+
+					danced = !danced;
+					if (danced)
+						groovy.animation.play('left', true);
+					else
+						groovy.animation.play('right', true);
+				}
+		}
+		trace('beat: ' + shitBeat);
+	}
 
 }

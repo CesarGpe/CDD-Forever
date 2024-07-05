@@ -7,12 +7,12 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import gameObjects.Boyfriend;
-import gameObjects.userInterface.UnownSubstate;
 import meta.MusicBeat.MusicBeatSubState;
 import meta.data.Conductor.BPMChangeEvent;
 import meta.data.Conductor;
 import meta.state.*;
 import meta.state.menus.*;
+import meta.subState.UnownSubstate;
 
 class GameOverSubstate extends MusicBeatSubState
 {

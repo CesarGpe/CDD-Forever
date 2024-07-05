@@ -85,7 +85,6 @@ class OptionsMenuState extends MusicBeatState
 				[
 					['Visuales', null],
 					['', null],
-					['Discord Modo Luz', getFromOption],
 					['Ventana Oscura', getFromOption],
 					['UI Skin', getFromOption],
 					['', null],
@@ -120,7 +119,7 @@ class OptionsMenuState extends MusicBeatState
 
 		// call the options menu
 		var bg = new FlxSprite(-85);
-		bg.loadGraphic(Paths.image('menus/base/menuDesat'));
+		bg.loadGraphic(Paths.image('menus/bgs/menuDesat'));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.18;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));

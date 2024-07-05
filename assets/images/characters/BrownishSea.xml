@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="BrownishSea.png" width="2229" height="2488">
+	<SubTexture name="Brown_Down0000" x="1593" y="1556" width="429" height="482" rotated="true" frameX="-0" frameY="-0" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0001" x="1108" y="2003" width="482" height="429" frameX="-0" frameY="-0" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0002" x="1" y="2084" width="476" height="403" frameX="-4" frameY="-26" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0003" x="480" y="2084" width="474" height="388" frameX="-6" frameY="-41" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0004" x="480" y="2084" width="474" height="388" frameX="-6" frameY="-41" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0005" x="1593" y="2041" width="474" height="394" frameX="-6" frameY="-35" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0006" x="1593" y="2041" width="474" height="394" frameX="-6" frameY="-35" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0007" x="1593" y="2041" width="474" height="394" frameX="-6" frameY="-35" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0008" x="1593" y="2041" width="474" height="394" frameX="-6" frameY="-35" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0009" x="1593" y="2041" width="474" height="394" frameX="-6" frameY="-35" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0010" x="1593" y="2041" width="474" height="394" frameX="-6" frameY="-35" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0011" x="1593" y="2041" width="474" height="394" frameX="-6" frameY="-35" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0012" x="1593" y="2041" width="474" height="394" frameX="-6" frameY="-35" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Down0013" x="1593" y="2041" width="474" height="394" frameX="-6" frameY="-35" frameWidth="482" frameHeight="429"/>
+	<SubTexture name="Brown_Idle0000" x="1786" y="552" width="442" height="545" frameX="-0" frameY="-5" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0001" x="1670" y="1111" width="545" height="442" rotated="true" frameX="-0" frameY="-5" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0002" x="1786" y="1" width="442" height="548" frameX="-7" frameY="-2" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0003" x="1321" y="559" width="440" height="549" frameX="-10" frameY="-1" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0004" x="1321" y="559" width="440" height="549" frameX="-10" frameY="-1" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0005" x="556" y="1603" width="549" height="440" rotated="true" frameX="-10" frameY="-1" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0006" x="556" y="1603" width="549" height="440" rotated="true" frameX="-10" frameY="-1" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0007" x="556" y="1603" width="549" height="440" rotated="true" frameX="-10" frameY="-1" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0008" x="556" y="1603" width="549" height="440" rotated="true" frameX="-10" frameY="-1" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0009" x="556" y="1603" width="549" height="440" rotated="true" frameX="-10" frameY="-1" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0010" x="556" y="1603" width="549" height="440" rotated="true" frameX="-10" frameY="-1" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0011" x="556" y="1603" width="549" height="440" rotated="true" frameX="-10" frameY="-1" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0012" x="556" y="1603" width="549" height="440" rotated="true" frameX="-10" frameY="-1" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Idle0013" x="556" y="1603" width="549" height="440" rotated="true" frameX="-10" frameY="-1" frameWidth="450" frameHeight="550"/>
+	<SubTexture name="Brown_Left0000" x="1" y="1273" width="553" height="327" rotated="true" frameX="-0" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0001" x="1" y="1273" width="553" height="327" rotated="true" frameX="-0" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0002" x="1115" y="1116" width="552" height="331" rotated="true" frameX="-8" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0003" x="559" y="1120" width="553" height="328" rotated="true" frameX="-14" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0004" x="559" y="1120" width="553" height="328" rotated="true" frameX="-14" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0005" x="1455" y="1" width="328" height="553" frameX="-14" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0006" x="1455" y="1" width="328" height="553" frameX="-14" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0007" x="1455" y="1" width="328" height="553" frameX="-14" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0008" x="1455" y="1" width="328" height="553" frameX="-14" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0009" x="1455" y="1" width="328" height="553" frameX="-14" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0010" x="1455" y="1" width="328" height="553" frameX="-14" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0011" x="1455" y="1" width="328" height="553" frameX="-14" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0012" x="1455" y="1" width="328" height="553" frameX="-14" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Left0013" x="1455" y="1" width="328" height="553" frameX="-14" frameY="-1" frameWidth="342" frameHeight="554"/>
+	<SubTexture name="Brown_Right0000" x="1" y="920" width="555" height="350" rotated="true" frameX="-4" frameY="-1" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0001" x="1" y="920" width="555" height="350" rotated="true" frameX="-4" frameY="-1" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0002" x="1" y="564" width="556" height="353" rotated="true" frameX="-1" frameY="-0" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0003" x="970" y="559" width="348" height="554" frameX="-0" frameY="-2" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0004" x="970" y="559" width="348" height="554" frameX="-0" frameY="-2" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0005" x="560" y="562" width="348" height="555" frameX="-0" frameY="-1" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0006" x="560" y="562" width="348" height="555" frameX="-0" frameY="-1" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0007" x="560" y="562" width="348" height="555" frameX="-0" frameY="-1" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0008" x="560" y="562" width="348" height="555" frameX="-0" frameY="-1" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0009" x="560" y="562" width="348" height="555" frameX="-0" frameY="-1" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0010" x="560" y="562" width="348" height="555" frameX="-0" frameY="-1" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0011" x="560" y="562" width="348" height="555" frameX="-0" frameY="-1" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0012" x="560" y="562" width="348" height="555" frameX="-0" frameY="-1" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Right0013" x="560" y="562" width="348" height="555" frameX="-0" frameY="-1" frameWidth="355" frameHeight="556"/>
+	<SubTexture name="Brown_Up0000" x="1108" y="1451" width="482" height="549" frameX="-1" frameY="-11" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0001" x="1" y="1603" width="552" height="478" rotated="true" frameX="-0" frameY="-8" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0002" x="1" y="1603" width="552" height="478" rotated="true" frameX="-0" frameY="-8" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0003" x="1" y="1" width="481" height="560" frameX="-0" frameY="-0" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0004" x="970" y="1" width="482" height="555" frameX="-0" frameY="-5" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0005" x="970" y="1" width="482" height="555" frameX="-0" frameY="-5" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0006" x="485" y="1" width="482" height="558" frameX="-0" frameY="-2" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0007" x="485" y="1" width="482" height="558" frameX="-0" frameY="-2" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0008" x="485" y="1" width="482" height="558" frameX="-0" frameY="-2" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0009" x="485" y="1" width="482" height="558" frameX="-0" frameY="-2" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0010" x="485" y="1" width="482" height="558" frameX="-0" frameY="-2" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0011" x="485" y="1" width="482" height="558" frameX="-0" frameY="-2" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0012" x="485" y="1" width="482" height="558" frameX="-0" frameY="-2" frameWidth="483" frameHeight="560"/>
+	<SubTexture name="Brown_Up0013" x="485" y="1" width="482" height="558" frameX="-0" frameY="-2" frameWidth="483" frameHeight="560"/>
+</TextureAtlas>

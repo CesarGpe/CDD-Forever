@@ -5,17 +5,17 @@
 		{
 			"expression": "angry",
 			"text": "Ahora si valiste verga.",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "angry",
 			"text": "Prepara el culo, rata del desague.",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "razor",
 			"text": "Porque esto no va a estar bonito.",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "pog",
@@ -35,7 +35,7 @@
 		{
 			"expression": "no",
 			"text": "RE FACIL TU VIEJA",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "dead",
@@ -50,17 +50,17 @@
 		{
 			"expression": "no",
 			"text": "NO!",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "mad",
 			"text": "ESTA ESTE PENDEJO ORTO ESTIRADO\nNALGAS MEADAS VOZ DE ALVIN Y\nLAS ARDILLAS...",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "no",
 			"text": "...QUE NO SE CALLA EL PUTO HOCICO!",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
 			"expression": "revive",
@@ -85,12 +85,12 @@
 		{
 			"expression": "mad",
 			"text": "Menso, tienes que usar asteriscos,\nidiota",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		},
 		{
-			"expression": "ghost-down",
+			"expression": "lookdown",
 			"text": "a",
-			"portrait": "cesar"
+			"portrait": "cesar-ghost"
 		},
 		{
 			"expression": "revive",
@@ -103,9 +103,9 @@
 			"portrait": "tsuyar"
 		},
 		{
-			"expression": "ghost-talk",
+			"expression": "looktalk",
 			"text": "tsuyar di girasol",
-			"portrait": "cesar"
+			"portrait": "cesar-ghost"
 		},
 		{
 			"expression": "normal",
@@ -118,9 +118,9 @@
 			"portrait": "tsuyar"
 		},
 		{
-			"expression": "ghost-scared",
+			"expression": "scared",
 			"text": "SOLO DILO",
-			"portrait": "cesar"
+			"portrait": "cesar-ghost"
 		},
 		{
 			"expression": "wtf",
@@ -133,24 +133,24 @@
 			"portrait": "tsuyar"
 		},
 		{
-			"expression": "ghost-down",
+			"expression": "lookdown",
 			"text": " ",
-			"portrait": "cesar"
+			"portrait": "cesar-ghost"
 		},
 		{
 			"expression": "troll",
 			"text": "gira gira tu calzon",
-			"portrait": "cesar"
+			"portrait": "cesar-troll"
 		},
 		{
 			"expression": "troll",
 			"text": "tur daun for guat",
-			"portrait": "cesar"
+			"portrait": "cesar-troll"
 		},
 		{
-			"expression": "ghost-down",
+			"expression": "lookdown",
 			"text": " ",
-			"portrait": "cesar"
+			"portrait": "cesar-ghost"
 		},
 		{
 			"expression": "unrevive",
@@ -165,7 +165,7 @@
 		{
 			"expression": "no",
 			"text": "Ya basta.",
-			"portrait": "tsuyar"
+			"portrait": "tsuyar-angry"
 		}
 	]
 }

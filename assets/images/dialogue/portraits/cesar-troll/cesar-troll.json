@@ -1,0 +1,12 @@
+{
+	"name": "cesar-troll",
+	"expressions": {
+		"troll": "cesar_troll"
+    },
+    "position": [-160, -120],
+	"scale": 0.5,
+	
+	"sounds": ["ces-1", "ces-2", "ces-3", "ces-4", "ces-5"],
+	"soundPath": "images/dialogue/portraits/cesar/",
+	"soundChance": 80
+}

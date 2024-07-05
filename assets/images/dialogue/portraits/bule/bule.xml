@@ -1,45 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="bule.png">
-	<!-- Created with Adobe Animate version 19.2.0.405 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="bluesli_hijolStop0000" x="0" y="0" width="385" height="639"/>
-	<SubTexture name="bluesli_hijolStop0001" x="0" y="0" width="385" height="639"/>
-	<SubTexture name="bluesli_hijolStop0002" x="0" y="0" width="385" height="639"/>
-	<SubTexture name="bluesli_hijolStop0003" x="0" y="0" width="385" height="639"/>
-	<SubTexture name="bluesli_hijolStop0004" x="0" y="0" width="385" height="639"/>
-	<SubTexture name="bluesli_hijolStop0005" x="0" y="0" width="385" height="639"/>
-	<SubTexture name="blueslim_hijole0000" x="386" y="0" width="385" height="647"/>
-	<SubTexture name="blueslim_hijole0001" x="772" y="0" width="385" height="647"/>
-	<SubTexture name="blueslim_hijole0002" x="1158" y="0" width="385" height="647"/>
-	<SubTexture name="blueslim_hijole0003" x="1158" y="0" width="385" height="647"/>
-	<SubTexture name="blueslim_hijole0004" x="1158" y="0" width="385" height="647"/>
-	<SubTexture name="blueslim_hijole0005" x="1544" y="0" width="385" height="647"/>
-	<SubTexture name="blueslime_scared0000" x="0" y="648" width="378" height="648"/>
-	<SubTexture name="blueslime_scared0001" x="379" y="648" width="378" height="648"/>
-	<SubTexture name="blueslime_scared0002" x="758" y="648" width="378" height="648"/>
-	<SubTexture name="blueslime_scared0003" x="1137" y="648" width="378" height="648"/>
-	<SubTexture name="blueslime_talStop0000" x="1516" y="648" width="407" height="639"/>
-	<SubTexture name="blueslime_talStop0001" x="1516" y="648" width="407" height="639"/>
-	<SubTexture name="blueslime_talStop0002" x="1516" y="648" width="407" height="639"/>
-	<SubTexture name="blueslime_talStop0003" x="1516" y="648" width="407" height="639"/>
-	<SubTexture name="blueslime_talStop0004" x="1516" y="648" width="407" height="639"/>
-	<SubTexture name="blueslime_talStop0005" x="1516" y="648" width="407" height="639"/>
-	<SubTexture name="blueslime_talk0000" x="0" y="1297" width="420" height="654"/>
-	<SubTexture name="blueslime_talk0001" x="421" y="1297" width="420" height="654"/>
-	<SubTexture name="blueslime_talk0002" x="842" y="1297" width="420" height="654"/>
-	<SubTexture name="blueslime_talk0003" x="1263" y="1297" width="420" height="654"/>
-	<SubTexture name="blueslime_talk0004" x="1263" y="1297" width="420" height="654"/>
-	<SubTexture name="blueslime_talk0005" x="0" y="1952" width="420" height="654"/>
-	<SubTexture name="blueslimelookUp0000" x="421" y="1952" width="519" height="702"/>
-	<SubTexture name="blueslimelookUp0001" x="941" y="1952" width="519" height="702"/>
-	<SubTexture name="blueslimelookUp0002" x="1461" y="1952" width="519" height="702"/>
-	<SubTexture name="blueslimelookUp0003" x="1461" y="1952" width="519" height="702"/>
-	<SubTexture name="blueslimelookUp0004" x="1461" y="1952" width="519" height="702"/>
-	<SubTexture name="blueslimelookUp0005" x="0" y="2655" width="519" height="702"/>
-	<SubTexture name="blueslimlookUStop0000" x="520" y="2655" width="519" height="685"/>
-	<SubTexture name="blueslimlookUStop0001" x="520" y="2655" width="519" height="685"/>
-	<SubTexture name="blueslimlookUStop0002" x="520" y="2655" width="519" height="685"/>
-	<SubTexture name="blueslimlookUStop0003" x="520" y="2655" width="519" height="685"/>
-	<SubTexture name="blueslimlookUStop0004" x="520" y="2655" width="519" height="685"/>
-	<SubTexture name="blueslimlookUStop0005" x="520" y="2655" width="519" height="685"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="bule.png" width="8084" height="699">
+	<SubTexture name="bluesli_hijolStop0000" x="1148" y="1" width="384" height="639" frameX="-0" frameY="-0" frameWidth="385" frameHeight="639"/>
+	<SubTexture name="bluesli_hijolStop0001" x="1148" y="1" width="384" height="639" frameX="-0" frameY="-0" frameWidth="385" frameHeight="639"/>
+	<SubTexture name="bluesli_hijolStop0002" x="1148" y="1" width="384" height="639" frameX="-0" frameY="-0" frameWidth="385" frameHeight="639"/>
+	<SubTexture name="bluesli_hijolStop0003" x="1148" y="1" width="384" height="639" frameX="-0" frameY="-0" frameWidth="385" frameHeight="639"/>
+	<SubTexture name="bluesli_hijolStop0004" x="1148" y="1" width="384" height="639" frameX="-0" frameY="-0" frameWidth="385" frameHeight="639"/>
+	<SubTexture name="bluesli_hijolStop0005" x="1148" y="1" width="384" height="639" frameX="-0" frameY="-0" frameWidth="385" frameHeight="639"/>
+	<SubTexture name="blueslim_hijole0000" x="1" y="1" width="384" height="636" frameX="-0" frameY="-11" frameWidth="385" frameHeight="647"/>
+	<SubTexture name="blueslim_hijole0001" x="388" y="1" width="384" height="637" frameX="-0" frameY="-6" frameWidth="385" frameHeight="647"/>
+	<SubTexture name="blueslim_hijole0002" x="1535" y="1" width="384" height="639" frameX="-0" frameY="-2" frameWidth="385" frameHeight="647"/>
+	<SubTexture name="blueslim_hijole0003" x="1535" y="1" width="384" height="639" frameX="-0" frameY="-2" frameWidth="385" frameHeight="647"/>
+	<SubTexture name="blueslim_hijole0004" x="1535" y="1" width="384" height="639" frameX="-0" frameY="-2" frameWidth="385" frameHeight="647"/>
+	<SubTexture name="blueslim_hijole0005" x="1535" y="1" width="384" height="639" frameX="-0" frameY="-0" frameWidth="385" frameHeight="647"/>
+	<SubTexture name="blueslime_scared0000" x="3938" y="1" width="368" height="645" frameX="-5" frameY="-0" frameWidth="378" frameHeight="648"/>
+	<SubTexture name="blueslime_scared0001" x="3565" y="1" width="370" height="643" frameX="-5" frameY="-1" frameWidth="378" frameHeight="648"/>
+	<SubTexture name="blueslime_scared0002" x="4309" y="1" width="378" height="645" frameX="-0" frameY="-2" frameWidth="378" frameHeight="648"/>
+	<SubTexture name="blueslime_scared0003" x="775" y="1" width="370" height="638" frameX="-6" frameY="-4" frameWidth="378" frameHeight="648"/>
+	<SubTexture name="blueslime_talStop0000" x="1922" y="1" width="407" height="639" frameX="-0" frameY="-0" frameWidth="407" frameHeight="639"/>
+	<SubTexture name="blueslime_talStop0001" x="1922" y="1" width="407" height="639" frameX="-0" frameY="-0" frameWidth="407" frameHeight="639"/>
+	<SubTexture name="blueslime_talStop0002" x="1922" y="1" width="407" height="639" frameX="-0" frameY="-0" frameWidth="407" frameHeight="639"/>
+	<SubTexture name="blueslime_talStop0003" x="1922" y="1" width="407" height="639" frameX="-0" frameY="-0" frameWidth="407" frameHeight="639"/>
+	<SubTexture name="blueslime_talStop0004" x="1922" y="1" width="407" height="639" frameX="-0" frameY="-0" frameWidth="407" frameHeight="639"/>
+	<SubTexture name="blueslime_talStop0005" x="1922" y="1" width="407" height="639" frameX="-0" frameY="-0" frameWidth="407" frameHeight="639"/>
+	<SubTexture name="blueslime_talk0000" x="3151" y="1" width="411" height="642" frameX="-9" frameY="-11" frameWidth="420" frameHeight="654"/>
+	<SubTexture name="blueslime_talk0001" x="4690" y="1" width="405" height="645" frameX="-10" frameY="-3" frameWidth="420" frameHeight="654"/>
+	<SubTexture name="blueslime_talk0002" x="5098" y="1" width="406" height="645" frameX="-9" frameY="-3" frameWidth="420" frameHeight="654"/>
+	<SubTexture name="blueslime_talk0003" x="2742" y="1" width="406" height="640" frameX="-2" frameY="-0" frameWidth="420" frameHeight="654"/>
+	<SubTexture name="blueslime_talk0004" x="2742" y="1" width="406" height="640" frameX="-2" frameY="-0" frameWidth="420" frameHeight="654"/>
+	<SubTexture name="blueslime_talk0005" x="2332" y="1" width="407" height="639" frameX="-0" frameY="-0" frameWidth="420" frameHeight="654"/>
+	<SubTexture name="blueslimelookUp0000" x="7586" y="1" width="497" height="697" frameX="-7" frameY="-5" frameWidth="519" frameHeight="702"/>
+	<SubTexture name="blueslimelookUp0001" x="7073" y="1" width="510" height="689" frameX="-4" frameY="-1" frameWidth="519" frameHeight="702"/>
+	<SubTexture name="blueslimelookUp0002" x="5507" y="1" width="519" height="685" frameX="-0" frameY="-1" frameWidth="519" frameHeight="702"/>
+	<SubTexture name="blueslimelookUp0003" x="5507" y="1" width="519" height="685" frameX="-0" frameY="-1" frameWidth="519" frameHeight="702"/>
+	<SubTexture name="blueslimelookUp0004" x="5507" y="1" width="519" height="685" frameX="-0" frameY="-1" frameWidth="519" frameHeight="702"/>
+	<SubTexture name="blueslimelookUp0005" x="6029" y="1" width="519" height="685" frameX="-0" frameY="-0" frameWidth="519" frameHeight="702"/>
+	<SubTexture name="blueslimlookUStop0000" x="6551" y="1" width="519" height="685" frameX="-0" frameY="-0" frameWidth="519" frameHeight="685"/>
+	<SubTexture name="blueslimlookUStop0001" x="6551" y="1" width="519" height="685" frameX="-0" frameY="-0" frameWidth="519" frameHeight="685"/>
+	<SubTexture name="blueslimlookUStop0002" x="6551" y="1" width="519" height="685" frameX="-0" frameY="-0" frameWidth="519" frameHeight="685"/>
+	<SubTexture name="blueslimlookUStop0003" x="6551" y="1" width="519" height="685" frameX="-0" frameY="-0" frameWidth="519" frameHeight="685"/>
+	<SubTexture name="blueslimlookUStop0004" x="6551" y="1" width="519" height="685" frameX="-0" frameY="-0" frameWidth="519" frameHeight="685"/>
+	<SubTexture name="blueslimlookUStop0005" x="6551" y="1" width="519" height="685" frameX="-0" frameY="-0" frameWidth="519" frameHeight="685"/>
 </TextureAtlas>
