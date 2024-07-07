@@ -192,8 +192,9 @@ class Main extends Sprite
 		return input * (60 / FlxG.drawFramerate);
 	}
 
-	/*  This is used to switch "rooms," to put it basically. Imagine you are in the main menu, and press the freeplay button.
-		That would change the game's main class to freeplay, as it is the active class at the moment.
+	/**
+	 * This is used to switch "rooms," to put it basically. Imagine you are in the main menu, and press the freeplay button.
+	 * That would change the game's main class to freeplay, as it is the active class at the moment.
 	 */
 	public static var lastState:FlxState;
 
@@ -203,6 +204,7 @@ class Main extends Sprite
 	 * @param target The state that the game will change to.
 	 * @param showScreen Wether to show a loading screen or not.
 	 * @param showMouse Wether to show the mouse by default on the next state.
+	 * @param autopause Wether to autopause the game on the next state.
 	 */
 	public static function switchState(curState:FlxState, target:FlxState, ?showScreen:Bool = false, ?showMouse:Bool = false, ?autoPause:Bool = true)
 	{

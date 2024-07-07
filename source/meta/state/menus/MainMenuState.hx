@@ -7,6 +7,7 @@ import flixel.addons.display.shapes.FlxShapeCircle;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.sound.FlxSound;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -65,6 +66,10 @@ class MainMenuState extends MusicBeatState
 	// por lo de la rockola
 	public static var resetMusic:Bool = false;
 
+	// mute y deafen
+	public static var muted:Bool = false;
+	public static var deafen:Bool = false;
+
 	// de que el menu real
 	var optionShit:Array<String> = ['modo-historia', 'juego-libre', 'rockola', 'config'];
 	var menuItems:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
@@ -92,15 +97,20 @@ class MainMenuState extends MusicBeatState
 	var daTween:FlxTween;
 
 	// la cosa de abajo
-	var userBG:FlxSprite;
+	var micBox:FlxSprite;
 	var mic:FlxSprite;
+
+	var deafBox:FlxSprite;
 	var deaf:FlxSprite;
+
 	var cogBox:FlxSprite;
 	var cog:FlxSprite;
+
 	var pfp:FlxSprite;
 	var status:FlxSprite;
 	var userTxt1:FlxText;
 	var userTxt2:FlxText;
+	var userBG:FlxSprite;
 	var buttonJSON:ButtonData;
 	
 	// datos
@@ -113,6 +123,7 @@ class MainMenuState extends MusicBeatState
 	{
 		super.create();
 
+		FlxG.mouse.visible = true;
 		buttonJSON = Json.parse(File.getContent(Paths.getPath('images/menus/mainmenu/buttonPos.json', TEXT)));
 
 		// set the transitions to the previously set ones
@@ -162,7 +173,7 @@ class MainMenuState extends MusicBeatState
 
 		// hacer la imagen para la galeria epica
 		art = new FlxSprite();
-		images = FileSystem.readDirectory('assets/images/menus/storymenu/art');
+		images = FileSystem.readDirectory('assets/images/menus/mainmenu/art');
 		for (file in images)
 		{
 			if (!file.endsWith('.png'))
@@ -229,7 +240,10 @@ class MainMenuState extends MusicBeatState
 		add(userBG);
 
 		pfp = new FlxSprite(buttonJSON.pfpX, buttonJSON.pfpY);
-		pfp.loadGraphic(Paths.image('menus/mainmenu/bf'));
+		if (FlxG.random.bool(5))
+			pfp.loadGraphic(Paths.image('menus/mainmenu/bfmejor'));
+		else
+			pfp.loadGraphic(Paths.image('menus/mainmenu/bf'));
 		pfp.setGraphicSize(Std.int(pfp.width * buttonJSON.pfpSF), Std.int(pfp.height * buttonJSON.pfpSF));
 		pfp.updateHitbox();
 		pfp.antialiasing = true;
@@ -245,6 +259,11 @@ class MainMenuState extends MusicBeatState
 		mic.updateHitbox();
 		mic.antialiasing = true;
 		mic.alpha = 0.7;
+
+		micBox = new FlxSprite(mic.x - 5, mic.y - 5);
+		micBox.makeGraphic(Std.int(mic.width + 10), Std.int(mic.height + 10), 0xff35373c);
+		micBox.visible = false;
+		add(micBox);
 		add(mic);
 
 		deaf = new FlxSprite(buttonJSON.deafX, buttonJSON.deafY);
@@ -253,6 +272,11 @@ class MainMenuState extends MusicBeatState
 		deaf.updateHitbox();
 		deaf.antialiasing = true;
 		deaf.alpha = 0.7;
+
+		deafBox = new FlxSprite(deaf.x - 5, deaf.y - 5);
+		deafBox.makeGraphic(Std.int(deaf.width + 10), Std.int(deaf.height + 10), 0xff35373c);
+		deafBox.visible = false;
+		add(deafBox);
 		add(deaf);
 
 		cog = new FlxSprite(buttonJSON.cogX, buttonJSON.cogY);
@@ -346,6 +370,7 @@ class MainMenuState extends MusicBeatState
 		///* AQUI TERMINAN LOS TWEENS !!
 
 		changeSelection();
+		updateButtonSprites();
 	}
 
 	override function update(elapsed:Float)
@@ -365,6 +390,10 @@ class MainMenuState extends MusicBeatState
 		if (controls.UI_RIGHT_P && canChange && !selectedSomethin)
 			changeGalleryArt(1);
 
+		// selecciona una opcion
+		if (controls.ACCEPT && !selectedSomethin)
+			selectSomething();
+
 		// volver a la pantalla de titulo
 		if (controls.BACK && !selectedSomethin)
 		{
@@ -373,70 +402,12 @@ class MainMenuState extends MusicBeatState
 			Main.switchState(this, new TitleState());
 		}
 
-		// selecciona una opcion
-		if (controls.ACCEPT && !selectedSomethin)
-		{
-			selectedSomethin = true;
-
-			if (curSelected == 3)
-			{
-				FlxG.sound.play(Paths.sound('menu/scrollMenu'));
-				Main.switchState(this, new OptionsMenuState());
-			}
-			else
-			{
-				FlxG.sound.play(Paths.sound('menu/confirmMenu'));
-				new FlxTimer().start(1, function(tmr:FlxTimer)
-				{
-					switch (curSelected)
-					{
-						case 0: // modo historia
-							Main.switchState(this, new StoryMenuState());
-						case 1: // juego libre
-							Main.switchState(this, new FreeplayState());
-						case 2: // rockola
-							Main.switchState(this, new RadioState(), true, false, false);
-					}
-				});
-			}
-			
-			menuItems.forEach(function(spr:FlxText)
-			{
-				if (curSelected == spr.ID)
-				{
-					spr.color = FlxColor.WHITE;
-					FlxFlicker.flicker(spr, 1, 0.06, false, false);
-				}
-				else
-					tweenKill(spr);
-			});
-
-			htags.forEach(function(spr:FlxText)
-			{
-				if (curSelected == spr.ID)
-					FlxFlicker.flicker(spr, 1, 0.06, false, false);
-				else
-					tweenKill(spr);
-			});
-
-			boxes.forEach(function(spr:FlxSprite)
-			{
-				if (curSelected == spr.ID)
-				{
-					spr.makeGraphic(615, 110, 0xff3f4248);
-					FlxFlicker.flicker(spr, 1, 0.06, false, false);
-				}
-				else
-					spr.kill();
-			});
-
-		}
-
 		// me ahorra tiempo reiniciando el menu jaja
 		if (FlxG.keys.justPressed.R && Init.trueSettings.get('Modo Debug'))
 			FlxG.switchState(new MainMenuState());
 		
 		easterEggCheck();
+		mouseItems();
 
 		super.update(elapsed);
 	}
@@ -478,7 +449,61 @@ class MainMenuState extends MusicBeatState
 			cogBox.visible = false;
 			cog.alpha = 0.7;
 		}
-			
+	}
+
+	function selectSomething()
+	{
+		selectedSomethin = true;
+
+		if (curSelected == 3)
+		{
+			FlxG.sound.play(Paths.sound('menu/scrollMenu'));
+			Main.switchState(this, new OptionsMenuState());
+		}
+		else
+		{
+			FlxG.sound.play(Paths.sound('menu/confirmMenu'));
+			new FlxTimer().start(1, function(tmr:FlxTimer)
+			{
+				switch (curSelected)
+				{
+					case 0: // modo historia
+						Main.switchState(this, new StoryMenuState());
+					case 1: // juego libre
+						Main.switchState(this, new FreeplayState());
+					case 2: // rockola
+						Main.switchState(this, new RadioState(), true, false, false);
+				}
+			});
+		}
+
+		menuItems.forEach(function(spr:FlxText)
+		{
+			if (curSelected == spr.ID)
+			{
+				spr.color = FlxColor.WHITE;
+				FlxFlicker.flicker(spr, 1, 0.06, false, false);
+			}
+			else
+				tweenKill(spr);
+		});
+		htags.forEach(function(spr:FlxText)
+		{
+			if (curSelected == spr.ID)
+				FlxFlicker.flicker(spr, 1, 0.06, false, false);
+			else
+				tweenKill(spr);
+		});
+		boxes.forEach(function(spr:FlxSprite)
+		{
+			if (curSelected == spr.ID)
+			{
+				spr.makeGraphic(615, 110, 0xff3f4248);
+				FlxFlicker.flicker(spr, 1, 0.06, false, false);
+			}
+			else
+				spr.kill();
+		});
 	}
 
 	function changeGalleryArt(change:Int = 0)
@@ -494,13 +519,13 @@ class MainMenuState extends MusicBeatState
 		// cambia la imagen de la galeria
 		if (galleryNum == 12 || galleryNum == 19)
 		{
-			art.frames = Paths.getSparrowAtlas('menus/storymenu/art/' + images[galleryNum]);
+			art.frames = Paths.getSparrowAtlas('menus/mainmenu/art/' + images[galleryNum]);
 			art.animation.addByPrefix('idle', 'bop', 24, false);
 			art.flipX = true;
 		}
 		else
 		{
-			art.loadGraphic(Paths.image('menus/storymenu/art/' + images[galleryNum]));
+			art.loadGraphic(Paths.image('menus/mainmenu/art/' + images[galleryNum]));
 			art.flipX = false;
 		}
 		art.setGraphicSize(Std.int(FlxG.width * 0.35));
@@ -633,62 +658,6 @@ class MainMenuState extends MusicBeatState
 		credArt.x += 335;
 	}
 
-	function tweenKill(spr:FlxSprite)
-	{
-		FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
-		FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
-			ease: FlxEase.quadInOut,
-			onComplete: function(twn:FlxTween)
-			{
-				spr.kill();
-			}
-		});
-	}
-
-	function tweenKillSprites(group:FlxTypedGroup<FlxSprite>)
-	{
-		group.forEach(function(spr:FlxSprite)
-		{
-			FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
-			FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
-				ease: FlxEase.quadInOut,
-				onComplete: function(twn:FlxTween)
-				{
-					spr.kill();
-				}
-			});
-		});
-	}
-
-	function tweenKillTexts(group:FlxTypedGroup<FlxText>)
-	{
-		group.forEach(function(spr:FlxText)
-		{
-			FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
-			FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
-				ease: FlxEase.quadInOut,
-				onComplete: function(twn:FlxTween)
-				{
-					spr.kill();
-				}
-			});
-		});
-	}
-
-	function setAndTween(spr:FlxSprite, pos:Int, time:Float, type:String)
-	{
-		if (type == 'x')
-		{
-			spr.x += pos;
-			FlxTween.tween(spr, {x: spr.x - pos}, time, {ease: FlxEase.quadInOut});
-		}
-		else if (type == 'y')
-		{
-			spr.y += pos;
-			FlxTween.tween(spr, {y: spr.y - pos}, time, {ease: FlxEase.quadInOut});
-		}
-	}
-
 	function easterEggCheck()
 	{
 		if (FlxG.keys.anyJustPressed([Q, W, E, R, T, Y, U, I, O, P, A, S, D, F, G, H, J, K, L, Z, X, C, V, B, N, M]))
@@ -735,9 +704,136 @@ class MainMenuState extends MusicBeatState
 		}
 	}
 
+	function mouseItems()
+	{
+		micBox.visible = FlxG.mouse.overlaps(mic);
+		if (FlxG.mouse.overlaps(mic) && FlxG.mouse.justPressed && !selectedSomethin)
+		{
+			if (deafen)
+			{
+				deafen = false;
+				deafToggle();
+
+				muted = !muted;
+				muteToggle(false);
+			}
+			else
+			{
+				muted = !muted;
+				muteToggle(true);
+			}
+				
+			
+		}
+
+		deafBox.visible = FlxG.mouse.overlaps(deaf);
+		if (FlxG.mouse.overlaps(deaf) && FlxG.mouse.justPressed && !selectedSomethin)
+		{
+			deafen = !deafen;
+			muted = deafen;
+
+			deafToggle();
+
+			if (muted)
+				mic.loadGraphic(Paths.image('menus/mainmenu/microphone-muted'));
+			else
+				mic.loadGraphic(Paths.image('menus/mainmenu/microphone'));
+			mic.updateHitbox();
+		}
+	}
+
+	function muteToggle(?playSounds:Bool = false)
+	{
+		updateButtonSprites();
+		if (playSounds)
+		{
+			if (muted)
+				FlxG.sound.play(Paths.sound('event/discordMute'));
+			else
+				FlxG.sound.play(Paths.sound('event/discordUnmute'));
+		}
+	}
+
+	function deafToggle()
+	{
+		updateButtonSprites();
+		var sound:FlxSound = new FlxSound();
+		if (deafen)
+		{
+			sound.loadEmbedded(Paths.sound('menu/discordDeafen'));
+			sound.play();
+
+			FlxG.sound.muted = true;
+			FlxG.sound.muteKeys = [];
+			FlxG.sound.volumeUpKeys = [];
+			FlxG.sound.volumeDownKeys = [];
+		}
+		else
+		{
+			FlxG.sound.muted = false;
+			FlxG.sound.muteKeys = [ZERO, NUMPADZERO];
+			FlxG.sound.volumeUpKeys = [PLUS, NUMPADPLUS];
+			FlxG.sound.volumeDownKeys = [MINUS, NUMPADMINUS];
+
+			sound.loadEmbedded(Paths.sound('menu/discordUndeafen'));
+			sound.play();
+		}
+	}
+
+	function updateButtonSprites()
+	{
+		if (deafen)
+		{
+			deaf.loadGraphic(Paths.image('menus/mainmenu/headphones-muted'));
+			deaf.updateHitbox();
+		}
+		else
+		{
+			deaf.loadGraphic(Paths.image('menus/mainmenu/headphones'));
+			deaf.updateHitbox();
+		}
+
+		if (muted)
+		{
+			mic.loadGraphic(Paths.image('menus/mainmenu/microphone-muted'));
+			mic.updateHitbox();
+		}
+		else
+		{
+			mic.loadGraphic(Paths.image('menus/mainmenu/microphone'));
+			mic.updateHitbox();
+		}
+	}
+
 	override function beatHit()
 	{
 		super.beatHit();
 		art.animation.play('idle', true);
+	}
+
+	function tweenKill(spr:FlxSprite)
+	{
+		FlxTween.tween(spr, {alpha: 0}, 0.65, {ease: FlxEase.quadOut, startDelay: 0.1});
+		FlxTween.tween(spr, {x: (spr.x - 800)}, 0.75, {
+			ease: FlxEase.quadInOut,
+			onComplete: function(twn:FlxTween)
+			{
+				spr.kill();
+			}
+		});
+	}
+
+	function setAndTween(spr:FlxSprite, pos:Int, time:Float, type:String)
+	{
+		if (type == 'x')
+		{
+			spr.x += pos;
+			FlxTween.tween(spr, {x: spr.x - pos}, time, {ease: FlxEase.quadInOut});
+		}
+		else if (type == 'y')
+		{
+			spr.y += pos;
+			FlxTween.tween(spr, {y: spr.y - pos}, time, {ease: FlxEase.quadInOut});
+		}
 	}
 }

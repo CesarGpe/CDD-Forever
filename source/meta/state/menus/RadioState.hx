@@ -12,9 +12,9 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import gameObjects.Character;
 import gameObjects.userInterface.HealthIcon;
-import meta.RadioBeat.RadioBeatState;
-import meta.data.*;
-import meta.data.Song.SwagSong;
+import meta.MusicBeat.MusicBeatState;
+import meta.data.Conductor;
+import meta.data.Song;
 import meta.data.dependency.Discord;
 import meta.data.dependency.FNFSprite;
 import meta.data.font.Alphabet;
@@ -26,7 +26,7 @@ import sys.thread.Thread;
 
 using StringTools;
 
-class RadioState extends RadioBeatState
+class RadioState extends MusicBeatState
 {
 	var curSongPlaying:Int = -1;
 	var curSelected:Int = 0;
@@ -38,7 +38,6 @@ class RadioState extends RadioBeatState
 	var songInst:FlxSound = new FlxSound();
 	var songVocals:FlxSound = new FlxSound();
 
-	var shitBeat:Int = 0;
 	var playVocals:Bool = true;
 	var pauseMusic:Bool = false;
 	var songs:Array<SongMetadata> = [];
@@ -201,13 +200,11 @@ class RadioState extends RadioBeatState
 
 		var black:FlxSprite = new FlxSprite();
 		black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		black.scrollFactor.set();
 		black.screenCenter();
 		add(black);
 
 		var introTxt:FlxText = new FlxText(30, FlxG.height - 685, 0, 'Sincronizando audio...');
 		introTxt.setFormat(Paths.font("whitneybook.otf"), 30, FlxColor.WHITE, FlxTextAlign.CENTER);
-		introTxt.scrollFactor.set();
 		introTxt.antialiasing = true;
 		add(introTxt);
 
@@ -337,7 +334,7 @@ class RadioState extends RadioBeatState
 	function changeSelection(change:Int = 0)
 	{
 		if (change != 0)
-			FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.4);
+			FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.6);
 
 		curSelected += change;
 		if (curSelected < 0)
@@ -400,7 +397,7 @@ class RadioState extends RadioBeatState
 									songVocals.pause();
 								}
 								else
-									resyncVocals(true);
+									resyncVocals();
 
 								mutex.release();
 
@@ -425,10 +422,12 @@ class RadioState extends RadioBeatState
 		songInst.loadEmbedded(Paths.inst(epicSong.song));
 		songVocals.loadEmbedded(Paths.voices(epicSong.song));
 
+		songInst.looped = true;
+
 		if (songInst != null)
 		{
 			songInst.play();
-			songInst.onComplete = restartSong;
+			songInst.onComplete = resyncVocals;
 		}
 		if (songVocals != null)
 		{
@@ -437,27 +436,25 @@ class RadioState extends RadioBeatState
 		}
 	}
 
-	function restartSong()
+	/*function restartSong()
 	{
 		trace('Restarting song');
 		if (epicSong != null)
 		{
 			mutex.acquire();
 
+
+
 			songInst.destroy();
 			songVocals.destroy();
 
-			songInst = new FlxSound();
-			songVocals = new FlxSound();
-
-			loadSong();
 			resyncVocals(true);
 
 			mutex.release();
 		}
-	}
+	}*/
 
-	function resyncVocals(resetBeat:Bool = false)
+	function resyncVocals()
 	{
 		songInst.pause();
 		songVocals.pause();
@@ -465,34 +462,25 @@ class RadioState extends RadioBeatState
 		songVocals.time = Conductor.songPosition;
 		songInst.play();
 		songVocals.play();
-
-		if (resetBeat)
-			shitBeat = 0;
 	}
 
 	private var danced:Bool = false;
 	override function beatHit()
 	{
 		super.beatHit();
+		trace('beat: ' + curBeat);
+		
+		//if (!pauseMusic)
+		//{
+			gf.dance(true);
 
-		shitBeat++;
-		switch (shitBeat)
-		{
-			case 0:
-				resyncVocals();
-			default:
-				if (!pauseMusic)
-				{
-					gf.dance(true);
+			danced = !danced;
+			if (danced)
+				groovy.animation.play('left', true);
+			else
+				groovy.animation.play('right', true);
+		//}
 
-					danced = !danced;
-					if (danced)
-						groovy.animation.play('left', true);
-					else
-						groovy.animation.play('right', true);
-				}
-		}
-		trace('beat: ' + shitBeat);
 	}
 
 }

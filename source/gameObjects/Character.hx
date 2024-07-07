@@ -59,6 +59,9 @@ class Character extends FNFSprite
 				iconColor = FlxColor.fromRGB(49, 176, 209);
 				frames = Paths.getSparrowAtlas('characters/BOYFRIEND');
 
+				// preloadear la moricion
+				Paths.getSparrowAtlas('characters/BF_DEATH');
+
 				animation.addByPrefix('idle', 'BF idle dance', 24, false);
 				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
 				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);

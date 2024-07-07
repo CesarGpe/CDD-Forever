@@ -342,6 +342,9 @@ class PlayState extends MusicBeatState
 		gf.dance();
 		boyfriend.dance();
 
+		// te muteaste desde el menu principal
+		boyfriend.stunned = MainMenuState.muted;
+
 		// set song position before beginning
 		Conductor.songPosition = -(Conductor.crochet * 4);
 
@@ -1587,7 +1590,6 @@ class PlayState extends MusicBeatState
 		// * =================================================
 		// para los rebotes de la camara esos van en la funcion del beatHit()
 		// wey a quien fregados le estoy hablando nadie va leer esto
-
 		switch (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()))
 		{
 			//

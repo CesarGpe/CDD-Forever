@@ -17,6 +17,7 @@ import meta.data.Song.SwagSong;
 import meta.data.dependency.FNFSprite;
 import meta.data.font.Alphabet;
 import meta.state.PlayState;
+import meta.state.menus.MainMenuState;
 import openfl.media.Sound;
 
 using StringTools;
@@ -197,6 +198,9 @@ class DialogueBox extends FlxSpriteGroup
 		updatePortrait(force);
 		updateEvents(force);
 
+		// easter egg jijijaja
+		alphabetText.alpha = 1;
+
 		var pageData = dialogueData.dialogue[curPage];
 
 		var startText:Void->Void = function()
@@ -206,6 +210,11 @@ class DialogueBox extends FlxSpriteGroup
 
 			if (pageData.text != null)
 				textToDisplay = pageData.text;
+
+			if (pageData.portrait == 'bf' && MainMenuState.muted)
+				textToDisplay = ' ';
+			else if (pageData.portrait != 'bf' && MainMenuState.deafen)
+				alphabetText.alpha = 0;
 
 			alphabetText.startText(textToDisplay, true);
 			portrait.animation.play(curExpression);

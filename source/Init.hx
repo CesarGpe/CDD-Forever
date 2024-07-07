@@ -250,8 +250,8 @@ class Init extends FlxState
 		// volumen epico
 		if (FlxG.save.data.volume != null)
 			FlxG.sound.volume = FlxG.save.data.volume;
-		if (FlxG.save.data.mute != null)
-			FlxG.sound.muted = FlxG.save.data.mute;
+		/*if (FlxG.save.data.mute != null)
+			FlxG.sound.muted = FlxG.save.data.mute;*/
 		FlxG.save.flush();
 
 		Main.switchState(this, new TitleState());

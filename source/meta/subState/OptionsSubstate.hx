@@ -111,9 +111,9 @@ class OptionsSubstate extends MusicBeatSubState
 		}*/
 		
 		// ME VALE CACA LO VOY A HACER YO
-		arrayTemp.push('UP');
-		arrayTemp.push('DOWN');
 		arrayTemp.push('LEFT');
+		arrayTemp.push('DOWN');
+		arrayTemp.push('UP');
 		arrayTemp.push('RIGHT');
 		arrayTemp.push(null);
 		arrayTemp.push('ACCEPT');
@@ -313,7 +313,7 @@ class OptionsSubstate extends MusicBeatSubState
 	override public function close()
 	{
 		//
-		FlxG.sound.play(Paths.sound('menu/cancelmMenu'));
+		FlxG.sound.play(Paths.sound('menu/cancelMenu'));
 		Init.saveControls(); // for controls
 		Init.saveSettings(); // for offset
 		super.close();
