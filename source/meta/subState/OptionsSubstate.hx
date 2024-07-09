@@ -8,8 +8,10 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.input.keyboard.FlxKey;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import haxe.MainLoop;
 import meta.MusicBeat.MusicBeatSubState;
 import meta.data.font.Alphabet;
+import meta.state.menus.OptionsMenuState;
 
 using StringTools;
 
@@ -25,7 +27,8 @@ class OptionsSubstate extends MusicBeatSubState
 	override public function create():Void
 	{
 		// call the options menu
-		var bg = new FlxSprite(-85);
+
+		/*var bg = new FlxSprite(-85);
 		bg.loadGraphic(Paths.image('menus/bgs/menuDesat'));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.18;
@@ -34,7 +37,7 @@ class OptionsSubstate extends MusicBeatSubState
 		bg.screenCenter();
 		bg.color = 0xCE64DF;
 		bg.antialiasing = true;
-		add(bg);
+		add(bg);*/
 
 		super.create();
 
@@ -127,13 +130,13 @@ class OptionsSubstate extends MusicBeatSubState
 		{
 			if (arrayTemp[i] == null)
 				arrayTemp[i] = '';
-			// generate key options lol
-			var optionsText:Alphabet = new Alphabet(0, 0, arrayTemp[i].replace("_", " "), true, false);
-			optionsText.screenCenter();
-			optionsText.y += (90 * (i - (arrayTemp.length / 2)));
+
+			var optionsText:Alphabet = new Alphabet(380, 280, arrayTemp[i].replace("_", " "), true, false, 0.6);
+			//optionsText.screenCenter();
+			optionsText.y += (60 * (i - (arrayTemp.length / 2))) + 90;
 			optionsText.targetY = i;
 			optionsText.disableX = true;
-			optionsText.isMenuItem = true;
+			//optionsText.isMenuItem = true;
 			optionsText.alpha = 0.6;
 
 			keyOptions.add(optionsText);
@@ -159,13 +162,14 @@ class OptionsSubstate extends MusicBeatSubState
 				if (Init.gameControls.exists(arrayTemp[i]))
 					keyString = getStringKey(Init.gameControls.get(arrayTemp[i])[0][j]);
 
-				var secondaryText:Alphabet = new Alphabet(0, 0, keyString, false, false);
-				secondaryText.screenCenter();
-				secondaryText.y += (90 * (i - (arrayTemp.length / 2)));
+				var secondaryText:Alphabet = new Alphabet(580, 210, keyString, false, false, 0.6);
+				//secondaryText.screenCenter();
+				secondaryText.y += (60 * (i - (arrayTemp.length / 2))) + 90;
 				secondaryText.targetY = i;
-				secondaryText.disableX = true;
-				secondaryText.xTo += ((j + 1) * 420);
-				secondaryText.isMenuItem = true;
+				//secondaryText.disableX = true;
+				//secondaryText.xTo += ((j + 1) * 420);
+				secondaryText.x += ((j + 1) * 275) - 100;
+				//secondaryText.isMenuItem = true;
 				secondaryText.alpha = 0.6;
 
 				secondaryText.controlGroupID = i;

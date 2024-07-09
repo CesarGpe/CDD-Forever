@@ -183,9 +183,9 @@ class DialogueBox extends FlxSpriteGroup
 		FlxG.sound.music.volume = 0.0;
 		FlxG.sound.music.fadeIn(1.0, 0.0, 0.5);
 		if (PlayState.SONG.song.toLowerCase().startsWith('temper'))
-			FlxG.sound.playMusic(Paths.music('collapse'));
+			FlxG.sound.playMusic(Paths.music('dialogue/collapse'));
 		else
-			FlxG.sound.playMusic(Paths.music('conversation'));
+			FlxG.sound.playMusic(Paths.music('dialogue/conversation'));
 
 		skipText.screenCenter(X);
 		add(skipText);
@@ -235,10 +235,16 @@ class DialogueBox extends FlxSpriteGroup
 		// If no text has shown up yet, we need to wait a moment
 		if (textStarted == false)
 		{
+			var startTxtTimer:Float = 0;
+			if (PlayState.songsPlayed == 0)
+				startTxtTimer = 1.35;
+			else
+				startTxtTimer = 0.375;
+
 			// Set the text to nothing for now
 			alphabetText.startText('', true);
 			// To prevent awkward text not against a dialogue background, a quick fix is to delay the initial text
-			new FlxTimer().start(1.35, function(tmr:FlxTimer)
+			new FlxTimer().start(startTxtTimer, function(tmr:FlxTimer)
 			{
 				textStarted = true;
 				startText();

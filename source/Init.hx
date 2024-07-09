@@ -58,33 +58,20 @@ class Init extends FlxState
 		'Modo Debug' => [
 			false,
 			Checkmark,
-			'Habilita el botplay, el editor de charts y otras cosas utiles para desarrolladores.',
+			'Habilita el botplay, el editor de charts, etc.',
 			NOT_FORCED
 		],
 		'Ventana Oscura' => [
 			true,
 			Checkmark,
-			'Colorea la ventana del juego de color oscuro, solo funciona en Windows.',
+			'Pinta de negro la pantalla del juego. (Solo Windows)',
 			NOT_FORCED
 		],
 		'Movimiento Reducido' => [
 			false,
 			Checkmark,
-			'Reduce el movimiento, como los iconos moviendose con el ritmo o los zooms durante el gameplay.',
+			'Deshabilita el movimiento de los iconos y zooms.',
 			NOT_FORCED
-		],
-		'Oscurecer' => [
-			Checkmark,
-			Selector,
-			'Oscurece el escenario y los personajes, por si te distraen.',
-			NOT_FORCED
-		],
-		'Tipo' => [
-			'UI',
-			Selector,
-			'Escoge si quieres el filtro de opacidad detras del UI o de las notas.',
-			NOT_FORCED,
-			['UI', 'Notas']
 		],
 		'Contador' => [
 			'No',
@@ -94,10 +81,10 @@ class Init extends FlxState
 			['No', 'Izquierda', 'Derecha']
 		],
 		'Mostrar Precision' => [true, Checkmark, 'Muestra tu precision en la barra de informacion.', NOT_FORCED],
-		'Deshabilitar Suavizado' => [
-			false,
+		'Antialiasing' => [
+			true,
 			Checkmark,
-			'Deshabilita el suavizado de imagenes. Por si tienes problemas con FPS.',
+			'Suaviza las texturas. Desactivalo si tienes problemas de FPS.',
 			NOT_FORCED
 		],
 		'Movimiento con Notas' => [
@@ -106,10 +93,10 @@ class Init extends FlxState
 			'Las notas moveran un poco la camara al ser presionadas.',
 			NOT_FORCED
 		],
-		'Sin Note Splashes' => [
-			false,
+		'Note Splashes' => [
+			true,
 			Checkmark,
-			'Deshabilita los note splashes, por si te distraen.',
+			'Un splash aparecera cuando la nota cantada sea un "Sick!"',
 			NOT_FORCED
 		],
 		// custom ones lol
@@ -121,8 +108,6 @@ class Init extends FlxState
 			NOT_FORCED,
 			['nada', 'Deuteranopia', 'Protanopia', 'Tritanopia']
 		],
-		'Clip Style' => ['FNF', Selector, "Escoge como quieres las notas mantenidas; StepMania: debajo del receptor; FNF: encima del receptor", NOT_FORCED, 
-			['StepMania', 'FNF']],
 		'UI Skin' => ['forever', Selector, 'Escoge una skin para los ratings, combos, etc.', NOT_FORCED, ''],
 		'Note Skin' => ['default', Selector, 'puto el que lo lea', NOT_FORCED, ''],
 		'Limite de FPS' => [120, Selector, 'Establece un limite de FPS.', NOT_FORCED, ['']],
@@ -131,7 +116,7 @@ class Init extends FlxState
 		'Ghost Tapping' => [
 			true,
 			Checkmark,
-			"Activa el Ghost Tapping, no recibiras fallos por presionar notas que no estaban ahi.",
+			"No recibiras fallos por presionar notas que no estaban ahi.",
 			NOT_FORCED
 		],
 		'Notas centradas' => [false, Checkmark, "Centra tus notas, y deshabilita las notas del oponente."],
@@ -151,13 +136,13 @@ class Init extends FlxState
 		'Fixed Judgements' => [
 			false,
 			Checkmark,
-			"Pone los ratings en la camara y no en el escenario para que sean mas faciles de leer.", 
+			"Acla los ratings al HUD para que sean mas faciles de leer.", 
 			NOT_FORCED
 		],
 		'Simply Judgements' => [
 			true,
 			Checkmark,
-			"Simplifica las animaciones de los ratings, mostrando solo uno a la vez",
+			"Muestra solo un rating a la vez.",
 			NOT_FORCED
 		],
 		'fpStory' => [

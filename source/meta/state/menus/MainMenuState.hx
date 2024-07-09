@@ -693,6 +693,7 @@ class MainMenuState extends MusicBeatState
 						PlayState.seenCutscene = false;
 						PlayState.storyDifficulty = 1;
 						PlayState.storyWeek = 34;
+						PlayState.songsPlayed = 0;
 
 						Main.switchState(this, new PlayState(), true);
 					}
@@ -748,9 +749,9 @@ class MainMenuState extends MusicBeatState
 		if (playSounds)
 		{
 			if (muted)
-				FlxG.sound.play(Paths.sound('event/discordMute'));
+				FlxG.sound.play(Paths.sound('discord/mute'));
 			else
-				FlxG.sound.play(Paths.sound('event/discordUnmute'));
+				FlxG.sound.play(Paths.sound('discord/unmute'));
 		}
 	}
 
@@ -760,7 +761,7 @@ class MainMenuState extends MusicBeatState
 		var sound:FlxSound = new FlxSound();
 		if (deafen)
 		{
-			sound.loadEmbedded(Paths.sound('menu/discordDeafen'));
+			sound.loadEmbedded(Paths.sound('discord/deafen'));
 			sound.play();
 
 			FlxG.sound.muted = true;
@@ -775,7 +776,7 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.volumeUpKeys = [PLUS, NUMPADPLUS];
 			FlxG.sound.volumeDownKeys = [MINUS, NUMPADMINUS];
 
-			sound.loadEmbedded(Paths.sound('menu/discordUndeafen'));
+			sound.loadEmbedded(Paths.sound('discord/undeafen'));
 			sound.play();
 		}
 	}

@@ -145,7 +145,7 @@ class UnownSubstate extends MusicBeatSubState
 		if (position >= realWord.length) {
 			close();
 			win();
-			FlxG.sound.play(Paths.sound('event/CORRECT'));
+			FlxG.sound.play(Paths.sound('event/unown/CORRECT'));
 		}
 	}
 	override function update(elapsed:Float)
@@ -165,17 +165,17 @@ class UnownSubstate extends MusicBeatSubState
 				if (FlxG.keys.justPressed.SLASH && FlxG.keys.pressed.SHIFT)
 					correctLetter();
 				else if (!FlxG.keys.justPressed.SHIFT)
-					FlxG.sound.play(Paths.sound('event/BUZZER'));
+					FlxG.sound.play(Paths.sound('event/unown/BUZZER'));
 			} else if (realWord.charAt(position) == '!') {
 				if (FlxG.keys.justPressed.ONE && FlxG.keys.pressed.SHIFT)
 					correctLetter();
 				else if (!FlxG.keys.justPressed.SHIFT)
-					FlxG.sound.play(Paths.sound('event/BUZZER'));
+					FlxG.sound.play(Paths.sound('event/unown/BUZZER'));
 			} else {
 				if (FlxG.keys.anyJustPressed([FlxKey.fromString(realWord.charAt(position))])) {
 					correctLetter();
 				} else
-					FlxG.sound.play(Paths.sound('event/BUZZER'));
+					FlxG.sound.play(Paths.sound('event/unown/BUZZER'));
 			}
 		}
 		/*if (FlxG.keys.justPressed.Z) {

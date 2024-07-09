@@ -8,6 +8,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import meta.MusicBeat.MusicBeatSubState;
+import meta.state.PlayState;
 
 /**
  *
@@ -22,11 +23,13 @@ class LoadingScreen extends MusicBeatSubState
 	public static var fontUsed:String;
 	
 	var fonts:Array<String> = [
-		'deltarune.ttf',
-		'earthbound.ttf',
 		'metalgear.ttf',
+		'deltarune.ttf',
+		'terraria.ttf',
 		'minecraft.ttf',
-		'terraria.ttf'];
+		'earthbound.ttf'
+	];
+
 	var screen:FlxSprite;
 	var black:FlxSprite;
 	var txt:FlxText;
@@ -36,14 +39,44 @@ class LoadingScreen extends MusicBeatSubState
 	{
 		super();
 		this.isTransIn = isTransIn;
+
 		#if !html5
 		Discord.changePresence('Cargando...');
 		#end
 
-		if (font == null)
-			fontUsed = fonts[FlxG.random.int(0, 4)];
+		if (PlayState.SONG != null)
+		{
+			switch (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()))
+			{
+				case 'skullody':
+					fontUsed = 'metalgear.ttf';
+				case 'coffee' | 'spring' | 'rules':
+					fontUsed = 'deltarune.ttf';
+				case 'deadbush' | 'necron' | 'gaming' | 'chronomatron' | 'take-five':
+					fontUsed = 'terraria.ttf';
+				case 'goop' | 'chase' | 'pandemonium':
+					fontUsed = 'minecraft.ttf';
+				case 'edge' | 'absolution' | 'temper' | 'razortrousle' | 'temper-x':
+					fontUsed = 'earthbound.ttf';
+				case 'asf':
+					fontUsed = 'morena.otf';
+				case 'memories':
+					fontUsed = 'puruaran.ttf';
+				case 'pelea-en-la-calle-tres':
+					fontUsed = 'venom.ttf';
+				case 'pilin':
+					fontUsed = 'tiktok.ttf';
+				case 'succionar':
+					fontUsed = '';
+			}
+		}
 		else
-			fontUsed = font;
+		{
+			if (font == null)
+				fontUsed = fonts[FlxG.random.int(0, 4)];
+			else
+				fontUsed = font;
+		}
 
 		black = new FlxSprite();
 		black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -52,7 +85,7 @@ class LoadingScreen extends MusicBeatSubState
 		black.alpha = 0;
 		add(black);
 
-		screen = new FlxSprite().loadGraphic(Paths.image('menus/art/loadingScreen'));
+		screen = new FlxSprite().loadGraphic(Paths.image('menus/mainmenu/art/loadingScreen'));
 		screen.setGraphicSize(Std.int(FlxG.width));
 		screen.updateHitbox();
 		screen.scrollFactor.set();
@@ -74,7 +107,6 @@ class LoadingScreen extends MusicBeatSubState
 		txt.borderColor = FlxColor.BLACK;
 		txt.borderSize = 3;
 
-		txt.scrollFactor.set();
 		txt.antialiasing = true;
 		txt.alpha = 0;
 		add(txt);

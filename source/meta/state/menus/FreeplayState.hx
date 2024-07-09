@@ -26,7 +26,10 @@ class FreeplayState extends MusicBeatState
 	//
 	var songs:Array<SongMetadata> = [];
 
-	static var curSelected:Int = 0;
+	var curSelected:Int = 0;
+	static var storySelect:Int = 0;
+	static var bonusSelect:Int = 0;
+
 	var curSongPlaying:Int = -1;
 	var curDifficulty:Int = 1;
 
@@ -40,17 +43,18 @@ class FreeplayState extends MusicBeatState
 	var mutex:Mutex;
 	var songToPlay:Sound = null;
 
-	private var grpSongs:FlxTypedGroup<Alphabet>;
-	private var curPlaying:Bool = false;
+	var grpSongs:FlxTypedGroup<Alphabet>;
+	var curPlaying:Bool = false;
 
-	private var iconArray:Array<HealthIcon> = [];
+	var iconArray:Array<HealthIcon> = [];
 
-	private var mainColor = FlxColor.WHITE;
-	private var bg:FlxSprite;
-	private var scoreBG:FlxSprite;
+	var mainColor = FlxColor.WHITE;
+	var colorTwn:FlxTween;
+	var bg:FlxSprite;
+	var scoreBG:FlxSprite;
 
-	private var existingSongs:Array<String> = [];
-	private var existingDifficulties:Array<Array<String>> = [];
+	var existingSongs:Array<String> = [];
+	var existingDifficulties:Array<Array<String>> = [];
 
 	public static var story:Bool;
 	public static var curSongBPM:Float;
@@ -79,6 +83,7 @@ class FreeplayState extends MusicBeatState
 		story = Init.trueSettings.get('fpStory');
 		if (story)
 		{
+			curSelected = storySelect;
 			bg = new FlxSprite().loadGraphic(Paths.image('menus/bgs/menuDesat'));
 			add(bg);
 			for (i in 0...Main.gameWeeks.length)
@@ -90,6 +95,7 @@ class FreeplayState extends MusicBeatState
 		}
 		else
 		{
+			curSelected = bonusSelect;
 			var num:String = Std.string(FlxG.random.int(1, 3));
 			bg = new FlxSprite().loadGraphic(Paths.image('menus/bgs/cast' + num));
 			add(bg);
@@ -139,6 +145,7 @@ class FreeplayState extends MusicBeatState
 				}
 			}
 		}
+		bg.color = 0xff284914;
 
 		// LOAD MUSIC
 		// ForeverTools.resetMenuMusic();
@@ -191,7 +198,6 @@ class FreeplayState extends MusicBeatState
 		add(scoreText);
 
 		changeSelection();
-
 		// FlxG.sound.playMusic(Paths.music('title'), 0);
 		// FlxG.sound.music.fadeIn(2, 0, 0.8);
 	}
@@ -234,8 +240,6 @@ class FreeplayState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-
-		FlxTween.color(bg, 0.35, bg.color, mainColor);
 
 		var lerpVal = Main.framerateAdjust(0.1);
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, lerpVal));
@@ -281,6 +285,7 @@ class FreeplayState extends MusicBeatState
 			PlayState.isStoryMode = false;
 			PlayState.seenCutscene = false;
 			PlayState.storyDifficulty = curDifficulty;
+			PlayState.songsPlayed = 0;
 
 			PlayState.storyWeek = songs[curSelected].week;
 			trace('CUR WEEK' + PlayState.storyWeek);
@@ -346,10 +351,18 @@ class FreeplayState extends MusicBeatState
 		if (curSelected >= songs.length)
 			curSelected = 0;
 
+		if (story)
+			storySelect = curSelected;
+		else
+			bonusSelect = curSelected;
+
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 
 		// set up color stuffs
 		mainColor = songs[curSelected].songColor;
+		if (colorTwn != null)
+			colorTwn.cancel();
+		colorTwn = FlxTween.color(bg, 0.8, bg.color, mainColor);
 
 		// song switching stuffs
 

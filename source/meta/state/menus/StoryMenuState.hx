@@ -16,6 +16,7 @@ import gameObjects.userInterface.menu.MenuCharacter;
 import meta.MusicBeat.MusicBeatState;
 import meta.data.*;
 import meta.data.dependency.Discord;
+import meta.data.dependency.LoadingScreen;
 
 using StringTools;
 
@@ -265,7 +266,7 @@ class StoryMenuState extends MusicBeatState
 	{
 		selectedSomethin = true;
 		menuBF.animation.play('press', true);
-		FlxG.sound.play(Paths.sound('menu/joinVC'), 0.35);
+		FlxG.sound.play(Paths.sound('discord/joinVC'), 0.35);
 		FlxG.sound.play(Paths.sound('menu/confirmMenu'));
 
 		PlayState.storyPlaylist = Main.gameWeeks[curWeek][0].copy();
@@ -276,12 +277,14 @@ class StoryMenuState extends MusicBeatState
 		PlayState.storyDifficulty = 1;
 		PlayState.storyWeek = curWeek;
 		PlayState.campaignScore = 0;
+		PlayState.songsPlayed = 0;
 
 		grpBoxes.members[curWeek].makeGraphic(boxWidth, 90, 0xff3f4248);
 
 		FlxFlicker.flicker(grpWeekText.members[curWeek], 1, 0.06, false, false);
 		FlxFlicker.flicker(grpSpeakers.members[curWeek], 1, 0.06, false, false);
 		FlxFlicker.flicker(grpBoxes.members[curWeek], 1, 0.06, false, false);
+
 		new FlxTimer().start(1, function(tmr:FlxTimer)
 		{
 			Main.switchState(this, new PlayState(), true);

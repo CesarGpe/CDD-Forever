@@ -86,31 +86,31 @@ class Main extends Sprite
 		[
 			['Skullody'],
 			['2ndplayer'],
-			[FlxColor.fromRGB(40, 73, 20)],
+			[0xff284914],
 			'"Tutorial..."'
 		],
 		[
 			['Coffee', 'Spring', 'Rules'],
 			['BrownishSea'],
-			[FlxColor.fromRGB(164, 215, 215)],
+			[0xffa4d7d7],
 			'"Sea of Possibilities"'
 		],
 		[
 			['Deadbush', 'Necron', 'Gaming'],
 			['cesar', 'cesar', 'hyperpig'],
-			[FlxColor.fromRGB(180, 115, 53)],
+			[0xffb47335, 0xffb47335, 0xffdc64ab],
 			'el cesar jaja'
 		],
 		[
 			['Goop', 'Chase', 'Pandemonium'],
 			['blueslime32'],
-			[FlxColor.fromRGB(86, 164, 164)],
+			[0xff56a4a4],
 			'"Sticky Situation"'
 		],
 		[
 			['Edge', 'Absolution', 'Temper'],
 			['TsuyAr-1', 'TsuyAr-2', 'TsuyAr-3'],
-			[FlxColor.fromRGB(128, 64, 64)],
+			[0xff808080, 0xff804040, 0xff800000],
 			'"On The Edge"'
 		]
 	];
@@ -240,8 +240,10 @@ class Main extends Sprite
 		}
 
 		onLoadingScreen = false;
+		
 		FlxTransitionableState.skipNextTransIn = false;
 		FlxTransitionableState.skipNextTransOut = false;
+
 		// load the state
 		FlxG.switchState(target);
 	}

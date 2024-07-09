@@ -898,7 +898,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 	override function add(Object:FlxBasic):FlxBasic
 	{
 		if (Std.isOfType(Object, FlxSprite))
-			cast(Object, FlxSprite).antialiasing = !Init.trueSettings.get('Deshabilitar Suavizado');
+			cast(Object, FlxSprite).antialiasing = !Init.trueSettings.get('Antialiasing');
 		return super.add(Object);
 	}
 }

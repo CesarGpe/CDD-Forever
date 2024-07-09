@@ -21,20 +21,28 @@ import meta.subState.OptionsSubstate;
 **/
 class OptionsMenuState extends MusicBeatState
 {
-	private var categoryMap:Map<String, Dynamic>;
-	private var activeSubgroup:FlxTypedGroup<Alphabet>;
-	private var attachments:FlxTypedGroup<FlxBasic>;
+	var categoryMap:Map<String, Dynamic>;
+	var activeSubgroup:FlxTypedGroup<Alphabet>;
+	var attachments:FlxTypedGroup<FlxBasic>;
+
+	var sideSelection = 0;
+	var sideSelectin:Bool = true;
+	var chooseText:FlxText;
+	var sideButtons:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
+	var grpBoxes:FlxTypedGroup<FlxSprite> = new FlxTypedGroup<FlxSprite>();
 
 	var curSelection = 0;
 	var curSelectedScript:Void->Void;
 	var curCategory:String;
 
 	var infoText:FlxText;
-	var finalText:String;
+	var finalText:String = '';
 	var textValue:String = '';
 	var infoTimer:FlxTimer;
+	var controlMockup:FlxSprite;
 
 	var lockedMovement:Bool = false;
+	final boxWidth = 285;
 
 	override public function create():Void
 	{
@@ -57,55 +65,57 @@ class OptionsMenuState extends MusicBeatState
 		categoryMap = [
 			'main' => [
 				[
-					['preferencias', callNewGroup],
-					['apariencia', callNewGroup],
-					['controles', openControlmenu],
-					['salir', exitMenu]
+					['', null],
+					['Preferencias', null],
+					['Gameplay', callNewGroup],
+					['Miscelaneo', callNewGroup],
+					['', null],
+					['Apariencia', null],
+					['Visuales', callNewGroup],
+					['Notas', callNewGroup],
+					['Accesibilidad', callNewGroup],
+					['', null],
+					['Controles', openControlmenu]
 				]
 			],
-			'preferencias' => [
+			'Gameplay' => [
 				[
-					['Gameplay', null],
-					['', null],
 					['Downscroll', getFromOption],
 					['Notas centradas', getFromOption],
 					['Ghost Tapping', getFromOption],
 					['Mostrar Precision', getFromOption],
-					['Dialogo', getFromOption],
-					['', null],
-					['Miscelaneo', null],
-					['', null],
+					['Dialogo', getFromOption]
+				]
+			],
+			'Miscelaneo' => [
+				[
 					['Limite de FPS', getFromOption],
 					['Mostrar FPS', getFromOption],
 					['Contador de Memoria', getFromOption],
 					['Modo Debug', getFromOption]
 				]
 			],
-			'apariencia' => [
+			'Visuales' => [
 				[
-					['Visuales', null],
-					['', null],
 					['Ventana Oscura', getFromOption],
 					['UI Skin', getFromOption],
-					['', null],
-					['Fixed Judgements', getFromOption], 
+					['Fixed Judgements', getFromOption],
 					['Simply Judgements', getFromOption],
-					['Contador', getFromOption],
-					['', null],
-					['Notas', null],
-					['', null],
-					['Clip Style', getFromOption],
+					['Contador', getFromOption]
+				]
+			],
+			'Notas' => [
+				[
 					['Movimiento con Notas', getFromOption],
-					['Sin Note Splashes', getFromOption],
+					['Note Splashes', getFromOption],
 					['Flechas Opacas', getFromOption],
-					['Holds Opacas', getFromOption],
-					['', null],
-					['Accesibilidad', null],
-					['', null],
+					['Holds Opacas', getFromOption]
+				]
+			],
+			'Accesibilidad' => [
+				[
 					['Filtro', getFromOption],
-					['Deshabilitar Suavizado', getFromOption],
-					['Oscurecer', getFromOption],
-					['Tipo', getFromOption],
+					['Antialiasing', getFromOption],
 					['Movimiento Reducido', getFromOption]
 				]
 			]
@@ -117,17 +127,14 @@ class OptionsMenuState extends MusicBeatState
 			categoryMap.get(category)[2] = returnExtrasMap(categoryMap.get(category)[1]);
 		}
 
-		// call the options menu
-		var bg = new FlxSprite(-85);
-		bg.loadGraphic(Paths.image('menus/bgs/menuDesat'));
-		bg.scrollFactor.x = 0;
-		bg.scrollFactor.y = 0.18;
-		bg.setGraphicSize(Std.int(bg.width * 1.1));
-		bg.updateHitbox();
+		var bg = new FlxSprite();
+		bg.makeGraphic(FlxG.width, FlxG.height, 0xff313338);
 		bg.screenCenter();
-		bg.color = 0xCE64DF;
-		bg.antialiasing = true;
 		add(bg);
+
+		var buttonsBG = new FlxSprite();
+		buttonsBG.makeGraphic(328, FlxG.height, 0xff2b2d31);
+		add(buttonsBG);
 
 		infoText = new FlxText(5, FlxG.height - 24, 0, "", 32);
 		infoText.setFormat("VCR OSD Mono", 20, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -135,10 +142,65 @@ class OptionsMenuState extends MusicBeatState
 		infoText.textField.backgroundColor = FlxColor.BLACK;
 		add(infoText);
 
-		loadSubgroup('main');
+		controlMockup = new FlxSprite(328, 0);
+		controlMockup.loadGraphic(Paths.image('menus/options/controls'));
+		controlMockup.visible = false;
+		add(controlMockup);
+
+		add(grpBoxes);
+		add(sideButtons);
+
+		createSideBar('main');
+		selectOption(curSelection);
+
+		loadSubgroup('Gameplay');
+		loadSubgroup('Miscelaneo');
+		loadSubgroup('Visuales');
+		loadSubgroup('Notas');
+		loadSubgroup('Accesibilidad');
+		goBackToSide();
 	}
 
-	private var currentAttachmentMap:Map<Alphabet, Dynamic>;
+	function createSideBar(subgroupName:String)
+	{
+		var j = 0;
+		for (i in 0...categoryMap.get(subgroupName)[0].length)
+		{
+			if (Init.gameSettings.get(categoryMap.get(subgroupName)[0][i][0]) == null
+				|| Init.gameSettings.get(categoryMap.get(subgroupName)[0][i][0])[3] != Init.FORCED)
+			{
+				var thisOption:FlxText = new FlxText(40, 25, 250, categoryMap.get(subgroupName)[0][i][0]);
+				if (categoryMap.get(subgroupName)[0][i][1] == null)
+				{
+					thisOption.setFormat(Paths.font("unisans.otf"), 30, 0xff8b8d92, LEFT);
+					thisOption.updateHitbox();
+					thisOption.y += ((thisOption.height + 25) * i);
+					thisOption.antialiasing = true;
+					add(thisOption);
+				}
+				else
+				{
+					thisOption.setFormat(Paths.font("whitneymedium.otf"), 30, FlxColor.WHITE, LEFT);
+					thisOption.updateHitbox();
+					thisOption.y += ((thisOption.height + 20) * i);
+					thisOption.alpha = 0.6;
+					thisOption.antialiasing = true;
+					thisOption.ID = j;
+					sideButtons.add(thisOption);
+
+					var box:FlxSprite = new FlxSprite(20, thisOption.y - 7);
+					// box.y += ((thisOption.height + 30) * i) + 0;
+					box.makeGraphic(boxWidth, 55, 0xff3f4248);
+					box.ID = j;
+					grpBoxes.add(box);
+
+					j++;
+				}
+			}
+		}
+	}
+
+	var currentAttachmentMap:Map<Alphabet, Dynamic>;
 
 	function loadSubgroup(subgroupName:String)
 	{
@@ -149,13 +211,8 @@ class OptionsMenuState extends MusicBeatState
 		if (infoText != null)
 			remove(infoText);
 
-		// kill previous subgroup attachments
-		if (attachments != null)
-			remove(attachments);
-
-		// kill previous subgroup if it exists
-		if (activeSubgroup != null)
-			remove(activeSubgroup);
+		// kill previous stuff
+		removeActiveSubgroup();
 
 		// load subgroup lmfao
 		activeSubgroup = categoryMap.get(subgroupName)[1];
@@ -176,28 +233,6 @@ class OptionsMenuState extends MusicBeatState
 		add(infoText);
 		regenInfoText();
 
-		// reset the selection
-		curSelection = 0;
-		selectOption(curSelection);
-	}
-
-	function selectOption(newSelection:Int, playSound:Bool = true)
-	{
-		if ((newSelection != curSelection) && (playSound))
-			FlxG.sound.play(Paths.sound('menu/scrollMenu'));
-
-		// direction increment finder
-		var directionIncrement = ((newSelection < curSelection) ? -1 : 1);
-
-		// updates to that new selection
-		curSelection = newSelection;
-
-		// wrap the current selection
-		if (curSelection < 0)
-			curSelection = activeSubgroup.length - 1;
-		else if (curSelection >= activeSubgroup.length)
-			curSelection = 0;
-
 		// set the correct group stuffs lol
 		for (i in 0...activeSubgroup.length)
 		{
@@ -208,25 +243,131 @@ class OptionsMenuState extends MusicBeatState
 			activeSubgroup.members[i].xTo = 200 + ((i - curSelection) * 25);
 
 			// check for null members and hardcode the dividers
-			if (categoryMap.get(curCategory)[0][i][1] == null) {
+			if (categoryMap.get(curCategory)[0][i][1] == null)
+			{
 				activeSubgroup.members[i].alpha = 1;
 				activeSubgroup.members[i].xTo += Std.int((FlxG.width / 2) - ((activeSubgroup.members[i].text.length / 2) * 40)) - 200;
 			}
 		}
 
-		activeSubgroup.members[curSelection].alpha = 1;
-		if (currentAttachmentMap != null)
-			setAttachmentAlpha(currentAttachmentMap.get(activeSubgroup.members[curSelection]), 1);
+		// move the attachments if there are any
+		for (setting in currentAttachmentMap.keys())
+		{
+			if ((setting != null) && (currentAttachmentMap.get(setting) != null))
+			{
+				var thisAttachment = currentAttachmentMap.get(setting);
+				thisAttachment.x = setting.x - 100;
+				thisAttachment.y = setting.y - 50;
+			}
+		}
 
-		// what's the script of the current selection?
-		for (i in 0...categoryMap.get(curCategory)[0].length)
-			if (categoryMap.get(curCategory)[0][i][0] == activeSubgroup.members[curSelection].text)
-				curSelectedScript = categoryMap.get(curCategory)[0][i][1];
-		// wow thats a dumb check lmao
+		// reset the selection
+		if (sideSelectin)
+		{
+			curSelection = sideSelection;
+			infoText.visible = false;
+			resetSideItem();
+		}
+		else
+		{
+			curSelection = 0;
+			infoText.visible = true;
+			selectOption(curSelection);
+		}
+	}
 
-		// skip line if the selected script is null (indicates line break)
-		if (curSelectedScript == null)
-			selectOption(curSelection + directionIncrement, false);
+	function selectOption(newSelection:Int, playSound:Bool = true)
+	{
+		if ((newSelection != curSelection) && (playSound))
+			FlxG.sound.play(Paths.sound('menu/scrollMenu'));
+
+		if (sideSelectin)
+		{
+			// updates to that new selection
+			curSelection = newSelection;
+
+			// wrap the current selection
+			if (curSelection < 0)
+				curSelection = sideButtons.length - 1;
+			else if (curSelection >= sideButtons.length)
+				curSelection = 0;
+
+			// update items lol
+			for (item in grpBoxes.members)
+			{
+				if (item.ID == curSelection)
+					item.visible = true;
+				else
+					item.visible = false;
+			}
+			for (item in sideButtons.members)
+			{
+				if (item.ID == curSelection)
+					item.alpha = 1;
+				else
+					item.alpha = 0.6;
+			}
+			sideSelection = curSelection;
+			curSelectedScript = callFromSide;
+
+			if (sideButtons.members[curSelection].text == 'Controles')
+			{
+				controlMockup.visible = true;
+				removeActiveSubgroup();
+			}
+			else
+			{
+				controlMockup.visible = false;
+				loadSubgroup(sideButtons.members[curSelection].text);
+			}
+		}
+		else
+		{
+			// direction increment finder
+			var directionIncrement = ((newSelection < curSelection) ? -1 : 1);
+
+			// updates to that new selection
+			curSelection = newSelection;
+
+			// wrap the current selection
+			if (curSelection < 0)
+				curSelection = activeSubgroup.length - 1;
+			else if (curSelection >= activeSubgroup.length)
+				curSelection = 0;
+
+			// set the correct group stuffs lol
+			for (i in 0...activeSubgroup.length)
+			{
+				activeSubgroup.members[i].alpha = 0.6;
+				if (currentAttachmentMap != null)
+					setAttachmentAlpha(currentAttachmentMap.get(activeSubgroup.members[i]), 0.6);
+				activeSubgroup.members[i].targetY = (i - curSelection) / 2;
+				activeSubgroup.members[i].xTo = 200 + ((i - curSelection) * 25);
+
+				// check for null members and hardcode the dividers
+				if (categoryMap.get(curCategory)[0][i][1] == null)
+				{
+					activeSubgroup.members[i].alpha = 1;
+					activeSubgroup.members[i].xTo += Std.int((FlxG.width / 2) - ((activeSubgroup.members[i].text.length / 2) * 40)) - 200;
+				}
+			}
+
+			activeSubgroup.members[curSelection].alpha = 1;
+			if (currentAttachmentMap != null)
+				setAttachmentAlpha(currentAttachmentMap.get(activeSubgroup.members[curSelection]), 1);
+
+			// what's the script of the current selection?
+			for (i in 0...categoryMap.get(curCategory)[0].length)
+				if (categoryMap.get(curCategory)[0][i][0] == activeSubgroup.members[curSelection].text)
+					curSelectedScript = categoryMap.get(curCategory)[0][i][1];
+			// wow thats a dumb check lmao
+
+			// skip line if the selected script is null (indicates line break)
+			if (curSelectedScript == null)
+				selectOption(curSelection + directionIncrement, false);
+		}
+
+		trace('curSelection: ' + curSelection);
 	}
 
 	function setAttachmentAlpha(attachment:FlxSprite, newAlpha:Float)
@@ -254,59 +395,64 @@ class OptionsMenuState extends MusicBeatState
 			updateSelections();
 		}
 
-		if (Init.gameSettings.get(activeSubgroup.members[curSelection].text) != null)
+		if (!sideSelectin)
 		{
-			// lol had to set this or else itd tell me expected }
-			var currentSetting = Init.gameSettings.get(activeSubgroup.members[curSelection].text);
-			var textValue = currentSetting[2];
-			if (textValue == null)
-				textValue = "";
-
-			if (finalText != textValue)
+			if (Init.gameSettings.get(activeSubgroup.members[curSelection].text) != null)
 			{
-				// trace('call??');
-				// trace(textValue);
-				regenInfoText();
+				// lol had to set this or else itd tell me expected }
+				var currentSetting = Init.gameSettings.get(activeSubgroup.members[curSelection].text);
+				var textValue = currentSetting[2];
+				if (textValue == null)
+					textValue = "";
 
-				var textSplit = [];
-				finalText = textValue;
-				textSplit = finalText.split("");
-
-				var loopTimes = 0;
-				infoTimer = new FlxTimer().start(0.025, function(tmr:FlxTimer)
+				if (finalText != textValue)
 				{
-					//
-					infoText.text += textSplit[loopTimes];
-					infoText.screenCenter(X);
+					// trace('call??');
+					// trace(textValue);
+					regenInfoText();
 
-					loopTimes++;
-				}, textSplit.length);
+					var textSplit = [];
+					finalText = textValue;
+					textSplit = finalText.split("");
+
+					var loopTimes = 0;
+					infoTimer = new FlxTimer().start(0.025, function(tmr:FlxTimer)
+					{
+						//
+						infoText.text += textSplit[loopTimes];
+						infoText.screenCenter(X);
+						infoText.x += 164;
+
+						loopTimes++;
+					}, textSplit.length);
+				}
 			}
-		}
 
-		// move the attachments if there are any
-		for (setting in currentAttachmentMap.keys())
-		{
-			if ((setting != null) && (currentAttachmentMap.get(setting) != null))
+			// move the attachments if there are any
+			for (setting in currentAttachmentMap.keys())
 			{
-				var thisAttachment = currentAttachmentMap.get(setting);
-				thisAttachment.x = setting.x - 100;
-				thisAttachment.y = setting.y - 50;
+				if ((setting != null) && (currentAttachmentMap.get(setting) != null))
+				{
+					var thisAttachment = currentAttachmentMap.get(setting);
+					thisAttachment.x = setting.x - 100;
+					thisAttachment.y = setting.y - 50;
+				}
 			}
 		}
 
 		if (controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound('menu/cancelMenu'));
-			if (curCategory != 'main')
-				loadSubgroup('main');
+			if (!sideSelectin)
+				goBackToSide();
 			else
 				Main.switchState(this, new MainMenuState());
 		}
 	}
 
-	private function regenInfoText()
+	function regenInfoText()
 	{
+		finalText = '';
 		if (infoTimer != null)
 			infoTimer.cancel();
 		if (infoText != null)
@@ -344,7 +490,7 @@ class OptionsMenuState extends MusicBeatState
 		}
 	}
 
-	private function returnSubgroup(groupName:String):FlxTypedGroup<Alphabet>
+	function returnSubgroup(groupName:String):FlxTypedGroup<Alphabet>
 	{
 		//
 		var newGroup:FlxTypedGroup<Alphabet> = new FlxTypedGroup<Alphabet>();
@@ -354,14 +500,14 @@ class OptionsMenuState extends MusicBeatState
 			if (Init.gameSettings.get(categoryMap.get(groupName)[0][i][0]) == null
 				|| Init.gameSettings.get(categoryMap.get(groupName)[0][i][0])[3] != Init.FORCED)
 			{
-				var thisOption:Alphabet = new Alphabet(0, 0, categoryMap.get(groupName)[0][i][0], true, false);
-				thisOption.screenCenter();
+				var thisOption:Alphabet = new Alphabet(450, 250, categoryMap.get(groupName)[0][i][0], true, false, 0.8);
+				//thisOption.screenCenter();
 				thisOption.y += (90 * (i - Math.floor(categoryMap.get(groupName)[0].length / 2)));
 				thisOption.targetY = i;
 				thisOption.disableX = true;
 				// hardcoded main so it doesnt have scroll
-				if (groupName != 'main')
-					thisOption.isMenuItem = true;
+				//if (groupName != 'main')
+				//thisOption.isMenuItem = true;
 				thisOption.alpha = 0.6;
 				newGroup.add(thisOption);
 			}
@@ -370,7 +516,7 @@ class OptionsMenuState extends MusicBeatState
 		return newGroup;
 	}
 
-	private function returnExtrasMap(alphabetGroup:FlxTypedGroup<Alphabet>):Map<Alphabet, Dynamic>
+	function returnExtrasMap(alphabetGroup:FlxTypedGroup<Alphabet>):Map<Alphabet, Dynamic>
 	{
 		var extrasMap:Map<Alphabet, Dynamic> = new Map<Alphabet, Dynamic>();
 		for (letter in alphabetGroup)
@@ -388,7 +534,7 @@ class OptionsMenuState extends MusicBeatState
 					case Init.SettingTypes.Selector:
 						// selector
 						var selector:Selector = new Selector(20, letter.y, letter.text, Init.gameSettings.get(letter.text)[4],
-							(letter.text == 'Limite de FPS') ? true : false, (letter.text == 'Oscurecer') ? true : false);
+							(letter.text == 'Limite de FPS') ? true : false, (letter.text == 'Filtro') ? true : false, 46, 0.8);
 
 						extrasMap.set(letter, selector);
 					default:
@@ -457,7 +603,6 @@ class OptionsMenuState extends MusicBeatState
 	function updateSelector(selector:Selector, updateBy:Int)
 	{
 		var fps = selector.fpsCap;
-		var bgdark = selector.darkBG;
 		if (fps)
 		{
 			// bro I dont even know if the engine works in html5 why am I even doing this
@@ -483,31 +628,7 @@ class OptionsMenuState extends MusicBeatState
 			Init.trueSettings.set(activeSubgroup.members[curSelection].text, originalFPS);
 			Init.saveSettings();
 		}
-		else if (bgdark)
-		{
-			// lazily hardcoded darkness cap
-			var originaldark = Init.trueSettings.get(activeSubgroup.members[curSelection].text);
-			var increase = 5 * updateBy;
-			if (originaldark + increase < 0)
-				increase = 0;
-			// high darkness cap
-			if (originaldark + increase > 100)
-				increase = 0;
-
-			if (updateBy == -1)
-				selector.selectorPlay('left', 'press');
-			else
-				selector.selectorPlay('right', 'press');
-
-			FlxG.sound.play(Paths.sound('menu/scrollMenu'));
-
-			originaldark += increase;
-			selector.chosenOptionString = Std.string(originaldark);
-			selector.optionChosen.text = Std.string(originaldark);
-			Init.trueSettings.set(activeSubgroup.members[curSelection].text, originaldark);
-			Init.saveSettings();
-		}
-		else if (!fps && !bgdark)
+		else if (!fps)
 		{ 
 			// get the current option as a number
 			var storedNumber:Int = 0;
@@ -550,22 +671,40 @@ class OptionsMenuState extends MusicBeatState
 			FlxFlicker.flicker(activeSubgroup.members[curSelection], 0.5, 0.06 * 2, true, false, function(flick:FlxFlicker)
 			{
 				loadSubgroup(activeSubgroup.members[curSelection].text);
+			});	
+		}
+	}
+
+	public function callFromSide()
+	{
+		if (controls.ACCEPT)
+		{
+			var curButton = sideButtons.members[curSelection].text;
+			trace(curButton);
+
+			FlxG.sound.play(Paths.sound('menu/confirmMenu'));
+			lockedMovement = true;
+
+			flashSideItem();
+			new FlxTimer().start(0.5, function(tmr:FlxTimer)
+			{
+				if (curButton == 'Controles')
+					openControlmenu();
+				else
+				{
+					sideSelectin = false;
+					loadSubgroup(curButton);
+				}
 			});
 		}
 	}
 
 	public function openControlmenu()
 	{
-		if (controls.ACCEPT)
-		{
-			FlxG.sound.play(Paths.sound('menu/confirmMenu'));
-			lockedMovement = true;
-			FlxFlicker.flicker(activeSubgroup.members[curSelection], 0.5, 0.06 * 2, true, false, function(flick:FlxFlicker)
-			{
-				openSubState(new OptionsSubstate());
-				lockedMovement = false;
-			});
-		}
+		controlMockup.visible = false;
+		removeActiveSubgroup();
+		openSubState(new OptionsSubstate());
+		lockedMovement = false;
 	}
 
 	public function exitMenu()
@@ -582,5 +721,79 @@ class OptionsMenuState extends MusicBeatState
 			});
 		}
 		//
+	}
+
+	public function removeActiveSubgroup()
+	{
+		// kill previous subgroup attachments
+		if (attachments != null)
+			remove(attachments);
+
+		// kill previous subgroup if it exists
+		if (activeSubgroup != null)
+			remove(activeSubgroup);
+	}
+
+	public function goBackToSide()
+	{
+		sideSelectin = true;
+		for (item in grpBoxes.members)
+			item.makeGraphic(boxWidth, 55, 0xff3f4248);
+		for (item in sideButtons.members)
+			item.alpha = 1;
+
+		curSelection = sideSelection;
+		selectOption(curSelection);
+
+		for (i in 0...activeSubgroup.length)
+		{
+			activeSubgroup.members[i].alpha = 0.6;
+			if (currentAttachmentMap != null)
+				setAttachmentAlpha(currentAttachmentMap.get(activeSubgroup.members[i]), 0.6);
+		}
+	}
+
+	override public function closeSubState()
+	{
+		//sideSelection = 5;
+		goBackToSide();
+
+		super.closeSubState();
+	}
+
+	function flashSideItem()
+	{
+		for (item in grpBoxes.members)
+		{
+			if (item.ID == curSelection)
+			{
+				FlxFlicker.flicker(item, 0.5, 0.06 * 2, true, false);
+				item.makeGraphic(boxWidth, 55, 0xff35373c);
+			}
+		}
+
+		for (item in sideButtons.members)
+		{
+			if (item.ID == curSelection)
+			{
+				FlxFlicker.flicker(item, 0.5, 0.06 * 2, true, false);
+				item.alpha = 0.6;
+			}
+		}
+	}
+
+	function resetSideItem()
+	{
+		for (item in grpBoxes.members)
+		{
+			if (item.ID == curSelection)
+				item.makeGraphic(boxWidth, 55, 0xff3f4248);
+		}
+
+		for (item in sideButtons.members)
+		{
+			if (item.ID == curSelection)
+				item.alpha = 1;
+		}
 	}
 }

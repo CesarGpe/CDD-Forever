@@ -176,10 +176,10 @@ class Strumline extends FlxTypedGroup<FlxBasic>
 			}
 		}
 
-		if (Init.trueSettings.get("Clip Style").toLowerCase() == 'stepmania')
-			add(holdsGroup);
+		//if (Init.trueSettings.get("ClipStyle").toLowerCase() == 'stepmania')
+		//	add(holdsGroup);
 		add(receptors);
-		if (Init.trueSettings.get("Clip Style").toLowerCase() == 'fnf')
+		//if (Init.trueSettings.get("ClipStyle").toLowerCase() == 'fnf')
 			add(holdsGroup);
 		add(notesGroup);
 		if (splashNotes != null)
