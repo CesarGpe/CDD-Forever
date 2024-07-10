@@ -1,7 +1,9 @@
 package meta.state.menus;
 
+import flixel.FlxBasic;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.effects.FlxFlicker;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.system.FlxSound;
@@ -25,16 +27,19 @@ class FreeplayState extends MusicBeatState
 {
 	//
 	var songs:Array<SongMetadata> = [];
+	var existingSongs:Array<String> = [];
+	var iconArray:Array<HealthIcon> = [];
+	var grpSongs:FlxTypedGroup<Alphabet>;
+
+	var overStuff:FlxTypedGroup<FlxBasic> = new FlxTypedGroup<FlxBasic>();
 
 	var curSelected:Int = 0;
 	static var storySelect:Int = 0;
 	static var bonusSelect:Int = 0;
 
 	var curSongPlaying:Int = -1;
-	var curDifficulty:Int = 1;
 
 	var scoreText:FlxText;
-	var subText:FlxText;
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
 
@@ -42,35 +47,146 @@ class FreeplayState extends MusicBeatState
 	var threadActive:Bool = true;
 	var mutex:Mutex;
 	var songToPlay:Sound = null;
-
-	var grpSongs:FlxTypedGroup<Alphabet>;
 	var curPlaying:Bool = false;
-
-	var iconArray:Array<HealthIcon> = [];
 
 	var mainColor = FlxColor.WHITE;
 	var colorTwn:FlxTween;
-	var bg:FlxSprite;
 	var scoreBG:FlxSprite;
 
-	var existingSongs:Array<String> = [];
-	var existingDifficulties:Array<Array<String>> = [];
-
-	public static var story:Bool;
+	public static var story:Bool = true;
 	public static var curSongBPM:Float;
 	public static var changedMenuSong:Bool = false;
+
+	final boxWidth = 285;
+	var optionShit:Array<String> = ['historia', 'bonus'];
+	var menuItems:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
+	var boxes:FlxTypedGroup<FlxSprite> = new FlxTypedGroup<FlxSprite>();
+	var htags:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
+
+	var sideSelectin:Bool = true;
+	var sideSelection:Int = 0;
 
 	override function create()
 	{
 		super.create();
-
 		mutex = new Mutex();
 
-		/**
-			Wanna add songs? They're in the Main state now, you can just find the week array and add a song there to a specific week.
-			Alternatively, you can make a folder in the Songs folder and put your songs there, however, this gives you less
-			control over what you can display about the song (color, icon, etc) since it will be pregenerated for you instead.
-		**/
+		#if !html5
+		Discord.changePresence('En los Menús:', 'Menú de Freeplay');
+		#end
+
+		//story = Init.trueSettings.get('fpStory');
+
+		var bg1 = new FlxSprite();
+		bg1.makeGraphic(FlxG.width, FlxG.height, 0xff313338);
+		add(bg1);
+
+		var bg2 = new FlxSprite();
+		bg2.makeGraphic(328, FlxG.height, 0xff2b2d31);
+		add(bg2);
+
+		var menutxt:FlxText = new FlxText(35, 140, 550, 'JUEGO LIBRE');
+		menutxt.setFormat(Paths.font("unisans.otf"), 42, 0xff8b8d92, LEFT);
+		menutxt.antialiasing = true;
+		add(menutxt);
+
+		add(boxes);
+		add(menuItems);
+		add(htags);
+
+		for (i in 0...optionShit.length)
+		{
+			var box:FlxSprite = new FlxSprite(20, (64 * i) + 200);
+			box.makeGraphic(boxWidth, 55, 0xff35373c);
+			box.visible = false;
+
+			var menuItem:FlxText = new FlxText(80, (64 * i) + 200, 500, optionShit[i]);
+			menuItem.setFormat(Paths.font("whitneymedium.otf"), 40, FlxColor.WHITE, LEFT);
+			menuItem.alpha = 0.6;
+
+			var htag:FlxText = new FlxText(35, (64 * i) + 195, 450, '#');
+			htag.setFormat(Paths.font("whitneymedium.otf"), 50, FlxColor.WHITE, LEFT);
+			htag.alpha = 0.6;
+
+			menuItem.ID = i;
+			htag.ID = i;
+			box.ID = i;
+
+			// añade los items del menu a los grupos
+			boxes.add(box);
+			box.scrollFactor.set();
+			box.antialiasing = true;
+			box.updateHitbox();
+
+			htags.add(htag);
+			htag.scrollFactor.set();
+			htag.antialiasing = true;
+			htag.updateHitbox();
+
+			menuItems.add(menuItem);
+			menuItem.scrollFactor.set();
+			menuItem.antialiasing = true;
+			menuItem.updateHitbox();
+		}
+
+		// LOAD THE TEXTS
+		grpSongs = new FlxTypedGroup<Alphabet>();
+		add(grpSongs);
+
+		loadSongsArray();
+
+		add(overStuff);
+
+		var headerBG:FlxSprite = new FlxSprite(328, 0);
+		headerBG.makeGraphic(FlxG.width, 115, 0xff313338);
+		headerBG.antialiasing = true;
+		overStuff.add(headerBG);
+
+		var line:FlxSprite = new FlxSprite(0, 115);
+		line.makeGraphic(FlxG.width, 4, 0xff27282d);
+		line.antialiasing = true;
+		overStuff.add(line);
+
+		var cddtxt:FlxText = new FlxText(35, 15, 550, 'Vs. CDD');
+		cddtxt.setFormat(Paths.font("whitneysemibold.otf"), 70, 0xfff3ffee, LEFT);
+		cddtxt.antialiasing = true;
+		overStuff.add(cddtxt);
+
+		var channeltag = new FlxText(350, 0, 550, '#');
+		channeltag.setFormat(Paths.font("whitneymedium.otf"), 90, 0xff8b8d92, LEFT);
+		channeltag.antialiasing = true;
+		overStuff.add(channeltag);
+
+		var channeltxt = new FlxText(channeltag.x + 80, 10, 550, 'juego-libre');
+		channeltxt.setFormat(Paths.font("whitneysemibold.otf"), 70, 0xfff3ffee, LEFT);
+		channeltxt.antialiasing = true;
+		overStuff.add(channeltxt);
+
+		var poopLine:FlxSprite = new FlxSprite(channeltxt.x + 380, 30);
+		poopLine.makeGraphic(4, 60, 0xff3f4147);
+		overStuff.add(poopLine);
+
+		scoreText = new FlxText(poopLine.x + 55, 35, 0, 'Mejor puntaje: 000000');
+		scoreText.setFormat(Paths.font("whitneymedium.otf"), 40, 0xff8b8d92, RIGHT);
+		overStuff.add(scoreText);
+
+		goBackToSide();
+	}
+
+	function loadSongsArray()
+	{
+		songs = [];
+		existingSongs = [];
+
+		for (icon in iconArray)
+			icon.destroy();
+		iconArray = [];
+
+		for (song in grpSongs)
+			song.destroy();
+		grpSongs = new FlxTypedGroup<Alphabet>();
+		add(grpSongs);
+
 		var folderSongs:Array<String> = CoolUtil.returnAssetsLibrary('songs', 'assets');
 		var mainSongs:Array<String> = ['skullody',
 		'coffee','spring','rules',
@@ -79,13 +195,10 @@ class FreeplayState extends MusicBeatState
 		'edge','absolution','temper'];
 		for (i in mainSongs)
 			folderSongs.remove(i);
-		
-		story = Init.trueSettings.get('fpStory');
+
 		if (story)
 		{
 			curSelected = storySelect;
-			bg = new FlxSprite().loadGraphic(Paths.image('menus/bgs/menuDesat'));
-			add(bg);
 			for (i in 0...Main.gameWeeks.length)
 			{
 				addWeek(Main.gameWeeks[i][0], i, Main.gameWeeks[i][1], Main.gameWeeks[i][2]);
@@ -96,9 +209,6 @@ class FreeplayState extends MusicBeatState
 		else
 		{
 			curSelected = bonusSelect;
-			var num:String = Std.string(FlxG.random.int(1, 3));
-			bg = new FlxSprite().loadGraphic(Paths.image('menus/bgs/cast' + num));
-			add(bg);
 			for (i in folderSongs)
 			{
 				if (!existingSongs.contains(i.toLowerCase()))
@@ -111,112 +221,42 @@ class FreeplayState extends MusicBeatState
 						var castSong:SwagSong = Song.loadFromJson(i, i);
 						icon = (castSong != null) ? castSong.player2 : 'face';
 
-						// colores epicos
-						switch (CoolUtil.spaceToDash(castSong.song.toLowerCase()))
-						{
-							case 'asf':
-								freeplayColor = FlxColor.fromRGB(0, 113, 40);
-							case 'chronomatron':
-								freeplayColor = FlxColor.fromRGB(127, 127, 127);
-							case 'memories':
-								freeplayColor = FlxColor.fromRGB(204, 204, 204);
-							case 'pelea-en-la-calle-tres':
-								freeplayColor = FlxColor.fromRGB(255, 255, 255);
-							case 'pilin':
-								freeplayColor = FlxColor.fromRGB(0, 255, 160);
-							case 'razortrousle':
-								freeplayColor = FlxColor.fromRGB(186, 76, 173);
-							case 'succionar':
-								freeplayColor = FlxColor.fromRGB(255, 0, 255);
-								icon = 'face';
-							case 'take-five':
-								freeplayColor = FlxColor.fromRGB(176, 11, 115);
-							case 'temper-x':
-								freeplayColor = FlxColor.fromRGB(128, 20, 20);
-						}
+						if (CoolUtil.spaceToDash(castSong.song.toLowerCase()) == 'succionar')
+							icon = 'face';
 
 						if (Init.trueSettings.get('asfUnlock'))
 							addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
-						else {
-							if (castSong.song.toLowerCase() != 'asf')
-								addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
-						}
+						else if (castSong.song.toLowerCase() != 'asf')
+							addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
 					}
 				}
 			}
 		}
-		bg.color = 0xff284914;
 
-		// LOAD MUSIC
-		// ForeverTools.resetMenuMusic();
-
-		#if !html5
-		Discord.changePresence('En los Menús:', 'Menú de Freeplay');
-		#end
-
-		// LOAD THE TEXTS
-		grpSongs = new FlxTypedGroup<Alphabet>();
-		add(grpSongs);
-
+		remove(overStuff);
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
+			var songText:Alphabet = new Alphabet(475, (70 * i) + 30, songs[i].songName, true, false, 0.8);
 			songText.isMenuItem = true;
+			songText.disableX = true;
 			songText.targetY = i;
+			songText.xTo = 475;
+			songText.alpha = 0.6;
 			grpSongs.add(songText);
 
-			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
+			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter, false, 0.8);
 			icon.sprTracker = songText;
+			icon.alpha = 0.6;
 
 			// using a FlxGroup is too much fuss!
 			iconArray.push(icon);
 			add(icon);
-
-			// songText.x += 40;
-			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
 		}
-
-		scoreText = new FlxText(FlxG.width * 0.77, 5, 0, "", 32);
-		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
-
-		scoreBG = new FlxSprite(scoreText.x - scoreText.width, 0).makeGraphic(Std.int(FlxG.width * 0.36), 66, 0xFF000000);
-		scoreBG.alpha = 0.6;
-		add(scoreBG);
-
-		subText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
-		subText.alignment = CENTER;
-		subText.font = scoreText.font;
-		subText.x = scoreBG.getGraphicMidpoint().x;
-		add(subText);
-
-		if (story)
-			subText.text = "< HISTORIA >";
-		else
-			subText.text = "< BONUS >";
-
-		add(scoreText);
-
-		changeSelection();
-		// FlxG.sound.playMusic(Paths.music('title'), 0);
-		// FlxG.sound.music.fadeIn(2, 0, 0.8);
+		add(overStuff);
 	}
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String, songColor:FlxColor)
-	{
-		///*
-		var coolDifficultyArray = [];
-		for (i in CoolUtil.difficultyArray)
-			if (FileSystem.exists(Paths.songJson(songName, songName + '-' + i))
-				|| (FileSystem.exists(Paths.songJson(songName, songName)) && i == "NORMAL"))
-				coolDifficultyArray.push(i);
-
-		if (coolDifficultyArray.length > 0)
-		{ //*/
-			songs.push(new SongMetadata(songName, weekNum, songCharacter, songColor));
-			existingDifficulties.push(coolDifficultyArray);
-		}
-	}
+		songs.push(new SongMetadata(songName, weekNum, songCharacter, songColor));
 
 	public function addWeek(songs:Array<String>, weekNum:Int, ?songCharacters:Array<String>, ?songColor:Array<FlxColor>)
 	{
@@ -256,54 +296,52 @@ class FreeplayState extends MusicBeatState
 		else if (downP)
 			changeSelection(1);
 
-		if (controls.UI_LEFT_P) {
-			Init.trueSettings.set('fpStory', !story);
-			Main.switchState(this, new FreeplayState());
-			threadActive = false;
-			Init.saveSettings();
-		}
-		if (controls.UI_RIGHT_P) {
-			Init.trueSettings.set('fpStory', !story);
-			Main.switchState(this, new FreeplayState());
-			threadActive = false;
-			Init.saveSettings();
+		if (accepted)
+		{
+			if (sideSelectin)
+			{
+				sideSelectin = false;
+				FlxG.sound.play(Paths.sound('menu/confirmMenu'));
+				flashSideItem();
+				changeSelection();
+			}
+			else
+			{
+				var poop:String = songs[curSelected].songName.toLowerCase();
+
+				PlayState.SONG = Song.loadFromJson(poop, poop);
+				PlayState.isStoryMode = false;
+				PlayState.seenCutscene = false;
+				PlayState.storyDifficulty = 1;
+				PlayState.songsPlayed = 0;
+
+				PlayState.storyWeek = songs[curSelected].week;
+				trace('CUR WEEK' + PlayState.storyWeek);
+
+				if (FlxG.sound.music != null)
+					FlxG.sound.music.stop();
+
+				threadActive = false;
+
+				Main.switchState(this, new PlayState(), true);
+			}
 		}
 
 		if (controls.BACK)
 		{
-			threadActive = false;
 			FlxG.sound.play(Paths.sound('menu/cancelMenu'));
-			Main.switchState(this, new MainMenuState());
+			if (sideSelectin)
+			{
+				threadActive = false;
+				Main.switchState(this, new MainMenuState());
+			}
+			else
+				goBackToSide();
 		}
 
-		if (accepted)
-		{
-			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(),
-				CoolUtil.difficultyArray.indexOf(existingDifficulties[curSelected][curDifficulty]));
-
-			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
-			PlayState.isStoryMode = false;
-			PlayState.seenCutscene = false;
-			PlayState.storyDifficulty = curDifficulty;
-			PlayState.songsPlayed = 0;
-
-			PlayState.storyWeek = songs[curSelected].week;
-			trace('CUR WEEK' + PlayState.storyWeek);
-
-			if (FlxG.sound.music != null)
-				FlxG.sound.music.stop();
-
-			threadActive = false;
-
-			Main.switchState(this, new PlayState(), true);
-		}
-
-		// Adhere the position of all the things (I'm sorry it was just so ugly before I had to fix it Shubs)
-		scoreText.text = "MEJOR PUNTAJE:" + lerpScore;
-		scoreText.x = FlxG.width - scoreText.width - 5;
-		scoreBG.width = scoreText.width + 8;
-		scoreBG.x = FlxG.width - scoreBG.width;
-		subText.x = scoreBG.x + (scoreBG.width / 2) - (subText.width / 2);
+		// primer mod en tener un morbillon de puntos
+		scoreText.text = "Mejor puntaje: " + lerpScore;
+		//scoreText.x = FlxG.width - scoreText.width - 5;
 
 		mutex.acquire();
 		if (songToPlay != null)
@@ -321,80 +359,94 @@ class FreeplayState extends MusicBeatState
 		mutex.release();
 	}
 
-	var lastDifficulty:String;
-
-	function changeDiff(change:Int = 0)
-	{
-		curDifficulty += change;
-		if (lastDifficulty != null && change != 0)
-			while (existingDifficulties[curSelected][curDifficulty] == lastDifficulty)
-				curDifficulty += change;
-
-		if (curDifficulty < 0)
-			curDifficulty = existingDifficulties[curSelected].length - 1;
-		if (curDifficulty > existingDifficulties[curSelected].length - 1)
-			curDifficulty = 0;
-
-		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
-
-		lastDifficulty = existingDifficulties[curSelected][curDifficulty];
-	}
-
 	function changeSelection(change:Int = 0)
 	{
-		FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.4);
-
-		curSelected += change;
-
-		if (curSelected < 0)
-			curSelected = songs.length - 1;
-		if (curSelected >= songs.length)
-			curSelected = 0;
-
-		if (story)
-			storySelect = curSelected;
-		else
-			bonusSelect = curSelected;
-
-		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
-
-		// set up color stuffs
-		mainColor = songs[curSelected].songColor;
-		if (colorTwn != null)
-			colorTwn.cancel();
-		colorTwn = FlxTween.color(bg, 0.8, bg.color, mainColor);
-
-		// song switching stuffs
-
-		var bullShit:Int = 0;
-
-		for (i in 0...iconArray.length)
+		if (sideSelectin)
 		{
-			iconArray[i].alpha = 0.6;
-		}
+			if (change != 0)
+				FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.8);
 
-		iconArray[curSelected].alpha = 1;
+			sideSelection += change;
 
-		for (item in grpSongs.members)
-		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
+			// wrap selections
+			if (sideSelection < 0)
+				sideSelection = optionShit.length - 1;
+			if (sideSelection >= optionShit.length)
+				sideSelection = 0;
 
-			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
-
-			if (item.targetY == 0)
+			// update items lol
+			for (item in boxes.members)
 			{
-				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
+				if (item.ID == sideSelection)
+					item.visible = true;
+				else
+					item.visible = false;
 			}
+			for (item in menuItems.members)
+			{
+				if (item.ID == sideSelection)
+					item.alpha = 1;
+				else
+					item.alpha = 0.6;
+			}
+			for (item in htags.members)
+			{
+				if (item.ID == sideSelection)
+					item.alpha = 1;
+				else
+					item.alpha = 0.6;
+			}
+
+			switch (sideSelection)
+			{
+				case 0:
+					story = true;
+				case 1:
+					story = false;
+			}
+			loadSongsArray();
 		}
-		//
+		else
+		{
+			if (change != 0)
+				FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.5);
 
-		trace("curSelected: " + curSelected);
+			curSelected += change;
 
-		changeDiff();
-		changeSongPlaying();
+			// wrap selections
+			if (curSelected < 0)
+				curSelected = songs.length - 1;
+			if (curSelected >= songs.length)
+				curSelected = 0;
+
+			// save selection
+			if (story)
+				storySelect = curSelected;
+			else
+				bonusSelect = curSelected;
+
+			intendedScore = Highscore.getScore(songs[curSelected].songName, 1);
+
+			// song switching stuffs
+			var bullShit:Int = 0;
+			for (i in 0...iconArray.length)
+				iconArray[i].alpha = 0.6;
+
+			iconArray[curSelected].alpha = 1;
+			for (item in grpSongs.members)
+			{
+				item.targetY = bullShit - curSelected;
+				bullShit++;
+
+				item.alpha = 0.6;
+				if (item.targetY == 0)
+					item.alpha = 1;
+			}
+
+			trace("curSelected: " + curSelected);
+
+			changeSongPlaying();
+		}
 	}
 
 	public static var epicSong:SwagSong;
@@ -420,10 +472,9 @@ class FreeplayState extends MusicBeatState
 							trace("Loading index " + index);
 
 							// var inst:Sound = Paths.inst(songs[curSelected].songName);
-							var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(),
-								CoolUtil.difficultyArray.indexOf(existingDifficulties[curSelected][curDifficulty]));
+							var poop:String = songs[curSelected].songName.toLowerCase();
 
-							epicSong = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
+							epicSong = Song.loadFromJson(poop, poop);
 
 							curSongBPM = epicSong.bpm;
 							if (epicSong.song == 'succionar')
@@ -455,7 +506,48 @@ class FreeplayState extends MusicBeatState
 		songThread.sendMessage(curSelected);
 	}
 
-	var playingSongs:Array<FlxSound> = [];
+	function goBackToSide()
+	{
+		sideSelectin = true;
+
+		for (i in 0...iconArray.length)
+			iconArray[i].alpha = 0.6;
+
+		for (item in grpSongs.members)
+			item.alpha = 0.6;
+
+		changeSelection();
+	}
+
+	function flashSideItem()
+	{
+		for (item in boxes.members)
+		{
+			if (item.ID == sideSelection)
+			{
+				FlxFlicker.flicker(item, 0.5, 0.06 * 2, true, false);
+				item.makeGraphic(boxWidth, 55, 0xff35373c);
+			}
+		}
+
+		for (item in menuItems.members)
+		{
+			if (item.ID == sideSelection)
+			{
+				FlxFlicker.flicker(item, 0.5, 0.06 * 2, true, false);
+				item.alpha = 0.6;
+			}
+		}
+
+		for (item in htags.members)
+		{
+			if (item.ID == sideSelection)
+			{
+				FlxFlicker.flicker(item, 0.5, 0.06 * 2, true, false);
+				item.alpha = 0.6;
+			}
+		}
+	}
 
 }
 

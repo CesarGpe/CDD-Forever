@@ -39,7 +39,7 @@ using StringTools;
 **/
 class TitleState extends MusicBeatState
 {
-	static var initialized:Bool = false;
+	public static var initialized:Bool = false;
 	static var playJingle:Bool = false;
 
 	var blackScreen:FlxSprite;
@@ -75,15 +75,12 @@ class TitleState extends MusicBeatState
 
 	function startIntro()
 	{
+		#if !html5
+		Discord.changePresence('En los Menús:', 'Pantalla de Título');
+		#end
+
 		if (!initialized)
-		{
-			///*
-			#if !html5
-			Discord.changePresence('En la pantalla', 'del titulo');
-			#end
-			
 			ForeverTools.resetMenuMusic(true);
-		}
 		persistentUpdate = true;
 
 		logoBl = new FlxSprite(-5, 10);

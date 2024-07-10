@@ -1542,10 +1542,10 @@ class PlayState extends MusicBeatState
 		Conductor.changeBPM(songData.bpm);
 
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
-		songDetails = CoolUtil.dashToSpace(SONG.song);
+		songDetails = 'Jugando: ' + CoolUtil.dashToSpace(SONG.song);
 
 		// String for when the game is paused
-		detailsPausedText = "En Pausa - " + songDetails;
+		detailsPausedText = 'En pausa: ' + CoolUtil.dashToSpace(SONG.song);
 
 		// set details for song stuffs
 		detailsSub = "";
@@ -2505,7 +2505,7 @@ class PlayState extends MusicBeatState
 	override function add(Object:FlxBasic):FlxBasic
 	{
 		if (Std.isOfType(Object, FlxSprite))
-			cast(Object, FlxSprite).antialiasing = !Init.trueSettings.get('Antialiasing');
+			cast(Object, FlxSprite).antialiasing = Init.trueSettings.get('Antialiasing');
 		return super.add(Object);
 	}
 }

@@ -65,15 +65,10 @@ class StoryMenuState extends MusicBeatState
 		buttonsBG.makeGraphic(Std.int(FlxG.width * (2/5) + 40), FlxG.height, 0xff2b2d31);
 		add(buttonsBG);
 
-		var line1:FlxSprite = new FlxSprite(0, 115);
-		line1.makeGraphic(Std.int(FlxG.width * 0.5) + 20, 4, 0xff27282d);
-		line1.antialiasing = true;
-		add(line1);
-
-		var line2:FlxSprite = new FlxSprite(0, 115);
-		line2.makeGraphic(FlxG.width, 4, 0xff242529);
-		line2.antialiasing = true;
-		add(line2);
+		var line:FlxSprite = new FlxSprite(0, 115);
+		line.makeGraphic(FlxG.width, 4, 0xff27282d);
+		line.antialiasing = true;
+		add(line);
 
 		var menutxt:FlxText = new FlxText(35, 140, 550, 'HISTORIA');
 		menutxt.setFormat(Paths.font("unisans.otf"), 60, 0xff8b8d92, LEFT);

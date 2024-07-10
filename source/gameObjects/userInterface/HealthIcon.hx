@@ -13,11 +13,14 @@ class HealthIcon extends FlxSprite
 	public var sprTracker:FlxSprite;
 	public var initialWidth:Float = 0;
 	public var initialHeight:Float = 0;
-	private var curChar:String = "";
 
-	public function new(char:String = 'bf', isPlayer:Bool = false)
+	var curChar:String = "";
+	var iconSize:Float;
+
+	public function new(char:String = 'bf', isPlayer:Bool = false, ?scale:Float = 1)
 	{
 		super();
+
 		// avoids using 2 images
 		switch(char)
 		{
@@ -26,7 +29,10 @@ class HealthIcon extends FlxSprite
 			case 'bfMinecart' | 'bfTemper':
 				char = 'bf';
 		}
+
 		curChar = char;
+		iconSize = scale;
+
 		updateIcon(char, isPlayer);
 	}
 
@@ -48,6 +54,8 @@ class HealthIcon extends FlxSprite
 		antialiasing = true;
 		var iconGraphic:FlxGraphic = Paths.image('icons/icon-' + iconPath);
 		loadGraphic(iconGraphic, true, Std.int(iconGraphic.width / 2), iconGraphic.height);
+		scale.set(iconSize, iconSize);
+		updateHitbox();
 
 		initialWidth = width;
 		initialHeight = height;
@@ -62,6 +70,7 @@ class HealthIcon extends FlxSprite
 		super.update(elapsed);
 
 		if (sprTracker != null)
-			setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 30);
+			setPosition(sprTracker.x - 135, sprTracker.y - 35);
+			//setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 35);
 	}
 }

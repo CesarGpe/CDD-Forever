@@ -16,6 +16,7 @@ import flixel.util.FlxTimer;
 import haxe.Json;
 import meta.MusicBeat.MusicBeatState;
 import meta.data.Conductor;
+import meta.data.Highscore;
 import meta.data.Song;
 import meta.data.dependency.Discord;
 import meta.state.PlayState;
@@ -77,21 +78,9 @@ class MainMenuState extends MusicBeatState
 	var htags:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 	var selectedSomethin:Bool = false;
 
-	// fondo
-	var bg1:FlxSprite;
-	var bg2:FlxSprite;
-	var line1:FlxSprite;
-	var line2:FlxSprite;
-	var menutxt:FlxText;
-	var cddtxt:FlxText;
-	var channeltxt:FlxText;
-	var channeltag:FlxText;
-
 	// galeria
 	var images:Array<String>;
 	var art:FlxSprite;
-	var arrow1:FlxText;
-	var arrow2:FlxText;
 	var credArt:FlxText;
 	var infoText:FlxText;
 	var daTween:FlxTween;
@@ -99,25 +88,17 @@ class MainMenuState extends MusicBeatState
 	// la cosa de abajo
 	var micBox:FlxSprite;
 	var mic:FlxSprite;
-
 	var deafBox:FlxSprite;
 	var deaf:FlxSprite;
-
 	var cogBox:FlxSprite;
 	var cog:FlxSprite;
-
-	var pfp:FlxSprite;
-	var status:FlxSprite;
-	var userTxt1:FlxText;
-	var userTxt2:FlxText;
-	var userBG:FlxSprite;
 	var buttonJSON:ButtonData;
 	
 	// datos
-	var canChange:Bool = false;
 	var galleryNum:Int;
-	static var curSelected:Int = 0;
 	var codeStep:Int = 0;
+	var canChange:Bool = false;
+	static var curSelected:Int = 0;
 
 	override function create()
 	{
@@ -151,22 +132,17 @@ class MainMenuState extends MusicBeatState
 		// uh
 		persistentUpdate = persistentDraw = true;
 
-		bg1 = new FlxSprite();
+		var bg1 = new FlxSprite();
 		bg1.makeGraphic(FlxG.width, FlxG.height, 0xff313338);
 		bg1.screenCenter();
 		add(bg1);
 
-		line1 = new FlxSprite(0, 115);
-		line1.makeGraphic(Std.int(FlxG.width * 0.5) + 20, 4, 0xff27282d);
-		line1.antialiasing = true;
-		add(line1);
-
-		channeltxt = new FlxText(770, 10, 550, 'galeria');
+		var channeltxt = new FlxText(770, 10, 550, 'galeria');
 		channeltxt.setFormat(Paths.font("whitneysemibold.otf"), 70, 0xfff3ffee, LEFT);
 		channeltxt.antialiasing = true;
 		add(channeltxt);
 
-		channeltag = new FlxText(690, 0, 550, '#');
+		var channeltag = new FlxText(690, 0, 550, '#');
 		channeltag.setFormat(Paths.font("whitneymedium.otf"), 90, 0xff8b8d92, LEFT);
 		channeltag.antialiasing = true;
 		add(channeltag);
@@ -201,14 +177,14 @@ class MainMenuState extends MusicBeatState
 		changeGalleryArt();
 
 		// flechitas para la galeria
-		arrow1 = new FlxText(0, 0, 0, '<');
+		var arrow1 = new FlxText(0, 0, 0, '<');
 		arrow1.setFormat(Paths.font("unisans.otf"), 90, 0xff8b8d92, LEFT);
 		arrow1.screenCenter();
 		arrow1.x += 75;
 		arrow1.y += 40;
 		add(arrow1);
 
-		arrow2 = new FlxText(0, 0, 0, '>');
+		var arrow2 = new FlxText(0, 0, 0, '>');
 		arrow2.setFormat(Paths.font("unisans.otf"), 90, 0xff8b8d92, LEFT);
 		arrow2.screenCenter();
 		arrow2.x += 595;
@@ -216,30 +192,30 @@ class MainMenuState extends MusicBeatState
 		add(arrow2);
 
 		// segundo fondo para los botones del menu
-		bg2 = new FlxSprite();
+		var bg2 = new FlxSprite();
 		bg2.makeGraphic(Std.int(FlxG.width * 0.5) + 20, FlxG.height, 0xff2b2d31);
 		add(bg2);
 
-		line2 = new FlxSprite(0, 115);
-		line2.makeGraphic(FlxG.width, 4, 0xff242529);
-		line2.antialiasing = true;
-		add(line2);
+		var line = new FlxSprite(0, 115);
+		line.makeGraphic(FlxG.width, 4, 0xff27282d);
+		line.antialiasing = true;
+		add(line);
 
-		menutxt = new FlxText(35, 149, 550, 'MENU PRINCIPAL');
+		var menutxt = new FlxText(35, 149, 550, 'MENU PRINCIPAL');
 		menutxt.setFormat(Paths.font("unisans.otf"), 65, 0xff8b8d92, LEFT);
 		menutxt.antialiasing = true;
 		add(menutxt);
 
-		cddtxt = new FlxText(35, 15, 550, 'Vs. CDD');
+		var cddtxt = new FlxText(35, 15, 550, 'Vs. CDD');
 		cddtxt.setFormat(Paths.font("whitneysemibold.otf"), 70, 0xfff3ffee, LEFT);
 		cddtxt.antialiasing = true;
 		add(cddtxt);
 
-		userBG = new FlxSprite(0, 610);
+		var userBG = new FlxSprite(0, 610);
 		userBG.makeGraphic(Std.int(FlxG.width * 0.5) + 20, Std.int(FlxG.height * (1 / 6)), 0xff232428);
 		add(userBG);
 
-		pfp = new FlxSprite(buttonJSON.pfpX, buttonJSON.pfpY);
+		var pfp = new FlxSprite(buttonJSON.pfpX, buttonJSON.pfpY);
 		if (FlxG.random.bool(5))
 			pfp.loadGraphic(Paths.image('menus/mainmenu/bfmejor'));
 		else
@@ -249,7 +225,7 @@ class MainMenuState extends MusicBeatState
 		pfp.antialiasing = true;
 		add(pfp);
 
-		status = new FlxShapeCircle(buttonJSON.statusX, buttonJSON.statusY, buttonJSON.statusSF, {thickness: buttonJSON.statusTH, color: 0xff232428}, 0xff23a55a);
+		var status = new FlxShapeCircle(buttonJSON.statusX, buttonJSON.statusY, buttonJSON.statusSF, {thickness: buttonJSON.statusTH, color: 0xff232428}, 0xff23a55a);
 		status.antialiasing = true;
 		add(status);
 
@@ -292,12 +268,12 @@ class MainMenuState extends MusicBeatState
 		add(cogBox);
 		add(cog);
 		
-		userTxt1 = new FlxText(buttonJSON.txt1X, buttonJSON.txt1Y, 0, 'Boyfriend');
+		var userTxt1 = new FlxText(buttonJSON.txt1X, buttonJSON.txt1Y, 0, 'Boyfriend');
 		userTxt1.setFormat(Paths.font("whitneysemibold.otf"), buttonJSON.txt1SF, 0xfff3ffee, LEFT);
 		userTxt1.antialiasing = true;
 		add(userTxt1);
 
-		userTxt2 = new FlxText(buttonJSON.txt2X, buttonJSON.txt2Y, 0, 'En linea');
+		var userTxt2 = new FlxText(buttonJSON.txt2X, buttonJSON.txt2Y, 0, 'En linea');
 		userTxt2.setFormat(Paths.font("whitneymedium.otf"), buttonJSON.txt2SF, 0xff8b8d92, LEFT);
 		userTxt2.antialiasing = true;
 		add(userTxt2);
@@ -402,9 +378,26 @@ class MainMenuState extends MusicBeatState
 			Main.switchState(this, new TitleState());
 		}
 
-		// me ahorra tiempo reiniciando el menu jaja
-		if (FlxG.keys.justPressed.R && Init.trueSettings.get('Modo Debug'))
-			FlxG.switchState(new MainMenuState());
+		// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+		if (Init.trueSettings.get('Modo Debug'))
+		{
+			// Reset
+			if (FlxG.keys.justPressed.R)
+				FlxG.switchState(new MainMenuState());
+
+			// Borrar Datos
+			if (FlxG.keys.pressed.B && FlxG.keys.pressed.D)
+			{
+				FlxG.save.erase();
+				FlxG.save.close();
+
+				Highscore.songScores.clear();
+
+				TitleState.initialized = false;
+				FreeplayState.changedMenuSong = false;
+				FlxG.resetGame();
+			}
+		}
 		
 		easterEggCheck();
 		mouseItems();

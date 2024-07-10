@@ -217,7 +217,7 @@ class RadioState extends MusicBeatState
 			songs.push(new SongMetadata(song, 1, '', FlxColor.WHITE));
 
 		#if !html5
-		Discord.changePresence('En los Menús:', 'Escuchando la rockola');
+		Discord.changePresence('En la rockola:', 'Sincronizando audio...');
 		#end
 
 		FlxG.sound.music.fadeOut(1.5, 0);
@@ -403,6 +403,10 @@ class RadioState extends MusicBeatState
 
 								curSongPlaying = curSelected;
 								gText.text = 'Now playing: ' + CoolUtil.dashToSpace(epicSong.song);
+
+								#if !html5
+								Discord.changePresence('En la rockola:', 'Escuchando ' + CoolUtil.dashToSpace(epicSong.song));
+								#end
 							}
 							else
 								trace("Nevermind, skipping " + index);
