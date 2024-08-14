@@ -149,12 +149,7 @@ class PauseSubState extends MusicBeatSubState
 					PlayState.resetMusic();
 
 					if (PlayState.isStoryMode)
-					{
-						if (PlayState.SONG.song.toLowerCase() == 'asf')
-							Main.switchState(this, new FreeplayState());
-						else
-							Main.switchState(this, new StoryMenuState());
-					}
+						Main.switchState(this, new StoryMenuState());
 					else
 						Main.switchState(this, new FreeplayState());
 			}

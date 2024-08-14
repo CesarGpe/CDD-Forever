@@ -153,6 +153,7 @@ class TitleState extends MusicBeatState
 				FlxG.sound.music.stop();
 				ForeverTools.resetMenuMusic(true);
 				FreeplayState.changedMenuSong = false;
+				FreeplayState.poopSong = null;
 			}
 		}
 		else

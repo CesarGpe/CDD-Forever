@@ -3,6 +3,7 @@ package meta.state.menus;
 import flixel.FlxBasic;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.addons.display.shapes.FlxShapeCircle;
 import flixel.effects.FlxFlicker;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
@@ -34,10 +35,11 @@ class FreeplayState extends MusicBeatState
 	var overStuff:FlxTypedGroup<FlxBasic> = new FlxTypedGroup<FlxBasic>();
 
 	var curSelected:Int = 0;
-	static var storySelect:Int = 0;
-	static var bonusSelect:Int = 0;
+	public static var storySelect:Int = 0;
+	public static var bonusSelect:Int = 0;
 
-	var curSongPlaying:Int = -1;
+	static var curSongPlaying:Int = -1;
+	static var curSongTitle:String = '';
 
 	var scoreText:FlxText;
 	var lerpScore:Int = 0;
@@ -52,6 +54,9 @@ class FreeplayState extends MusicBeatState
 	var mainColor = FlxColor.WHITE;
 	var colorTwn:FlxTween;
 	var scoreBG:FlxSprite;
+	var disc:FlxSprite;
+	var discBG:FlxShapeCircle;
+	var discIcon:FlxSprite;
 
 	public static var story:Bool = true;
 	public static var curSongBPM:Float;
@@ -63,8 +68,8 @@ class FreeplayState extends MusicBeatState
 	var boxes:FlxTypedGroup<FlxSprite> = new FlxTypedGroup<FlxSprite>();
 	var htags:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 
-	var sideSelectin:Bool = true;
-	var sideSelection:Int = 0;
+	public static var sideSelectin:Bool = true;
+	public static var sideSelection:Int = 0;
 
 	override function create()
 	{
@@ -75,7 +80,8 @@ class FreeplayState extends MusicBeatState
 		Discord.changePresence('En los Menús:', 'Menú de Freeplay');
 		#end
 
-		//story = Init.trueSettings.get('fpStory');
+		// make sure the music is playing
+			ForeverTools.resetMenuMusic();
 
 		var bg1 = new FlxSprite();
 		bg1.makeGraphic(FlxG.width, FlxG.height, 0xff313338);
@@ -166,11 +172,44 @@ class FreeplayState extends MusicBeatState
 		poopLine.makeGraphic(4, 60, 0xff3f4147);
 		overStuff.add(poopLine);
 
+		discBG = new FlxShapeCircle(0, 0, 64, {}, FlxColor.WHITE);
+		discBG.antialiasing = true;
+		discBG.color = 0xff31b0d1;
+		add(discBG);
+
+		disc = new FlxSprite(-80, 490);
+		disc.frames = Paths.getSparrowAtlas('menus/freeplay/disc');
+		disc.animation.addByPrefix('idle', 'idle', 24);
+		disc.animation.play('idle');
+		disc.antialiasing = true;
+		add(disc);
+
+		discIcon = new FlxSprite(0, 0);
+		discIcon.loadGraphic(Paths.image('menus/freeplay/vinyl/bf'));
+		discIcon.scale.set(0.8, 0.8);
+		discIcon.antialiasing = true;
+		add(discIcon);
+
+		if (poopSong != null)
+			changeVinyl();
+
+		discBG.x = disc.x + disc.width / 2 - discBG.width / 2;
+		discBG.y = disc.y + disc.height / 2 - discBG.height / 2;
+
+		discIcon.x = disc.x + disc.width / 2 - discIcon.width / 2;
+		discIcon.y = disc.y + disc.height / 2 - discIcon.height / 2;
+
 		scoreText = new FlxText(poopLine.x + 55, 35, 0, 'Mejor puntaje: 000000');
 		scoreText.setFormat(Paths.font("whitneymedium.otf"), 40, 0xff8b8d92, RIGHT);
 		overStuff.add(scoreText);
 
-		goBackToSide();
+		if (sideSelectin)
+			goBackToSide();
+		else
+		{
+			flashSideItem(false);
+			changeSelection();
+		}
 	}
 
 	function loadSongsArray()
@@ -221,8 +260,29 @@ class FreeplayState extends MusicBeatState
 						var castSong:SwagSong = Song.loadFromJson(i, i);
 						icon = (castSong != null) ? castSong.player2 : 'face';
 
-						if (CoolUtil.spaceToDash(castSong.song.toLowerCase()) == 'succionar')
-							icon = 'face';
+						// colores epicos
+						switch (CoolUtil.spaceToDash(castSong.song.toLowerCase()))
+						{
+							case 'asf':
+								freeplayColor = 0xff007128;
+							case 'chronomatron':
+								freeplayColor = 0xffb94848;
+							case 'memories':
+								freeplayColor = 0xffcccccc;
+							case 'pelea-en-la-calle-tres':
+								freeplayColor = 0xff000000;
+							case 'pilin':
+								freeplayColor = 0xff5affa0;
+							case 'razortrousle':
+								freeplayColor = 0xffef401d;
+							case 'succionar':
+								freeplayColor = 0xffff00ff;
+								icon = 'face';
+							case 'take-five':
+								freeplayColor = 0xffb00b69;
+							case 'temper-x':
+								freeplayColor = 0xffc00000;
+						}
 
 						if (Init.trueSettings.get('asfUnlock'))
 							addSong(CoolUtil.spaceToDash(castSong.song), 1, icon, freeplayColor);
@@ -253,6 +313,14 @@ class FreeplayState extends MusicBeatState
 			add(icon);
 		}
 		add(overStuff);
+
+		var bullShit:Int = 0;
+		for (item in grpSongs.members)
+		{
+			item.targetY = bullShit - curSelected;
+			bullShit++;
+		}
+
 	}
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String, songColor:FlxColor)
@@ -357,15 +425,16 @@ class FreeplayState extends MusicBeatState
 			songToPlay = null;
 		}
 		mutex.release();
+
+		// speeen
+		discIcon.angle = disc.angle += 0.6 / (FlxG.updateFramerate / 60);
+		//discIcon.angle = disc.angle += 0.002 / elapsed;
 	}
 
 	function changeSelection(change:Int = 0)
 	{
 		if (sideSelectin)
 		{
-			if (change != 0)
-				FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.8);
-
 			sideSelection += change;
 
 			// wrap selections
@@ -404,13 +473,15 @@ class FreeplayState extends MusicBeatState
 				case 1:
 					story = false;
 			}
-			loadSongsArray();
+
+			if (change != 0)
+			{
+				FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.8);
+				loadSongsArray();
+			}
 		}
 		else
 		{
-			if (change != 0)
-				FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.5);
-
 			curSelected += change;
 
 			// wrap selections
@@ -443,13 +514,20 @@ class FreeplayState extends MusicBeatState
 					item.alpha = 1;
 			}
 
-			trace("curSelected: " + curSelected);
+			if (change != 0)
+				FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.5);
 
-			changeSongPlaying();
+			if (songs[curSelected].songName.toLowerCase() != curSongTitle)
+				changeSongPlaying();
+
+			poopSong = songs[curSelected];
+			changeVinyl();
 		}
 	}
 
 	public static var epicSong:SwagSong;
+	public static var poopSong:SongMetadata;
+
 	function changeSongPlaying()
 	{
 		if (songThread == null)
@@ -467,13 +545,11 @@ class FreeplayState extends MusicBeatState
 					var index:Null<Int> = Thread.readMessage(false);
 					if (index != null)
 					{
-						if (index == curSelected && index != curSongPlaying)
+						if (index == curSelected)
 						{
 							trace("Loading index " + index);
 
-							// var inst:Sound = Paths.inst(songs[curSelected].songName);
 							var poop:String = songs[curSelected].songName.toLowerCase();
-
 							epicSong = Song.loadFromJson(poop, poop);
 
 							curSongBPM = epicSong.bpm;
@@ -490,6 +566,7 @@ class FreeplayState extends MusicBeatState
 								songToPlay = inst;
 								mutex.release();
 
+								curSongTitle = poop;
 								curSongPlaying = curSelected;
 								changedMenuSong = true;
 							}
@@ -506,6 +583,20 @@ class FreeplayState extends MusicBeatState
 		songThread.sendMessage(curSelected);
 	}
 
+	function changeVinyl()
+	{
+		remove(discIcon);
+		discIcon.loadGraphic(Paths.image('menus/freeplay/vinyl/' + poopSong.songCharacter));
+		discIcon.scale.set(0.8, 0.8);
+		discIcon.updateHitbox();
+		add(discIcon);
+
+		discIcon.x = disc.x + disc.width / 2 - discIcon.width / 2;
+		discIcon.y = disc.y + disc.height / 2 - discIcon.height / 2;
+
+		discBG.color = poopSong.songColor;
+	}
+
 	function goBackToSide()
 	{
 		sideSelectin = true;
@@ -519,13 +610,16 @@ class FreeplayState extends MusicBeatState
 		changeSelection();
 	}
 
-	function flashSideItem()
+	function flashSideItem(?flicker:Bool = true)
 	{
 		for (item in boxes.members)
 		{
 			if (item.ID == sideSelection)
 			{
-				FlxFlicker.flicker(item, 0.5, 0.06 * 2, true, false);
+				if (flicker)
+					FlxFlicker.flicker(item, 0.5, 0.06 * 2, true, false);
+				else
+					item.visible = true;
 				item.makeGraphic(boxWidth, 55, 0xff35373c);
 			}
 		}
@@ -534,7 +628,8 @@ class FreeplayState extends MusicBeatState
 		{
 			if (item.ID == sideSelection)
 			{
-				FlxFlicker.flicker(item, 0.5, 0.06 * 2, true, false);
+				if (flicker)
+					FlxFlicker.flicker(item, 0.5, 0.06 * 2, true, false);
 				item.alpha = 0.6;
 			}
 		}
@@ -543,7 +638,8 @@ class FreeplayState extends MusicBeatState
 		{
 			if (item.ID == sideSelection)
 			{
-				FlxFlicker.flicker(item, 0.5, 0.06 * 2, true, false);
+				if (flicker)
+					FlxFlicker.flicker(item, 0.5, 0.06 * 2, true, false);
 				item.alpha = 0.6;
 			}
 		}

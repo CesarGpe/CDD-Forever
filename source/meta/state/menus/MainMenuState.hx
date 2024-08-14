@@ -688,6 +688,12 @@ class MainMenuState extends MusicBeatState
 						PlayState.storyWeek = 34;
 						PlayState.songsPlayed = 0;
 
+						FreeplayState.story = false;
+						FreeplayState.sideSelectin = false;
+						FreeplayState.sideSelection = 1;
+						FreeplayState.bonusSelect = 0;
+						curSelected = 1;
+
 						Main.switchState(this, new PlayState(), true);
 					}
 			}
@@ -716,8 +722,6 @@ class MainMenuState extends MusicBeatState
 				muted = !muted;
 				muteToggle(true);
 			}
-				
-			
 		}
 
 		deafBox.visible = FlxG.mouse.overlaps(deaf);

@@ -1007,7 +1007,7 @@ class PlayState extends MusicBeatState
 					muteTimer.reset();
 				else
 				{
-					FlxG.sound.play(Paths.sound('event/discord/mute'));
+					FlxG.sound.play(Paths.sound('discord/mute'));
 					boyfriend.playAnim('muted', true);
 					boyfriend.stunned = true;
 					boyfriendStrums.receptors.forEach(function(arrow:UIStaticArrow)
@@ -1018,7 +1018,7 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.dance();
 						boyfriend.stunned = false;
-						FlxG.sound.play(Paths.sound('event/discord/unmute'));
+						FlxG.sound.play(Paths.sound('discord/unmute'));
 						boyfriendStrums.receptors.forEach(function(arrow:UIStaticArrow)
 						{
 							arrow.color = FlxColor.WHITE;
@@ -2156,10 +2156,7 @@ class PlayState extends MusicBeatState
 				transOut = FlxTransitionableState.defaultTransOut;
 
 				// change to the menu state
-				if (SONG.song.toLowerCase() == 'asf')
-					Main.switchState(this, new FreeplayState());
-				else
-					Main.switchState(this, new StoryMenuState());
+				Main.switchState(this, new StoryMenuState());
 					
 				// save the week's score if the score is valid
 				if (SONG.validScore)
@@ -2386,6 +2383,9 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 		Conductor.songPosition = -(Conductor.crochet * 5);
 		swagCounter = 0;
+
+		if (curSong.toLowerCase() == 'asf')
+			isStoryMode = false;
 
 		if (PlayState.SONG.song.toLowerCase() != 'chronomatron')
 			camHUD.visible = true;
